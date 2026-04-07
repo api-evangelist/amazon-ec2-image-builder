@@ -8,11 +8,11 @@ description: >-
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - Image Building
-  - EC2
-  - Container Images
   - Automation
   - AWS
+  - Container Images
+  - EC2
+  - Image Building
 url: >-
   https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/apis.yml
 created: '2026-03-16'
@@ -28,9 +28,9 @@ apis:
     humanURL: https://aws.amazon.com/image-builder/
     baseURL: https://imagebuilder.amazonaws.com
     tags:
-      - Image Building
       - Automation
       - EC2
+      - Image Building
     properties:
       - type: Documentation
         url: https://docs.aws.amazon.com/imagebuilder/latest/APIReference/Welcome.html
