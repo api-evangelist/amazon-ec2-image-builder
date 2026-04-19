@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-schema/ec2-image-builder-put-image-policy-request-schema.json",
+  "title": "PutImagePolicyRequest",
+  "description": "PutImagePolicyRequest schema from EC2 Image Builder",
+  "type": "object",
+  "properties": {
+    "imageArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ImageBuildVersionArn"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the image that this policy should be applied to."
+        }
+      ]
+    },
+    "policy": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ResourcePolicyDocument"
+        },
+        {
+          "description": "The policy to apply."
+        }
+      ]
+    }
+  },
+  "required": [
+    "imageArn",
+    "policy"
+  ]
+}

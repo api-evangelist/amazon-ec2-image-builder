@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-structure/ec2-image-builder-put-container-recipe-policy-request-structure.json",
+  "name": "PutContainerRecipePolicyRequest",
+  "description": "PutContainerRecipePolicyRequest schema from EC2 Image Builder",
+  "type": "object",
+  "properties": {
+    "containerRecipeArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ContainerRecipeArn"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the container recipe that this policy should be applied to."
+        }
+      ]
+    },
+    "policy": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ResourcePolicyDocument"
+        },
+        {
+          "description": "The policy to apply to the container recipe."
+        }
+      ]
+    }
+  },
+  "required": [
+    "containerRecipeArn",
+    "policy"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-schema/ec2-image-builder-put-image-recipe-policy-request-schema.json",
+  "title": "PutImageRecipePolicyRequest",
+  "description": "PutImageRecipePolicyRequest schema from EC2 Image Builder",
+  "type": "object",
+  "properties": {
+    "imageRecipeArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ImageRecipeArn"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the image recipe that this policy should be applied to."
+        }
+      ]
+    },
+    "policy": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ResourcePolicyDocument"
+        },
+        {
+          "description": "The policy to apply."
+        }
+      ]
+    }
+  },
+  "required": [
+    "imageRecipeArn",
+    "policy"
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-structure/ec2-image-builder-distribution-configuration-summary-structure.json",
+  "name": "DistributionConfigurationSummary",
+  "description": "A high-level overview of a distribution configuration.",
+  "type": "object",
+  "properties": {
+    "arn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ImageBuilderArn"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the distribution configuration."
+        }
+      ]
+    },
+    "name": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ResourceName"
+        },
+        {
+          "description": "The name of the distribution configuration."
+        }
+      ]
+    },
+    "description": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "The description of the distribution configuration."
+        }
+      ]
+    },
+    "dateCreated": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DateTime"
+        },
+        {
+          "description": "The date on which the distribution configuration was created."
+        }
+      ]
+    },
+    "dateUpdated": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DateTime"
+        },
+        {
+          "description": "The date on which the distribution configuration was updated."
+        }
+      ]
+    },
+    "tags": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TagMap"
+        },
+        {
+          "description": "The tags associated with the distribution configuration."
+        }
+      ]
+    },
+    "regions": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RegionList"
+        },
+        {
+          "description": "A list of Regions where the container image is distributed to."
+        }
+      ]
+    }
+  }
+}

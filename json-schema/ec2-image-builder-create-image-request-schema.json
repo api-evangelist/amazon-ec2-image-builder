@@ -1,0 +1,103 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-schema/ec2-image-builder-create-image-request-schema.json",
+  "title": "CreateImageRequest",
+  "description": "CreateImageRequest schema from EC2 Image Builder",
+  "type": "object",
+  "properties": {
+    "imageRecipeArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ImageRecipeArn"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed."
+        }
+      ]
+    },
+    "containerRecipeArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ContainerRecipeArn"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the container recipe that defines how images are configured and tested."
+        }
+      ]
+    },
+    "distributionConfigurationArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DistributionConfigurationArn"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the distribution configuration that defines and configures the outputs of your pipeline."
+        }
+      ]
+    },
+    "infrastructureConfigurationArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/InfrastructureConfigurationArn"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the infrastructure configuration that defines the environment in which your image will be built and tested."
+        }
+      ]
+    },
+    "imageTestsConfiguration": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ImageTestsConfiguration"
+        },
+        {
+          "description": "The image tests configuration of the image."
+        }
+      ]
+    },
+    "enhancedImageMetadataEnabled": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NullableBoolean"
+        },
+        {
+          "description": "Collects additional information about the image being created, including the operating system (OS) version and package list. This information is used to enhance the overall experience of using EC2 Image Builder. Enabled by default."
+        }
+      ]
+    },
+    "tags": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TagMap"
+        },
+        {
+          "description": "The tags of the image."
+        }
+      ]
+    },
+    "clientToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ClientToken"
+        },
+        {
+          "description": "The idempotency token used to make this request idempotent."
+        }
+      ]
+    },
+    "imageScanningConfiguration": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ImageScanningConfiguration"
+        },
+        {
+          "description": "Contains settings for vulnerability scans."
+        }
+      ]
+    }
+  },
+  "required": [
+    "infrastructureConfigurationArn",
+    "clientToken"
+  ]
+}

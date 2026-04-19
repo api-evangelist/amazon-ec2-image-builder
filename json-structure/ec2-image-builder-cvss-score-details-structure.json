@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-structure/ec2-image-builder-cvss-score-details-structure.json",
+  "name": "CvssScoreDetails",
+  "description": "Details about the source of the score, and the factors that determined the adjustments to create the final score.",
+  "type": "object",
+  "properties": {
+    "scoreSource": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "The source for the CVSS score."
+        }
+      ]
+    },
+    "cvssSource": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "The source of the finding."
+        }
+      ]
+    },
+    "version": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "The CVSS version that generated the score."
+        }
+      ]
+    },
+    "score": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonNegativeDouble"
+        },
+        {
+          "description": "The CVSS score."
+        }
+      ]
+    },
+    "scoringVector": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "A vector that measures the severity of the vulnerability."
+        }
+      ]
+    },
+    "adjustments": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CvssScoreAdjustmentList"
+        },
+        {
+          "description": "An object that contains details about an adjustment that Amazon Inspector made to the CVSS score for the finding."
+        }
+      ]
+    }
+  }
+}

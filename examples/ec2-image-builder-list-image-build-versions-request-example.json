@@ -1,0 +1,6 @@
+{
+  "imageVersionArn": "arn:aws:service:us-east-1:123456789012:resource/example",
+  "filters": "example-string",
+  "maxResults": "example-string",
+  "nextToken": "example-string"
+}

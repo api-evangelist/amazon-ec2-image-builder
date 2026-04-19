@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-schema/ec2-image-builder-image-scan-status-schema.json",
+  "title": "ImageScanStatus",
+  "description": "ImageScanStatus schema from EC2 Image Builder",
+  "type": "string",
+  "enum": [
+    "PENDING",
+    "SCANNING",
+    "COLLECTING",
+    "COMPLETED",
+    "ABANDONED",
+    "FAILED",
+    "TIMED_OUT"
+  ]
+}

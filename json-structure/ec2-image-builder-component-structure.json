@@ -1,0 +1,189 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-structure/ec2-image-builder-component-structure.json",
+  "name": "Component",
+  "description": "A detailed view of a component.",
+  "type": "object",
+  "properties": {
+    "arn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ImageBuilderArn"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the component."
+        }
+      ]
+    },
+    "name": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ResourceName"
+        },
+        {
+          "description": "The name of the component."
+        }
+      ]
+    },
+    "version": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/VersionNumber"
+        },
+        {
+          "description": "The version of the component."
+        }
+      ]
+    },
+    "description": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "The description of the component."
+        }
+      ]
+    },
+    "changeDescription": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "The change description of the component."
+        }
+      ]
+    },
+    "type": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ComponentType"
+        },
+        {
+          "description": "The component type specifies whether Image Builder uses the component to build the image or only to test it."
+        }
+      ]
+    },
+    "platform": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Platform"
+        },
+        {
+          "description": "The operating system platform of the component."
+        }
+      ]
+    },
+    "supportedOsVersions": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/OsVersionList"
+        },
+        {
+          "description": "The operating system (OS) version supported by the component. If the OS information is available, Image Builder performs a prefix match against the base image OS version during image recipe creation."
+        }
+      ]
+    },
+    "state": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ComponentState"
+        },
+        {
+          "description": "Describes the current status of the component. This is used for components that are no longer active."
+        }
+      ]
+    },
+    "parameters": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ComponentParameterDetailList"
+        },
+        {
+          "description": "Contains parameter details for each of the parameters that the component document defined for the component."
+        }
+      ]
+    },
+    "owner": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "The owner of the component."
+        }
+      ]
+    },
+    "data": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ComponentData"
+        },
+        {
+          "description": "Component data contains the YAML document content for the component."
+        }
+      ]
+    },
+    "kmsKeyId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "The KMS key identifier used to encrypt the component."
+        }
+      ]
+    },
+    "encrypted": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NullableBoolean"
+        },
+        {
+          "description": "The encryption status of the component."
+        }
+      ]
+    },
+    "dateCreated": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DateTime"
+        },
+        {
+          "description": "The date that Image Builder created the component."
+        }
+      ]
+    },
+    "tags": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TagMap"
+        },
+        {
+          "description": "The tags that apply to the component."
+        }
+      ]
+    },
+    "publisher": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "Contains the name of the publisher if this is a third-party component. Otherwise, this property is empty."
+        }
+      ]
+    },
+    "obfuscate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Boolean"
+        },
+        {
+          "description": "Indicates whether component source is hidden from view in the console, and from component detail results for API, CLI, or SDK operations."
+        }
+      ]
+    }
+  }
+}

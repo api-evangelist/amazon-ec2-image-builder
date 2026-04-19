@@ -1,0 +1,5 @@
+{
+  "requestId": "example-id-1234",
+  "findings": "example-string",
+  "nextToken": "example-string"
+}

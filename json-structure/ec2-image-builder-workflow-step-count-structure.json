@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-structure/ec2-image-builder-workflow-step-count-structure.json",
+  "name": "WorkflowStepCount",
+  "description": "WorkflowStepCount schema from EC2 Image Builder",
+  "type": "int32"
+}

@@ -1,0 +1,7 @@
+{
+  "name": "example-resource-name",
+  "semanticVersion": "1.0.0",
+  "platform": "example-string",
+  "vmImportTaskId": "example-id-1234",
+  "clientToken": "example-string"
+}

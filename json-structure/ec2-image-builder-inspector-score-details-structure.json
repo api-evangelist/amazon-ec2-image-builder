@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-structure/ec2-image-builder-inspector-score-details-structure.json",
+  "name": "InspectorScoreDetails",
+  "description": "Information about the factors that influenced the score that Amazon Inspector assigned for a finding.",
+  "type": "object",
+  "properties": {
+    "adjustedCvss": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CvssScoreDetails"
+        },
+        {
+          "description": "An object that contains details about an adjustment that Amazon Inspector made to the CVSS score for the finding."
+        }
+      ]
+    }
+  }
+}

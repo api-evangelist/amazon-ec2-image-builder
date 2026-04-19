@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-structure/ec2-image-builder-cvss-score-adjustment-structure.json",
+  "name": "CvssScoreAdjustment",
+  "description": "Details about an adjustment that Amazon Inspector made to the CVSS score for a finding.",
+  "type": "object",
+  "properties": {
+    "metric": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "The metric that Amazon Inspector used to adjust the CVSS score."
+        }
+      ]
+    },
+    "reason": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "The reason for the CVSS score adjustment."
+        }
+      ]
+    }
+  }
+}

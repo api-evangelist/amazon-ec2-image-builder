@@ -1,0 +1,5 @@
+{
+  "requestId": "example-id-1234",
+  "infrastructureConfigurationSummaryList": "example-string",
+  "nextToken": "example-string"
+}

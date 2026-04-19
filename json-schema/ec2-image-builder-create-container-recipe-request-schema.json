@@ -1,0 +1,178 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-schema/ec2-image-builder-create-container-recipe-request-schema.json",
+  "title": "CreateContainerRecipeRequest",
+  "description": "CreateContainerRecipeRequest schema from EC2 Image Builder",
+  "type": "object",
+  "properties": {
+    "containerType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ContainerType"
+        },
+        {
+          "description": "The type of container to create."
+        }
+      ]
+    },
+    "name": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ResourceName"
+        },
+        {
+          "description": "The name of the container recipe."
+        }
+      ]
+    },
+    "description": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "The description of the container recipe."
+        }
+      ]
+    },
+    "semanticVersion": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/VersionNumber"
+        },
+        {
+          "description": "<p>The semantic version of the container recipe. This version follows the semantic version syntax.</p> <note> <p>The semantic version has four nodes: &lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;/&lt;build&gt;. You can assign values for the first three, and can filter on all of them.</p> <p> <b>Assignment:</b> For the first three nodes you can assign any positive integer value, including zero, with an upper limit of 2^30-1, or 1073741823 for each node. Image Builder automatically assigns the build number to the fourth node.</p> <p> <b>Patterns:</b> You can use any numeric pattern that adheres to the assignment requirements for the nodes that you can assign. For example, you might choose a software version pattern, such as 1.0.0, or a date, such as 2021.01.01.</p> </note>"
+        }
+      ]
+    },
+    "components": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ComponentConfigurationList"
+        },
+        {
+          "description": "Components for build and test that are included in the container recipe. Recipes require a minimum of one build component, and can have a maximum of 20 build and test components in any combination."
+        }
+      ]
+    },
+    "instanceConfiguration": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/InstanceConfiguration"
+        },
+        {
+          "description": "A group of options that can be used to configure an instance for building and testing container images."
+        }
+      ]
+    },
+    "dockerfileTemplateData": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/InlineDockerFileTemplate"
+        },
+        {
+          "description": "The Dockerfile template used to build your image as an inline data blob."
+        }
+      ]
+    },
+    "dockerfileTemplateUri": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Uri"
+        },
+        {
+          "description": "The Amazon S3 URI for the Dockerfile that will be used to build your container image."
+        }
+      ]
+    },
+    "platformOverride": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Platform"
+        },
+        {
+          "description": "Specifies the operating system platform when you use a custom base image."
+        }
+      ]
+    },
+    "imageOsVersionOverride": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "Specifies the operating system version for the base image."
+        }
+      ]
+    },
+    "parentImage": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "The base image for the container recipe."
+        }
+      ]
+    },
+    "tags": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TagMap"
+        },
+        {
+          "description": "Tags that are attached to the container recipe."
+        }
+      ]
+    },
+    "workingDirectory": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "The working directory for use during build and test workflows."
+        }
+      ]
+    },
+    "targetRepository": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TargetContainerRepository"
+        },
+        {
+          "description": "The destination repository for the container image."
+        }
+      ]
+    },
+    "kmsKeyId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "Identifies which KMS key is used to encrypt the container image."
+        }
+      ]
+    },
+    "clientToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ClientToken"
+        },
+        {
+          "description": "The client token used to make this request idempotent."
+        }
+      ]
+    }
+  },
+  "required": [
+    "containerType",
+    "name",
+    "semanticVersion",
+    "components",
+    "parentImage",
+    "targetRepository",
+    "clientToken"
+  ]
+}

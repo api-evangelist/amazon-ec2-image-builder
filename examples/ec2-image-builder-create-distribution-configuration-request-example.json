@@ -1,0 +1,7 @@
+{
+  "name": "example-resource-name",
+  "distributions": "example-string",
+  "clientToken": "example-string",
+  "description": "example-string",
+  "tags": "example-string"
+}

@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-structure/ec2-image-builder-inline-component-data-structure.json",
+  "name": "InlineComponentData",
+  "description": "InlineComponentData schema from EC2 Image Builder",
+  "type": "string",
+  "pattern": "[^\\x00]+",
+  "minLength": 1,
+  "maxLength": 16000
+}

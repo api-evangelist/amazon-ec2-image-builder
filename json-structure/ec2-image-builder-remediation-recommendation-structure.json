@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-structure/ec2-image-builder-remediation-recommendation-structure.json",
+  "name": "RemediationRecommendation",
+  "description": "Details about the recommended course of action to remediate the finding.",
+  "type": "object",
+  "properties": {
+    "text": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "The recommended course of action to remediate the finding."
+        }
+      ]
+    },
+    "url": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "A link to more information about the recommended remediation for this vulnerability."
+        }
+      ]
+    }
+  }
+}

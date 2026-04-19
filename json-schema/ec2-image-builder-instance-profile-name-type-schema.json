@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-schema/ec2-image-builder-instance-profile-name-type-schema.json",
+  "title": "InstanceProfileNameType",
+  "description": "InstanceProfileNameType schema from EC2 Image Builder",
+  "type": "string",
+  "pattern": "^[\\w+=,.@-]+$",
+  "minLength": 1,
+  "maxLength": 256
+}

@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-schema/ec2-image-builder-component-configuration-schema.json",
+  "title": "ComponentConfiguration",
+  "description": "Configuration details of the component.",
+  "type": "object",
+  "properties": {
+    "componentArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ComponentVersionArnOrBuildVersionArn"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the component."
+        }
+      ]
+    },
+    "parameters": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ComponentParameterList"
+        },
+        {
+          "description": "A group of parameter settings that Image Builder uses to configure the component for a specific recipe."
+        }
+      ]
+    }
+  },
+  "required": [
+    "componentArn"
+  ]
+}

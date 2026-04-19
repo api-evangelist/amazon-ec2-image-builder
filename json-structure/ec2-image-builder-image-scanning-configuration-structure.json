@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-structure/ec2-image-builder-image-scanning-configuration-structure.json",
+  "name": "ImageScanningConfiguration",
+  "description": "Contains settings for Image Builder image resource and container image scans.",
+  "type": "object",
+  "properties": {
+    "imageScanningEnabled": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NullableBoolean"
+        },
+        {
+          "description": "A setting that indicates whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image."
+        }
+      ]
+    },
+    "ecrConfiguration": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EcrConfiguration"
+        },
+        {
+          "description": "Contains Amazon ECR settings for vulnerability scans."
+        }
+      ]
+    }
+  }
+}

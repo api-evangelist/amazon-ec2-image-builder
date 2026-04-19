@@ -1,0 +1,4 @@
+{
+  "httpTokens": "example-string",
+  "httpPutResponseHopLimit": "example-string"
+}

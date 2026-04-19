@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-schema/ec2-image-builder-list-workflow-executions-response-schema.json",
+  "title": "ListWorkflowExecutionsResponse",
+  "description": "ListWorkflowExecutionsResponse schema from EC2 Image Builder",
+  "type": "object",
+  "properties": {
+    "requestId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "The request ID that uniquely identifies this request."
+        }
+      ]
+    },
+    "workflowExecutions": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/WorkflowExecutionsList"
+        },
+        {
+          "description": "Contains an array of runtime details that represents each time a workflow ran for the requested image build version."
+        }
+      ]
+    },
+    "imageBuildVersionArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ImageBuildVersionArn"
+        },
+        {
+          "description": "The resource ARN of the image build version for which you requested a list of workflow runtime details."
+        }
+      ]
+    },
+    "message": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ImageBuildMessage"
+        },
+        {
+          "description": "The output message from the list action, if applicable."
+        }
+      ]
+    },
+    "nextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PaginationToken"
+        },
+        {
+          "description": "The next token used for paginated responses. When this field isn't empty, there are additional elements that the service has'ot included in this request. Use this token with the next request to retrieve additional objects."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,173 @@
+extends: spectral:oas
+
+rules:
+  # INFO / METADATA
+  info-title-matches-provider:
+    description: API title should include the provider name (Amazon EC2 Image Builder).
+    severity: warn
+    given: "$.info"
+    then:
+      field: title
+      function: pattern
+      functionOptions:
+        match: "^Amazon EC2 Image Builder"
+
+  info-description-required:
+    description: API info must include a description.
+    severity: error
+    given: "$.info"
+    then:
+      field: description
+      function: truthy
+
+  info-version-required:
+    description: API version must be defined.
+    severity: error
+    given: "$.info"
+    then:
+      field: version
+      function: truthy
+
+  info-contact-required:
+    description: API info should include contact information.
+    severity: warn
+    given: "$.info"
+    then:
+      field: contact
+      function: truthy
+
+  # OPENAPI VERSION
+  openapi-version-3:
+    description: OpenAPI specification should use version 3.x.
+    severity: error
+    given: "$"
+    then:
+      field: openapi
+      function: pattern
+      functionOptions:
+        match: "^3\\."
+
+  # SERVERS
+  servers-defined:
+    description: At least one server must be defined.
+    severity: error
+    given: "$"
+    then:
+      field: servers
+      function: truthy
+
+  servers-https:
+    description: Server URLs should use HTTPS.
+    severity: warn
+    given: "$.servers[*]"
+    then:
+      field: url
+      function: pattern
+      functionOptions:
+        match: "^https://"
+
+  # OPERATIONS
+  operation-summary-required:
+    description: Every operation must have a summary.
+    severity: error
+    given: "$.paths[*][get,post,put,patch,delete,head,options]"
+    then:
+      field: summary
+      function: truthy
+
+  operation-summary-provider-prefix:
+    description: Operation summary should begin with the provider name (Amazon EC2 Image Builder).
+    severity: warn
+    given: "$.paths[*][get,post,put,patch,delete,head,options]"
+    then:
+      field: summary
+      function: pattern
+      functionOptions:
+        match: "^Amazon EC2 Image Builder"
+
+  operation-description-required:
+    description: Every operation should have a description.
+    severity: warn
+    given: "$.paths[*][get,post,put,patch,delete,head,options]"
+    then:
+      field: description
+      function: truthy
+
+  operation-id-required:
+    description: Every operation must have an operationId.
+    severity: error
+    given: "$.paths[*][get,post,put,patch,delete,head,options]"
+    then:
+      field: operationId
+      function: truthy
+
+  operation-tags-required:
+    description: Every operation must have at least one tag.
+    severity: error
+    given: "$.paths[*][get,post,put,patch,delete,head,options]"
+    then:
+      field: tags
+      function: truthy
+
+  # PARAMETERS
+  parameter-description-required:
+    description: All parameters must have a description.
+    severity: warn
+    given: "$..parameters[*]"
+    then:
+      field: description
+      function: truthy
+
+  parameter-schema-required:
+    description: All parameters must have a schema.
+    severity: error
+    given: "$..parameters[*]"
+    then:
+      field: schema
+      function: truthy
+
+  # RESPONSES
+  response-description-required:
+    description: Every response must have a description.
+    severity: error
+    given: "$.paths[*][*].responses[*]"
+    then:
+      field: description
+      function: truthy
+
+  # SCHEMAS
+  schema-type-defined:
+    description: Schemas should define a type.
+    severity: warn
+    given: "$.components.schemas[*]"
+    then:
+      field: type
+      function: truthy
+
+  # SECURITY
+  security-schemes-defined:
+    description: Security schemes should be defined in components.
+    severity: warn
+    given: "$.components"
+    then:
+      field: securitySchemes
+      function: truthy
+
+  # HTTP METHOD CONVENTIONS
+  get-no-request-body:
+    description: GET operations should not have a request body.
+    severity: error
+    given: "$.paths[*].get"
+    then:
+      field: requestBody
+      function: falsy
+
+  # GENERAL QUALITY
+  no-empty-descriptions:
+    description: Descriptions should not be empty strings.
+    severity: warn
+    given: "$..description"
+    then:
+      function: pattern
+      functionOptions:
+        match: ".+"

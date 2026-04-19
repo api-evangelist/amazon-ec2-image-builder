@@ -1,0 +1,237 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "Amazon EC2 Image Builder Image Pipeline Management"
+  description: "Unified capability for managing EC2 Image Builder pipelines, recipes, and components for DevOps engineers."
+  tags:
+    - Amazon EC2 Image Builder
+    - AWS
+    - EC2
+    - Image Building
+  created: "2026-04-19"
+  modified: "2026-04-19"
+
+binds:
+  - namespace: env
+    keys:
+      AWS_ACCESS_KEY_ID: AWS_ACCESS_KEY_ID
+      AWS_SECRET_ACCESS_KEY: AWS_SECRET_ACCESS_KEY
+
+capability:
+  consumes:
+    - import: ec2-image-builder
+      location: ./shared/ec2-image-builder.yaml
+
+  exposes:
+    - type: rest
+      port: 8088
+      namespace: ec2-image-builder-api
+      description: "Unified REST API for Image Pipeline Management."
+      resources:
+        - path: /v1/CancelImageCreation
+          name: CancelImageCreation
+          description: "Amazon EC2 Image Builder Cancel Image Creation"
+          operations:
+            - method: PUT
+              name: CancelImageCreation
+              description: "Amazon EC2 Image Builder Cancel Image Creation"
+              call: "ec2-image-builder.CancelImageCreation"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/CreateComponent
+          name: CreateComponent
+          description: "Amazon EC2 Image Builder Create Component"
+          operations:
+            - method: PUT
+              name: CreateComponent
+              description: "Amazon EC2 Image Builder Create Component"
+              call: "ec2-image-builder.CreateComponent"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/CreateContainerRecipe
+          name: CreateContainerRecipe
+          description: "Amazon EC2 Image Builder Create Container Recipe"
+          operations:
+            - method: PUT
+              name: CreateContainerRecipe
+              description: "Amazon EC2 Image Builder Create Container Recipe"
+              call: "ec2-image-builder.CreateContainerRecipe"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/CreateDistributionConfiguration
+          name: CreateDistributionConfiguration
+          description: "Amazon EC2 Image Builder Create Distribution Configuration"
+          operations:
+            - method: PUT
+              name: CreateDistributionConfiguration
+              description: "Amazon EC2 Image Builder Create Distribution Configuration"
+              call: "ec2-image-builder.CreateDistributionConfiguration"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/CreateImage
+          name: CreateImage
+          description: "Amazon EC2 Image Builder Create Image"
+          operations:
+            - method: PUT
+              name: CreateImage
+              description: "Amazon EC2 Image Builder Create Image"
+              call: "ec2-image-builder.CreateImage"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/CreateImagePipeline
+          name: CreateImagePipeline
+          description: "Amazon EC2 Image Builder Create Image Pipeline"
+          operations:
+            - method: PUT
+              name: CreateImagePipeline
+              description: "Amazon EC2 Image Builder Create Image Pipeline"
+              call: "ec2-image-builder.CreateImagePipeline"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/CreateImageRecipe
+          name: CreateImageRecipe
+          description: "Amazon EC2 Image Builder Create Image Recipe"
+          operations:
+            - method: PUT
+              name: CreateImageRecipe
+              description: "Amazon EC2 Image Builder Create Image Recipe"
+              call: "ec2-image-builder.CreateImageRecipe"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/CreateInfrastructureConfiguration
+          name: CreateInfrastructureConfiguration
+          description: "Amazon EC2 Image Builder Create Infrastructure Configuration"
+          operations:
+            - method: PUT
+              name: CreateInfrastructureConfiguration
+              description: "Amazon EC2 Image Builder Create Infrastructure Configuration"
+              call: "ec2-image-builder.CreateInfrastructureConfiguration"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/DeleteComponent#componentBuildVersionArn
+          name: DeleteComponent
+          description: "Amazon EC2 Image Builder Delete Component"
+          operations:
+            - method: DELETE
+              name: DeleteComponent
+              description: "Amazon EC2 Image Builder Delete Component"
+              call: "ec2-image-builder.DeleteComponent"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/DeleteContainerRecipe#containerRecipeArn
+          name: DeleteContainerRecipe
+          description: "Amazon EC2 Image Builder Delete Container Recipe"
+          operations:
+            - method: DELETE
+              name: DeleteContainerRecipe
+              description: "Amazon EC2 Image Builder Delete Container Recipe"
+              call: "ec2-image-builder.DeleteContainerRecipe"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9098
+      namespace: ec2-image-builder-mcp
+      transport: http
+      description: "MCP server for AI-assisted Image Pipeline Management."
+      tools:
+        - name: cancel-image-creation
+          description: "Amazon EC2 Image Builder Cancel Image Creation"
+          hints:
+            readOnly: false
+            destructive: false
+          call: "ec2-image-builder.CancelImageCreation"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: create-component
+          description: "Amazon EC2 Image Builder Create Component"
+          hints:
+            readOnly: false
+            destructive: false
+          call: "ec2-image-builder.CreateComponent"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: create-container-recipe
+          description: "Amazon EC2 Image Builder Create Container Recipe"
+          hints:
+            readOnly: false
+            destructive: false
+          call: "ec2-image-builder.CreateContainerRecipe"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: create-distribution-configuration
+          description: "Amazon EC2 Image Builder Create Distribution Configuration"
+          hints:
+            readOnly: false
+            destructive: false
+          call: "ec2-image-builder.CreateDistributionConfiguration"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: create-image
+          description: "Amazon EC2 Image Builder Create Image"
+          hints:
+            readOnly: false
+            destructive: false
+          call: "ec2-image-builder.CreateImage"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: create-image-pipeline
+          description: "Amazon EC2 Image Builder Create Image Pipeline"
+          hints:
+            readOnly: false
+            destructive: false
+          call: "ec2-image-builder.CreateImagePipeline"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: create-image-recipe
+          description: "Amazon EC2 Image Builder Create Image Recipe"
+          hints:
+            readOnly: false
+            destructive: false
+          call: "ec2-image-builder.CreateImageRecipe"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: create-infrastructure-configuration
+          description: "Amazon EC2 Image Builder Create Infrastructure Configuration"
+          hints:
+            readOnly: false
+            destructive: false
+          call: "ec2-image-builder.CreateInfrastructureConfiguration"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: delete-component
+          description: "Amazon EC2 Image Builder Delete Component"
+          hints:
+            readOnly: false
+            destructive: true
+          call: "ec2-image-builder.DeleteComponent"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: delete-container-recipe
+          description: "Amazon EC2 Image Builder Delete Container Recipe"
+          hints:
+            readOnly: false
+            destructive: true
+          call: "ec2-image-builder.DeleteContainerRecipe"
+          outputParameters:
+            - type: object
+              mapping: "$."

@@ -1,0 +1,253 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "Amazon EC2 Image Builder"
+  description: "Amazon EC2 Image Builder automated image building service."
+  tags:
+    - Amazon EC2 Image Builder
+    - AWS
+    - EC2
+    - Image Building
+  created: "2026-04-19"
+  modified: "2026-04-19"
+
+binds:
+  - namespace: env
+    keys:
+      AWS_ACCESS_KEY_ID: AWS_ACCESS_KEY_ID
+      AWS_SECRET_ACCESS_KEY: AWS_SECRET_ACCESS_KEY
+
+capability:
+  consumes:
+    - type: http
+      namespace: ec2-image-builder
+      baseUri: https://imagebuilder.amazonaws.com
+      description: "Amazon EC2 Image Builder automated image building service."
+      authentication:
+        type: apikey
+        key: Authorization
+        value: "AWS4-HMAC-SHA256 Credential={{env.AWS_ACCESS_KEY_ID}}"
+        placement: header
+      resources:
+        - name: CancelImageCreation
+          path: /CancelImageCreation
+          description: "CancelImageCreation operations."
+          operations:
+            - name: CancelImageCreation
+              method: PUT
+              description: "Amazon EC2 Image Builder Cancel Image Creation"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: CreateComponent
+          path: /CreateComponent
+          description: "CreateComponent operations."
+          operations:
+            - name: CreateComponent
+              method: PUT
+              description: "Amazon EC2 Image Builder Create Component"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: CreateContainerRecipe
+          path: /CreateContainerRecipe
+          description: "CreateContainerRecipe operations."
+          operations:
+            - name: CreateContainerRecipe
+              method: PUT
+              description: "Amazon EC2 Image Builder Create Container Recipe"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: CreateDistributionConfiguration
+          path: /CreateDistributionConfiguration
+          description: "CreateDistributionConfiguration operations."
+          operations:
+            - name: CreateDistributionConfiguration
+              method: PUT
+              description: "Amazon EC2 Image Builder Create Distribution Configuration"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: CreateImage
+          path: /CreateImage
+          description: "CreateImage operations."
+          operations:
+            - name: CreateImage
+              method: PUT
+              description: "Amazon EC2 Image Builder Create Image"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: CreateImagePipeline
+          path: /CreateImagePipeline
+          description: "CreateImagePipeline operations."
+          operations:
+            - name: CreateImagePipeline
+              method: PUT
+              description: "Amazon EC2 Image Builder Create Image Pipeline"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: CreateImageRecipe
+          path: /CreateImageRecipe
+          description: "CreateImageRecipe operations."
+          operations:
+            - name: CreateImageRecipe
+              method: PUT
+              description: "Amazon EC2 Image Builder Create Image Recipe"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: CreateInfrastructureConfiguration
+          path: /CreateInfrastructureConfiguration
+          description: "CreateInfrastructureConfiguration operations."
+          operations:
+            - name: CreateInfrastructureConfiguration
+              method: PUT
+              description: "Amazon EC2 Image Builder Create Infrastructure Configuration"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: DeleteComponent#componentBuildVersionArn
+          path: /DeleteComponent#componentBuildVersionArn
+          description: "DeleteComponent#componentBuildVersionArn operations."
+          operations:
+            - name: DeleteComponent
+              method: DELETE
+              description: "Amazon EC2 Image Builder Delete Component"
+              inputParameters:
+                - name: componentBuildVersionArn
+                  in: query
+                  type: string
+                  required: true
+                  description: "The Amazon Resource Name (ARN) of the component build version to delete."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: DeleteContainerRecipe#containerRecipeArn
+          path: /DeleteContainerRecipe#containerRecipeArn
+          description: "DeleteContainerRecipe#containerRecipeArn operations."
+          operations:
+            - name: DeleteContainerRecipe
+              method: DELETE
+              description: "Amazon EC2 Image Builder Delete Container Recipe"
+              inputParameters:
+                - name: containerRecipeArn
+                  in: query
+                  type: string
+                  required: true
+                  description: "The Amazon Resource Name (ARN) of the container recipe to delete."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: DeleteDistributionConfiguration#distributionConfigurationArn
+          path: /DeleteDistributionConfiguration#distributionConfigurationArn
+          description: "DeleteDistributionConfiguration#distributionConfigurationArn operations."
+          operations:
+            - name: DeleteDistributionConfiguration
+              method: DELETE
+              description: "Amazon EC2 Image Builder Delete Distribution Configuration"
+              inputParameters:
+                - name: distributionConfigurationArn
+                  in: query
+                  type: string
+                  required: true
+                  description: "The Amazon Resource Name (ARN) of the distribution configuration to delete."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: DeleteImage#imageBuildVersionArn
+          path: /DeleteImage#imageBuildVersionArn
+          description: "DeleteImage#imageBuildVersionArn operations."
+          operations:
+            - name: DeleteImage
+              method: DELETE
+              description: "Amazon EC2 Image Builder Delete Image"
+              inputParameters:
+                - name: imageBuildVersionArn
+                  in: query
+                  type: string
+                  required: true
+                  description: "The Amazon Resource Name (ARN) of the Image Builder image resource to delete."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: DeleteImagePipeline#imagePipelineArn
+          path: /DeleteImagePipeline#imagePipelineArn
+          description: "DeleteImagePipeline#imagePipelineArn operations."
+          operations:
+            - name: DeleteImagePipeline
+              method: DELETE
+              description: "Amazon EC2 Image Builder Delete Image Pipeline"
+              inputParameters:
+                - name: imagePipelineArn
+                  in: query
+                  type: string
+                  required: true
+                  description: "The Amazon Resource Name (ARN) of the image pipeline to delete."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: DeleteImageRecipe#imageRecipeArn
+          path: /DeleteImageRecipe#imageRecipeArn
+          description: "DeleteImageRecipe#imageRecipeArn operations."
+          operations:
+            - name: DeleteImageRecipe
+              method: DELETE
+              description: "Amazon EC2 Image Builder Delete Image Recipe"
+              inputParameters:
+                - name: imageRecipeArn
+                  in: query
+                  type: string
+                  required: true
+                  description: "The Amazon Resource Name (ARN) of the image recipe to delete."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: DeleteInfrastructureConfiguration#infrastructureConfigurationArn
+          path: /DeleteInfrastructureConfiguration#infrastructureConfigurationArn
+          description: "DeleteInfrastructureConfiguration#infrastructureConfigurationArn operations."
+          operations:
+            - name: DeleteInfrastructureConfiguration
+              method: DELETE
+              description: "Amazon EC2 Image Builder Delete Infrastructure Configuration"
+              inputParameters:
+                - name: infrastructureConfigurationArn
+                  in: query
+                  type: string
+                  required: true
+                  description: "The Amazon Resource Name (ARN) of the infrastructure configuration to delete."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."

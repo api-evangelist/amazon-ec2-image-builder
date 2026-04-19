@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-schema/ec2-image-builder-workflow-step-execution-status-schema.json",
+  "title": "WorkflowStepExecutionStatus",
+  "description": "WorkflowStepExecutionStatus schema from EC2 Image Builder",
+  "type": "string",
+  "enum": [
+    "PENDING",
+    "SKIPPED",
+    "RUNNING",
+    "COMPLETED",
+    "FAILED"
+  ]
+}

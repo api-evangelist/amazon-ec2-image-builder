@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-structure/ec2-image-builder-disk-image-format-structure.json",
+  "name": "DiskImageFormat",
+  "description": "DiskImageFormat schema from EC2 Image Builder",
+  "type": "string",
+  "enum": [
+    "VMDK",
+    "RAW",
+    "VHD"
+  ]
+}

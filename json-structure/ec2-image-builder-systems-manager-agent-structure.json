@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-structure/ec2-image-builder-systems-manager-agent-structure.json",
+  "name": "SystemsManagerAgent",
+  "description": "Contains settings for the Systems Manager agent on your build instance.",
+  "type": "object",
+  "properties": {
+    "uninstallAfterBuild": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NullableBoolean"
+        },
+        {
+          "description": "Controls whether the Systems Manager agent is removed from your final build image, prior to creating the new AMI. If this is set to true, then the agent is removed from the final image. If it's set to false, then the agent is left in, so that it is included in the new AMI. The default value is false."
+        }
+      ]
+    }
+  }
+}

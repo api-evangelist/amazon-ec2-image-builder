@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-structure/ec2-image-builder-organization-arn-structure.json",
+  "name": "OrganizationArn",
+  "description": "OrganizationArn schema from EC2 Image Builder",
+  "type": "string",
+  "pattern": "^arn:aws[^:]*:organizations::[0-9]{12}:organization/o-[a-z0-9]{10,32}$"
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-structure/ec2-image-builder-list-image-scan-finding-aggregations-request-structure.json",
+  "name": "ListImageScanFindingAggregationsRequest",
+  "description": "ListImageScanFindingAggregationsRequest schema from EC2 Image Builder",
+  "type": "object",
+  "properties": {
+    "filter": {
+      "$ref": "#/components/schemas/Filter"
+    },
+    "nextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PaginationToken"
+        },
+        {
+          "description": "A token to specify where to start paginating. This is the NextToken from a previously truncated response."
+        }
+      ]
+    }
+  }
+}

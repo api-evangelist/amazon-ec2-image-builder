@@ -1,0 +1,6 @@
+{
+  "roleName": "example-resource-name",
+  "diskImageFormat": "example-string",
+  "s3Bucket": "example-string",
+  "s3Prefix": "example-string"
+}

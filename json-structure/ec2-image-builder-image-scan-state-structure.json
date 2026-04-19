@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-structure/ec2-image-builder-image-scan-state-structure.json",
+  "name": "ImageScanState",
+  "description": "Shows the vulnerability scan status for a specific image, and the reason for that status.",
+  "type": "object",
+  "properties": {
+    "status": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ImageScanStatus"
+        },
+        {
+          "description": "The current state of vulnerability scans for the image."
+        }
+      ]
+    },
+    "reason": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "The reason for the scan status for the image."
+        }
+      ]
+    }
+  }
+}

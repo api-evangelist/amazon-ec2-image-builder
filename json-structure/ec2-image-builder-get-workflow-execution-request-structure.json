@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-structure/ec2-image-builder-get-workflow-execution-request-structure.json",
+  "name": "GetWorkflowExecutionRequest",
+  "description": "GetWorkflowExecutionRequest schema from EC2 Image Builder",
+  "type": "object",
+  "properties": {}
+}

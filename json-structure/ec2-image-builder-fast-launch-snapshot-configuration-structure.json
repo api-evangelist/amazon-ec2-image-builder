@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-structure/ec2-image-builder-fast-launch-snapshot-configuration-structure.json",
+  "name": "FastLaunchSnapshotConfiguration",
+  "description": "Configuration settings for creating and managing pre-provisioned snapshots for a fast-launch enabled Windows AMI.",
+  "type": "object",
+  "properties": {
+    "targetResourceCount": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TargetResourceCount"
+        },
+        {
+          "description": "The number of pre-provisioned snapshots to keep on hand for a fast-launch enabled Windows AMI."
+        }
+      ]
+    }
+  }
+}

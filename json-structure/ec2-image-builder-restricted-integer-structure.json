@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-structure/ec2-image-builder-restricted-integer-structure.json",
+  "name": "RestrictedInteger",
+  "description": "RestrictedInteger schema from EC2 Image Builder",
+  "type": "int32",
+  "minimum": 1,
+  "maximum": 25
+}

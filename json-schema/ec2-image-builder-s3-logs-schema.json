@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-schema/ec2-image-builder-s3-logs-schema.json",
+  "title": "S3Logs",
+  "description": "Amazon S3 logging configuration.",
+  "type": "object",
+  "properties": {
+    "s3BucketName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "The S3 bucket in which to store the logs."
+        }
+      ]
+    },
+    "s3KeyPrefix": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "The Amazon S3 path to the bucket where the logs are stored."
+        }
+      ]
+    }
+  }
+}

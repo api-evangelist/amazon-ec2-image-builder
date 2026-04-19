@@ -1,0 +1,6 @@
+{
+  "enabled": "example-string",
+  "snapshotConfiguration": "example-string",
+  "maxParallelLaunches": "example-string",
+  "launchTemplate": "example-string"
+}

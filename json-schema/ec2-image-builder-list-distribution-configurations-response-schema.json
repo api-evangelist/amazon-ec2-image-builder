@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-schema/ec2-image-builder-list-distribution-configurations-response-schema.json",
+  "title": "ListDistributionConfigurationsResponse",
+  "description": "ListDistributionConfigurationsResponse schema from EC2 Image Builder",
+  "type": "object",
+  "properties": {
+    "requestId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "The request ID that uniquely identifies this request."
+        }
+      ]
+    },
+    "distributionConfigurationSummaryList": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DistributionConfigurationSummaryList"
+        },
+        {
+          "description": "The list of distributions."
+        }
+      ]
+    },
+    "nextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PaginationToken"
+        },
+        {
+          "description": "The next token used for paginated responses. When this field isn't empty, there are additional elements that the service has'ot included in this request. Use this token with the next request to retrieve additional objects."
+        }
+      ]
+    }
+  }
+}

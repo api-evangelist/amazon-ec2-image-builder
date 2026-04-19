@@ -1,0 +1,7 @@
+{
+  "infrastructureConfigurationArn": "arn:aws:service:us-east-1:123456789012:resource/example",
+  "instanceProfileName": "example-resource-name",
+  "clientToken": "example-string",
+  "description": "example-string",
+  "instanceTypes": "standard"
+}

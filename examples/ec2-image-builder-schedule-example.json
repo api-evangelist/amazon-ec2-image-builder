@@ -1,0 +1,5 @@
+{
+  "scheduleExpression": "example-string",
+  "timezone": "example-string",
+  "pipelineExecutionStartCondition": "example-string"
+}

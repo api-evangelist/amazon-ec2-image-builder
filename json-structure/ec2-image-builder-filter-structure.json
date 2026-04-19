@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-structure/ec2-image-builder-filter-structure.json",
+  "name": "Filter",
+  "description": "A filter name and value pair that is used to return a more specific list of results from a list operation. Filters can be used to match a set of resources by specific criteria, such as tags, attributes, or IDs.",
+  "type": "object",
+  "properties": {
+    "name": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/FilterName"
+        },
+        {
+          "description": "The name of the filter. Filter names are case-sensitive."
+        }
+      ]
+    },
+    "values": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/FilterValues"
+        },
+        {
+          "description": "The filter values. Filter values are case-sensitive."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-structure/ec2-image-builder-component-state-structure.json",
+  "name": "ComponentState",
+  "description": "A group of fields that describe the current status of components that are no longer active.",
+  "type": "object",
+  "properties": {
+    "status": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ComponentStatus"
+        },
+        {
+          "description": "The current state of the component."
+        }
+      ]
+    },
+    "reason": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "Describes how or why the component changed state."
+        }
+      ]
+    }
+  }
+}

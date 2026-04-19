@@ -1,0 +1,5 @@
+{
+  "encrypted": "example-string",
+  "deleteOnTermination": "example-string",
+  "iops": "example-string"
+}

@@ -1,0 +1,169 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-structure/ec2-image-builder-infrastructure-configuration-structure.json",
+  "name": "InfrastructureConfiguration",
+  "description": "Details of the infrastructure configuration.",
+  "type": "object",
+  "properties": {
+    "arn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ImageBuilderArn"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the infrastructure configuration."
+        }
+      ]
+    },
+    "name": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ResourceName"
+        },
+        {
+          "description": "The name of the infrastructure configuration."
+        }
+      ]
+    },
+    "description": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "The description of the infrastructure configuration."
+        }
+      ]
+    },
+    "instanceTypes": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/InstanceTypeList"
+        },
+        {
+          "description": "The instance types of the infrastructure configuration."
+        }
+      ]
+    },
+    "instanceProfileName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/InstanceProfileNameType"
+        },
+        {
+          "description": "The instance profile of the infrastructure configuration."
+        }
+      ]
+    },
+    "securityGroupIds": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SecurityGroupIds"
+        },
+        {
+          "description": "The security group IDs of the infrastructure configuration."
+        }
+      ]
+    },
+    "subnetId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "The subnet ID of the infrastructure configuration."
+        }
+      ]
+    },
+    "logging": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Logging"
+        },
+        {
+          "description": "The logging configuration of the infrastructure configuration."
+        }
+      ]
+    },
+    "keyPair": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "The Amazon EC2 key pair of the infrastructure configuration."
+        }
+      ]
+    },
+    "terminateInstanceOnFailure": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NullableBoolean"
+        },
+        {
+          "description": "The terminate instance on failure configuration of the infrastructure configuration."
+        }
+      ]
+    },
+    "snsTopicArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "<p>The Amazon Resource Name (ARN) for the SNS topic to which we send image build event notifications.</p> <note> <p>EC2 Image Builder is unable to send notifications to SNS topics that are encrypted using keys from other accounts. The key that is used to encrypt the SNS topic must reside in the account that the Image Builder service runs under.</p> </note>"
+        }
+      ]
+    },
+    "dateCreated": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DateTime"
+        },
+        {
+          "description": "The date on which the infrastructure configuration was created."
+        }
+      ]
+    },
+    "dateUpdated": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DateTime"
+        },
+        {
+          "description": "The date on which the infrastructure configuration was last updated."
+        }
+      ]
+    },
+    "resourceTags": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ResourceTagMap"
+        },
+        {
+          "description": "The tags attached to the resource created by Image Builder."
+        }
+      ]
+    },
+    "instanceMetadataOptions": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/InstanceMetadataOptions"
+        },
+        {
+          "description": "The instance metadata option settings for the infrastructure configuration."
+        }
+      ]
+    },
+    "tags": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TagMap"
+        },
+        {
+          "description": "The tags of the infrastructure configuration."
+        }
+      ]
+    }
+  }
+}

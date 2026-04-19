@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-structure/ec2-image-builder-list-image-pipeline-images-request-structure.json",
+  "name": "ListImagePipelineImagesRequest",
+  "description": "ListImagePipelineImagesRequest schema from EC2 Image Builder",
+  "type": "object",
+  "properties": {
+    "imagePipelineArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ImagePipelineArn"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the image pipeline whose images you want to view."
+        }
+      ]
+    },
+    "filters": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/FilterList"
+        },
+        {
+          "description": "<p>Use the following filters to streamline results:</p> <ul> <li> <p> <code>name</code> </p> </li> <li> <p> <code>version</code> </p> </li> </ul>"
+        }
+      ]
+    },
+    "maxResults": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RestrictedInteger"
+        },
+        {
+          "description": "The maximum items to return in a request."
+        }
+      ]
+    },
+    "nextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PaginationToken"
+        },
+        {
+          "description": "A token to specify where to start paginating. This is the NextToken from a previously truncated response."
+        }
+      ]
+    }
+  },
+  "required": [
+    "imagePipelineArn"
+  ]
+}

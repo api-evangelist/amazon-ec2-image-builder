@@ -1,0 +1,99 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-structure/ec2-image-builder-infrastructure-configuration-summary-structure.json",
+  "name": "InfrastructureConfigurationSummary",
+  "description": "The infrastructure used when building Amazon EC2 AMIs.",
+  "type": "object",
+  "properties": {
+    "arn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ImageBuilderArn"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the infrastructure configuration."
+        }
+      ]
+    },
+    "name": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ResourceName"
+        },
+        {
+          "description": "The name of the infrastructure configuration."
+        }
+      ]
+    },
+    "description": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "The description of the infrastructure configuration."
+        }
+      ]
+    },
+    "dateCreated": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DateTime"
+        },
+        {
+          "description": "The date on which the infrastructure configuration was created."
+        }
+      ]
+    },
+    "dateUpdated": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DateTime"
+        },
+        {
+          "description": "The date on which the infrastructure configuration was last updated."
+        }
+      ]
+    },
+    "resourceTags": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ResourceTagMap"
+        },
+        {
+          "description": "The tags attached to the image created by Image Builder."
+        }
+      ]
+    },
+    "tags": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TagMap"
+        },
+        {
+          "description": "The tags of the infrastructure configuration."
+        }
+      ]
+    },
+    "instanceTypes": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/InstanceTypeList"
+        },
+        {
+          "description": "The instance types of the infrastructure configuration."
+        }
+      ]
+    },
+    "instanceProfileName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/InstanceProfileNameType"
+        },
+        {
+          "description": "The instance profile of the infrastructure configuration."
+        }
+      ]
+    }
+  }
+}

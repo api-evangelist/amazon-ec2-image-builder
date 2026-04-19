@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-structure/ec2-image-builder-image-scan-findings-filter-structure.json",
+  "name": "ImageScanFindingsFilter",
+  "description": "A name value pair that Image Builder applies to streamline results from the vulnerability scan findings list action.",
+  "type": "object",
+  "properties": {
+    "name": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/FilterName"
+        },
+        {
+          "description": "The name of the image scan finding filter. Filter names are case-sensitive."
+        }
+      ]
+    },
+    "values": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ImageScanFindingsFilterValues"
+        },
+        {
+          "description": "The filter values. Filter values are case-sensitive."
+        }
+      ]
+    }
+  }
+}

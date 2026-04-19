@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-structure/ec2-image-builder-workflow-step-action-structure.json",
+  "name": "WorkflowStepAction",
+  "description": "WorkflowStepAction schema from EC2 Image Builder",
+  "type": "string",
+  "pattern": "^[A-Za-z][A-Za-z0-9-_]{1,99}$"
+}

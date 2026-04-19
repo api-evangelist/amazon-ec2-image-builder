@@ -1,0 +1,5 @@
+{
+  "awsAccountId": "example-id-1234",
+  "imageBuildVersionArn": "arn:aws:service:us-east-1:123456789012:resource/example",
+  "imagePipelineArn": "arn:aws:service:us-east-1:123456789012:resource/example"
+}

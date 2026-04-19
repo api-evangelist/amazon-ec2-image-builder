@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-structure/ec2-image-builder-list-component-build-versions-request-structure.json",
+  "name": "ListComponentBuildVersionsRequest",
+  "description": "ListComponentBuildVersionsRequest schema from EC2 Image Builder",
+  "type": "object",
+  "properties": {
+    "componentVersionArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ComponentVersionArn"
+        },
+        {
+          "description": "The component version Amazon Resource Name (ARN) whose versions you want to list."
+        }
+      ]
+    },
+    "maxResults": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RestrictedInteger"
+        },
+        {
+          "description": "The maximum items to return in a request."
+        }
+      ]
+    },
+    "nextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PaginationToken"
+        },
+        {
+          "description": "A token to specify where to start paginating. This is the NextToken from a previously truncated response."
+        }
+      ]
+    }
+  },
+  "required": [
+    "componentVersionArn"
+  ]
+}

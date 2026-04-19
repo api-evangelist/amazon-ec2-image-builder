@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-schema/ec2-image-builder-ebs-iops-integer-schema.json",
+  "title": "EbsIopsInteger",
+  "description": "EbsIopsInteger schema from EC2 Image Builder",
+  "type": "integer",
+  "minimum": 100,
+  "maximum": 64000
+}

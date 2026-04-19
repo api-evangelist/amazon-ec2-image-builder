@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-schema/ec2-image-builder-ami-name-string-schema.json",
+  "title": "AmiNameString",
+  "description": "AmiNameString schema from EC2 Image Builder",
+  "type": "string",
+  "pattern": "^[-_A-Za-z0-9{][-_A-Za-z0-9\\s:{}\\.]+[-_A-Za-z0-9}]$",
+  "minLength": 1,
+  "maxLength": 127
+}

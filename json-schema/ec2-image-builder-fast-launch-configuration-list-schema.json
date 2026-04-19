@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-schema/ec2-image-builder-fast-launch-configuration-list-schema.json",
+  "title": "FastLaunchConfigurationList",
+  "description": "FastLaunchConfigurationList schema from EC2 Image Builder",
+  "type": "array",
+  "items": {
+    "$ref": "#/components/schemas/FastLaunchConfiguration"
+  },
+  "minItems": 1,
+  "maxItems": 1000
+}

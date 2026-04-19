@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-structure/ec2-image-builder-ebs-instance-block-device-specification-structure.json",
+  "name": "EbsInstanceBlockDeviceSpecification",
+  "description": "Amazon EBS-specific block device mapping specifications.",
+  "type": "object",
+  "properties": {
+    "encrypted": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NullableBoolean"
+        },
+        {
+          "description": "Use to configure device encryption."
+        }
+      ]
+    },
+    "deleteOnTermination": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NullableBoolean"
+        },
+        {
+          "description": "Use to configure delete on termination of the associated device."
+        }
+      ]
+    },
+    "iops": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EbsIopsInteger"
+        },
+        {
+          "description": "Use to configure device IOPS."
+        }
+      ]
+    },
+    "kmsKeyId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "Use to configure the KMS key to use when encrypting the device."
+        }
+      ]
+    },
+    "snapshotId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "The snapshot that defines the device contents."
+        }
+      ]
+    },
+    "volumeSize": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EbsVolumeSizeInteger"
+        },
+        {
+          "description": "Use to override the device's volume size."
+        }
+      ]
+    },
+    "volumeType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EbsVolumeType"
+        },
+        {
+          "description": "Use to override the device's volume type."
+        }
+      ]
+    },
+    "throughput": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EbsVolumeThroughput"
+        },
+        {
+          "description": " <b>For GP3 volumes only</b> \u2013 The throughput in MiB/s that the volume supports."
+        }
+      ]
+    }
+  }
+}

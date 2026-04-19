@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-schema/ec2-image-builder-logging-schema.json",
+  "title": "Logging",
+  "description": "Logging configuration defines where Image Builder uploads your logs.",
+  "type": "object",
+  "properties": {
+    "s3Logs": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/S3Logs"
+        },
+        {
+          "description": "The Amazon S3 logging configuration."
+        }
+      ]
+    }
+  }
+}

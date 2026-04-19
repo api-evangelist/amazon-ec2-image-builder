@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-schema/ec2-image-builder-image-tests-timeout-minutes-schema.json",
+  "title": "ImageTestsTimeoutMinutes",
+  "description": "ImageTestsTimeoutMinutes schema from EC2 Image Builder",
+  "type": "integer",
+  "minimum": 60,
+  "maximum": 1440
+}

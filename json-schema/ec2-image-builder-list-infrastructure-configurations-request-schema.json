@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-schema/ec2-image-builder-list-infrastructure-configurations-request-schema.json",
+  "title": "ListInfrastructureConfigurationsRequest",
+  "description": "ListInfrastructureConfigurationsRequest schema from EC2 Image Builder",
+  "type": "object",
+  "properties": {
+    "filters": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/FilterList"
+        },
+        {
+          "description": "You can filter on <code>name</code> to streamline results."
+        }
+      ]
+    },
+    "maxResults": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RestrictedInteger"
+        },
+        {
+          "description": "The maximum items to return in a request."
+        }
+      ]
+    },
+    "nextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PaginationToken"
+        },
+        {
+          "description": "A token to specify where to start paginating. This is the NextToken from a previously truncated response."
+        }
+      ]
+    }
+  }
+}

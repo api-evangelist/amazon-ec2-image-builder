@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-schema/ec2-image-builder-timezone-schema.json",
+  "title": "Timezone",
+  "description": "Timezone schema from EC2 Image Builder",
+  "type": "string",
+  "pattern": "[a-zA-Z0-9]{2,}(?:\\/[a-zA-z0-9-_+]+)*",
+  "minLength": 3,
+  "maxLength": 100
+}

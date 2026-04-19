@@ -1,0 +1,5 @@
+{
+  "requestId": "example-id-1234",
+  "aggregationType": "standard",
+  "responses": "example-string"
+}

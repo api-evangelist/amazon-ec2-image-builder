@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-structure/ec2-image-builder-account-aggregation-structure.json",
+  "name": "AccountAggregation",
+  "description": "Contains counts of vulnerability findings from image scans that run when you create new Image Builder images, or build new versions of existing images. The vulnerability counts are grouped by severity level. The counts are aggregated across resources to create the final tally for the account that owns them.",
+  "type": "object",
+  "properties": {
+    "accountId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "Identifies the account that owns the aggregated resource findings."
+        }
+      ]
+    },
+    "severityCounts": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SeverityCounts"
+        },
+        {
+          "description": "Counts by severity level for medium severity and higher level findings, plus a total for all of the findings."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-structure/ec2-image-builder-delete-image-response-structure.json",
+  "name": "DeleteImageResponse",
+  "description": "DeleteImageResponse schema from EC2 Image Builder",
+  "type": "object",
+  "properties": {
+    "requestId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "The request ID that uniquely identifies this request."
+        }
+      ]
+    },
+    "imageBuildVersionArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ImageBuildVersionArn"
+        },
+        {
+          "description": "The ARN of the Image Builder image resource that this request deleted."
+        }
+      ]
+    }
+  }
+}

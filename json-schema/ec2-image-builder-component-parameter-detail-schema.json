@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-schema/ec2-image-builder-component-parameter-detail-schema.json",
+  "title": "ComponentParameterDetail",
+  "description": "Defines a parameter that is used to provide configuration details for the component.",
+  "type": "object",
+  "properties": {
+    "name": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ComponentParameterName"
+        },
+        {
+          "description": "The name of this input parameter."
+        }
+      ]
+    },
+    "type": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ComponentParameterType"
+        },
+        {
+          "description": "The type of input this parameter provides. The currently supported value is \"string\"."
+        }
+      ]
+    },
+    "defaultValue": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ComponentParameterValueList"
+        },
+        {
+          "description": "The default value of this parameter if no input is provided."
+        }
+      ]
+    },
+    "description": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ComponentParameterDescription"
+        },
+        {
+          "description": "Describes this parameter."
+        }
+      ]
+    }
+  },
+  "required": [
+    "name",
+    "type"
+  ]
+}

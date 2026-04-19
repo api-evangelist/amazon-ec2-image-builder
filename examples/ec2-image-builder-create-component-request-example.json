@@ -1,0 +1,7 @@
+{
+  "name": "example-resource-name",
+  "semanticVersion": "1.0.0",
+  "platform": "example-string",
+  "clientToken": "example-string",
+  "description": "example-string"
+}

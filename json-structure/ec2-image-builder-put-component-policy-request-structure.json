@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-structure/ec2-image-builder-put-component-policy-request-structure.json",
+  "name": "PutComponentPolicyRequest",
+  "description": "PutComponentPolicyRequest schema from EC2 Image Builder",
+  "type": "object",
+  "properties": {
+    "componentArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ComponentBuildVersionArn"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the component that this policy should be applied to."
+        }
+      ]
+    },
+    "policy": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ResourcePolicyDocument"
+        },
+        {
+          "description": "The policy to apply."
+        }
+      ]
+    }
+  },
+  "required": [
+    "componentArn",
+    "policy"
+  ]
+}

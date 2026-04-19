@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-schema/ec2-image-builder-severity-counts-schema.json",
+  "title": "SeverityCounts",
+  "description": "Includes counts by severity level for medium severity and higher level findings, plus a total for all of the findings for the specified filter.",
+  "type": "object",
+  "properties": {
+    "all": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SeverityCountNumber"
+        },
+        {
+          "description": "The total number of findings across all severity levels for the specified filter."
+        }
+      ]
+    },
+    "critical": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SeverityCountNumber"
+        },
+        {
+          "description": "The number of critical severity findings for the specified filter."
+        }
+      ]
+    },
+    "high": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SeverityCountNumber"
+        },
+        {
+          "description": "The number of high severity findings for the specified filter."
+        }
+      ]
+    },
+    "medium": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SeverityCountNumber"
+        },
+        {
+          "description": "The number of medium severity findings for the specified filter."
+        }
+      ]
+    }
+  }
+}

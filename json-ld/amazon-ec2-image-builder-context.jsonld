@@ -1,0 +1,860 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "aws": "https://aws.amazon.com/schema/",
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "pan": "https://aws.amazon.com/schema/",
+    "AccountAggregation": "aws:AccountAggregation",
+    "AdditionalInstanceConfiguration": "aws:AdditionalInstanceConfiguration",
+    "Ami": "aws:Ami",
+    "AmiDistributionConfiguration": "aws:AmiDistributionConfiguration",
+    "CancelImageCreationRequest": "aws:CancelImageCreationRequest",
+    "CancelImageCreationResponse": "aws:CancelImageCreationResponse",
+    "Component": "aws:Component",
+    "ComponentConfiguration": "aws:ComponentConfiguration",
+    "ComponentParameter": "aws:ComponentParameter",
+    "ComponentParameterDetail": "aws:ComponentParameterDetail",
+    "ComponentState": "aws:ComponentState",
+    "ComponentSummary": "aws:ComponentSummary",
+    "ComponentVersion": "aws:ComponentVersion",
+    "Container": "aws:Container",
+    "ContainerDistributionConfiguration": "aws:ContainerDistributionConfiguration",
+    "ContainerRecipe": "aws:ContainerRecipe",
+    "ContainerRecipeSummary": "aws:ContainerRecipeSummary",
+    "CreateComponentRequest": "aws:CreateComponentRequest",
+    "CreateComponentResponse": "aws:CreateComponentResponse",
+    "CreateContainerRecipeRequest": "aws:CreateContainerRecipeRequest",
+    "CreateContainerRecipeResponse": "aws:CreateContainerRecipeResponse",
+    "CreateDistributionConfigurationRequest": "aws:CreateDistributionConfigurationRequest",
+    "CreateDistributionConfigurationResponse": "aws:CreateDistributionConfigurationResponse",
+    "CreateImagePipelineRequest": "aws:CreateImagePipelineRequest",
+    "CreateImagePipelineResponse": "aws:CreateImagePipelineResponse",
+    "CreateImageRecipeRequest": "aws:CreateImageRecipeRequest",
+    "CreateImageRecipeResponse": "aws:CreateImageRecipeResponse",
+    "CreateImageRequest": "aws:CreateImageRequest",
+    "CreateImageResponse": "aws:CreateImageResponse",
+    "CreateInfrastructureConfigurationRequest": "aws:CreateInfrastructureConfigurationRequest",
+    "CreateInfrastructureConfigurationResponse": "aws:CreateInfrastructureConfigurationResponse",
+    "CvssScore": "aws:CvssScore",
+    "CvssScoreAdjustment": "aws:CvssScoreAdjustment",
+    "CvssScoreDetails": "aws:CvssScoreDetails",
+    "DeleteComponentRequest": "aws:DeleteComponentRequest",
+    "DeleteComponentResponse": "aws:DeleteComponentResponse",
+    "DeleteContainerRecipeRequest": "aws:DeleteContainerRecipeRequest",
+    "DeleteContainerRecipeResponse": "aws:DeleteContainerRecipeResponse",
+    "DeleteDistributionConfigurationRequest": "aws:DeleteDistributionConfigurationRequest",
+    "DeleteDistributionConfigurationResponse": "aws:DeleteDistributionConfigurationResponse",
+    "DeleteImagePipelineRequest": "aws:DeleteImagePipelineRequest",
+    "DeleteImagePipelineResponse": "aws:DeleteImagePipelineResponse",
+    "DeleteImageRecipeRequest": "aws:DeleteImageRecipeRequest",
+    "DeleteImageRecipeResponse": "aws:DeleteImageRecipeResponse",
+    "DeleteImageRequest": "aws:DeleteImageRequest",
+    "DeleteImageResponse": "aws:DeleteImageResponse",
+    "DeleteInfrastructureConfigurationRequest": "aws:DeleteInfrastructureConfigurationRequest",
+    "DeleteInfrastructureConfigurationResponse": "aws:DeleteInfrastructureConfigurationResponse",
+    "Distribution": "aws:Distribution",
+    "DistributionConfiguration": "aws:DistributionConfiguration",
+    "filters": {
+      "@id": "pan:filters",
+      "@type": "xsd:string"
+    },
+    "maxResults": {
+      "@id": "pan:maxResults",
+      "@type": "xsd:string"
+    },
+    "nextToken": {
+      "@id": "pan:nextToken",
+      "@type": "xsd:string"
+    },
+    "s3Logs": {
+      "@id": "pan:s3Logs",
+      "@type": "xsd:string"
+    },
+    "launchTemplateId": {
+      "@id": "pan:launchTemplateId",
+      "@type": "xsd:string"
+    },
+    "accountId": {
+      "@id": "pan:accountId",
+      "@type": "xsd:string"
+    },
+    "setDefaultVersion": {
+      "@id": "pan:setDefaultVersion",
+      "@type": "xsd:string"
+    },
+    "owner": {
+      "@id": "pan:owner",
+      "@type": "xsd:string"
+    },
+    "imageRecipeArn": {
+      "@id": "pan:imageRecipeArn",
+      "@type": "xsd:string"
+    },
+    "containerRecipeArn": {
+      "@id": "pan:containerRecipeArn",
+      "@type": "xsd:string"
+    },
+    "distributionConfigurationArn": {
+      "@id": "pan:distributionConfigurationArn",
+      "@type": "xsd:string"
+    },
+    "infrastructureConfigurationArn": {
+      "@id": "pan:infrastructureConfigurationArn",
+      "@type": "xsd:string"
+    },
+    "imageTestsConfiguration": {
+      "@id": "pan:imageTestsConfiguration",
+      "@type": "xsd:string"
+    },
+    "enhancedImageMetadataEnabled": {
+      "@id": "pan:enhancedImageMetadataEnabled",
+      "@type": "xsd:string"
+    },
+    "tags": {
+      "@id": "pan:tags",
+      "@type": "xsd:string"
+    },
+    "clientToken": {
+      "@id": "pan:clientToken",
+      "@type": "xsd:string"
+    },
+    "imageScanningConfiguration": {
+      "@id": "pan:imageScanningConfiguration",
+      "@type": "xsd:string"
+    },
+    "arn": {
+      "@id": "pan:arn",
+      "@type": "xsd:string"
+    },
+    "name": {
+      "@id": "schema:name",
+      "@type": "xsd:string"
+    },
+    "version": {
+      "@id": "schema:version",
+      "@type": "xsd:string"
+    },
+    "description": {
+      "@id": "schema:description",
+      "@type": "xsd:string"
+    },
+    "changeDescription": {
+      "@id": "pan:changeDescription",
+      "@type": "xsd:string"
+    },
+    "type": {
+      "@id": "pan:type",
+      "@type": "xsd:string"
+    },
+    "platform": {
+      "@id": "pan:platform",
+      "@type": "xsd:string"
+    },
+    "supportedOsVersions": {
+      "@id": "pan:supportedOsVersions",
+      "@type": "xsd:string"
+    },
+    "state": {
+      "@id": "pan:state",
+      "@type": "xsd:string"
+    },
+    "parameters": {
+      "@id": "pan:parameters",
+      "@type": "xsd:string"
+    },
+    "data": {
+      "@id": "pan:data",
+      "@type": "xsd:string"
+    },
+    "kmsKeyId": {
+      "@id": "pan:kmsKeyId",
+      "@type": "xsd:string"
+    },
+    "encrypted": {
+      "@id": "pan:encrypted",
+      "@type": "xsd:string"
+    },
+    "dateCreated": {
+      "@id": "pan:dateCreated",
+      "@type": "xsd:string"
+    },
+    "publisher": {
+      "@id": "pan:publisher",
+      "@type": "xsd:string"
+    },
+    "obfuscate": {
+      "@id": "pan:obfuscate",
+      "@type": "xsd:string"
+    },
+    "awsAccountId": {
+      "@id": "pan:awsAccountId",
+      "@type": "xsd:string"
+    },
+    "imageBuildVersionArn": {
+      "@id": "pan:imageBuildVersionArn",
+      "@type": "xsd:string"
+    },
+    "imagePipelineArn": {
+      "@id": "pan:imagePipelineArn",
+      "@type": "xsd:string"
+    },
+    "title": {
+      "@id": "pan:title",
+      "@type": "xsd:string"
+    },
+    "remediation": {
+      "@id": "pan:remediation",
+      "@type": "xsd:string"
+    },
+    "severity": {
+      "@id": "pan:severity",
+      "@type": "xsd:string"
+    },
+    "firstObservedAt": {
+      "@id": "pan:firstObservedAt",
+      "@type": "xsd:string"
+    },
+    "updatedAt": {
+      "@id": "pan:updatedAt",
+      "@type": "xsd:string"
+    },
+    "inspectorScore": {
+      "@id": "pan:inspectorScore",
+      "@type": "xsd:string"
+    },
+    "inspectorScoreDetails": {
+      "@id": "pan:inspectorScoreDetails",
+      "@type": "xsd:string"
+    },
+    "packageVulnerabilityDetails": {
+      "@id": "pan:packageVulnerabilityDetails",
+      "@type": "xsd:string"
+    },
+    "fixAvailable": {
+      "@id": "pan:fixAvailable",
+      "@type": "xsd:string"
+    },
+    "vulnerabilityId": {
+      "@id": "pan:vulnerabilityId",
+      "@type": "xsd:string"
+    },
+    "vulnerablePackages": {
+      "@id": "pan:vulnerablePackages",
+      "@type": "xsd:string"
+    },
+    "source": {
+      "@id": "pan:source",
+      "@type": "xsd:string"
+    },
+    "cvss": {
+      "@id": "pan:cvss",
+      "@type": "xsd:string"
+    },
+    "relatedVulnerabilities": {
+      "@id": "pan:relatedVulnerabilities",
+      "@type": "xsd:string"
+    },
+    "sourceUrl": {
+      "@id": "pan:sourceUrl",
+      "@type": "xsd:string"
+    },
+    "vendorSeverity": {
+      "@id": "pan:vendorSeverity",
+      "@type": "xsd:string"
+    },
+    "vendorCreatedAt": {
+      "@id": "pan:vendorCreatedAt",
+      "@type": "xsd:string"
+    },
+    "vendorUpdatedAt": {
+      "@id": "pan:vendorUpdatedAt",
+      "@type": "xsd:string"
+    },
+    "referenceUrls": {
+      "@id": "pan:referenceUrls",
+      "@type": "xsd:string"
+    },
+    "scheduleExpression": {
+      "@id": "pan:scheduleExpression",
+      "@type": "xsd:string"
+    },
+    "timezone": {
+      "@id": "pan:timezone",
+      "@type": "xsd:string"
+    },
+    "pipelineExecutionStartCondition": {
+      "@id": "pan:pipelineExecutionStartCondition",
+      "@type": "xsd:string"
+    },
+    "deviceName": {
+      "@id": "pan:deviceName",
+      "@type": "xsd:string"
+    },
+    "ebs": {
+      "@id": "pan:ebs",
+      "@type": "xsd:string"
+    },
+    "virtualName": {
+      "@id": "pan:virtualName",
+      "@type": "xsd:string"
+    },
+    "noDevice": {
+      "@id": "pan:noDevice",
+      "@type": "xsd:string"
+    },
+    "launchTemplateName": {
+      "@id": "pan:launchTemplateName",
+      "@type": "xsd:string"
+    },
+    "launchTemplateVersion": {
+      "@id": "pan:launchTemplateVersion",
+      "@type": "xsd:string"
+    },
+    "components": {
+      "@id": "pan:components",
+      "@type": "xsd:string"
+    },
+    "parentImage": {
+      "@id": "pan:parentImage",
+      "@type": "xsd:string"
+    },
+    "blockDeviceMappings": {
+      "@id": "pan:blockDeviceMappings",
+      "@type": "xsd:string"
+    },
+    "workingDirectory": {
+      "@id": "pan:workingDirectory",
+      "@type": "xsd:string"
+    },
+    "additionalInstanceConfiguration": {
+      "@id": "pan:additionalInstanceConfiguration",
+      "@type": "xsd:string"
+    },
+    "policy": {
+      "@id": "pan:policy",
+      "@type": "xsd:string"
+    },
+    "schedule": {
+      "@id": "pan:schedule",
+      "@type": "xsd:string"
+    },
+    "status": {
+      "@id": "pan:status",
+      "@type": "xsd:string"
+    },
+    "dateUpdated": {
+      "@id": "pan:dateUpdated",
+      "@type": "xsd:string"
+    },
+    "dateLastRun": {
+      "@id": "pan:dateLastRun",
+      "@type": "xsd:string"
+    },
+    "dateNextRun": {
+      "@id": "pan:dateNextRun",
+      "@type": "xsd:string"
+    },
+    "requestId": {
+      "@id": "pan:requestId",
+      "@type": "xsd:string"
+    },
+    "imageVersionList": {
+      "@id": "pan:imageVersionList",
+      "@type": "xsd:string"
+    },
+    "componentVersionArn": {
+      "@id": "pan:componentVersionArn",
+      "@type": "xsd:string"
+    },
+    "aggregationType": {
+      "@id": "pan:aggregationType",
+      "@type": "xsd:string"
+    },
+    "responses": {
+      "@id": "pan:responses",
+      "@type": "xsd:string"
+    },
+    "reason": {
+      "@id": "pan:reason",
+      "@type": "xsd:string"
+    },
+    "targetResourceCount": {
+      "@id": "pan:targetResourceCount",
+      "@type": "xsd:string"
+    },
+    "imageScanningEnabled": {
+      "@id": "pan:imageScanningEnabled",
+      "@type": "xsd:string"
+    },
+    "ecrConfiguration": {
+      "@id": "pan:ecrConfiguration",
+      "@type": "xsd:string"
+    },
+    "image": {
+      "@id": "pan:image",
+      "@type": "xsd:string"
+    },
+    "imagePackageList": {
+      "@id": "pan:imagePackageList",
+      "@type": "xsd:string"
+    },
+    "defaultValue": {
+      "@id": "pan:defaultValue",
+      "@type": "xsd:string"
+    },
+    "distributions": {
+      "@id": "pan:distributions",
+      "@type": "xsd:string"
+    },
+    "timeoutMinutes": {
+      "@id": "pan:timeoutMinutes",
+      "@type": "xsd:string"
+    },
+    "adjustedCvss": {
+      "@id": "pan:adjustedCvss",
+      "@type": "xsd:string"
+    },
+    "severityCounts": {
+      "@id": "pan:severityCounts",
+      "@type": "xsd:string"
+    },
+    "sourceLayerHash": {
+      "@id": "pan:sourceLayerHash",
+      "@type": "xsd:string"
+    },
+    "epoch": {
+      "@id": "pan:epoch",
+      "@type": "xsd:string"
+    },
+    "release": {
+      "@id": "pan:release",
+      "@type": "xsd:string"
+    },
+    "arch": {
+      "@id": "pan:arch",
+      "@type": "xsd:string"
+    },
+    "packageManager": {
+      "@id": "pan:packageManager",
+      "@type": "xsd:string"
+    },
+    "filePath": {
+      "@id": "pan:filePath",
+      "@type": "xsd:string"
+    },
+    "fixedInVersion": {
+      "@id": "pan:fixedInVersion",
+      "@type": "xsd:string"
+    },
+    "values": {
+      "@id": "pan:values",
+      "@type": "xsd:string"
+    },
+    "accountAggregation": {
+      "@id": "pan:accountAggregation",
+      "@type": "xsd:string"
+    },
+    "imageAggregation": {
+      "@id": "pan:imageAggregation",
+      "@type": "xsd:string"
+    },
+    "imagePipelineAggregation": {
+      "@id": "pan:imagePipelineAggregation",
+      "@type": "xsd:string"
+    },
+    "vulnerabilityIdAggregation": {
+      "@id": "pan:vulnerabilityIdAggregation",
+      "@type": "xsd:string"
+    },
+    "componentSummaryList": {
+      "@id": "pan:componentSummaryList",
+      "@type": "xsd:string"
+    },
+    "semanticVersion": {
+      "@id": "pan:semanticVersion",
+      "@type": "xsd:string"
+    },
+    "workflowBuildVersionArn": {
+      "@id": "pan:workflowBuildVersionArn",
+      "@type": "xsd:string"
+    },
+    "workflowExecutionId": {
+      "@id": "pan:workflowExecutionId",
+      "@type": "xsd:string"
+    },
+    "message": {
+      "@id": "pan:message",
+      "@type": "xsd:string"
+    },
+    "totalStepCount": {
+      "@id": "pan:totalStepCount",
+      "@type": "xsd:string"
+    },
+    "totalStepsSucceeded": {
+      "@id": "pan:totalStepsSucceeded",
+      "@type": "xsd:string"
+    },
+    "totalStepsFailed": {
+      "@id": "pan:totalStepsFailed",
+      "@type": "xsd:string"
+    },
+    "totalStepsSkipped": {
+      "@id": "pan:totalStepsSkipped",
+      "@type": "xsd:string"
+    },
+    "startTime": {
+      "@id": "pan:startTime",
+      "@type": "xsd:string"
+    },
+    "endTime": {
+      "@id": "pan:endTime",
+      "@type": "xsd:string"
+    },
+    "s3BucketName": {
+      "@id": "pan:s3BucketName",
+      "@type": "xsd:string"
+    },
+    "s3KeyPrefix": {
+      "@id": "pan:s3KeyPrefix",
+      "@type": "xsd:string"
+    },
+    "osVersion": {
+      "@id": "pan:osVersion",
+      "@type": "xsd:string"
+    },
+    "buildType": {
+      "@id": "pan:buildType",
+      "@type": "xsd:string"
+    },
+    "imageSource": {
+      "@id": "pan:imageSource",
+      "@type": "xsd:string"
+    },
+    "imageRecipeSummaryList": {
+      "@id": "pan:imageRecipeSummaryList",
+      "@type": "xsd:string"
+    },
+    "distributionConfiguration": {
+      "@id": "pan:distributionConfiguration",
+      "@type": "xsd:string"
+    },
+    "targetAccountIds": {
+      "@id": "pan:targetAccountIds",
+      "@type": "xsd:string"
+    },
+    "amiTags": {
+      "@id": "pan:amiTags",
+      "@type": "xsd:string"
+    },
+    "launchPermission": {
+      "@id": "pan:launchPermission",
+      "@type": "xsd:string"
+    },
+    "imageArn": {
+      "@id": "pan:imageArn",
+      "@type": "xsd:string"
+    },
+    "instanceTypes": {
+      "@id": "pan:instanceTypes",
+      "@type": "xsd:string"
+    },
+    "instanceProfileName": {
+      "@id": "pan:instanceProfileName",
+      "@type": "xsd:string"
+    },
+    "securityGroupIds": {
+      "@id": "pan:securityGroupIds",
+      "@type": "xsd:string"
+    },
+    "subnetId": {
+      "@id": "pan:subnetId",
+      "@type": "xsd:string"
+    },
+    "logging": {
+      "@id": "pan:logging",
+      "@type": "xsd:string"
+    },
+    "keyPair": {
+      "@id": "pan:keyPair",
+      "@type": "xsd:string"
+    },
+    "terminateInstanceOnFailure": {
+      "@id": "pan:terminateInstanceOnFailure",
+      "@type": "xsd:string"
+    },
+    "snsTopicArn": {
+      "@id": "pan:snsTopicArn",
+      "@type": "xsd:string"
+    },
+    "resourceTags": {
+      "@id": "pan:resourceTags",
+      "@type": "xsd:string"
+    },
+    "instanceMetadataOptions": {
+      "@id": "pan:instanceMetadataOptions",
+      "@type": "xsd:string"
+    },
+    "workflowExecutions": {
+      "@id": "pan:workflowExecutions",
+      "@type": "xsd:string"
+    },
+    "region": {
+      "@id": "pan:region",
+      "@type": "xsd:string"
+    },
+    "amiDistributionConfiguration": {
+      "@id": "pan:amiDistributionConfiguration",
+      "@type": "xsd:string"
+    },
+    "containerDistributionConfiguration": {
+      "@id": "pan:containerDistributionConfiguration",
+      "@type": "xsd:string"
+    },
+    "licenseConfigurationArns": {
+      "@id": "pan:licenseConfigurationArns",
+      "@type": "xsd:string"
+    },
+    "launchTemplateConfigurations": {
+      "@id": "pan:launchTemplateConfigurations",
+      "@type": "xsd:string"
+    },
+    "s3ExportConfiguration": {
+      "@id": "pan:s3ExportConfiguration",
+      "@type": "xsd:string"
+    },
+    "fastLaunchConfigurations": {
+      "@id": "pan:fastLaunchConfigurations",
+      "@type": "xsd:string"
+    },
+    "containerRecipe": {
+      "@id": "pan:containerRecipe",
+      "@type": "xsd:string"
+    },
+    "steps": {
+      "@id": "pan:steps",
+      "@type": "xsd:string"
+    },
+    "httpTokens": {
+      "@id": "pan:httpTokens",
+      "@type": "xsd:string"
+    },
+    "httpPutResponseHopLimit": {
+      "@id": "pan:httpPutResponseHopLimit",
+      "@type": "xsd:string"
+    },
+    "roleName": {
+      "@id": "pan:roleName",
+      "@type": "xsd:string"
+    },
+    "diskImageFormat": {
+      "@id": "pan:diskImageFormat",
+      "@type": "xsd:string"
+    },
+    "s3Bucket": {
+      "@id": "pan:s3Bucket",
+      "@type": "xsd:string"
+    },
+    "s3Prefix": {
+      "@id": "pan:s3Prefix",
+      "@type": "xsd:string"
+    },
+    "byName": {
+      "@id": "pan:byName",
+      "@type": "xsd:string"
+    },
+    "includeDeprecated": {
+      "@id": "pan:includeDeprecated",
+      "@type": "xsd:string"
+    },
+    "imageRecipe": {
+      "@id": "pan:imageRecipe",
+      "@type": "xsd:string"
+    },
+    "sourcePipelineName": {
+      "@id": "pan:sourcePipelineName",
+      "@type": "xsd:string"
+    },
+    "sourcePipelineArn": {
+      "@id": "pan:sourcePipelineArn",
+      "@type": "xsd:string"
+    },
+    "infrastructureConfiguration": {
+      "@id": "pan:infrastructureConfiguration",
+      "@type": "xsd:string"
+    },
+    "outputResources": {
+      "@id": "pan:outputResources",
+      "@type": "xsd:string"
+    },
+    "scanState": {
+      "@id": "pan:scanState",
+      "@type": "xsd:string"
+    },
+    "imageTestsEnabled": {
+      "@id": "pan:imageTestsEnabled",
+      "@type": "xsd:string"
+    },
+    "component": {
+      "@id": "pan:component",
+      "@type": "xsd:string"
+    },
+    "recommendation": {
+      "@id": "pan:recommendation",
+      "@type": "xsd:string"
+    },
+    "containerTags": {
+      "@id": "pan:containerTags",
+      "@type": "xsd:string"
+    },
+    "targetRepository": {
+      "@id": "pan:targetRepository",
+      "@type": "xsd:string"
+    },
+    "containerType": {
+      "@id": "pan:containerType",
+      "@type": "xsd:string"
+    },
+    "instanceConfiguration": {
+      "@id": "pan:instanceConfiguration",
+      "@type": "xsd:string"
+    },
+    "dockerfileTemplateData": {
+      "@id": "pan:dockerfileTemplateData",
+      "@type": "xsd:string"
+    },
+    "stepExecutionId": {
+      "@id": "pan:stepExecutionId",
+      "@type": "xsd:string"
+    },
+    "action": {
+      "@id": "pan:action",
+      "@type": "xsd:string"
+    },
+    "rollbackStatus": {
+      "@id": "pan:rollbackStatus",
+      "@type": "xsd:string"
+    },
+    "inputs": {
+      "@id": "pan:inputs",
+      "@type": "xsd:string"
+    },
+    "outputs": {
+      "@id": "pan:outputs",
+      "@type": "xsd:string"
+    },
+    "onFailure": {
+      "@id": "pan:onFailure",
+      "@type": "xsd:string"
+    },
+    "timeoutSeconds": {
+      "@id": "pan:timeoutSeconds",
+      "@type": "xsd:string"
+    },
+    "findings": {
+      "@id": "pan:findings",
+      "@type": "xsd:string"
+    },
+    "componentBuildVersionArn": {
+      "@id": "pan:componentBuildVersionArn",
+      "@type": "xsd:string"
+    },
+    "infrastructureConfigurationSummaryList": {
+      "@id": "pan:infrastructureConfigurationSummaryList",
+      "@type": "xsd:string"
+    },
+    "enabled": {
+      "@id": "pan:enabled",
+      "@type": "xsd:string"
+    },
+    "snapshotConfiguration": {
+      "@id": "pan:snapshotConfiguration",
+      "@type": "xsd:string"
+    },
+    "maxParallelLaunches": {
+      "@id": "pan:maxParallelLaunches",
+      "@type": "xsd:string"
+    },
+    "launchTemplate": {
+      "@id": "pan:launchTemplate",
+      "@type": "xsd:string"
+    },
+    "filter": {
+      "@id": "pan:filter",
+      "@type": "xsd:string"
+    },
+    "imageVersionArn": {
+      "@id": "pan:imageVersionArn",
+      "@type": "xsd:string"
+    },
+    "amis": {
+      "@id": "pan:amis",
+      "@type": "xsd:string"
+    },
+    "containers": {
+      "@id": "pan:containers",
+      "@type": "xsd:string"
+    },
+    "userIds": {
+      "@id": "pan:userIds",
+      "@type": "xsd:string"
+    },
+    "userGroups": {
+      "@id": "pan:userGroups",
+      "@type": "xsd:string"
+    },
+    "organizationArns": {
+      "@id": "pan:organizationArns",
+      "@type": "xsd:string"
+    },
+    "organizationalUnitArns": {
+      "@id": "pan:organizationalUnitArns",
+      "@type": "xsd:string"
+    },
+    "imagePipelineList": {
+      "@id": "pan:imagePipelineList",
+      "@type": "xsd:string"
+    },
+    "uri": {
+      "@id": "pan:uri",
+      "@type": "xsd:string"
+    },
+    "containerRecipeSummaryList": {
+      "@id": "pan:containerRecipeSummaryList",
+      "@type": "xsd:string"
+    },
+    "componentVersionList": {
+      "@id": "pan:componentVersionList",
+      "@type": "xsd:string"
+    },
+    "uninstallAfterBuild": {
+      "@id": "pan:uninstallAfterBuild",
+      "@type": "xsd:string"
+    },
+    "value": {
+      "@id": "pan:value",
+      "@type": "xsd:string"
+    },
+    "distributionConfigurationSummaryList": {
+      "@id": "pan:distributionConfigurationSummaryList",
+      "@type": "xsd:string"
+    },
+    "deleteOnTermination": {
+      "@id": "pan:deleteOnTermination",
+      "@type": "xsd:string"
+    },
+    "iops": {
+      "@id": "pan:iops",
+      "@type": "xsd:string"
+    },
+    "snapshotId": {
+      "@id": "pan:snapshotId",
+      "@type": "xsd:string"
+    },
+    "volumeSize": {
+      "@id": "pan:volumeSize",
+      "@type": "xsd:string"
+    }
+  }
+}

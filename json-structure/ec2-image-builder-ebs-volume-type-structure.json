@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-structure/ec2-image-builder-ebs-volume-type-structure.json",
+  "name": "EbsVolumeType",
+  "description": "EbsVolumeType schema from EC2 Image Builder",
+  "type": "string",
+  "enum": [
+    "standard",
+    "io1",
+    "io2",
+    "gp2",
+    "gp3",
+    "sc1",
+    "st1"
+  ]
+}

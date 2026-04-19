@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-structure/ec2-image-builder-list-image-scan-finding-aggregations-response-structure.json",
+  "name": "ListImageScanFindingAggregationsResponse",
+  "description": "ListImageScanFindingAggregationsResponse schema from EC2 Image Builder",
+  "type": "object",
+  "properties": {
+    "requestId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "The request ID that uniquely identifies this request."
+        }
+      ]
+    },
+    "aggregationType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "<p>The aggregation type specifies what type of key is used to group the image scan findings. Image Builder returns results based on the request filter. If you didn't specify a filter in the request, the type defaults to <code>accountId</code>.</p> <p class=\"title\"> <b>Aggregation types</b> </p> <ul> <li> <p>accountId</p> </li> <li> <p>imageBuildVersionArn</p> </li> <li> <p>imagePipelineArn</p> </li> <li> <p>vulnerabilityId</p> </li> </ul> <p>Each aggregation includes counts by severity level for medium severity and higher level findings, plus a total for all of the findings for each key value.</p>"
+        }
+      ]
+    },
+    "responses": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ImageScanFindingAggregationsList"
+        },
+        {
+          "description": "An array of image scan finding aggregations that match the filter criteria."
+        }
+      ]
+    },
+    "nextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PaginationToken"
+        },
+        {
+          "description": "The next token used for paginated responses. When this field isn't empty, there are additional elements that the service has'ot included in this request. Use this token with the next request to retrieve additional objects."
+        }
+      ]
+    }
+  }
+}

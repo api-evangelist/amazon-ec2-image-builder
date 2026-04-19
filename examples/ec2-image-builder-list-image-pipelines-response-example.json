@@ -1,0 +1,5 @@
+{
+  "requestId": "example-id-1234",
+  "imagePipelineList": "example-string",
+  "nextToken": "example-string"
+}

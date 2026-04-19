@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-schema/ec2-image-builder-list-image-build-versions-request-schema.json",
+  "title": "ListImageBuildVersionsRequest",
+  "description": "ListImageBuildVersionsRequest schema from EC2 Image Builder",
+  "type": "object",
+  "properties": {
+    "imageVersionArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ImageVersionArn"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the image whose build versions you want to retrieve."
+        }
+      ]
+    },
+    "filters": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/FilterList"
+        },
+        {
+          "description": "<p>Use the following filters to streamline results:</p> <ul> <li> <p> <code>name</code> </p> </li> <li> <p> <code>osVersion</code> </p> </li> <li> <p> <code>platform</code> </p> </li> <li> <p> <code>type</code> </p> </li> <li> <p> <code>version</code> </p> </li> </ul>"
+        }
+      ]
+    },
+    "maxResults": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RestrictedInteger"
+        },
+        {
+          "description": "The maximum items to return in a request."
+        }
+      ]
+    },
+    "nextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PaginationToken"
+        },
+        {
+          "description": "A token to specify where to start paginating. This is the NextToken from a previously truncated response."
+        }
+      ]
+    }
+  },
+  "required": [
+    "imageVersionArn"
+  ]
+}

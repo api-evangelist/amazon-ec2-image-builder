@@ -1,0 +1,4 @@
+{
+  "componentArn": "arn:aws:service:us-east-1:123456789012:resource/example",
+  "parameters": "example-string"
+}

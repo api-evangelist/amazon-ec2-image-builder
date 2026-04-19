@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-schema/ec2-image-builder-max-parallel-launches-schema.json",
+  "title": "MaxParallelLaunches",
+  "description": "MaxParallelLaunches schema from EC2 Image Builder",
+  "type": "integer",
+  "minimum": 1,
+  "maximum": 10000
+}

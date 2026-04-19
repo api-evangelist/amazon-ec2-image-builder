@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-structure/ec2-image-builder-image-recipe-summary-structure.json",
+  "name": "ImageRecipeSummary",
+  "description": "A summary of an image recipe.",
+  "type": "object",
+  "properties": {
+    "arn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ImageBuilderArn"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the image recipe."
+        }
+      ]
+    },
+    "name": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ResourceName"
+        },
+        {
+          "description": "The name of the image recipe."
+        }
+      ]
+    },
+    "platform": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Platform"
+        },
+        {
+          "description": "The platform of the image recipe."
+        }
+      ]
+    },
+    "owner": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "The owner of the image recipe."
+        }
+      ]
+    },
+    "parentImage": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "The base image of the image recipe."
+        }
+      ]
+    },
+    "dateCreated": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DateTime"
+        },
+        {
+          "description": "The date on which this image recipe was created."
+        }
+      ]
+    },
+    "tags": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TagMap"
+        },
+        {
+          "description": "The tags of the image recipe."
+        }
+      ]
+    }
+  }
+}

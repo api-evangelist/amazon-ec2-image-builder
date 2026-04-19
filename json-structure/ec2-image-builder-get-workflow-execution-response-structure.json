@@ -1,0 +1,139 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-structure/ec2-image-builder-get-workflow-execution-response-structure.json",
+  "name": "GetWorkflowExecutionResponse",
+  "description": "GetWorkflowExecutionResponse schema from EC2 Image Builder",
+  "type": "object",
+  "properties": {
+    "requestId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "The request ID that uniquely identifies this request."
+        }
+      ]
+    },
+    "workflowBuildVersionArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/WorkflowBuildVersionArn"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the build version for the Image Builder workflow resource that defines the specified runtime instance of the workflow."
+        }
+      ]
+    },
+    "workflowExecutionId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/WorkflowExecutionId"
+        },
+        {
+          "description": "The unique identifier that Image Builder assigned to keep track of runtime details when it ran the workflow."
+        }
+      ]
+    },
+    "imageBuildVersionArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ImageBuildVersionArn"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the image resource build version that the specified runtime instance of the workflow created."
+        }
+      ]
+    },
+    "type": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/WorkflowType"
+        },
+        {
+          "description": "The type of workflow that Image Builder ran for the specified runtime instance of the workflow."
+        }
+      ]
+    },
+    "status": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/WorkflowExecutionStatus"
+        },
+        {
+          "description": "The current runtime status for the specified runtime instance of the workflow."
+        }
+      ]
+    },
+    "message": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/WorkflowExecutionMessage"
+        },
+        {
+          "description": "The output message from the specified runtime instance of the workflow, if applicable."
+        }
+      ]
+    },
+    "totalStepCount": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/WorkflowStepCount"
+        },
+        {
+          "description": "The total number of steps in the specified runtime instance of the workflow that ran. This number should equal the sum of the step counts for steps that succeeded, were skipped, and failed."
+        }
+      ]
+    },
+    "totalStepsSucceeded": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/WorkflowStepCount"
+        },
+        {
+          "description": "A runtime count for the number of steps that ran successfully in the specified runtime instance of the workflow."
+        }
+      ]
+    },
+    "totalStepsFailed": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/WorkflowStepCount"
+        },
+        {
+          "description": "A runtime count for the number of steps that failed in the specified runtime instance of the workflow."
+        }
+      ]
+    },
+    "totalStepsSkipped": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/WorkflowStepCount"
+        },
+        {
+          "description": "A runtime count for the number of steps that were skipped in the specified runtime instance of the workflow."
+        }
+      ]
+    },
+    "startTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DateTime"
+        },
+        {
+          "description": "The timestamp when the specified runtime instance of the workflow started."
+        }
+      ]
+    },
+    "endTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DateTime"
+        },
+        {
+          "description": "The timestamp when the specified runtime instance of the workflow finished."
+        }
+      ]
+    }
+  }
+}

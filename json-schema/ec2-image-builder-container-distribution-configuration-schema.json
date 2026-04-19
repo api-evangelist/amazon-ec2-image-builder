@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-schema/ec2-image-builder-container-distribution-configuration-schema.json",
+  "title": "ContainerDistributionConfiguration",
+  "description": "Container distribution settings for encryption, licensing, and sharing in a specific Region.",
+  "type": "object",
+  "properties": {
+    "description": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "The description of the container distribution configuration."
+        }
+      ]
+    },
+    "containerTags": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/StringList"
+        },
+        {
+          "description": "Tags that are attached to the container distribution configuration."
+        }
+      ]
+    },
+    "targetRepository": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TargetContainerRepository"
+        },
+        {
+          "description": "The destination repository for the container distribution configuration."
+        }
+      ]
+    }
+  },
+  "required": [
+    "targetRepository"
+  ]
+}

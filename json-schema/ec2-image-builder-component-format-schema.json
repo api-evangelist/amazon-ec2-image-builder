@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-schema/ec2-image-builder-component-format-schema.json",
+  "title": "ComponentFormat",
+  "description": "ComponentFormat schema from EC2 Image Builder",
+  "type": "string",
+  "enum": [
+    "SHELL"
+  ]
+}

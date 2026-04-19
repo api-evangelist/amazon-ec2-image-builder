@@ -1,0 +1,139 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-schema/ec2-image-builder-image-summary-schema.json",
+  "title": "ImageSummary",
+  "description": "An image summary.",
+  "type": "object",
+  "properties": {
+    "arn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ImageBuilderArn"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the image."
+        }
+      ]
+    },
+    "name": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ResourceName"
+        },
+        {
+          "description": "The name of the image."
+        }
+      ]
+    },
+    "type": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ImageType"
+        },
+        {
+          "description": "Specifies whether this image produces an AMI or a container image."
+        }
+      ]
+    },
+    "version": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/VersionNumber"
+        },
+        {
+          "description": "The version of the image."
+        }
+      ]
+    },
+    "platform": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Platform"
+        },
+        {
+          "description": "The image operating system platform, such as Linux or Windows."
+        }
+      ]
+    },
+    "osVersion": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/OsVersion"
+        },
+        {
+          "description": "The operating system version of the instances that launch from this image. For example, Amazon Linux 2, Ubuntu 18, or Microsoft Windows Server 2019."
+        }
+      ]
+    },
+    "state": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ImageState"
+        },
+        {
+          "description": "The state of the image."
+        }
+      ]
+    },
+    "owner": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "The owner of the image."
+        }
+      ]
+    },
+    "dateCreated": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DateTime"
+        },
+        {
+          "description": "The date on which Image Builder created this image."
+        }
+      ]
+    },
+    "outputResources": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/OutputResources"
+        },
+        {
+          "description": "The output resources that Image Builder produced when it created this image."
+        }
+      ]
+    },
+    "tags": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TagMap"
+        },
+        {
+          "description": "The tags that apply to this image."
+        }
+      ]
+    },
+    "buildType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BuildType"
+        },
+        {
+          "description": "<p>Indicates the type of build that created this image. The build can be initiated in the following ways:</p> <ul> <li> <p> <b>USER_INITIATED</b> \u2013 A manual pipeline build request.</p> </li> <li> <p> <b>SCHEDULED</b> \u2013 A pipeline build initiated by a cron expression in the Image Builder pipeline, or from EventBridge.</p> </li> <li> <p> <b>IMPORT</b> \u2013 A VM import created the image to use as the base image for the recipe.</p> </li> </ul>"
+        }
+      ]
+    },
+    "imageSource": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ImageSource"
+        },
+        {
+          "description": "The origin of the base image that Image Builder used to build this image."
+        }
+      ]
+    }
+  }
+}

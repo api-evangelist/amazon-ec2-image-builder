@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-structure/ec2-image-builder-fast-launch-launch-template-specification-structure.json",
+  "name": "FastLaunchLaunchTemplateSpecification",
+  "description": "<p>Identifies the launch template that the associated Windows AMI uses for launching an instance when faster launching is enabled.</p> <note> <p>You can specify either the <code>launchTemplateName</code> or the <code>launchTemplateId</code>, but not both.</p> </note>",
+  "type": "object",
+  "properties": {
+    "launchTemplateId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/LaunchTemplateId"
+        },
+        {
+          "description": "The ID of the launch template to use for faster launching for a Windows AMI."
+        }
+      ]
+    },
+    "launchTemplateName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "The name of the launch template to use for faster launching for a Windows AMI."
+        }
+      ]
+    },
+    "launchTemplateVersion": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "The version of the launch template to use for faster launching for a Windows AMI."
+        }
+      ]
+    }
+  }
+}

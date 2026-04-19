@@ -1,0 +1,5 @@
+{
+  "name": "example-resource-name",
+  "description": "example-string",
+  "targetAccountIds": "example-id-1234"
+}

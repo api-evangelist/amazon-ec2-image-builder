@@ -1,0 +1,7 @@
+{
+  "name": "example-resource-name",
+  "semanticVersion": "1.0.0",
+  "type": "standard",
+  "format": "example-string",
+  "platform": "example-string"
+}

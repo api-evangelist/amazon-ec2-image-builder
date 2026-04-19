@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-structure/ec2-image-builder-list-container-recipes-request-structure.json",
+  "name": "ListContainerRecipesRequest",
+  "description": "ListContainerRecipesRequest schema from EC2 Image Builder",
+  "type": "object",
+  "properties": {
+    "owner": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Ownership"
+        },
+        {
+          "description": "Returns container recipes belonging to the specified owner, that have been shared with you. You can omit this field to return container recipes belonging to your account."
+        }
+      ]
+    },
+    "filters": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/FilterList"
+        },
+        {
+          "description": "<p>Use the following filters to streamline results:</p> <ul> <li> <p> <code>containerType</code> </p> </li> <li> <p> <code>name</code> </p> </li> <li> <p> <code>parentImage</code> </p> </li> <li> <p> <code>platform</code> </p> </li> </ul>"
+        }
+      ]
+    },
+    "maxResults": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RestrictedInteger"
+        },
+        {
+          "description": "The maximum items to return in a request."
+        }
+      ]
+    },
+    "nextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "A token to specify where to start paginating. This is the NextToken from a previously truncated response."
+        }
+      ]
+    }
+  }
+}

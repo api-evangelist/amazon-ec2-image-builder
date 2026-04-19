@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-schema/ec2-image-builder-ecr-configuration-schema.json",
+  "title": "EcrConfiguration",
+  "description": "Settings that Image Builder uses to configure the ECR repository and the output container images that Amazon Inspector scans.",
+  "type": "object",
+  "properties": {
+    "repositoryName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "The name of the container repository that Amazon Inspector scans to identify findings for your container images. The name includes the path for the repository location. If you don\u2019t provide this information, Image Builder creates a repository in your account named <code>image-builder-image-scanning-repository</code> for vulnerability scans of your output container images."
+        }
+      ]
+    },
+    "containerTags": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/StringList"
+        },
+        {
+          "description": "Tags for Image Builder to apply to the output container image that &amp;INS; scans. Tags can help you identify and manage your scanned images."
+        }
+      ]
+    }
+  }
+}

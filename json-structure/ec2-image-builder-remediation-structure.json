@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-structure/ec2-image-builder-remediation-structure.json",
+  "name": "Remediation",
+  "description": "Information about how to remediate a finding.",
+  "type": "object",
+  "properties": {
+    "recommendation": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RemediationRecommendation"
+        },
+        {
+          "description": "An object that contains information about the recommended course of action to remediate the finding."
+        }
+      ]
+    }
+  }
+}

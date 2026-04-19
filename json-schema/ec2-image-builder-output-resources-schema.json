@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-schema/ec2-image-builder-output-resources-schema.json",
+  "title": "OutputResources",
+  "description": "The resources produced by this image.",
+  "type": "object",
+  "properties": {
+    "amis": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AmiList"
+        },
+        {
+          "description": "The Amazon EC2 AMIs created by this image."
+        }
+      ]
+    },
+    "containers": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ContainerList"
+        },
+        {
+          "description": "Container images that the pipeline has generated and stored in the output repository."
+        }
+      ]
+    }
+  }
+}

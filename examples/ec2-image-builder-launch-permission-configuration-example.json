@@ -1,0 +1,5 @@
+{
+  "userIds": "example-id-1234",
+  "userGroups": "example-string",
+  "organizationArns": "arn:aws:service:us-east-1:123456789012:resource/example"
+}

@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-schema/ec2-image-builder-vulnerable-package-schema.json",
+  "title": "VulnerablePackage",
+  "description": "Information about a vulnerable package that Amazon Inspector identifies in a finding.",
+  "type": "object",
+  "properties": {
+    "name": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "The name of the vulnerable package."
+        }
+      ]
+    },
+    "version": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "The version of the vulnerable package."
+        }
+      ]
+    },
+    "sourceLayerHash": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SourceLayerHash"
+        },
+        {
+          "description": "The source layer hash of the vulnerable package."
+        }
+      ]
+    },
+    "epoch": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PackageEpoch"
+        },
+        {
+          "description": "The epoch of the vulnerable package."
+        }
+      ]
+    },
+    "release": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "The release of the vulnerable package."
+        }
+      ]
+    },
+    "arch": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PackageArchitecture"
+        },
+        {
+          "description": "The architecture of the vulnerable package."
+        }
+      ]
+    },
+    "packageManager": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "The package manager of the vulnerable package."
+        }
+      ]
+    },
+    "filePath": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "The file path of the vulnerable package."
+        }
+      ]
+    },
+    "fixedInVersion": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "The version of the package that contains the vulnerability fix."
+        }
+      ]
+    },
+    "remediation": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "The code to run in your environment to update packages with a fix available."
+        }
+      ]
+    }
+  }
+}

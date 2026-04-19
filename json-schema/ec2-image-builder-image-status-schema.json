@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-schema/ec2-image-builder-image-status-schema.json",
+  "title": "ImageStatus",
+  "description": "ImageStatus schema from EC2 Image Builder",
+  "type": "string",
+  "enum": [
+    "PENDING",
+    "CREATING",
+    "BUILDING",
+    "TESTING",
+    "DISTRIBUTING",
+    "INTEGRATING",
+    "AVAILABLE",
+    "CANCELLED",
+    "FAILED",
+    "DEPRECATED",
+    "DELETED"
+  ]
+}

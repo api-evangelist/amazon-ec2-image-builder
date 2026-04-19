@@ -1,0 +1,134 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-schema/ec2-image-builder-update-image-pipeline-request-schema.json",
+  "title": "UpdateImagePipelineRequest",
+  "description": "UpdateImagePipelineRequest schema from EC2 Image Builder",
+  "type": "object",
+  "properties": {
+    "imagePipelineArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ImagePipelineArn"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the image pipeline that you want to update."
+        }
+      ]
+    },
+    "description": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "The description of the image pipeline."
+        }
+      ]
+    },
+    "imageRecipeArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ImageRecipeArn"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the image recipe that will be used to configure images updated by this image pipeline."
+        }
+      ]
+    },
+    "containerRecipeArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ContainerRecipeArn"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the container pipeline to update."
+        }
+      ]
+    },
+    "infrastructureConfigurationArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/InfrastructureConfigurationArn"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the infrastructure configuration that Image Builder uses to build images that this image pipeline has updated."
+        }
+      ]
+    },
+    "distributionConfigurationArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DistributionConfigurationArn"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the distribution configuration that Image Builder uses to configure and distribute images that this image pipeline has updated."
+        }
+      ]
+    },
+    "imageTestsConfiguration": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ImageTestsConfiguration"
+        },
+        {
+          "description": "The image test configuration of the image pipeline."
+        }
+      ]
+    },
+    "enhancedImageMetadataEnabled": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NullableBoolean"
+        },
+        {
+          "description": "Collects additional information about the image being created, including the operating system (OS) version and package list. This information is used to enhance the overall experience of using EC2 Image Builder. Enabled by default."
+        }
+      ]
+    },
+    "schedule": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Schedule"
+        },
+        {
+          "description": "The schedule of the image pipeline."
+        }
+      ]
+    },
+    "status": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PipelineStatus"
+        },
+        {
+          "description": "The status of the image pipeline."
+        }
+      ]
+    },
+    "clientToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ClientToken"
+        },
+        {
+          "description": "The idempotency token used to make this request idempotent."
+        }
+      ]
+    },
+    "imageScanningConfiguration": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ImageScanningConfiguration"
+        },
+        {
+          "description": "Contains settings for vulnerability scans."
+        }
+      ]
+    }
+  },
+  "required": [
+    "imagePipelineArn",
+    "infrastructureConfigurationArn",
+    "clientToken"
+  ]
+}

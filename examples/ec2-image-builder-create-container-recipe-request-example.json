@@ -1,0 +1,7 @@
+{
+  "containerType": "standard",
+  "name": "example-resource-name",
+  "semanticVersion": "1.0.0",
+  "components": "example-string",
+  "parentImage": "example-string"
+}

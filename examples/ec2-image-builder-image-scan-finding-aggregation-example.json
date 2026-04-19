@@ -1,0 +1,5 @@
+{
+  "accountAggregation": "example-string",
+  "imageAggregation": "example-string",
+  "imagePipelineAggregation": "example-string"
+}

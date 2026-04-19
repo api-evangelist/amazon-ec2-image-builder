@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-schema/ec2-image-builder-image-package-schema.json",
+  "title": "ImagePackage",
+  "description": "Represents a package installed on an Image Builder image.",
+  "type": "object",
+  "properties": {
+    "packageName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "The name of the package as reported to the operating system package manager."
+        }
+      ]
+    },
+    "packageVersion": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "The version of the package as reported to the operating system package manager."
+        }
+      ]
+    }
+  }
+}

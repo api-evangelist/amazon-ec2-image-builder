@@ -1,0 +1,465 @@
+vocabulary: 1.0.0
+info:
+  provider: Amazon EC2 Image Builder
+  description: Unified vocabulary and taxonomy for Amazon EC2 Image Builder APIs.
+  created: '2026-04-19'
+  modified: '2026-04-19'
+operational:
+  apis:
+  - name: Amazon EC2 Image Builder API
+    namespace: ec2-image-builder
+    version: '2024'
+    status: active
+  resources:
+  - name: CancelImageCreation
+    description: CancelImageCreation resources
+  - name: CreateComponent
+    description: CreateComponent resources
+  - name: CreateContainerRecipe
+    description: CreateContainerRecipe resources
+  - name: CreateDistributionConfiguration
+    description: CreateDistributionConfiguration resources
+  - name: CreateImage
+    description: CreateImage resources
+  - name: CreateImagePipeline
+    description: CreateImagePipeline resources
+  - name: CreateImageRecipe
+    description: CreateImageRecipe resources
+  - name: CreateInfrastructureConfiguration
+    description: CreateInfrastructureConfiguration resources
+  - name: DeleteComponent#componentBuildVersionArn
+    description: DeleteComponent#componentBuildVersionArn resources
+  - name: DeleteContainerRecipe#containerRecipeArn
+    description: DeleteContainerRecipe#containerRecipeArn resources
+  - name: DeleteDistributionConfiguration#distributionConfigurationArn
+    description: DeleteDistributionConfiguration#distributionConfigurationArn resources
+  - name: DeleteImage#imageBuildVersionArn
+    description: DeleteImage#imageBuildVersionArn resources
+  - name: DeleteImagePipeline#imagePipelineArn
+    description: DeleteImagePipeline#imagePipelineArn resources
+  - name: DeleteImageRecipe#imageRecipeArn
+    description: DeleteImageRecipe#imageRecipeArn resources
+  - name: DeleteInfrastructureConfiguration#infrastructureConfigurationArn
+    description: DeleteInfrastructureConfiguration#infrastructureConfigurationArn resources
+  - name: GetComponent#componentBuildVersionArn
+    description: GetComponent#componentBuildVersionArn resources
+  - name: GetComponentPolicy#componentArn
+    description: GetComponentPolicy#componentArn resources
+  - name: GetContainerRecipe#containerRecipeArn
+    description: GetContainerRecipe#containerRecipeArn resources
+  - name: GetContainerRecipePolicy#containerRecipeArn
+    description: GetContainerRecipePolicy#containerRecipeArn resources
+  - name: GetDistributionConfiguration#distributionConfigurationArn
+    description: GetDistributionConfiguration#distributionConfigurationArn resources
+  - name: GetImage#imageBuildVersionArn
+    description: GetImage#imageBuildVersionArn resources
+  - name: GetImagePipeline#imagePipelineArn
+    description: GetImagePipeline#imagePipelineArn resources
+  - name: GetImagePolicy#imageArn
+    description: GetImagePolicy#imageArn resources
+  - name: GetImageRecipe#imageRecipeArn
+    description: GetImageRecipe#imageRecipeArn resources
+  - name: GetImageRecipePolicy#imageRecipeArn
+    description: GetImageRecipePolicy#imageRecipeArn resources
+  - name: GetInfrastructureConfiguration#infrastructureConfigurationArn
+    description: GetInfrastructureConfiguration#infrastructureConfigurationArn resources
+  - name: GetWorkflowExecution#workflowExecutionId
+    description: GetWorkflowExecution#workflowExecutionId resources
+  - name: GetWorkflowStepExecution#stepExecutionId
+    description: GetWorkflowStepExecution#stepExecutionId resources
+  - name: ImportComponent
+    description: ImportComponent resources
+  - name: ImportVmImage
+    description: ImportVmImage resources
+  - name: ListComponentBuildVersions
+    description: ListComponentBuildVersions resources
+  - name: ListComponents
+    description: ListComponents resources
+  - name: ListContainerRecipes
+    description: ListContainerRecipes resources
+  - name: ListDistributionConfigurations
+    description: ListDistributionConfigurations resources
+  - name: ListImageBuildVersions
+    description: ListImageBuildVersions resources
+  - name: ListImagePackages
+    description: ListImagePackages resources
+  - name: ListImagePipelineImages
+    description: ListImagePipelineImages resources
+  - name: ListImagePipelines
+    description: ListImagePipelines resources
+  - name: ListImageRecipes
+    description: ListImageRecipes resources
+  - name: ListImageScanFindingAggregations
+    description: ListImageScanFindingAggregations resources
+  - name: ListImageScanFindings
+    description: ListImageScanFindings resources
+  - name: ListImages
+    description: ListImages resources
+  - name: ListInfrastructureConfigurations
+    description: ListInfrastructureConfigurations resources
+  - name: ListWorkflowExecutions
+    description: ListWorkflowExecutions resources
+  - name: ListWorkflowStepExecutions
+    description: ListWorkflowStepExecutions resources
+  - name: PutComponentPolicy
+    description: PutComponentPolicy resources
+  - name: PutContainerRecipePolicy
+    description: PutContainerRecipePolicy resources
+  - name: PutImagePolicy
+    description: PutImagePolicy resources
+  - name: PutImageRecipePolicy
+    description: PutImageRecipePolicy resources
+  - name: StartImagePipelineExecution
+    description: StartImagePipelineExecution resources
+  - name: UpdateDistributionConfiguration
+    description: UpdateDistributionConfiguration resources
+  - name: UpdateImagePipeline
+    description: UpdateImagePipeline resources
+  - name: UpdateInfrastructureConfiguration
+    description: UpdateInfrastructureConfiguration resources
+  - name: tags
+    description: tags resources
+  actions:
+  - name: cancel
+    pattern: write
+  - name: create
+    pattern: write
+  - name: delete
+    pattern: write
+  - name: get
+    pattern: read
+  - name: import
+    pattern: write
+  - name: list
+    pattern: read
+  - name: put
+    pattern: write
+  - name: start
+    pattern: write
+  - name: tag
+    pattern: write
+  - name: untag
+    pattern: write
+  - name: update
+    pattern: write
+  schemas:
+    core:
+    - name: CancelImageCreationResponse
+      description: CancelImageCreationResponse schema
+    - name: ServiceException
+      description: ServiceException schema
+    - name: ClientException
+      description: ClientException schema
+    - name: ServiceUnavailableException
+      description: ServiceUnavailableException schema
+    - name: InvalidRequestException
+      description: InvalidRequestException schema
+    - name: IdempotentParameterMismatchException
+      description: IdempotentParameterMismatchException schema
+    - name: ForbiddenException
+      description: ForbiddenException schema
+    - name: CallRateLimitExceededException
+      description: CallRateLimitExceededException schema
+    - name: ResourceInUseException
+      description: ResourceInUseException schema
+    - name: CreateComponentResponse
+      description: CreateComponentResponse schema
+    - name: OsVersion
+      description: OsVersion schema
+    - name: TagValue
+      description: TagValue schema
+    - name: InvalidVersionNumberException
+      description: InvalidVersionNumberException schema
+    - name: InvalidParameterCombinationException
+      description: InvalidParameterCombinationException schema
+    - name: ServiceQuotaExceededException
+      description: ServiceQuotaExceededException schema
+  authentication:
+    schemes:
+    - AWS Signature Version 4
+    description: All API requests use AWS Signature Version 4.
+capability:
+  workflows:
+  - name: Image Pipeline Management
+    file: capabilities/ec2-image-builder-management.yaml
+    description: Workflow capability for Image Pipeline Management.
+  personas:
+  - id: cloud-engineer
+    name: Cloud Engineer
+    description: Engineers managing Amazon EC2 Image Builder resources.
+    workflows:
+    - Image Pipeline Management
+  domains:
+  - name: Image Pipeline Management
+    description: Image Pipeline Management business domain.
+crossReference:
+- resource: CancelImageCreation
+  workflows:
+  - Image Pipeline Management
+  personas:
+  - Cloud Engineer
+- resource: CreateComponent
+  workflows:
+  - Image Pipeline Management
+  personas:
+  - Cloud Engineer
+- resource: CreateContainerRecipe
+  workflows:
+  - Image Pipeline Management
+  personas:
+  - Cloud Engineer
+- resource: CreateDistributionConfiguration
+  workflows:
+  - Image Pipeline Management
+  personas:
+  - Cloud Engineer
+- resource: CreateImage
+  workflows:
+  - Image Pipeline Management
+  personas:
+  - Cloud Engineer
+- resource: CreateImagePipeline
+  workflows:
+  - Image Pipeline Management
+  personas:
+  - Cloud Engineer
+- resource: CreateImageRecipe
+  workflows:
+  - Image Pipeline Management
+  personas:
+  - Cloud Engineer
+- resource: CreateInfrastructureConfiguration
+  workflows:
+  - Image Pipeline Management
+  personas:
+  - Cloud Engineer
+- resource: DeleteComponent#componentBuildVersionArn
+  workflows:
+  - Image Pipeline Management
+  personas:
+  - Cloud Engineer
+- resource: DeleteContainerRecipe#containerRecipeArn
+  workflows:
+  - Image Pipeline Management
+  personas:
+  - Cloud Engineer
+- resource: DeleteDistributionConfiguration#distributionConfigurationArn
+  workflows:
+  - Image Pipeline Management
+  personas:
+  - Cloud Engineer
+- resource: DeleteImage#imageBuildVersionArn
+  workflows:
+  - Image Pipeline Management
+  personas:
+  - Cloud Engineer
+- resource: DeleteImagePipeline#imagePipelineArn
+  workflows:
+  - Image Pipeline Management
+  personas:
+  - Cloud Engineer
+- resource: DeleteImageRecipe#imageRecipeArn
+  workflows:
+  - Image Pipeline Management
+  personas:
+  - Cloud Engineer
+- resource: DeleteInfrastructureConfiguration#infrastructureConfigurationArn
+  workflows:
+  - Image Pipeline Management
+  personas:
+  - Cloud Engineer
+- resource: GetComponent#componentBuildVersionArn
+  workflows:
+  - Image Pipeline Management
+  personas:
+  - Cloud Engineer
+- resource: GetComponentPolicy#componentArn
+  workflows:
+  - Image Pipeline Management
+  personas:
+  - Cloud Engineer
+- resource: GetContainerRecipe#containerRecipeArn
+  workflows:
+  - Image Pipeline Management
+  personas:
+  - Cloud Engineer
+- resource: GetContainerRecipePolicy#containerRecipeArn
+  workflows:
+  - Image Pipeline Management
+  personas:
+  - Cloud Engineer
+- resource: GetDistributionConfiguration#distributionConfigurationArn
+  workflows:
+  - Image Pipeline Management
+  personas:
+  - Cloud Engineer
+- resource: GetImage#imageBuildVersionArn
+  workflows:
+  - Image Pipeline Management
+  personas:
+  - Cloud Engineer
+- resource: GetImagePipeline#imagePipelineArn
+  workflows:
+  - Image Pipeline Management
+  personas:
+  - Cloud Engineer
+- resource: GetImagePolicy#imageArn
+  workflows:
+  - Image Pipeline Management
+  personas:
+  - Cloud Engineer
+- resource: GetImageRecipe#imageRecipeArn
+  workflows:
+  - Image Pipeline Management
+  personas:
+  - Cloud Engineer
+- resource: GetImageRecipePolicy#imageRecipeArn
+  workflows:
+  - Image Pipeline Management
+  personas:
+  - Cloud Engineer
+- resource: GetInfrastructureConfiguration#infrastructureConfigurationArn
+  workflows:
+  - Image Pipeline Management
+  personas:
+  - Cloud Engineer
+- resource: GetWorkflowExecution#workflowExecutionId
+  workflows:
+  - Image Pipeline Management
+  personas:
+  - Cloud Engineer
+- resource: GetWorkflowStepExecution#stepExecutionId
+  workflows:
+  - Image Pipeline Management
+  personas:
+  - Cloud Engineer
+- resource: ImportComponent
+  workflows:
+  - Image Pipeline Management
+  personas:
+  - Cloud Engineer
+- resource: ImportVmImage
+  workflows:
+  - Image Pipeline Management
+  personas:
+  - Cloud Engineer
+- resource: ListComponentBuildVersions
+  workflows:
+  - Image Pipeline Management
+  personas:
+  - Cloud Engineer
+- resource: ListComponents
+  workflows:
+  - Image Pipeline Management
+  personas:
+  - Cloud Engineer
+- resource: ListContainerRecipes
+  workflows:
+  - Image Pipeline Management
+  personas:
+  - Cloud Engineer
+- resource: ListDistributionConfigurations
+  workflows:
+  - Image Pipeline Management
+  personas:
+  - Cloud Engineer
+- resource: ListImageBuildVersions
+  workflows:
+  - Image Pipeline Management
+  personas:
+  - Cloud Engineer
+- resource: ListImagePackages
+  workflows:
+  - Image Pipeline Management
+  personas:
+  - Cloud Engineer
+- resource: ListImagePipelineImages
+  workflows:
+  - Image Pipeline Management
+  personas:
+  - Cloud Engineer
+- resource: ListImagePipelines
+  workflows:
+  - Image Pipeline Management
+  personas:
+  - Cloud Engineer
+- resource: ListImageRecipes
+  workflows:
+  - Image Pipeline Management
+  personas:
+  - Cloud Engineer
+- resource: ListImageScanFindingAggregations
+  workflows:
+  - Image Pipeline Management
+  personas:
+  - Cloud Engineer
+- resource: ListImageScanFindings
+  workflows:
+  - Image Pipeline Management
+  personas:
+  - Cloud Engineer
+- resource: ListImages
+  workflows:
+  - Image Pipeline Management
+  personas:
+  - Cloud Engineer
+- resource: ListInfrastructureConfigurations
+  workflows:
+  - Image Pipeline Management
+  personas:
+  - Cloud Engineer
+- resource: ListWorkflowExecutions
+  workflows:
+  - Image Pipeline Management
+  personas:
+  - Cloud Engineer
+- resource: ListWorkflowStepExecutions
+  workflows:
+  - Image Pipeline Management
+  personas:
+  - Cloud Engineer
+- resource: PutComponentPolicy
+  workflows:
+  - Image Pipeline Management
+  personas:
+  - Cloud Engineer
+- resource: PutContainerRecipePolicy
+  workflows:
+  - Image Pipeline Management
+  personas:
+  - Cloud Engineer
+- resource: PutImagePolicy
+  workflows:
+  - Image Pipeline Management
+  personas:
+  - Cloud Engineer
+- resource: PutImageRecipePolicy
+  workflows:
+  - Image Pipeline Management
+  personas:
+  - Cloud Engineer
+- resource: StartImagePipelineExecution
+  workflows:
+  - Image Pipeline Management
+  personas:
+  - Cloud Engineer
+- resource: UpdateDistributionConfiguration
+  workflows:
+  - Image Pipeline Management
+  personas:
+  - Cloud Engineer
+- resource: UpdateImagePipeline
+  workflows:
+  - Image Pipeline Management
+  personas:
+  - Cloud Engineer
+- resource: UpdateInfrastructureConfiguration
+  workflows:
+  - Image Pipeline Management
+  personas:
+  - Cloud Engineer
+- resource: tags
+  workflows:
+  - Image Pipeline Management
+  personas:
+  - Cloud Engineer

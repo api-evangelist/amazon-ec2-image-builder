@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-schema/ec2-image-builder-get-image-response-schema.json",
+  "title": "GetImageResponse",
+  "description": "GetImageResponse schema from EC2 Image Builder",
+  "type": "object",
+  "properties": {
+    "requestId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "The request ID that uniquely identifies this request."
+        }
+      ]
+    },
+    "image": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Image"
+        },
+        {
+          "description": "The image object."
+        }
+      ]
+    }
+  }
+}

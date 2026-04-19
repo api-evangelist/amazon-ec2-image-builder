@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-schema/ec2-image-builder-update-distribution-configuration-request-schema.json",
+  "title": "UpdateDistributionConfigurationRequest",
+  "description": "UpdateDistributionConfigurationRequest schema from EC2 Image Builder",
+  "type": "object",
+  "properties": {
+    "distributionConfigurationArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DistributionConfigurationArn"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the distribution configuration that you want to update."
+        }
+      ]
+    },
+    "description": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "The description of the distribution configuration."
+        }
+      ]
+    },
+    "distributions": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DistributionList"
+        },
+        {
+          "description": "The distributions of the distribution configuration."
+        }
+      ]
+    },
+    "clientToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ClientToken"
+        },
+        {
+          "description": "The idempotency token of the distribution configuration."
+        }
+      ]
+    }
+  },
+  "required": [
+    "distributionConfigurationArn",
+    "distributions",
+    "clientToken"
+  ]
+}

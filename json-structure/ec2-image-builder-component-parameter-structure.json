@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-structure/ec2-image-builder-component-parameter-structure.json",
+  "name": "ComponentParameter",
+  "description": "Contains a key/value pair that sets the named component parameter.",
+  "type": "object",
+  "properties": {
+    "name": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ComponentParameterName"
+        },
+        {
+          "description": "The name of the component parameter to set."
+        }
+      ]
+    },
+    "value": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ComponentParameterValueList"
+        },
+        {
+          "description": "Sets the value for the named component parameter."
+        }
+      ]
+    }
+  },
+  "required": [
+    "name",
+    "value"
+  ]
+}

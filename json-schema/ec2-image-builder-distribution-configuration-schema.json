@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-schema/ec2-image-builder-distribution-configuration-schema.json",
+  "title": "DistributionConfiguration",
+  "description": "A distribution configuration.",
+  "type": "object",
+  "properties": {
+    "arn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ImageBuilderArn"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the distribution configuration."
+        }
+      ]
+    },
+    "name": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ResourceName"
+        },
+        {
+          "description": "The name of the distribution configuration."
+        }
+      ]
+    },
+    "description": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "The description of the distribution configuration."
+        }
+      ]
+    },
+    "distributions": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DistributionList"
+        },
+        {
+          "description": "The distribution objects that apply Region-specific settings for the deployment of the image to targeted Regions."
+        }
+      ]
+    },
+    "timeoutMinutes": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DistributionTimeoutMinutes"
+        },
+        {
+          "description": "The maximum duration in minutes for this distribution configuration."
+        }
+      ]
+    },
+    "dateCreated": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DateTime"
+        },
+        {
+          "description": "The date on which this distribution configuration was created."
+        }
+      ]
+    },
+    "dateUpdated": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DateTime"
+        },
+        {
+          "description": "The date on which this distribution configuration was last updated."
+        }
+      ]
+    },
+    "tags": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TagMap"
+        },
+        {
+          "description": "The tags of the distribution configuration."
+        }
+      ]
+    }
+  },
+  "required": [
+    "timeoutMinutes"
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-structure/ec2-image-builder-ami-distribution-configuration-structure.json",
+  "name": "AmiDistributionConfiguration",
+  "description": "Define and configure the output AMIs of the pipeline.",
+  "type": "object",
+  "properties": {
+    "name": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AmiNameString"
+        },
+        {
+          "description": "The name of the output AMI."
+        }
+      ]
+    },
+    "description": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "The description of the AMI distribution configuration. Minimum and maximum length are in characters."
+        }
+      ]
+    },
+    "targetAccountIds": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AccountList"
+        },
+        {
+          "description": "The ID of an account to which you want to distribute an image."
+        }
+      ]
+    },
+    "amiTags": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TagMap"
+        },
+        {
+          "description": "The tags to apply to AMIs distributed to this Region."
+        }
+      ]
+    },
+    "kmsKeyId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "The KMS key identifier used to encrypt the distributed image."
+        }
+      ]
+    },
+    "launchPermission": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/LaunchPermissionConfiguration"
+        },
+        {
+          "description": "Launch permissions can be used to configure which Amazon Web Services accounts can use the AMI to launch instances."
+        }
+      ]
+    }
+  }
+}

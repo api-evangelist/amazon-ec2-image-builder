@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-schema/ec2-image-builder-container-recipe-summary-schema.json",
+  "title": "ContainerRecipeSummary",
+  "description": "A summary of a container recipe",
+  "type": "object",
+  "properties": {
+    "arn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ImageBuilderArn"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the container recipe."
+        }
+      ]
+    },
+    "containerType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ContainerType"
+        },
+        {
+          "description": "Specifies the type of container, such as \"Docker\"."
+        }
+      ]
+    },
+    "name": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ResourceName"
+        },
+        {
+          "description": "The name of the container recipe."
+        }
+      ]
+    },
+    "platform": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Platform"
+        },
+        {
+          "description": "The system platform for the container, such as Windows or Linux."
+        }
+      ]
+    },
+    "owner": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "The owner of the container recipe."
+        }
+      ]
+    },
+    "parentImage": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "The base image for the container recipe."
+        }
+      ]
+    },
+    "dateCreated": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DateTime"
+        },
+        {
+          "description": "The date when this container recipe was created."
+        }
+      ]
+    },
+    "tags": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TagMap"
+        },
+        {
+          "description": "Tags that are attached to the container recipe."
+        }
+      ]
+    }
+  }
+}

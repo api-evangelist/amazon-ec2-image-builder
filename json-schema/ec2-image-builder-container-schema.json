@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-schema/ec2-image-builder-container-schema.json",
+  "title": "Container",
+  "description": "A container encapsulates the runtime environment for an application.",
+  "type": "object",
+  "properties": {
+    "region": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "Containers and container images are Region-specific. This is the Region context for the container."
+        }
+      ]
+    },
+    "imageUris": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/StringList"
+        },
+        {
+          "description": "A list of URIs for containers created in the context Region."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-schema/ec2-image-builder-list-workflow-step-executions-response-schema.json",
+  "title": "ListWorkflowStepExecutionsResponse",
+  "description": "ListWorkflowStepExecutionsResponse schema from EC2 Image Builder",
+  "type": "object",
+  "properties": {
+    "requestId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "The request ID that uniquely identifies this request."
+        }
+      ]
+    },
+    "steps": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/WorkflowStepExecutionsList"
+        },
+        {
+          "description": "Contains an array of runtime details that represents each step in this runtime instance of the workflow."
+        }
+      ]
+    },
+    "workflowBuildVersionArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/WorkflowBuildVersionArn"
+        },
+        {
+          "description": "The build version ARN for the Image Builder workflow resource that defines the steps for this runtime instance of the workflow."
+        }
+      ]
+    },
+    "workflowExecutionId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/WorkflowExecutionId"
+        },
+        {
+          "description": "The unique identifier that Image Builder assigned to keep track of runtime details when it ran the workflow."
+        }
+      ]
+    },
+    "imageBuildVersionArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ImageBuildVersionArn"
+        },
+        {
+          "description": "The image build version resource ARN that's associated with the specified runtime instance of the workflow."
+        }
+      ]
+    },
+    "message": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ImageBuildMessage"
+        },
+        {
+          "description": "The output message from the list action, if applicable."
+        }
+      ]
+    },
+    "nextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PaginationToken"
+        },
+        {
+          "description": "The next token used for paginated responses. When this field isn't empty, there are additional elements that the service has'ot included in this request. Use this token with the next request to retrieve additional objects."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-structure/ec2-image-builder-instance-block-device-mappings-structure.json",
+  "name": "InstanceBlockDeviceMappings",
+  "description": "InstanceBlockDeviceMappings schema from EC2 Image Builder",
+  "type": "array",
+  "items": {
+    "$ref": "#/components/schemas/InstanceBlockDeviceMapping"
+  }
+}

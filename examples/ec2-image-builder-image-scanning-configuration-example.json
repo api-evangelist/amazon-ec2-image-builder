@@ -1,0 +1,4 @@
+{
+  "imageScanningEnabled": "example-string",
+  "ecrConfiguration": "example-string"
+}

@@ -1,0 +1,149 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-schema/ec2-image-builder-image-scan-finding-schema.json",
+  "title": "ImageScanFinding",
+  "description": "Contains details about a vulnerability scan finding.",
+  "type": "object",
+  "properties": {
+    "awsAccountId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "The Amazon Web Services account ID that's associated with the finding."
+        }
+      ]
+    },
+    "imageBuildVersionArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ImageBuildVersionArn"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the image build version that's associated with the finding."
+        }
+      ]
+    },
+    "imagePipelineArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ImagePipelineArn"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the image pipeline that's associated with the finding."
+        }
+      ]
+    },
+    "type": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "The type of the finding. Image Builder looks for findings of the type <code>PACKAGE_VULNERABILITY</code> that apply to output images, and excludes other types."
+        }
+      ]
+    },
+    "description": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "The description of the finding."
+        }
+      ]
+    },
+    "title": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "The title of the finding."
+        }
+      ]
+    },
+    "remediation": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Remediation"
+        },
+        {
+          "description": "An object that contains the details about how to remediate the finding."
+        }
+      ]
+    },
+    "severity": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "The severity of the finding."
+        }
+      ]
+    },
+    "firstObservedAt": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DateTimeTimestamp"
+        },
+        {
+          "description": "The date and time when the finding was first observed."
+        }
+      ]
+    },
+    "updatedAt": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DateTimeTimestamp"
+        },
+        {
+          "description": "The timestamp when the finding was last updated."
+        }
+      ]
+    },
+    "inspectorScore": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonNegativeDouble"
+        },
+        {
+          "description": "The score that Amazon Inspector assigned for the finding."
+        }
+      ]
+    },
+    "inspectorScoreDetails": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/InspectorScoreDetails"
+        },
+        {
+          "description": "An object that contains details of the Amazon Inspector score."
+        }
+      ]
+    },
+    "packageVulnerabilityDetails": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PackageVulnerabilityDetails"
+        },
+        {
+          "description": "An object that contains the details of a package vulnerability finding."
+        }
+      ]
+    },
+    "fixAvailable": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "Details about whether a fix is available for any of the packages that are identified in the finding through a version update."
+        }
+      ]
+    }
+  }
+}

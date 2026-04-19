@@ -1,0 +1,5 @@
+{
+  "deviceName": "example-resource-name",
+  "ebs": "example-string",
+  "virtualName": "example-resource-name"
+}

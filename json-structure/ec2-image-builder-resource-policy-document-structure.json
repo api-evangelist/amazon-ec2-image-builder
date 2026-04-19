@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-structure/ec2-image-builder-resource-policy-document-structure.json",
+  "name": "ResourcePolicyDocument",
+  "description": "ResourcePolicyDocument schema from EC2 Image Builder",
+  "type": "string",
+  "minLength": 1,
+  "maxLength": 30000
+}

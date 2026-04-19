@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-structure/ec2-image-builder-os-version-list-structure.json",
+  "name": "OsVersionList",
+  "description": "OsVersionList schema from EC2 Image Builder",
+  "type": "array",
+  "items": {
+    "$ref": "#/components/schemas/OsVersion"
+  },
+  "minItems": 1,
+  "maxItems": 25
+}

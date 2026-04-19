@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-structure/ec2-image-builder-create-container-recipe-response-structure.json",
+  "name": "CreateContainerRecipeResponse",
+  "description": "CreateContainerRecipeResponse schema from EC2 Image Builder",
+  "type": "object",
+  "properties": {
+    "requestId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "The request ID that uniquely identifies this request."
+        }
+      ]
+    },
+    "clientToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ClientToken"
+        },
+        {
+          "description": "The client token used to make this request idempotent."
+        }
+      ]
+    },
+    "containerRecipeArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ContainerRecipeArn"
+        },
+        {
+          "description": "Returns the Amazon Resource Name (ARN) of the container recipe that the request created."
+        }
+      ]
+    }
+  }
+}

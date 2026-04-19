@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-structure/ec2-image-builder-image-pipeline-arn-structure.json",
+  "name": "ImagePipelineArn",
+  "description": "ImagePipelineArn schema from EC2 Image Builder",
+  "type": "string",
+  "pattern": "^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):image-pipeline/[a-z0-9-_]+$"
+}

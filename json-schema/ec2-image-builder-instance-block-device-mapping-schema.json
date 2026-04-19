@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-schema/ec2-image-builder-instance-block-device-mapping-schema.json",
+  "title": "InstanceBlockDeviceMapping",
+  "description": "Defines block device mappings for the instance used to configure your image.",
+  "type": "object",
+  "properties": {
+    "deviceName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "The device to which these mappings apply."
+        }
+      ]
+    },
+    "ebs": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EbsInstanceBlockDeviceSpecification"
+        },
+        {
+          "description": "Use to manage Amazon EBS-specific configuration for this mapping."
+        }
+      ]
+    },
+    "virtualName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "Use to manage instance ephemeral devices."
+        }
+      ]
+    },
+    "noDevice": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EmptyString"
+        },
+        {
+          "description": "Use to remove a mapping from the base image."
+        }
+      ]
+    }
+  }
+}

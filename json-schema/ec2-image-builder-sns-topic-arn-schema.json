@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-schema/ec2-image-builder-sns-topic-arn-schema.json",
+  "title": "SnsTopicArn",
+  "description": "SnsTopicArn schema from EC2 Image Builder",
+  "type": "string",
+  "pattern": "^arn:aws[^:]*:sns:[^:]+:[0-9]{12}:[a-zA-Z0-9-_]{1,256}$"
+}

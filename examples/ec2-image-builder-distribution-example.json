@@ -1,0 +1,6 @@
+{
+  "region": "us-east-1",
+  "amiDistributionConfiguration": "example-id-1234",
+  "containerDistributionConfiguration": "example-string",
+  "licenseConfigurationArns": "arn:aws:service:us-east-1:123456789012:resource/example"
+}

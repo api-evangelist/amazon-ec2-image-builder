@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-schema/ec2-image-builder-image-pipeline-aggregation-schema.json",
+  "title": "ImagePipelineAggregation",
+  "description": "Contains vulnerability counts for a specific image pipeline.",
+  "type": "object",
+  "properties": {
+    "imagePipelineArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ImagePipelineArn"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) that identifies the image pipeline for this aggregation."
+        }
+      ]
+    },
+    "severityCounts": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SeverityCounts"
+        },
+        {
+          "description": "Counts by severity level for medium severity and higher level findings, plus a total for all of the findings for the specified image pipeline."
+        }
+      ]
+    }
+  }
+}

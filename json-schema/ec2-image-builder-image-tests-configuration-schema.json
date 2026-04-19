@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-schema/ec2-image-builder-image-tests-configuration-schema.json",
+  "title": "ImageTestsConfiguration",
+  "description": "Configure image tests for your pipeline build. Tests run after building the image, to verify that the AMI or container image is valid before distributing it.",
+  "type": "object",
+  "properties": {
+    "imageTestsEnabled": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NullableBoolean"
+        },
+        {
+          "description": "Determines if tests should run after building the image. Image Builder defaults to enable tests to run following the image build, before image distribution."
+        }
+      ]
+    },
+    "timeoutMinutes": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ImageTestsTimeoutMinutes"
+        },
+        {
+          "description": "<p>The maximum time in minutes that tests are permitted to run.</p> <note> <p>The timeoutMinutes attribute is not currently active. This value is ignored.</p> </note>"
+        }
+      ]
+    }
+  }
+}

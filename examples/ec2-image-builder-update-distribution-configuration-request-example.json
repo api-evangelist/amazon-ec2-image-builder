@@ -1,0 +1,6 @@
+{
+  "distributionConfigurationArn": "arn:aws:service:us-east-1:123456789012:resource/example",
+  "distributions": "example-string",
+  "clientToken": "example-string",
+  "description": "example-string"
+}

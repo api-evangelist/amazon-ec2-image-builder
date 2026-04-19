@@ -1,0 +1,5 @@
+{
+  "arn": "arn:aws:service:us-east-1:123456789012:resource/example",
+  "containerType": "standard",
+  "name": "example-resource-name"
+}

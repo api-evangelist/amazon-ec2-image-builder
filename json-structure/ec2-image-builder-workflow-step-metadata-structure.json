@@ -1,0 +1,119 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-structure/ec2-image-builder-workflow-step-metadata-structure.json",
+  "name": "WorkflowStepMetadata",
+  "description": "Runtime details and status for the workflow step.",
+  "type": "object",
+  "properties": {
+    "stepExecutionId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/WorkflowStepExecutionId"
+        },
+        {
+          "description": "A unique identifier for the workflow step, assigned at runtime."
+        }
+      ]
+    },
+    "name": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/WorkflowStepName"
+        },
+        {
+          "description": "The name of the workflow step."
+        }
+      ]
+    },
+    "description": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/WorkflowStepDescription"
+        },
+        {
+          "description": "Description of the workflow step."
+        }
+      ]
+    },
+    "action": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/WorkflowStepAction"
+        },
+        {
+          "description": "The step action name."
+        }
+      ]
+    },
+    "status": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/WorkflowStepExecutionStatus"
+        },
+        {
+          "description": "Runtime status for the workflow step."
+        }
+      ]
+    },
+    "rollbackStatus": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/WorkflowStepExecutionRollbackStatus"
+        },
+        {
+          "description": "Reports on the rollback status of the step, if applicable."
+        }
+      ]
+    },
+    "message": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/WorkflowStepMessage"
+        },
+        {
+          "description": "Detailed output message that the workflow step provides at runtime."
+        }
+      ]
+    },
+    "inputs": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/WorkflowStepInputs"
+        },
+        {
+          "description": "Input parameters that Image Builder provides for the workflow step."
+        }
+      ]
+    },
+    "outputs": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/WorkflowStepOutputs"
+        },
+        {
+          "description": "The file names that the workflow step created as output for this runtime instance of the workflow."
+        }
+      ]
+    },
+    "startTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DateTime"
+        },
+        {
+          "description": "The timestamp when the workflow step started."
+        }
+      ]
+    },
+    "endTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DateTime"
+        },
+        {
+          "description": "The timestamp when the workflow step finished."
+        }
+      ]
+    }
+  }
+}

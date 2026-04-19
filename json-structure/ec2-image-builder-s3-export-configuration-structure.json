@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-structure/ec2-image-builder-s3-export-configuration-structure.json",
+  "name": "S3ExportConfiguration",
+  "description": "Properties that configure export from your build instance to a compatible file format for your VM.",
+  "type": "object",
+  "properties": {
+    "roleName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "The name of the role that grants VM Import/Export permission to export images to your S3 bucket."
+        }
+      ]
+    },
+    "diskImageFormat": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DiskImageFormat"
+        },
+        {
+          "description": "<p>Export the updated image to one of the following supported disk image formats:</p> <ul> <li> <p> <b>Virtual Hard Disk (VHD)</b> \u2013 Compatible with Citrix Xen and Microsoft Hyper-V virtualization products.</p> </li> <li> <p> <b>Stream-optimized ESX Virtual Machine Disk (VMDK)</b> \u2013 Compatible with VMware ESX and VMware vSphere versions 4, 5, and 6.</p> </li> <li> <p> <b>Raw</b> \u2013 Raw format.</p> </li> </ul>"
+        }
+      ]
+    },
+    "s3Bucket": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "The S3 bucket in which to store the output disk images for your VM."
+        }
+      ]
+    },
+    "s3Prefix": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "The Amazon S3 path for the bucket where the output disk images for your VM are stored."
+        }
+      ]
+    }
+  },
+  "required": [
+    "roleName",
+    "diskImageFormat",
+    "s3Bucket"
+  ]
+}

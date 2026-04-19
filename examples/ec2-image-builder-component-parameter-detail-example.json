@@ -1,0 +1,6 @@
+{
+  "name": "example-resource-name",
+  "type": "standard",
+  "defaultValue": "example-string",
+  "description": "example-string"
+}

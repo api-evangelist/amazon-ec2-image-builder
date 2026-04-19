@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-structure/ec2-image-builder-instance-configuration-structure.json",
+  "name": "InstanceConfiguration",
+  "description": "Defines a custom base AMI and block device mapping configurations of an instance used for building and testing container images.",
+  "type": "object",
+  "properties": {
+    "image": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "The AMI ID to use as the base image for a container build and test instance. If not specified, Image Builder will use the appropriate ECS-optimized AMI as a base image."
+        }
+      ]
+    },
+    "blockDeviceMappings": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/InstanceBlockDeviceMappings"
+        },
+        {
+          "description": "Defines the block devices to attach for building an instance from this Image Builder AMI."
+        }
+      ]
+    }
+  }
+}

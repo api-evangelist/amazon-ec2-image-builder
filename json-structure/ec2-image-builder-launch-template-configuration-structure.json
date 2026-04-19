@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-structure/ec2-image-builder-launch-template-configuration-structure.json",
+  "name": "LaunchTemplateConfiguration",
+  "description": "Identifies an Amazon EC2 launch template to use for a specific account.",
+  "type": "object",
+  "properties": {
+    "launchTemplateId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/LaunchTemplateId"
+        },
+        {
+          "description": "Identifies the Amazon EC2 launch template to use."
+        }
+      ]
+    },
+    "accountId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AccountId"
+        },
+        {
+          "description": "The account ID that this configuration applies to."
+        }
+      ]
+    },
+    "setDefaultVersion": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Boolean"
+        },
+        {
+          "description": "Set the specified Amazon EC2 launch template as the default launch template for the specified account."
+        }
+      ]
+    }
+  },
+  "required": [
+    "launchTemplateId"
+  ]
+}

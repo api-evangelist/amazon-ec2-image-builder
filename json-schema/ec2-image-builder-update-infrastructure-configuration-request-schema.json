@@ -1,0 +1,144 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-schema/ec2-image-builder-update-infrastructure-configuration-request-schema.json",
+  "title": "UpdateInfrastructureConfigurationRequest",
+  "description": "UpdateInfrastructureConfigurationRequest schema from EC2 Image Builder",
+  "type": "object",
+  "properties": {
+    "infrastructureConfigurationArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/InfrastructureConfigurationArn"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the infrastructure configuration that you want to update."
+        }
+      ]
+    },
+    "description": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "The description of the infrastructure configuration."
+        }
+      ]
+    },
+    "instanceTypes": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/InstanceTypeList"
+        },
+        {
+          "description": "The instance types of the infrastructure configuration. You can specify one or more instance types to use for this build. The service will pick one of these instance types based on availability."
+        }
+      ]
+    },
+    "instanceProfileName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/InstanceProfileNameType"
+        },
+        {
+          "description": "The instance profile to associate with the instance used to customize your Amazon EC2 AMI."
+        }
+      ]
+    },
+    "securityGroupIds": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SecurityGroupIds"
+        },
+        {
+          "description": "The security group IDs to associate with the instance used to customize your Amazon EC2 AMI."
+        }
+      ]
+    },
+    "subnetId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "The subnet ID to place the instance used to customize your Amazon EC2 AMI in."
+        }
+      ]
+    },
+    "logging": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Logging"
+        },
+        {
+          "description": "The logging configuration of the infrastructure configuration."
+        }
+      ]
+    },
+    "keyPair": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "The key pair of the infrastructure configuration. You can use this to log on to and debug the instance used to create your image."
+        }
+      ]
+    },
+    "terminateInstanceOnFailure": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NullableBoolean"
+        },
+        {
+          "description": "The terminate instance on failure setting of the infrastructure configuration. Set to false if you want Image Builder to retain the instance used to configure your AMI if the build or test phase of your workflow fails."
+        }
+      ]
+    },
+    "snsTopicArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SnsTopicArn"
+        },
+        {
+          "description": "<p>The Amazon Resource Name (ARN) for the SNS topic to which we send image build event notifications.</p> <note> <p>EC2 Image Builder is unable to send notifications to SNS topics that are encrypted using keys from other accounts. The key that is used to encrypt the SNS topic must reside in the account that the Image Builder service runs under.</p> </note>"
+        }
+      ]
+    },
+    "clientToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ClientToken"
+        },
+        {
+          "description": "The idempotency token used to make this request idempotent."
+        }
+      ]
+    },
+    "resourceTags": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ResourceTagMap"
+        },
+        {
+          "description": "The tags attached to the resource created by Image Builder."
+        }
+      ]
+    },
+    "instanceMetadataOptions": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/InstanceMetadataOptions"
+        },
+        {
+          "description": "<p>The instance metadata options that you can set for the HTTP requests that pipeline builds use to launch EC2 build and test instances. For more information about instance metadata options, see one of the following links:</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-options.html\">Configure the instance metadata options</a> in the <i> <i>Amazon EC2 User Guide</i> </i> for Linux instances.</p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/configuring-instance-metadata-options.html\">Configure the instance metadata options</a> in the <i> <i>Amazon EC2 Windows Guide</i> </i> for Windows instances.</p> </li> </ul>"
+        }
+      ]
+    }
+  },
+  "required": [
+    "infrastructureConfigurationArn",
+    "instanceProfileName",
+    "clientToken"
+  ]
+}

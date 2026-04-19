@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-schema/ec2-image-builder-start-image-pipeline-execution-request-schema.json",
+  "title": "StartImagePipelineExecutionRequest",
+  "description": "StartImagePipelineExecutionRequest schema from EC2 Image Builder",
+  "type": "object",
+  "properties": {
+    "imagePipelineArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ImagePipelineArn"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the image pipeline that you want to manually invoke."
+        }
+      ]
+    },
+    "clientToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ClientToken"
+        },
+        {
+          "description": "The idempotency token used to make this request idempotent."
+        }
+      ]
+    }
+  },
+  "required": [
+    "imagePipelineArn",
+    "clientToken"
+  ]
+}

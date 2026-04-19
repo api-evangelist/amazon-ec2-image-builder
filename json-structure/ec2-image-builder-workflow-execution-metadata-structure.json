@@ -1,0 +1,119 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-structure/ec2-image-builder-workflow-execution-metadata-structure.json",
+  "name": "WorkflowExecutionMetadata",
+  "description": "Metadata that includes details and status from this runtime instance of the workflow.",
+  "type": "object",
+  "properties": {
+    "workflowBuildVersionArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/WorkflowBuildVersionArn"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the workflow resource build version that ran."
+        }
+      ]
+    },
+    "workflowExecutionId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/WorkflowExecutionId"
+        },
+        {
+          "description": "Unique identifier that Image Builder assigns to keep track of runtime resources each time it runs a workflow."
+        }
+      ]
+    },
+    "type": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/WorkflowType"
+        },
+        {
+          "description": "Indicates what type of workflow that Image Builder ran for this runtime instance of the workflow."
+        }
+      ]
+    },
+    "status": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/WorkflowExecutionStatus"
+        },
+        {
+          "description": "The current runtime status for this workflow."
+        }
+      ]
+    },
+    "message": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/WorkflowExecutionMessage"
+        },
+        {
+          "description": "The runtime output message from the workflow, if applicable."
+        }
+      ]
+    },
+    "totalStepCount": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/WorkflowStepCount"
+        },
+        {
+          "description": "The total number of steps in the workflow. This should equal the sum of the step counts for steps that succeeded, were skipped, and failed."
+        }
+      ]
+    },
+    "totalStepsSucceeded": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/WorkflowStepCount"
+        },
+        {
+          "description": "A runtime count for the number of steps in the workflow that ran successfully."
+        }
+      ]
+    },
+    "totalStepsFailed": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/WorkflowStepCount"
+        },
+        {
+          "description": "A runtime count for the number of steps in the workflow that failed."
+        }
+      ]
+    },
+    "totalStepsSkipped": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/WorkflowStepCount"
+        },
+        {
+          "description": "A runtime count for the number of steps in the workflow that were skipped."
+        }
+      ]
+    },
+    "startTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DateTime"
+        },
+        {
+          "description": "The timestamp when the runtime instance of this workflow started."
+        }
+      ]
+    },
+    "endTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DateTime"
+        },
+        {
+          "description": "The timestamp when this runtime instance of the workflow finished."
+        }
+      ]
+    }
+  }
+}

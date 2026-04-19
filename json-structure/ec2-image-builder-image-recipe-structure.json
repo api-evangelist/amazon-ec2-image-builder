@@ -1,0 +1,149 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-structure/ec2-image-builder-image-recipe-structure.json",
+  "name": "ImageRecipe",
+  "description": "An image recipe.",
+  "type": "object",
+  "properties": {
+    "arn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ImageBuilderArn"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the image recipe."
+        }
+      ]
+    },
+    "type": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ImageType"
+        },
+        {
+          "description": "Specifies which type of image is created by the recipe - an AMI or a container image."
+        }
+      ]
+    },
+    "name": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ResourceName"
+        },
+        {
+          "description": "The name of the image recipe."
+        }
+      ]
+    },
+    "description": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "The description of the image recipe."
+        }
+      ]
+    },
+    "platform": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Platform"
+        },
+        {
+          "description": "The platform of the image recipe."
+        }
+      ]
+    },
+    "owner": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "The owner of the image recipe."
+        }
+      ]
+    },
+    "version": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/VersionNumber"
+        },
+        {
+          "description": "The version of the image recipe."
+        }
+      ]
+    },
+    "components": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ComponentConfigurationList"
+        },
+        {
+          "description": "The components that are included in the image recipe. Recipes require a minimum of one build component, and can have a maximum of 20 build and test components in any combination."
+        }
+      ]
+    },
+    "parentImage": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "The base image of the image recipe."
+        }
+      ]
+    },
+    "blockDeviceMappings": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/InstanceBlockDeviceMappings"
+        },
+        {
+          "description": "The block device mappings to apply when creating images from this recipe."
+        }
+      ]
+    },
+    "dateCreated": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DateTime"
+        },
+        {
+          "description": "The date on which this image recipe was created."
+        }
+      ]
+    },
+    "tags": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TagMap"
+        },
+        {
+          "description": "The tags of the image recipe."
+        }
+      ]
+    },
+    "workingDirectory": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "The working directory to be used during build and test workflows."
+        }
+      ]
+    },
+    "additionalInstanceConfiguration": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AdditionalInstanceConfiguration"
+        },
+        {
+          "description": "Before you create a new AMI, Image Builder launches temporary Amazon EC2 instances to build and test your image configuration. Instance configuration adds a layer of control over those instances. You can define settings and add scripts to run when an instance is launched from your AMI."
+        }
+      ]
+    }
+  }
+}

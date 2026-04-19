@@ -1,0 +1,6 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-structure/ec2-image-builder-resource-dependency-exception-structure.json",
+  "name": "ResourceDependencyException",
+  "description": "ResourceDependencyException schema from EC2 Image Builder"
+}

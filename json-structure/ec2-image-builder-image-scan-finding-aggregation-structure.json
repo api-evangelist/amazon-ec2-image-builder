@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-structure/ec2-image-builder-image-scan-finding-aggregation-structure.json",
+  "name": "ImageScanFindingAggregation",
+  "description": "This returns exactly one type of aggregation, based on the filter that Image Builder applies in its API action.",
+  "type": "object",
+  "properties": {
+    "accountAggregation": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AccountAggregation"
+        },
+        {
+          "description": "Returns an object that contains severity counts based on an account ID."
+        }
+      ]
+    },
+    "imageAggregation": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ImageAggregation"
+        },
+        {
+          "description": "Returns an object that contains severity counts based on the Amazon Resource Name (ARN) for a specific image."
+        }
+      ]
+    },
+    "imagePipelineAggregation": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ImagePipelineAggregation"
+        },
+        {
+          "description": "Returns an object that contains severity counts based on an image pipeline ARN."
+        }
+      ]
+    },
+    "vulnerabilityIdAggregation": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/VulnerabilityIdAggregation"
+        },
+        {
+          "description": "Returns an object that contains severity counts based on vulnerability ID."
+        }
+      ]
+    }
+  }
+}

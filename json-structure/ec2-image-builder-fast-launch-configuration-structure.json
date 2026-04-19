@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-structure/ec2-image-builder-fast-launch-configuration-structure.json",
+  "name": "FastLaunchConfiguration",
+  "description": "Define and configure faster launching for output Windows AMIs.",
+  "type": "object",
+  "properties": {
+    "enabled": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Boolean"
+        },
+        {
+          "description": "A Boolean that represents the current state of faster launching for the Windows AMI. Set to <code>true</code> to start using Windows faster launching, or <code>false</code> to stop using it."
+        }
+      ]
+    },
+    "snapshotConfiguration": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/FastLaunchSnapshotConfiguration"
+        },
+        {
+          "description": "Configuration settings for managing the number of snapshots that are created from pre-provisioned instances for the Windows AMI when faster launching is enabled."
+        }
+      ]
+    },
+    "maxParallelLaunches": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MaxParallelLaunches"
+        },
+        {
+          "description": "The maximum number of parallel instances that are launched for creating resources."
+        }
+      ]
+    },
+    "launchTemplate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/FastLaunchLaunchTemplateSpecification"
+        },
+        {
+          "description": "The launch template that the fast-launch enabled Windows AMI uses when it launches Windows instances to create pre-provisioned snapshots."
+        }
+      ]
+    },
+    "accountId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AccountId"
+        },
+        {
+          "description": "The owner account ID for the fast-launch enabled Windows AMI."
+        }
+      ]
+    }
+  },
+  "required": [
+    "enabled"
+  ]
+}

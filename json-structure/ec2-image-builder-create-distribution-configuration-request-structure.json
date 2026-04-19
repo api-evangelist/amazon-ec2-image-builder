@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-structure/ec2-image-builder-create-distribution-configuration-request-structure.json",
+  "name": "CreateDistributionConfigurationRequest",
+  "description": "CreateDistributionConfigurationRequest schema from EC2 Image Builder",
+  "type": "object",
+  "properties": {
+    "name": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ResourceName"
+        },
+        {
+          "description": "The name of the distribution configuration."
+        }
+      ]
+    },
+    "description": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "The description of the distribution configuration."
+        }
+      ]
+    },
+    "distributions": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DistributionList"
+        },
+        {
+          "description": "The distributions of the distribution configuration."
+        }
+      ]
+    },
+    "tags": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TagMap"
+        },
+        {
+          "description": "The tags of the distribution configuration."
+        }
+      ]
+    },
+    "clientToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ClientToken"
+        },
+        {
+          "description": "The idempotency token of the distribution configuration."
+        }
+      ]
+    }
+  },
+  "required": [
+    "name",
+    "distributions",
+    "clientToken"
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "infrastructureConfigurationArn": "arn:aws:service:us-east-1:123456789012:resource/example",
+  "clientToken": "example-string",
+  "imageRecipeArn": "arn:aws:service:us-east-1:123456789012:resource/example",
+  "containerRecipeArn": "arn:aws:service:us-east-1:123456789012:resource/example",
+  "distributionConfigurationArn": "arn:aws:service:us-east-1:123456789012:resource/example"
+}

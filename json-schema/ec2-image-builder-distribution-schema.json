@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-schema/ec2-image-builder-distribution-schema.json",
+  "title": "Distribution",
+  "description": "Defines the settings for a specific Region.",
+  "type": "object",
+  "properties": {
+    "region": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "The target Region."
+        }
+      ]
+    },
+    "amiDistributionConfiguration": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AmiDistributionConfiguration"
+        },
+        {
+          "description": "The specific AMI settings; for example, launch permissions or AMI tags."
+        }
+      ]
+    },
+    "containerDistributionConfiguration": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ContainerDistributionConfiguration"
+        },
+        {
+          "description": "Container distribution settings for encryption, licensing, and sharing in a specific Region."
+        }
+      ]
+    },
+    "licenseConfigurationArns": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/LicenseConfigurationArnList"
+        },
+        {
+          "description": "The License Manager Configuration to associate with the AMI in the specified Region."
+        }
+      ]
+    },
+    "launchTemplateConfigurations": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/LaunchTemplateConfigurationList"
+        },
+        {
+          "description": "A group of launchTemplateConfiguration settings that apply to image distribution for specified accounts."
+        }
+      ]
+    },
+    "s3ExportConfiguration": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/S3ExportConfiguration"
+        },
+        {
+          "description": "Configure export settings to deliver disk images created from your image build, using a file format that is compatible with your VMs in that Region."
+        }
+      ]
+    },
+    "fastLaunchConfigurations": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/FastLaunchConfigurationList"
+        },
+        {
+          "description": "The Windows faster-launching configurations to use for AMI distribution."
+        }
+      ]
+    }
+  },
+  "required": [
+    "region"
+  ]
+}

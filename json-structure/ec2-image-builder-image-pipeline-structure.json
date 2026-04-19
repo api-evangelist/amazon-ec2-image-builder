@@ -1,0 +1,189 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-structure/ec2-image-builder-image-pipeline-structure.json",
+  "name": "ImagePipeline",
+  "description": "Details of an image pipeline.",
+  "type": "object",
+  "properties": {
+    "arn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ImageBuilderArn"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the image pipeline."
+        }
+      ]
+    },
+    "name": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ResourceName"
+        },
+        {
+          "description": "The name of the image pipeline."
+        }
+      ]
+    },
+    "description": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "The description of the image pipeline."
+        }
+      ]
+    },
+    "platform": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Platform"
+        },
+        {
+          "description": "The platform of the image pipeline."
+        }
+      ]
+    },
+    "enhancedImageMetadataEnabled": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NullableBoolean"
+        },
+        {
+          "description": "Collects additional information about the image being created, including the operating system (OS) version and package list. This information is used to enhance the overall experience of using EC2 Image Builder. Enabled by default."
+        }
+      ]
+    },
+    "imageRecipeArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Arn"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the image recipe associated with this image pipeline."
+        }
+      ]
+    },
+    "containerRecipeArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Arn"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the container recipe that is used for this pipeline."
+        }
+      ]
+    },
+    "infrastructureConfigurationArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Arn"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the infrastructure configuration associated with this image pipeline."
+        }
+      ]
+    },
+    "distributionConfigurationArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Arn"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the distribution configuration associated with this image pipeline."
+        }
+      ]
+    },
+    "imageTestsConfiguration": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ImageTestsConfiguration"
+        },
+        {
+          "description": "The image tests configuration of the image pipeline."
+        }
+      ]
+    },
+    "schedule": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Schedule"
+        },
+        {
+          "description": "The schedule of the image pipeline."
+        }
+      ]
+    },
+    "status": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PipelineStatus"
+        },
+        {
+          "description": "The status of the image pipeline."
+        }
+      ]
+    },
+    "dateCreated": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DateTime"
+        },
+        {
+          "description": "The date on which this image pipeline was created."
+        }
+      ]
+    },
+    "dateUpdated": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DateTime"
+        },
+        {
+          "description": "The date on which this image pipeline was last updated."
+        }
+      ]
+    },
+    "dateLastRun": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DateTime"
+        },
+        {
+          "description": "This is no longer supported, and does not return a value."
+        }
+      ]
+    },
+    "dateNextRun": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DateTime"
+        },
+        {
+          "description": "This is no longer supported, and does not return a value."
+        }
+      ]
+    },
+    "tags": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TagMap"
+        },
+        {
+          "description": "The tags of this image pipeline."
+        }
+      ]
+    },
+    "imageScanningConfiguration": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ImageScanningConfiguration"
+        },
+        {
+          "description": "Contains settings for vulnerability scans."
+        }
+      ]
+    }
+  }
+}

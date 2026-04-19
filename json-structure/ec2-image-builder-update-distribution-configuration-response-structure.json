@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-ec2-image-builder/refs/heads/main/json-structure/ec2-image-builder-update-distribution-configuration-response-structure.json",
+  "name": "UpdateDistributionConfigurationResponse",
+  "description": "UpdateDistributionConfigurationResponse schema from EC2 Image Builder",
+  "type": "object",
+  "properties": {
+    "requestId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "The request ID that uniquely identifies this request."
+        }
+      ]
+    },
+    "clientToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ClientToken"
+        },
+        {
+          "description": "The idempotency token used to make this request idempotent."
+        }
+      ]
+    },
+    "distributionConfigurationArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DistributionConfigurationArn"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the distribution configuration that was updated by this request."
+        }
+      ]
+    }
+  }
+}
