@@ -1,10 +1,11 @@
 name: Amazon EC2 Image Builder
-description: EC2 Image Builder simplifies the building, testing, and deployment of Virtual Machine and container images for use on AWS or on-premises. It provides an automated pipeline to create and 
-  maintain secure, up-to-date server images without requiring scripting expertise.
+description: EC2 Image Builder simplifies the building, testing, and deployment of Virtual Machine and container images for
+  use on AWS or on-premises. It provides an automated pipeline to create and maintain secure, up-to-date server images without
+  requiring scripting expertise.
 image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
 url: https://aws.amazon.com/image-builder/
 created: '2026-03-16'
-modified: '2026-04-19'
+modified: '2026-05-19'
 tags:
 - Amazon Web Services
 - Automation
@@ -15,8 +16,8 @@ tags:
 - Virtual Machine Images
 apis:
 - name: Amazon EC2 Image Builder API
-  description: The EC2 Image Builder API provides programmatic access to create and manage image pipelines, recipes, components, infrastructure configurations, and distribution settings for automated 
-    VM and container image building workflows.
+  description: The EC2 Image Builder API provides programmatic access to create and manage image pipelines, recipes, components,
+    infrastructure configurations, and distribution settings for automated VM and container image building workflows.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/image-builder/
   baseURL: https://imagebuilder.amazonaws.com
@@ -54,6 +55,8 @@ apis:
     url: json-structure/ec2-image-builder-account-aggregation-structure.json
   - type: Example
     url: examples/ec2-image-builder-account-aggregation-example.json
+  - type: NaftikoCapability
+    url: capabilities/amazon-ec2-image-builder.yaml
 common:
 - type: Portal
   url: https://aws.amazon.com/
@@ -98,7 +101,8 @@ common:
   - name: Image Recipes
     description: Compose reusable image definitions from components including OS, software packages, and custom scripts.
   - name: Component Library
-    description: Catalog of pre-built AWS-managed and custom components for common software installation and configuration tasks.
+    description: Catalog of pre-built AWS-managed and custom components for common software installation and configuration
+      tasks.
   - name: Automated Testing
     description: Run automated tests on images before distribution to validate software, security, and compliance requirements.
   - name: Multi-Region Distribution
@@ -139,20 +143,18 @@ common:
   url: rules/amazon-ec2-image-builder-spectral-rules.yml
 - type: Vocabulary
   url: vocabulary/amazon-ec2-image-builder-vocabulary.yaml
-- type: NaftikoCapability
-  url: capabilities/ec2-image-builder-management.yaml
 - type: Integrations
   url: https://aws.amazon.com/marketplace
 integrations:
-  - name: Sign in
-  - name: Agent Mode
-  - name: 'Why AWS Marketplace?'
-  - name: Get started in AWS Marketplace
-  - name: Industry
-  - name: Resources
-  - name: Become a Channel Partner
-  - name: Sell in AWS Marketplace
-  - name: Manage Your Account
+- name: Sign in
+- name: Agent Mode
+- name: Why AWS Marketplace?
+- name: Get started in AWS Marketplace
+- name: Industry
+- name: Resources
+- name: Become a Channel Partner
+- name: Sell in AWS Marketplace
+- name: Manage Your Account
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
