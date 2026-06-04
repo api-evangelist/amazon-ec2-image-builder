@@ -1,0 +1,96 @@
+arazzo: 1.0.1
+info:
+  title: Amazon EC2 Image Builder Component Version Audit
+  summary: Create a component, list its build versions, and read the full detail of the created component.
+  description: >-
+    Creates a build component and then audits it. The workflow creates the
+    component from inline YAML, lists the build versions associated with the
+    component's semantic version ARN, and reads the full component record to
+    confirm its platform, supported OS versions, and document data. Every step
+    spells out its request inline so the flow can be read and executed without
+    opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: imageBuilderApi
+  url: ../openapi/amazon-ec2-image-builder-openapi.yaml
+  type: openapi
+workflows:
+- workflowId: component-version-audit
+  summary: Create a component, list its build versions, and read its full detail.
+  description: >-
+    Creates a component, then lists the build versions for the returned
+    component version ARN and reads the component back to confirm its
+    configuration.
+  inputs:
+    type: object
+    required:
+    - componentName
+    - componentData
+    properties:
+      componentName:
+        type: string
+        description: The name of the build component to create.
+      componentData:
+        type: string
+        description: Inline YAML document content that defines the component.
+      platform:
+        type: string
+        description: The operating system platform of the component (Windows or Linux).
+        default: Linux
+      semanticVersion:
+        type: string
+        description: The semantic version to assign to the component (e.g. 1.0.0).
+        default: 1.0.0
+      clientToken:
+        type: string
+        description: An idempotency token for the create request.
+        default: arazzo-component-audit-0001
+  steps:
+  - stepId: createComponent
+    description: >-
+      Create a build component from inline YAML document content.
+    operationId: CreateComponent
+    requestBody:
+      contentType: application/json
+      payload:
+        name: $inputs.componentName
+        semanticVersion: $inputs.semanticVersion
+        platform: $inputs.platform
+        data: $inputs.componentData
+        clientToken: $inputs.clientToken
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      componentBuildVersionArn: $response.body#/componentBuildVersionArn
+  - stepId: listBuildVersions
+    description: >-
+      List the build versions associated with the created component's semantic
+      version ARN.
+    operationId: ListComponentBuildVersions
+    requestBody:
+      contentType: application/json
+      payload:
+        componentVersionArn: $steps.createComponent.outputs.componentBuildVersionArn
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      componentSummaryList: $response.body#/componentSummaryList
+  - stepId: getComponent
+    description: >-
+      Read the full component record to confirm its platform, supported OS
+      versions, and document data.
+    operationId: GetComponent
+    parameters:
+    - name: componentBuildVersionArn
+      in: query
+      value: $steps.createComponent.outputs.componentBuildVersionArn
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      componentArn: $response.body#/component/arn
+      componentName: $response.body#/component/name
+      componentPlatform: $response.body#/component/platform
+  outputs:
+    componentBuildVersionArn: $steps.createComponent.outputs.componentBuildVersionArn
+    componentSummaryList: $steps.listBuildVersions.outputs.componentSummaryList
+    componentName: $steps.getComponent.outputs.componentName

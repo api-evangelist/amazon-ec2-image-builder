@@ -1,0 +1,110 @@
+arazzo: 1.0.1
+info:
+  title: Amazon EC2 Image Builder Cancel Running Image Build
+  summary: Start an image build, inspect its state, and cancel it while it is still in a non-terminal state.
+  description: >-
+    Provides a controlled way to abort an image build that is still running. The
+    workflow creates an image, reads its current state, and branches: when the
+    image is still in a non-terminal state such as building or testing it issues
+    a cancel request and re-reads the image to confirm cancellation, and when
+    the image has already reached a terminal state it ends without cancelling.
+    Every step spells out its request inline so the flow can be read and executed
+    without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: imageBuilderApi
+  url: ../openapi/amazon-ec2-image-builder-openapi.yaml
+  type: openapi
+workflows:
+- workflowId: cancel-running-image-build
+  summary: Create an image and cancel it if it is still building, then confirm the cancellation.
+  description: >-
+    Builds an image, checks its state, and conditionally cancels the build while
+    it is non-terminal, finally re-reading the image to confirm the result.
+  inputs:
+    type: object
+    required:
+    - imageRecipeArn
+    - infrastructureConfigurationArn
+    properties:
+      imageRecipeArn:
+        type: string
+        description: The ARN of the image recipe to build.
+      infrastructureConfigurationArn:
+        type: string
+        description: The ARN of the infrastructure configuration used to build and test the image.
+      clientToken:
+        type: string
+        description: An idempotency token reused across the create and cancel requests.
+        default: arazzo-cancel-build-0001
+  steps:
+  - stepId: createImage
+    description: >-
+      Start a new image build that may later be cancelled while in flight.
+    operationId: CreateImage
+    requestBody:
+      contentType: application/json
+      payload:
+        imageRecipeArn: $inputs.imageRecipeArn
+        infrastructureConfigurationArn: $inputs.infrastructureConfigurationArn
+        clientToken: $inputs.clientToken
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      imageBuildVersionArn: $response.body#/imageBuildVersionArn
+  - stepId: getImage
+    description: >-
+      Read the image to determine whether it is still in a non-terminal state
+      that can be cancelled.
+    operationId: GetImage
+    parameters:
+    - name: imageBuildVersionArn
+      in: query
+      value: $steps.createImage.outputs.imageBuildVersionArn
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      status: $response.body#/image/state/status
+    onSuccess:
+    - name: cancellable
+      type: goto
+      stepId: cancelCreation
+      criteria:
+      - context: $response.body
+        condition: $.image.state.status != "AVAILABLE" && $.image.state.status != "FAILED" && $.image.state.status != "CANCELLED"
+        type: jsonpath
+    - name: alreadyTerminal
+      type: end
+      criteria:
+      - context: $response.body
+        condition: $.image.state.status == "AVAILABLE" || $.image.state.status == "FAILED" || $.image.state.status == "CANCELLED"
+        type: jsonpath
+  - stepId: cancelCreation
+    description: >-
+      Cancel the in-flight image build using its build version ARN.
+    operationId: CancelImageCreation
+    requestBody:
+      contentType: application/json
+      payload:
+        imageBuildVersionArn: $steps.createImage.outputs.imageBuildVersionArn
+        clientToken: $inputs.clientToken
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      cancelledArn: $response.body#/imageBuildVersionArn
+  - stepId: confirmCancellation
+    description: >-
+      Re-read the image to confirm that the cancellation took effect.
+    operationId: GetImage
+    parameters:
+    - name: imageBuildVersionArn
+      in: query
+      value: $steps.createImage.outputs.imageBuildVersionArn
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      finalStatus: $response.body#/image/state/status
+      finalReason: $response.body#/image/state/reason
+  outputs:
+    imageBuildVersionArn: $steps.createImage.outputs.imageBuildVersionArn
+    finalStatus: $steps.confirmCancellation.outputs.finalStatus

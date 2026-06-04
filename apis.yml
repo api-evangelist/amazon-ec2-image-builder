@@ -58,6 +58,45 @@ apis:
   - type: NaftikoCapability
     url: capabilities/amazon-ec2-image-builder.yaml
 common:
+- type: ArazzoWorkflows
+  url: arazzo/
+  workflows:
+  - url: arazzo/amazon-ec2-image-builder-assemble-container-pipeline-workflow.yml
+    name: Amazon EC2 Image Builder Assemble Container Pipeline
+    summary: Build a component and container recipe, create infrastructure, and wire them into a container image pipeline.
+  - url: arazzo/amazon-ec2-image-builder-assemble-image-pipeline-workflow.yml
+    name: Amazon EC2 Image Builder Assemble Image Pipeline
+    summary: Build a component, image recipe, and infrastructure configuration, then wire them into a new image pipeline.
+  - url: arazzo/amazon-ec2-image-builder-build-image-with-failure-cleanup-workflow.yml
+    name: Amazon EC2 Image Builder Build Image with Failure Cleanup
+    summary: Build an image, poll it to a terminal state, and delete the image resource if the build failed.
+  - url: arazzo/amazon-ec2-image-builder-cancel-running-image-build-workflow.yml
+    name: Amazon EC2 Image Builder Cancel Running Image Build
+    summary: Start an image build, inspect its state, and cancel it while it is still in a non-terminal state.
+  - url: arazzo/amazon-ec2-image-builder-component-version-audit-workflow.yml
+    name: Amazon EC2 Image Builder Component Version Audit
+    summary: Create a component, list its build versions, and read the full detail of the created component.
+  - url: arazzo/amazon-ec2-image-builder-create-image-and-poll-workflow.yml
+    name: Amazon EC2 Image Builder Create Image and Poll
+    summary: Create an image from a recipe and poll its build state until it reaches a terminal status.
+  - url: arazzo/amazon-ec2-image-builder-decommission-pipeline-stack-workflow.yml
+    name: Amazon EC2 Image Builder Decommission Pipeline Stack
+    summary: Read an image pipeline, delete it, then delete the image recipe and infrastructure configuration it used.
+  - url: arazzo/amazon-ec2-image-builder-distribute-image-workflow.yml
+    name: Amazon EC2 Image Builder Distribute Image
+    summary: Create a distribution configuration, build an image that uses it, and poll until distribution completes.
+  - url: arazzo/amazon-ec2-image-builder-inspect-latest-pipeline-image-workflow.yml
+    name: Amazon EC2 Image Builder Inspect Latest Pipeline Image
+    summary: List the images a pipeline has produced and read the full detail of the most recent one.
+  - url: arazzo/amazon-ec2-image-builder-run-pipeline-and-poll-workflow.yml
+    name: Amazon EC2 Image Builder Run Pipeline and Poll
+    summary: Manually trigger an image pipeline execution and poll the produced image until it finishes.
+  - url: arazzo/amazon-ec2-image-builder-scan-image-and-review-findings-workflow.yml
+    name: Amazon EC2 Image Builder Scan Image and Review Findings
+    summary: Build an image with vulnerability scanning enabled, poll it to completion, and list the scan findings.
+  - url: arazzo/amazon-ec2-image-builder-update-pipeline-and-run-workflow.yml
+    name: Amazon EC2 Image Builder Update Pipeline and Run
+    summary: Read an existing image pipeline, point it at a new distribution configuration, enable it, and trigger a build.
 - type: Portal
   url: https://aws.amazon.com/
 - type: DeveloperPortal

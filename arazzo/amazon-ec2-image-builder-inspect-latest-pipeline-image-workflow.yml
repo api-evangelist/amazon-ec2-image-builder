@@ -1,0 +1,69 @@
+arazzo: 1.0.1
+info:
+  title: Amazon EC2 Image Builder Inspect Latest Pipeline Image
+  summary: List the images a pipeline has produced and read the full detail of the most recent one.
+  description: >-
+    Surfaces the newest image a pipeline has built and returns its complete
+    record. The workflow lists the images created by a given pipeline, takes the
+    ARN of the first image in the returned summary list, and reads that image to
+    return its full state, recipe, and output resources. Every step spells out
+    its request inline so the flow can be read and executed without opening the
+    underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: imageBuilderApi
+  url: ../openapi/amazon-ec2-image-builder-openapi.yaml
+  type: openapi
+workflows:
+- workflowId: inspect-latest-pipeline-image
+  summary: List a pipeline's images and read the detail of the first one returned.
+  description: >-
+    Lists the images produced by a pipeline, then reads the first image from the
+    summary list to return its full detail.
+  inputs:
+    type: object
+    required:
+    - imagePipelineArn
+    properties:
+      imagePipelineArn:
+        type: string
+        description: The ARN of the image pipeline whose images you want to view.
+      maxResults:
+        type: integer
+        description: The maximum number of images to return in the list request.
+        default: 1
+  steps:
+  - stepId: listPipelineImages
+    description: >-
+      Return the list of images created by the specified pipeline so the most
+      recent one can be selected.
+    operationId: ListImagePipelineImages
+    requestBody:
+      contentType: application/json
+      payload:
+        imagePipelineArn: $inputs.imagePipelineArn
+        maxResults: $inputs.maxResults
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      latestImageArn: $response.body#/imageSummaryList/0/arn
+      latestImageStatus: $response.body#/imageSummaryList/0/state/status
+  - stepId: getImage
+    description: >-
+      Read the first image from the summary list to return its full detail.
+    operationId: GetImage
+    parameters:
+    - name: imageBuildVersionArn
+      in: query
+      value: $steps.listPipelineImages.outputs.latestImageArn
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      imageArn: $response.body#/image/arn
+      imageName: $response.body#/image/name
+      status: $response.body#/image/state/status
+      outputResources: $response.body#/image/outputResources
+  outputs:
+    latestImageArn: $steps.listPipelineImages.outputs.latestImageArn
+    status: $steps.getImage.outputs.status
+    outputResources: $steps.getImage.outputs.outputResources

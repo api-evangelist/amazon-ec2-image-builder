@@ -1,0 +1,149 @@
+arazzo: 1.0.1
+info:
+  title: Amazon EC2 Image Builder Assemble Container Pipeline
+  summary: Build a component and container recipe, create infrastructure, and wire them into a container image pipeline.
+  description: >-
+    Stands up a container image pipeline end to end. The workflow creates a
+    build component from inline YAML, creates a Docker container recipe that
+    references that component on top of a parent image and targets an ECR
+    repository, creates an infrastructure configuration for the build
+    environment, and finally creates an image pipeline bound to the container
+    recipe and infrastructure configuration. Every step spells out its request
+    inline so the flow can be read and executed without opening the underlying
+    OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: imageBuilderApi
+  url: ../openapi/amazon-ec2-image-builder-openapi.yaml
+  type: openapi
+workflows:
+- workflowId: assemble-container-pipeline
+  summary: Create component, container recipe, infrastructure configuration, and container image pipeline.
+  description: >-
+    Chains the create operations needed to produce a container image pipeline.
+    The component ARN feeds the container recipe, and the container recipe and
+    infrastructure configuration ARNs feed the pipeline.
+  inputs:
+    type: object
+    required:
+    - componentName
+    - componentData
+    - containerRecipeName
+    - parentImage
+    - repositoryName
+    - infrastructureName
+    - instanceProfileName
+    - pipelineName
+    properties:
+      componentName:
+        type: string
+        description: The name of the build component to create.
+      componentData:
+        type: string
+        description: Inline YAML document content that defines the component.
+      platform:
+        type: string
+        description: The operating system platform of the component (Windows or Linux).
+        default: Linux
+      semanticVersion:
+        type: string
+        description: The semantic version to assign to the component and container recipe.
+        default: 1.0.0
+      containerRecipeName:
+        type: string
+        description: The name of the container recipe to create.
+      parentImage:
+        type: string
+        description: The base image for the container recipe.
+      repositoryName:
+        type: string
+        description: The ECR repository name where the output container image is stored.
+      infrastructureName:
+        type: string
+        description: The name of the infrastructure configuration to create.
+      instanceProfileName:
+        type: string
+        description: The instance profile to associate with the build instance.
+      pipelineName:
+        type: string
+        description: The name of the container image pipeline to create.
+      clientToken:
+        type: string
+        description: An idempotency token reused across the create requests.
+        default: arazzo-assemble-container-0001
+  steps:
+  - stepId: createComponent
+    description: >-
+      Create a reusable build component from inline YAML document content for
+      the container recipe to reference.
+    operationId: CreateComponent
+    requestBody:
+      contentType: application/json
+      payload:
+        name: $inputs.componentName
+        semanticVersion: $inputs.semanticVersion
+        platform: $inputs.platform
+        data: $inputs.componentData
+        clientToken: $inputs.clientToken
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      componentBuildVersionArn: $response.body#/componentBuildVersionArn
+  - stepId: createContainerRecipe
+    description: >-
+      Create a Docker container recipe that references the new component and
+      targets the supplied ECR repository.
+    operationId: CreateContainerRecipe
+    requestBody:
+      contentType: application/json
+      payload:
+        containerType: DOCKER
+        name: $inputs.containerRecipeName
+        semanticVersion: $inputs.semanticVersion
+        components:
+        - componentArn: $steps.createComponent.outputs.componentBuildVersionArn
+        parentImage: $inputs.parentImage
+        targetRepository:
+          service: ECR
+          repositoryName: $inputs.repositoryName
+        clientToken: $inputs.clientToken
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      containerRecipeArn: $response.body#/containerRecipeArn
+  - stepId: createInfrastructureConfiguration
+    description: >-
+      Create the infrastructure configuration that defines the build and test
+      environment for the container image.
+    operationId: CreateInfrastructureConfiguration
+    requestBody:
+      contentType: application/json
+      payload:
+        name: $inputs.infrastructureName
+        instanceProfileName: $inputs.instanceProfileName
+        clientToken: $inputs.clientToken
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      infrastructureConfigurationArn: $response.body#/infrastructureConfigurationArn
+  - stepId: createImagePipeline
+    description: >-
+      Create the image pipeline that binds the container recipe and
+      infrastructure configuration together.
+    operationId: CreateImagePipeline
+    requestBody:
+      contentType: application/json
+      payload:
+        name: $inputs.pipelineName
+        containerRecipeArn: $steps.createContainerRecipe.outputs.containerRecipeArn
+        infrastructureConfigurationArn: $steps.createInfrastructureConfiguration.outputs.infrastructureConfigurationArn
+        clientToken: $inputs.clientToken
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      imagePipelineArn: $response.body#/imagePipelineArn
+  outputs:
+    componentBuildVersionArn: $steps.createComponent.outputs.componentBuildVersionArn
+    containerRecipeArn: $steps.createContainerRecipe.outputs.containerRecipeArn
+    infrastructureConfigurationArn: $steps.createInfrastructureConfiguration.outputs.infrastructureConfigurationArn
+    imagePipelineArn: $steps.createImagePipeline.outputs.imagePipelineArn

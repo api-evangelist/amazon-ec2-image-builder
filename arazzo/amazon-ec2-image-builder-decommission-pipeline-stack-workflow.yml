@@ -1,0 +1,89 @@
+arazzo: 1.0.1
+info:
+  title: Amazon EC2 Image Builder Decommission Pipeline Stack
+  summary: Read an image pipeline, delete it, then delete the image recipe and infrastructure configuration it used.
+  description: >-
+    Tears down a pipeline stack in dependency-safe order. The workflow first
+    reads the image pipeline to capture the recipe and infrastructure
+    configuration ARNs it references, then deletes the pipeline so it no longer
+    holds those resources, and finally deletes the image recipe and the
+    infrastructure configuration. Every step spells out its request inline so
+    the flow can be read and executed without opening the underlying OpenAPI
+    description.
+  version: 1.0.0
+sourceDescriptions:
+- name: imageBuilderApi
+  url: ../openapi/amazon-ec2-image-builder-openapi.yaml
+  type: openapi
+workflows:
+- workflowId: decommission-pipeline-stack
+  summary: Delete an image pipeline and the recipe and infrastructure configuration it used.
+  description: >-
+    Reads the pipeline to discover its dependencies, deletes the pipeline first
+    to release them, then deletes the image recipe and infrastructure
+    configuration.
+  inputs:
+    type: object
+    required:
+    - imagePipelineArn
+    properties:
+      imagePipelineArn:
+        type: string
+        description: The ARN of the image pipeline to decommission.
+  steps:
+  - stepId: getImagePipeline
+    description: >-
+      Read the image pipeline to capture the recipe and infrastructure
+      configuration ARNs that must be deleted afterward.
+    operationId: GetImagePipeline
+    parameters:
+    - name: imagePipelineArn
+      in: query
+      value: $inputs.imagePipelineArn
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      imageRecipeArn: $response.body#/imagePipeline/imageRecipeArn
+      infrastructureConfigurationArn: $response.body#/imagePipeline/infrastructureConfigurationArn
+  - stepId: deleteImagePipeline
+    description: >-
+      Delete the image pipeline first so it no longer references the recipe and
+      infrastructure configuration.
+    operationId: DeleteImagePipeline
+    parameters:
+    - name: imagePipelineArn
+      in: query
+      value: $inputs.imagePipelineArn
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      deletedPipelineArn: $response.body#/imagePipelineArn
+  - stepId: deleteImageRecipe
+    description: >-
+      Delete the image recipe that the decommissioned pipeline used.
+    operationId: DeleteImageRecipe
+    parameters:
+    - name: imageRecipeArn
+      in: query
+      value: $steps.getImagePipeline.outputs.imageRecipeArn
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      deletedRecipeArn: $response.body#/imageRecipeArn
+  - stepId: deleteInfrastructureConfiguration
+    description: >-
+      Delete the infrastructure configuration that the decommissioned pipeline
+      used.
+    operationId: DeleteInfrastructureConfiguration
+    parameters:
+    - name: infrastructureConfigurationArn
+      in: query
+      value: $steps.getImagePipeline.outputs.infrastructureConfigurationArn
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      deletedInfrastructureArn: $response.body#/infrastructureConfigurationArn
+  outputs:
+    deletedPipelineArn: $steps.deleteImagePipeline.outputs.deletedPipelineArn
+    deletedRecipeArn: $steps.deleteImageRecipe.outputs.deletedRecipeArn
+    deletedInfrastructureArn: $steps.deleteInfrastructureConfiguration.outputs.deletedInfrastructureArn

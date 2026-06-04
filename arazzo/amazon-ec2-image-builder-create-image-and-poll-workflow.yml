@@ -1,0 +1,108 @@
+arazzo: 1.0.1
+info:
+  title: Amazon EC2 Image Builder Create Image and Poll
+  summary: Create an image from a recipe and poll its build state until it reaches a terminal status.
+  description: >-
+    Triggers a single image build from an existing recipe and infrastructure
+    configuration, then repeatedly reads the image build version and branches on
+    its lifecycle state. While the image is still being created, building,
+    testing, or distributing the workflow loops back and reads it again; once the
+    image reaches AVAILABLE the workflow ends successfully, and if it reaches
+    FAILED or CANCELLED the workflow stops. Every step spells out its request
+    inline so the flow can be read and executed without opening the underlying
+    OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: imageBuilderApi
+  url: ../openapi/amazon-ec2-image-builder-openapi.yaml
+  type: openapi
+workflows:
+- workflowId: create-image-and-poll
+  summary: Create an image and poll GetImage until the build reaches a terminal state.
+  description: >-
+    Starts an image build using the supplied recipe and infrastructure
+    configuration, then polls the image build version, looping while the state is
+    non-terminal and branching out when the image becomes available or fails.
+  inputs:
+    type: object
+    required:
+    - infrastructureConfigurationArn
+    properties:
+      imageRecipeArn:
+        type: string
+        description: The ARN of the image recipe to build (mutually exclusive with containerRecipeArn).
+      containerRecipeArn:
+        type: string
+        description: The ARN of the container recipe to build (mutually exclusive with imageRecipeArn).
+      infrastructureConfigurationArn:
+        type: string
+        description: The ARN of the infrastructure configuration used to build and test the image.
+      distributionConfigurationArn:
+        type: string
+        description: The ARN of the distribution configuration that defines pipeline outputs.
+      clientToken:
+        type: string
+        description: An idempotency token for the create request.
+        default: arazzo-create-image-0001
+  steps:
+  - stepId: createImage
+    description: >-
+      Create a new image build version from the supplied recipe and
+      infrastructure configuration.
+    operationId: CreateImage
+    requestBody:
+      contentType: application/json
+      payload:
+        imageRecipeArn: $inputs.imageRecipeArn
+        containerRecipeArn: $inputs.containerRecipeArn
+        infrastructureConfigurationArn: $inputs.infrastructureConfigurationArn
+        distributionConfigurationArn: $inputs.distributionConfigurationArn
+        clientToken: $inputs.clientToken
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      imageBuildVersionArn: $response.body#/imageBuildVersionArn
+  - stepId: getImage
+    description: >-
+      Read the image build version to inspect its current lifecycle state.
+    operationId: GetImage
+    parameters:
+    - name: imageBuildVersionArn
+      in: query
+      value: $steps.createImage.outputs.imageBuildVersionArn
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      imageArn: $response.body#/image/arn
+      status: $response.body#/image/state/status
+      reason: $response.body#/image/state/reason
+    onSuccess:
+    - name: imageAvailable
+      type: end
+      criteria:
+      - context: $response.body
+        condition: $.image.state.status == "AVAILABLE"
+        type: jsonpath
+    - name: imageFailed
+      type: end
+      criteria:
+      - context: $response.body
+        condition: $.image.state.status == "FAILED"
+        type: jsonpath
+    - name: imageCancelled
+      type: end
+      criteria:
+      - context: $response.body
+        condition: $.image.state.status == "CANCELLED"
+        type: jsonpath
+    - name: stillBuilding
+      type: goto
+      stepId: getImage
+      criteria:
+      - context: $response.body
+        condition: $.image.state.status != "AVAILABLE" && $.image.state.status != "FAILED" && $.image.state.status != "CANCELLED"
+        type: jsonpath
+  outputs:
+    imageBuildVersionArn: $steps.createImage.outputs.imageBuildVersionArn
+    finalStatus: $steps.getImage.outputs.status
+    finalReason: $steps.getImage.outputs.reason

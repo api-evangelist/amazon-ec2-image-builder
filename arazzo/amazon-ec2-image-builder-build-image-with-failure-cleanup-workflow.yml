@@ -1,0 +1,106 @@
+arazzo: 1.0.1
+info:
+  title: Amazon EC2 Image Builder Build Image with Failure Cleanup
+  summary: Build an image, poll it to a terminal state, and delete the image resource if the build failed.
+  description: >-
+    Builds an image and keeps the resource list tidy by removing failed builds.
+    The workflow creates an image, polls its lifecycle state until it reaches a
+    terminal status, and then branches: when the build is AVAILABLE it ends
+    successfully, and when the build is FAILED or CANCELLED it deletes the image
+    build version resource so it does not clutter the account. Every step spells
+    out its request inline so the flow can be read and executed without opening
+    the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: imageBuilderApi
+  url: ../openapi/amazon-ec2-image-builder-openapi.yaml
+  type: openapi
+workflows:
+- workflowId: build-image-with-failure-cleanup
+  summary: Build an image, poll to a terminal state, and delete it when the build did not succeed.
+  description: >-
+    Creates an image, polls GetImage until terminal, and on a failed or
+    cancelled outcome deletes the image build version resource.
+  inputs:
+    type: object
+    required:
+    - imageRecipeArn
+    - infrastructureConfigurationArn
+    properties:
+      imageRecipeArn:
+        type: string
+        description: The ARN of the image recipe to build.
+      infrastructureConfigurationArn:
+        type: string
+        description: The ARN of the infrastructure configuration used to build and test the image.
+      clientToken:
+        type: string
+        description: An idempotency token for the create request.
+        default: arazzo-build-cleanup-0001
+  steps:
+  - stepId: createImage
+    description: >-
+      Start a new image build whose outcome will determine whether cleanup runs.
+    operationId: CreateImage
+    requestBody:
+      contentType: application/json
+      payload:
+        imageRecipeArn: $inputs.imageRecipeArn
+        infrastructureConfigurationArn: $inputs.infrastructureConfigurationArn
+        clientToken: $inputs.clientToken
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      imageBuildVersionArn: $response.body#/imageBuildVersionArn
+  - stepId: getImage
+    description: >-
+      Poll the image build version until it reaches a terminal state, then
+      branch on the outcome.
+    operationId: GetImage
+    parameters:
+    - name: imageBuildVersionArn
+      in: query
+      value: $steps.createImage.outputs.imageBuildVersionArn
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      status: $response.body#/image/state/status
+      reason: $response.body#/image/state/reason
+    onSuccess:
+    - name: buildSucceeded
+      type: end
+      criteria:
+      - context: $response.body
+        condition: $.image.state.status == "AVAILABLE"
+        type: jsonpath
+    - name: buildFailed
+      type: goto
+      stepId: deleteFailedImage
+      criteria:
+      - context: $response.body
+        condition: $.image.state.status == "FAILED" || $.image.state.status == "CANCELLED"
+        type: jsonpath
+    - name: buildInProgress
+      type: goto
+      stepId: getImage
+      criteria:
+      - context: $response.body
+        condition: $.image.state.status != "AVAILABLE" && $.image.state.status != "FAILED" && $.image.state.status != "CANCELLED"
+        type: jsonpath
+  - stepId: deleteFailedImage
+    description: >-
+      Delete the failed or cancelled image build version resource so it does not
+      clutter the account.
+    operationId: DeleteImage
+    parameters:
+    - name: imageBuildVersionArn
+      in: query
+      value: $steps.createImage.outputs.imageBuildVersionArn
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      deletedArn: $response.body#/imageBuildVersionArn
+  outputs:
+    imageBuildVersionArn: $steps.createImage.outputs.imageBuildVersionArn
+    finalStatus: $steps.getImage.outputs.status
+    deletedArn: $steps.deleteFailedImage.outputs.deletedArn

@@ -1,0 +1,91 @@
+arazzo: 1.0.1
+info:
+  title: Amazon EC2 Image Builder Update Pipeline and Run
+  summary: Read an existing image pipeline, point it at a new distribution configuration, enable it, and trigger a build.
+  description: >-
+    Reconfigures and exercises an existing image pipeline. The workflow first
+    reads the current pipeline to capture the recipe and infrastructure
+    configuration it already uses, then updates the pipeline to attach a new
+    distribution configuration and set its status to ENABLED, and finally starts
+    a manual execution so a fresh image is built with the updated settings.
+    Every step spells out its request inline so the flow can be read and executed
+    without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: imageBuilderApi
+  url: ../openapi/amazon-ec2-image-builder-openapi.yaml
+  type: openapi
+workflows:
+- workflowId: update-pipeline-and-run
+  summary: Get a pipeline, update its distribution configuration and status, then start a build.
+  description: >-
+    Reads an image pipeline, updates it with a new distribution configuration
+    and an ENABLED status while preserving its existing recipe and
+    infrastructure configuration, then manually triggers an execution.
+  inputs:
+    type: object
+    required:
+    - imagePipelineArn
+    - distributionConfigurationArn
+    properties:
+      imagePipelineArn:
+        type: string
+        description: The ARN of the image pipeline to update and run.
+      distributionConfigurationArn:
+        type: string
+        description: The ARN of the distribution configuration to attach to the pipeline.
+      clientToken:
+        type: string
+        description: An idempotency token reused across the update and start requests.
+        default: arazzo-update-run-0001
+  steps:
+  - stepId: getImagePipeline
+    description: >-
+      Read the existing image pipeline to capture the recipe and infrastructure
+      configuration ARNs it currently references.
+    operationId: GetImagePipeline
+    parameters:
+    - name: imagePipelineArn
+      in: query
+      value: $inputs.imagePipelineArn
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      imageRecipeArn: $response.body#/imagePipeline/imageRecipeArn
+      infrastructureConfigurationArn: $response.body#/imagePipeline/infrastructureConfigurationArn
+  - stepId: updateImagePipeline
+    description: >-
+      Update the pipeline to attach the new distribution configuration and set
+      its status to ENABLED, keeping the existing recipe and infrastructure
+      configuration.
+    operationId: UpdateImagePipeline
+    requestBody:
+      contentType: application/json
+      payload:
+        imagePipelineArn: $inputs.imagePipelineArn
+        imageRecipeArn: $steps.getImagePipeline.outputs.imageRecipeArn
+        infrastructureConfigurationArn: $steps.getImagePipeline.outputs.infrastructureConfigurationArn
+        distributionConfigurationArn: $inputs.distributionConfigurationArn
+        status: ENABLED
+        clientToken: $inputs.clientToken
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      updatedPipelineArn: $response.body#/imagePipelineArn
+  - stepId: startExecution
+    description: >-
+      Manually trigger the updated pipeline to build a fresh image with the new
+      distribution configuration.
+    operationId: StartImagePipelineExecution
+    requestBody:
+      contentType: application/json
+      payload:
+        imagePipelineArn: $inputs.imagePipelineArn
+        clientToken: $inputs.clientToken
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      imageBuildVersionArn: $response.body#/imageBuildVersionArn
+  outputs:
+    updatedPipelineArn: $steps.updateImagePipeline.outputs.updatedPipelineArn
+    imageBuildVersionArn: $steps.startExecution.outputs.imageBuildVersionArn

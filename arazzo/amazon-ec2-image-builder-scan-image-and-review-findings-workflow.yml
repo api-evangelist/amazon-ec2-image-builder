@@ -1,0 +1,109 @@
+arazzo: 1.0.1
+info:
+  title: Amazon EC2 Image Builder Scan Image and Review Findings
+  summary: Build an image with vulnerability scanning enabled, poll it to completion, and list the scan findings.
+  description: >-
+    Produces a vulnerability report for a freshly built image. The workflow
+    creates an image with image scanning enabled, polls the build until it
+    reaches a terminal state, and then lists the image scan findings filtered to
+    that image build version so the caller can review detected vulnerabilities.
+    Every step spells out its request inline so the flow can be read and executed
+    without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: imageBuilderApi
+  url: ../openapi/amazon-ec2-image-builder-openapi.yaml
+  type: openapi
+workflows:
+- workflowId: scan-image-and-review-findings
+  summary: Build a scanned image, poll it, and list the vulnerability findings for it.
+  description: >-
+    Creates an image with scanning enabled, polls GetImage until terminal, and
+    lists the scan findings filtered by the image build version ARN.
+  inputs:
+    type: object
+    required:
+    - imageRecipeArn
+    - infrastructureConfigurationArn
+    properties:
+      imageRecipeArn:
+        type: string
+        description: The ARN of the image recipe to build.
+      infrastructureConfigurationArn:
+        type: string
+        description: The ARN of the infrastructure configuration used to build and test the image.
+      clientToken:
+        type: string
+        description: An idempotency token for the create request.
+        default: arazzo-scan-image-0001
+  steps:
+  - stepId: createScannedImage
+    description: >-
+      Create an image with image scanning enabled so Amazon Inspector evaluates
+      the build instance.
+    operationId: CreateImage
+    requestBody:
+      contentType: application/json
+      payload:
+        imageRecipeArn: $inputs.imageRecipeArn
+        infrastructureConfigurationArn: $inputs.infrastructureConfigurationArn
+        imageScanningConfiguration:
+          imageScanningEnabled: true
+        clientToken: $inputs.clientToken
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      imageBuildVersionArn: $response.body#/imageBuildVersionArn
+  - stepId: getImage
+    description: >-
+      Poll the image build version until it reaches a terminal state.
+    operationId: GetImage
+    parameters:
+    - name: imageBuildVersionArn
+      in: query
+      value: $steps.createScannedImage.outputs.imageBuildVersionArn
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      status: $response.body#/image/state/status
+    onSuccess:
+    - name: scanReady
+      type: goto
+      stepId: listScanFindings
+      criteria:
+      - context: $response.body
+        condition: $.image.state.status == "AVAILABLE"
+        type: jsonpath
+    - name: scanUnavailable
+      type: end
+      criteria:
+      - context: $response.body
+        condition: $.image.state.status == "FAILED" || $.image.state.status == "CANCELLED"
+        type: jsonpath
+    - name: scanInProgress
+      type: goto
+      stepId: getImage
+      criteria:
+      - context: $response.body
+        condition: $.image.state.status != "AVAILABLE" && $.image.state.status != "FAILED" && $.image.state.status != "CANCELLED"
+        type: jsonpath
+  - stepId: listScanFindings
+    description: >-
+      List the image scan findings filtered to the image build version that was
+      just built.
+    operationId: ListImageScanFindings
+    requestBody:
+      contentType: application/json
+      payload:
+        filters:
+        - name: imageBuildVersionArn
+          values:
+          - $steps.createScannedImage.outputs.imageBuildVersionArn
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      findings: $response.body#/findings
+  outputs:
+    imageBuildVersionArn: $steps.createScannedImage.outputs.imageBuildVersionArn
+    finalStatus: $steps.getImage.outputs.status
+    findings: $steps.listScanFindings.outputs.findings

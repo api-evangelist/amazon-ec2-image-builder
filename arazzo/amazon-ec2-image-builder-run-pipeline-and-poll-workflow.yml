@@ -1,0 +1,94 @@
+arazzo: 1.0.1
+info:
+  title: Amazon EC2 Image Builder Run Pipeline and Poll
+  summary: Manually trigger an image pipeline execution and poll the produced image until it finishes.
+  description: >-
+    Kicks off a build on an existing image pipeline and then tracks the image
+    that the run produces. The workflow starts the pipeline execution, captures
+    the image build version ARN it returns, and repeatedly reads that image,
+    looping while the build is still in progress and ending when the image
+    reaches AVAILABLE, FAILED, or CANCELLED. Every step spells out its request
+    inline so the flow can be read and executed without opening the underlying
+    OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: imageBuilderApi
+  url: ../openapi/amazon-ec2-image-builder-openapi.yaml
+  type: openapi
+workflows:
+- workflowId: run-pipeline-and-poll
+  summary: Start a pipeline execution and poll the resulting image to a terminal state.
+  description: >-
+    Manually invokes an image pipeline, then polls the returned image build
+    version, looping while non-terminal and branching out on a terminal state.
+  inputs:
+    type: object
+    required:
+    - imagePipelineArn
+    properties:
+      imagePipelineArn:
+        type: string
+        description: The ARN of the image pipeline to manually invoke.
+      clientToken:
+        type: string
+        description: An idempotency token for the start request.
+        default: arazzo-run-pipeline-0001
+  steps:
+  - stepId: startExecution
+    description: >-
+      Manually trigger the pipeline to create a new image and capture the image
+      build version ARN it returns.
+    operationId: StartImagePipelineExecution
+    requestBody:
+      contentType: application/json
+      payload:
+        imagePipelineArn: $inputs.imagePipelineArn
+        clientToken: $inputs.clientToken
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      imageBuildVersionArn: $response.body#/imageBuildVersionArn
+  - stepId: getImage
+    description: >-
+      Read the image build version produced by the pipeline run to inspect its
+      current lifecycle state.
+    operationId: GetImage
+    parameters:
+    - name: imageBuildVersionArn
+      in: query
+      value: $steps.startExecution.outputs.imageBuildVersionArn
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      status: $response.body#/image/state/status
+      reason: $response.body#/image/state/reason
+    onSuccess:
+    - name: pipelineImageAvailable
+      type: end
+      criteria:
+      - context: $response.body
+        condition: $.image.state.status == "AVAILABLE"
+        type: jsonpath
+    - name: pipelineImageFailed
+      type: end
+      criteria:
+      - context: $response.body
+        condition: $.image.state.status == "FAILED"
+        type: jsonpath
+    - name: pipelineImageCancelled
+      type: end
+      criteria:
+      - context: $response.body
+        condition: $.image.state.status == "CANCELLED"
+        type: jsonpath
+    - name: pipelineImageInProgress
+      type: goto
+      stepId: getImage
+      criteria:
+      - context: $response.body
+        condition: $.image.state.status != "AVAILABLE" && $.image.state.status != "FAILED" && $.image.state.status != "CANCELLED"
+        type: jsonpath
+  outputs:
+    imageBuildVersionArn: $steps.startExecution.outputs.imageBuildVersionArn
+    finalStatus: $steps.getImage.outputs.status
+    finalReason: $steps.getImage.outputs.reason
