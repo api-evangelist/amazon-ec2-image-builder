@@ -58,6 +58,8 @@ apis:
   - type: NaftikoCapability
     url: capabilities/amazon-ec2-image-builder.yaml
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/amazon-ec2-image-builder/overview
 - type: ArazzoWorkflows
   url: arazzo/
   workflows:
