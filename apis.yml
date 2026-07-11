@@ -58,6 +58,14 @@ apis:
   - type: X-NaftikoCapability
     url: capabilities/amazon-ec2-image-builder.yaml
 common:
+  - type: TrustCenter
+    url: security/amazon-ec2-image-builder-trust-center.yml
+  - type: VulnerabilityDisclosure
+    url: security/amazon-ec2-image-builder-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/amazon-ec2-image-builder-domain-security.yml
+  - type: Authentication
+    url: authentication/amazon-ec2-image-builder-authentication.yml
   - type: PostmanWorkspace
     url: https://www.postman.com/kinlaneapi/amazon-ec2-image-builder/overview
   - type: Arazzo
