@@ -1,0 +1,469 @@
+openapi: 3.0.0
+info:
+  version: 2019-12-02
+  x-release: v4
+  title: EC2 Image Builder CancelImageCreation GetComponent#componentBuildVersionArn API
+  description: EC2 Image Builder is a fully managed Amazon Web Services service that makes it easier to automate the creation, management, and deployment of customized, secure, and up-to-date "golden" server images that are pre-installed and pre-configured with software and settings to meet specific IT standards.
+  x-logo:
+    url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
+    backgroundColor: '#FFFFFF'
+  termsOfService: https://aws.amazon.com/service-terms/
+  contact:
+    name: Mike Ralphson
+    email: mike.ralphson@gmail.com
+    url: https://github.com/mermade/aws2openapi
+    x-twitter: PermittedSoc
+  license:
+    name: Apache 2.0 License
+    url: http://www.apache.org/licenses/
+  x-providerName: amazonaws.com
+  x-serviceName: imagebuilder
+  x-aws-signingName: imagebuilder
+  x-origin:
+  - contentType: application/json
+    url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/imagebuilder-2019-12-02.normal.json
+    converter:
+      url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
+    x-apisguru-driver: external
+  x-apiClientRegistration:
+    url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
+  x-apisguru-categories:
+  - cloud
+  x-preferred: true
+servers:
+- url: http://imagebuilder.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The imagebuilder multi-region endpoint
+- url: https://imagebuilder.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The imagebuilder multi-region endpoint
+- url: http://imagebuilder.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The imagebuilder endpoint for China (Beijing) and China (Ningxia)
+- url: https://imagebuilder.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The imagebuilder endpoint for China (Beijing) and China (Ningxia)
+security:
+- hmac: []
+tags:
+- name: GetComponent#componentBuildVersionArn
+paths:
+  /GetComponent#componentBuildVersionArn:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    get:
+      operationId: GetComponent
+      description: Gets a component object.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetComponentResponse'
+              examples:
+                GetComponent200Example:
+                  summary: Default GetComponent 200 response
+                  x-microcks-default: true
+                  value:
+                    requestId: example-id-1234
+                    component: example-string
+        '480':
+          description: ServiceException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceException'
+              examples:
+                GetComponent480Example:
+                  summary: Default GetComponent 480 response
+                  x-microcks-default: true
+                  value: {}
+        '481':
+          description: ClientException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientException'
+              examples:
+                GetComponent481Example:
+                  summary: Default GetComponent 481 response
+                  x-microcks-default: true
+                  value: {}
+        '482':
+          description: ServiceUnavailableException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceUnavailableException'
+        '483':
+          description: InvalidRequestException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidRequestException'
+        '484':
+          description: ForbiddenException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForbiddenException'
+        '485':
+          description: CallRateLimitExceededException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CallRateLimitExceededException'
+      parameters:
+      - name: componentBuildVersionArn
+        in: query
+        required: true
+        description: The Amazon Resource Name (ARN) of the component that you want to get. Regex requires the suffix <code>/\d+$</code>.
+        schema:
+          type: string
+          pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):component/[a-z0-9-_]+/(?:(?:([0-9]+|x)\.([0-9]+|x)\.([0-9]+|x))|(?:[0-9]+\.[0-9]+\.[0-9]+/[0-9]+))$
+      summary: Amazon EC2 Image Builder Get Component
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - GetComponent#componentBuildVersionArn
+components:
+  schemas:
+    ComponentData:
+      type: string
+    OsVersion:
+      type: string
+      minLength: 1
+    Platform:
+      type: string
+      enum:
+      - Windows
+      - Linux
+    VersionNumber:
+      type: string
+      pattern: ^[0-9]+\.[0-9]+\.[0-9]+$
+    NonEmptyString:
+      type: string
+      minLength: 1
+      maxLength: 1024
+    DateTime:
+      type: string
+    ServiceException: {}
+    ForbiddenException: {}
+    ServiceUnavailableException: {}
+    ComponentType:
+      type: string
+      enum:
+      - BUILD
+      - TEST
+    ComponentParameterValue:
+      type: string
+      pattern: '[^\x00]*'
+      minLength: 0
+    ComponentParameterName:
+      type: string
+      pattern: '[^\x00]+'
+      minLength: 1
+      maxLength: 256
+    OsVersionList:
+      type: array
+      items:
+        $ref: '#/components/schemas/OsVersion'
+      minItems: 1
+      maxItems: 25
+    Component:
+      type: object
+      properties:
+        arn:
+          allOf:
+          - $ref: '#/components/schemas/ImageBuilderArn'
+          - description: The Amazon Resource Name (ARN) of the component.
+        name:
+          allOf:
+          - $ref: '#/components/schemas/ResourceName'
+          - description: The name of the component.
+        version:
+          allOf:
+          - $ref: '#/components/schemas/VersionNumber'
+          - description: The version of the component.
+        description:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The description of the component.
+        changeDescription:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The change description of the component.
+        type:
+          allOf:
+          - $ref: '#/components/schemas/ComponentType'
+          - description: The component type specifies whether Image Builder uses the component to build the image or only to test it.
+        platform:
+          allOf:
+          - $ref: '#/components/schemas/Platform'
+          - description: The operating system platform of the component.
+        supportedOsVersions:
+          allOf:
+          - $ref: '#/components/schemas/OsVersionList'
+          - description: The operating system (OS) version supported by the component. If the OS information is available, Image Builder performs a prefix match against the base image OS version during image recipe creation.
+        state:
+          allOf:
+          - $ref: '#/components/schemas/ComponentState'
+          - description: Describes the current status of the component. This is used for components that are no longer active.
+        parameters:
+          allOf:
+          - $ref: '#/components/schemas/ComponentParameterDetailList'
+          - description: Contains parameter details for each of the parameters that the component document defined for the component.
+        owner:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The owner of the component.
+        data:
+          allOf:
+          - $ref: '#/components/schemas/ComponentData'
+          - description: Component data contains the YAML document content for the component.
+        kmsKeyId:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The KMS key identifier used to encrypt the component.
+        encrypted:
+          allOf:
+          - $ref: '#/components/schemas/NullableBoolean'
+          - description: The encryption status of the component.
+        dateCreated:
+          allOf:
+          - $ref: '#/components/schemas/DateTime'
+          - description: The date that Image Builder created the component.
+        tags:
+          allOf:
+          - $ref: '#/components/schemas/TagMap'
+          - description: The tags that apply to the component.
+        publisher:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: Contains the name of the publisher if this is a third-party component. Otherwise, this property is empty.
+        obfuscate:
+          allOf:
+          - $ref: '#/components/schemas/Boolean'
+          - description: Indicates whether component source is hidden from view in the console, and from component detail results for API, CLI, or SDK operations.
+      description: A detailed view of a component.
+    ResourceName:
+      type: string
+      pattern: ^[-_A-Za-z-0-9][-_A-Za-z0-9 ]{1,126}[-_A-Za-z-0-9]$
+    Boolean:
+      type: boolean
+    ComponentParameterDetail:
+      type: object
+      required:
+      - name
+      - type
+      properties:
+        name:
+          allOf:
+          - $ref: '#/components/schemas/ComponentParameterName'
+          - description: The name of this input parameter.
+        type:
+          allOf:
+          - $ref: '#/components/schemas/ComponentParameterType'
+          - description: The type of input this parameter provides. The currently supported value is "string".
+        defaultValue:
+          allOf:
+          - $ref: '#/components/schemas/ComponentParameterValueList'
+          - description: The default value of this parameter if no input is provided.
+        description:
+          allOf:
+          - $ref: '#/components/schemas/ComponentParameterDescription'
+          - description: Describes this parameter.
+      description: Defines a parameter that is used to provide configuration details for the component.
+    TagMap:
+      type: object
+      minProperties: 1
+      maxProperties: 50
+      additionalProperties:
+        $ref: '#/components/schemas/TagValue'
+    TagValue:
+      type: string
+      maxLength: 256
+    CallRateLimitExceededException: {}
+    ComponentStatus:
+      type: string
+      enum:
+      - DEPRECATED
+    ClientException: {}
+    ComponentParameterType:
+      type: string
+      pattern: ^String|Integer|Boolean|StringList$
+      minLength: 1
+      maxLength: 20
+    InvalidRequestException: {}
+    NullableBoolean:
+      type: boolean
+    ComponentParameterValueList:
+      type: array
+      items:
+        $ref: '#/components/schemas/ComponentParameterValue'
+    ComponentParameterDescription:
+      type: string
+      pattern: '[^\x00]+'
+      minLength: 1
+      maxLength: 1024
+    GetComponentResponse:
+      type: object
+      properties:
+        requestId:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The request ID that uniquely identifies this request.
+          example: example-id-1234
+        component:
+          allOf:
+          - $ref: '#/components/schemas/Component'
+          - description: The component object associated with the specified ARN.
+          example: example-string
+    ComponentParameterDetailList:
+      type: array
+      items:
+        $ref: '#/components/schemas/ComponentParameterDetail'
+    ComponentState:
+      type: object
+      properties:
+        status:
+          allOf:
+          - $ref: '#/components/schemas/ComponentStatus'
+          - description: The current state of the component.
+        reason:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: Describes how or why the component changed state.
+      description: A group of fields that describe the current status of components that are no longer active.
+    ImageBuilderArn:
+      type: string
+      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):(?:image-recipe|container-recipe|infrastructure-configuration|distribution-configuration|component|image|image-pipeline|workflow\/(?:build|test|distribution))/[a-z0-9-_]+(?:/(?:(?:x|[0-9]+)\.(?:x|[0-9]+)\.(?:x|[0-9]+))(?:/[0-9]+)?)?$
+  parameters:
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+  securitySchemes:
+    hmac:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: Amazon Signature authorization v4
+      x-amazon-apigateway-authtype: awsSigv4
+externalDocs:
+  description: Amazon Web Services documentation
+  url: https://docs.aws.amazon.com/imagebuilder/
+x-hasEquivalentPaths: true

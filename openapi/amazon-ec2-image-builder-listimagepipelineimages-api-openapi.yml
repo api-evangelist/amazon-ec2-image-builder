@@ -1,0 +1,556 @@
+openapi: 3.0.0
+info:
+  version: 2019-12-02
+  x-release: v4
+  title: EC2 Image Builder CancelImageCreation ListImagePipelineImages API
+  description: EC2 Image Builder is a fully managed Amazon Web Services service that makes it easier to automate the creation, management, and deployment of customized, secure, and up-to-date "golden" server images that are pre-installed and pre-configured with software and settings to meet specific IT standards.
+  x-logo:
+    url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
+    backgroundColor: '#FFFFFF'
+  termsOfService: https://aws.amazon.com/service-terms/
+  contact:
+    name: Mike Ralphson
+    email: mike.ralphson@gmail.com
+    url: https://github.com/mermade/aws2openapi
+    x-twitter: PermittedSoc
+  license:
+    name: Apache 2.0 License
+    url: http://www.apache.org/licenses/
+  x-providerName: amazonaws.com
+  x-serviceName: imagebuilder
+  x-aws-signingName: imagebuilder
+  x-origin:
+  - contentType: application/json
+    url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/imagebuilder-2019-12-02.normal.json
+    converter:
+      url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
+    x-apisguru-driver: external
+  x-apiClientRegistration:
+    url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
+  x-apisguru-categories:
+  - cloud
+  x-preferred: true
+servers:
+- url: http://imagebuilder.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The imagebuilder multi-region endpoint
+- url: https://imagebuilder.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The imagebuilder multi-region endpoint
+- url: http://imagebuilder.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The imagebuilder endpoint for China (Beijing) and China (Ningxia)
+- url: https://imagebuilder.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The imagebuilder endpoint for China (Beijing) and China (Ningxia)
+security:
+- hmac: []
+tags:
+- name: ListImagePipelineImages
+paths:
+  /ListImagePipelineImages:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    post:
+      operationId: ListImagePipelineImages
+      description: Returns a list of images created by the specified pipeline.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListImagePipelineImagesResponse'
+              examples:
+                ListImagePipelineImages200Example:
+                  summary: Default ListImagePipelineImages 200 response
+                  x-microcks-default: true
+                  value:
+                    requestId: example-id-1234
+                    imageSummaryList: example-string
+                    nextToken: example-string
+        '480':
+          description: ServiceException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceException'
+              examples:
+                ListImagePipelineImages480Example:
+                  summary: Default ListImagePipelineImages 480 response
+                  x-microcks-default: true
+                  value: {}
+        '481':
+          description: ClientException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientException'
+              examples:
+                ListImagePipelineImages481Example:
+                  summary: Default ListImagePipelineImages 481 response
+                  x-microcks-default: true
+                  value: {}
+        '482':
+          description: ServiceUnavailableException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceUnavailableException'
+        '483':
+          description: InvalidRequestException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidRequestException'
+        '484':
+          description: InvalidPaginationTokenException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidPaginationTokenException'
+        '485':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '486':
+          description: ForbiddenException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForbiddenException'
+        '487':
+          description: CallRateLimitExceededException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CallRateLimitExceededException'
+      parameters:
+      - name: maxResults
+        in: query
+        schema:
+          type: string
+        description: Pagination limit
+        required: false
+      - name: nextToken
+        in: query
+        schema:
+          type: string
+        description: Pagination token
+        required: false
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - imagePipelineArn
+              properties:
+                imagePipelineArn:
+                  description: The Amazon Resource Name (ARN) of the image pipeline whose images you want to view.
+                  type: string
+                  pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):image-pipeline/[a-z0-9-_]+$
+                filters:
+                  description: <p>Use the following filters to streamline results:</p> <ul> <li> <p> <code>name</code> </p> </li> <li> <p> <code>version</code> </p> </li> </ul>
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Filter'
+                  minItems: 1
+                  maxItems: 10
+                maxResults:
+                  description: The maximum items to return in a request.
+                  type: integer
+                  minimum: 1
+                  maximum: 25
+                nextToken:
+                  description: A token to specify where to start paginating. This is the NextToken from a previously truncated response.
+                  type: string
+                  minLength: 1
+                  maxLength: 65535
+      summary: Amazon EC2 Image Builder List Image Pipeline Images
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - ListImagePipelineImages
+components:
+  schemas:
+    Platform:
+      type: string
+      enum:
+      - Windows
+      - Linux
+    OsVersion:
+      type: string
+      minLength: 1
+    ResourceNotFoundException: {}
+    ImageType:
+      type: string
+      enum:
+      - AMI
+      - DOCKER
+    VersionNumber:
+      type: string
+      pattern: ^[0-9]+\.[0-9]+\.[0-9]+$
+    StringList:
+      type: array
+      items:
+        $ref: '#/components/schemas/NonEmptyString'
+    NonEmptyString:
+      type: string
+      minLength: 1
+      maxLength: 1024
+    ServiceException: {}
+    DateTime:
+      type: string
+    ImageSource:
+      type: string
+      enum:
+      - AMAZON_MANAGED
+      - AWS_MARKETPLACE
+      - IMPORTED
+      - CUSTOM
+    ImageStatus:
+      type: string
+      enum:
+      - PENDING
+      - CREATING
+      - BUILDING
+      - TESTING
+      - DISTRIBUTING
+      - INTEGRATING
+      - AVAILABLE
+      - CANCELLED
+      - FAILED
+      - DEPRECATED
+      - DELETED
+    ForbiddenException: {}
+    ImageSummary:
+      type: object
+      properties:
+        arn:
+          allOf:
+          - $ref: '#/components/schemas/ImageBuilderArn'
+          - description: The Amazon Resource Name (ARN) of the image.
+        name:
+          allOf:
+          - $ref: '#/components/schemas/ResourceName'
+          - description: The name of the image.
+        type:
+          allOf:
+          - $ref: '#/components/schemas/ImageType'
+          - description: Specifies whether this image produces an AMI or a container image.
+        version:
+          allOf:
+          - $ref: '#/components/schemas/VersionNumber'
+          - description: The version of the image.
+        platform:
+          allOf:
+          - $ref: '#/components/schemas/Platform'
+          - description: The image operating system platform, such as Linux or Windows.
+        osVersion:
+          allOf:
+          - $ref: '#/components/schemas/OsVersion'
+          - description: The operating system version of the instances that launch from this image. For example, Amazon Linux 2, Ubuntu 18, or Microsoft Windows Server 2019.
+        state:
+          allOf:
+          - $ref: '#/components/schemas/ImageState'
+          - description: The state of the image.
+        owner:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The owner of the image.
+        dateCreated:
+          allOf:
+          - $ref: '#/components/schemas/DateTime'
+          - description: The date on which Image Builder created this image.
+        outputResources:
+          allOf:
+          - $ref: '#/components/schemas/OutputResources'
+          - description: The output resources that Image Builder produced when it created this image.
+        tags:
+          allOf:
+          - $ref: '#/components/schemas/TagMap'
+          - description: The tags that apply to this image.
+        buildType:
+          allOf:
+          - $ref: '#/components/schemas/BuildType'
+          - description: <p>Indicates the type of build that created this image. The build can be initiated in the following ways:</p> <ul> <li> <p> <b>USER_INITIATED</b> – A manual pipeline build request.</p> </li> <li> <p> <b>SCHEDULED</b> – A pipeline build initiated by a cron expression in the Image Builder pipeline, or from EventBridge.</p> </li> <li> <p> <b>IMPORT</b> – A VM import created the image to use as the base image for the recipe.</p> </li> </ul>
+        imageSource:
+          allOf:
+          - $ref: '#/components/schemas/ImageSource'
+          - description: The origin of the base image that Image Builder used to build this image.
+      description: An image summary.
+    ServiceUnavailableException: {}
+    Ami:
+      type: object
+      properties:
+        region:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The Amazon Web Services Region of the Amazon EC2 AMI.
+        image:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The AMI ID of the Amazon EC2 AMI.
+        name:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The name of the Amazon EC2 AMI.
+        description:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The description of the Amazon EC2 AMI. Minimum and maximum length are in characters.
+        state:
+          $ref: '#/components/schemas/ImageState'
+        accountId:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The account ID of the owner of the AMI.
+      description: Details of an Amazon EC2 AMI.
+    Filter:
+      type: object
+      properties:
+        name:
+          allOf:
+          - $ref: '#/components/schemas/FilterName'
+          - description: The name of the filter. Filter names are case-sensitive.
+        values:
+          allOf:
+          - $ref: '#/components/schemas/FilterValues'
+          - description: The filter values. Filter values are case-sensitive.
+      description: A filter name and value pair that is used to return a more specific list of results from a list operation. Filters can be used to match a set of resources by specific criteria, such as tags, attributes, or IDs.
+    ListImagePipelineImagesResponse:
+      type: object
+      properties:
+        requestId:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The request ID that uniquely identifies this request.
+        imageSummaryList:
+          allOf:
+          - $ref: '#/components/schemas/ImageSummaryList'
+          - description: The list of images built by this pipeline.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/PaginationToken'
+          - description: The next token used for paginated responses. When this field isn't empty, there are additional elements that the service has'ot included in this request. Use this token with the next request to retrieve additional objects.
+    PaginationToken:
+      type: string
+      minLength: 1
+      maxLength: 65535
+    ResourceName:
+      type: string
+      pattern: ^[-_A-Za-z-0-9][-_A-Za-z0-9 ]{1,126}[-_A-Za-z-0-9]$
+    ContainerList:
+      type: array
+      items:
+        $ref: '#/components/schemas/Container'
+    BuildType:
+      type: string
+      enum:
+      - USER_INITIATED
+      - SCHEDULED
+      - IMPORT
+    TagMap:
+      type: object
+      minProperties: 1
+      maxProperties: 50
+      additionalProperties:
+        $ref: '#/components/schemas/TagValue'
+    CallRateLimitExceededException: {}
+    TagValue:
+      type: string
+      maxLength: 256
+    ClientException: {}
+    OutputResources:
+      type: object
+      properties:
+        amis:
+          allOf:
+          - $ref: '#/components/schemas/AmiList'
+          - description: The Amazon EC2 AMIs created by this image.
+        containers:
+          allOf:
+          - $ref: '#/components/schemas/ContainerList'
+          - description: Container images that the pipeline has generated and stored in the output repository.
+      description: The resources produced by this image.
+    InvalidRequestException: {}
+    FilterValue:
+      type: string
+      pattern: ^[0-9a-zA-Z./_ :-]{1,1024}$
+    AmiList:
+      type: array
+      items:
+        $ref: '#/components/schemas/Ami'
+    ImageState:
+      type: object
+      properties:
+        status:
+          allOf:
+          - $ref: '#/components/schemas/ImageStatus'
+          - description: The status of the image.
+        reason:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The reason for the status of the image.
+      description: Image status and the reason for that status.
+    ImageSummaryList:
+      type: array
+      items:
+        $ref: '#/components/schemas/ImageSummary'
+    InvalidPaginationTokenException: {}
+    Container:
+      type: object
+      properties:
+        region:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: Containers and container images are Region-specific. This is the Region context for the container.
+        imageUris:
+          allOf:
+          - $ref: '#/components/schemas/StringList'
+          - description: A list of URIs for containers created in the context Region.
+      description: A container encapsulates the runtime environment for an application.
+    FilterValues:
+      type: array
+      items:
+        $ref: '#/components/schemas/FilterValue'
+      minItems: 1
+      maxItems: 10
+    FilterName:
+      type: string
+      pattern: ^[a-zA-Z]{1,1024}$
+    ImageBuilderArn:
+      type: string
+      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):(?:image-recipe|container-recipe|infrastructure-configuration|distribution-configuration|component|image|image-pipeline|workflow\/(?:build|test|distribution))/[a-z0-9-_]+(?:/(?:(?:x|[0-9]+)\.(?:x|[0-9]+)\.(?:x|[0-9]+))(?:/[0-9]+)?)?$
+  parameters:
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+  securitySchemes:
+    hmac:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: Amazon Signature authorization v4
+      x-amazon-apigateway-authtype: awsSigv4
+externalDocs:
+  description: Amazon Web Services documentation
+  url: https://docs.aws.amazon.com/imagebuilder/
+x-hasEquivalentPaths: true

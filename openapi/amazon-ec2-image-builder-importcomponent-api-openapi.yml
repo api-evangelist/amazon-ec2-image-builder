@@ -1,0 +1,390 @@
+openapi: 3.0.0
+info:
+  version: 2019-12-02
+  x-release: v4
+  title: EC2 Image Builder CancelImageCreation ImportComponent API
+  description: EC2 Image Builder is a fully managed Amazon Web Services service that makes it easier to automate the creation, management, and deployment of customized, secure, and up-to-date "golden" server images that are pre-installed and pre-configured with software and settings to meet specific IT standards.
+  x-logo:
+    url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
+    backgroundColor: '#FFFFFF'
+  termsOfService: https://aws.amazon.com/service-terms/
+  contact:
+    name: Mike Ralphson
+    email: mike.ralphson@gmail.com
+    url: https://github.com/mermade/aws2openapi
+    x-twitter: PermittedSoc
+  license:
+    name: Apache 2.0 License
+    url: http://www.apache.org/licenses/
+  x-providerName: amazonaws.com
+  x-serviceName: imagebuilder
+  x-aws-signingName: imagebuilder
+  x-origin:
+  - contentType: application/json
+    url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/imagebuilder-2019-12-02.normal.json
+    converter:
+      url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
+    x-apisguru-driver: external
+  x-apiClientRegistration:
+    url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
+  x-apisguru-categories:
+  - cloud
+  x-preferred: true
+servers:
+- url: http://imagebuilder.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The imagebuilder multi-region endpoint
+- url: https://imagebuilder.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The imagebuilder multi-region endpoint
+- url: http://imagebuilder.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The imagebuilder endpoint for China (Beijing) and China (Ningxia)
+- url: https://imagebuilder.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The imagebuilder endpoint for China (Beijing) and China (Ningxia)
+security:
+- hmac: []
+tags:
+- name: ImportComponent
+paths:
+  /ImportComponent:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    put:
+      operationId: ImportComponent
+      description: Imports a component and transforms its data into a component document.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImportComponentResponse'
+              examples:
+                ImportComponent200Example:
+                  summary: Default ImportComponent 200 response
+                  x-microcks-default: true
+                  value:
+                    requestId: example-id-1234
+                    clientToken: example-string
+                    componentBuildVersionArn: arn:aws:service:us-east-1:123456789012:resource/example
+        '480':
+          description: ServiceException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceException'
+              examples:
+                ImportComponent480Example:
+                  summary: Default ImportComponent 480 response
+                  x-microcks-default: true
+                  value: {}
+        '481':
+          description: ClientException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientException'
+              examples:
+                ImportComponent481Example:
+                  summary: Default ImportComponent 481 response
+                  x-microcks-default: true
+                  value: {}
+        '482':
+          description: ServiceUnavailableException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceUnavailableException'
+        '483':
+          description: InvalidRequestException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidRequestException'
+        '484':
+          description: IdempotentParameterMismatchException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdempotentParameterMismatchException'
+        '485':
+          description: ForbiddenException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForbiddenException'
+        '486':
+          description: CallRateLimitExceededException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CallRateLimitExceededException'
+        '487':
+          description: InvalidVersionNumberException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidVersionNumberException'
+        '488':
+          description: ResourceInUseException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceInUseException'
+        '489':
+          description: InvalidParameterCombinationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidParameterCombinationException'
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - name
+              - semanticVersion
+              - type
+              - format
+              - platform
+              - clientToken
+              properties:
+                name:
+                  description: The name of the component.
+                  type: string
+                  pattern: ^[-_A-Za-z-0-9][-_A-Za-z0-9 ]{1,126}[-_A-Za-z-0-9]$
+                semanticVersion:
+                  description: '<p>The semantic version of the component. This version follows the semantic version syntax.</p> <note> <p>The semantic version has four nodes: &lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;/&lt;build&gt;. You can assign values for the first three, and can filter on all of them.</p> <p> <b>Filtering:</b> With semantic versioning, you have the flexibility to use wildcards (x) to specify the most recent versions or nodes when selecting the base image or components for your recipe. When you use a wildcard in any node, all nodes to the right of the first wildcard must also be wildcards.</p> </note>'
+                  type: string
+                  pattern: ^[0-9]+\.[0-9]+\.[0-9]+$
+                description:
+                  description: The description of the component. Describes the contents of the component.
+                  type: string
+                  minLength: 1
+                  maxLength: 1024
+                changeDescription:
+                  description: The change description of the component. This description indicates the change that has been made in this version, or what makes this version different from other versions of this component.
+                  type: string
+                  minLength: 1
+                  maxLength: 1024
+                type:
+                  description: The type of the component denotes whether the component is used to build the image, or only to test it.
+                  type: string
+                  enum:
+                  - BUILD
+                  - TEST
+                format:
+                  description: The format of the resource that you want to import as a component.
+                  type: string
+                  enum:
+                  - SHELL
+                platform:
+                  description: The platform of the component.
+                  type: string
+                  enum:
+                  - Windows
+                  - Linux
+                data:
+                  description: The data of the component. Used to specify the data inline. Either <code>data</code> or <code>uri</code> can be used to specify the data within the component.
+                  type: string
+                  minLength: 1
+                  maxLength: 1024
+                uri:
+                  description: The uri of the component. Must be an Amazon S3 URL and the requester must have permission to access the Amazon S3 bucket. If you use Amazon S3, you can specify component content up to your service quota. Either <code>data</code> or <code>uri</code> can be used to specify the data within the component.
+                  type: string
+                kmsKeyId:
+                  description: The ID of the KMS key that should be used to encrypt this component.
+                  type: string
+                  minLength: 1
+                  maxLength: 1024
+                tags:
+                  description: The tags of the component.
+                  type: object
+                  minProperties: 1
+                  maxProperties: 50
+                  additionalProperties:
+                    $ref: '#/components/schemas/TagValue'
+                clientToken:
+                  description: The idempotency token of the component.
+                  type: string
+                  minLength: 1
+                  maxLength: 36
+      summary: Amazon EC2 Image Builder Import Component
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - ImportComponent
+components:
+  parameters:
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+  schemas:
+    NonEmptyString:
+      type: string
+      minLength: 1
+      maxLength: 1024
+    InvalidVersionNumberException: {}
+    ServiceException: {}
+    ForbiddenException: {}
+    ServiceUnavailableException: {}
+    IdempotentParameterMismatchException: {}
+    CallRateLimitExceededException: {}
+    TagValue:
+      type: string
+      maxLength: 256
+    ClientToken:
+      type: string
+      minLength: 1
+      maxLength: 36
+    ClientException: {}
+    InvalidRequestException: {}
+    ComponentBuildVersionArn:
+      type: string
+      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):component/[a-z0-9-_]+/[0-9]+\.[0-9]+\.[0-9]+/[0-9]+$
+    InvalidParameterCombinationException: {}
+    ResourceInUseException: {}
+    ImportComponentResponse:
+      type: object
+      properties:
+        requestId:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The request ID that uniquely identifies this request.
+        clientToken:
+          allOf:
+          - $ref: '#/components/schemas/ClientToken'
+          - description: The idempotency token used to make this request idempotent.
+        componentBuildVersionArn:
+          allOf:
+          - $ref: '#/components/schemas/ComponentBuildVersionArn'
+          - description: The Amazon Resource Name (ARN) of the imported component.
+  securitySchemes:
+    hmac:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: Amazon Signature authorization v4
+      x-amazon-apigateway-authtype: awsSigv4
+externalDocs:
+  description: Amazon Web Services documentation
+  url: https://docs.aws.amazon.com/imagebuilder/
+x-hasEquivalentPaths: true

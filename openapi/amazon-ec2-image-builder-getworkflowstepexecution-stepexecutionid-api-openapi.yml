@@ -1,0 +1,393 @@
+openapi: 3.0.0
+info:
+  version: 2019-12-02
+  x-release: v4
+  title: EC2 Image Builder CancelImageCreation GetWorkflowStepExecution#stepExecutionId API
+  description: EC2 Image Builder is a fully managed Amazon Web Services service that makes it easier to automate the creation, management, and deployment of customized, secure, and up-to-date "golden" server images that are pre-installed and pre-configured with software and settings to meet specific IT standards.
+  x-logo:
+    url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
+    backgroundColor: '#FFFFFF'
+  termsOfService: https://aws.amazon.com/service-terms/
+  contact:
+    name: Mike Ralphson
+    email: mike.ralphson@gmail.com
+    url: https://github.com/mermade/aws2openapi
+    x-twitter: PermittedSoc
+  license:
+    name: Apache 2.0 License
+    url: http://www.apache.org/licenses/
+  x-providerName: amazonaws.com
+  x-serviceName: imagebuilder
+  x-aws-signingName: imagebuilder
+  x-origin:
+  - contentType: application/json
+    url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/imagebuilder-2019-12-02.normal.json
+    converter:
+      url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
+    x-apisguru-driver: external
+  x-apiClientRegistration:
+    url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
+  x-apisguru-categories:
+  - cloud
+  x-preferred: true
+servers:
+- url: http://imagebuilder.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The imagebuilder multi-region endpoint
+- url: https://imagebuilder.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The imagebuilder multi-region endpoint
+- url: http://imagebuilder.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The imagebuilder endpoint for China (Beijing) and China (Ningxia)
+- url: https://imagebuilder.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The imagebuilder endpoint for China (Beijing) and China (Ningxia)
+security:
+- hmac: []
+tags:
+- name: GetWorkflowStepExecution#stepExecutionId
+paths:
+  /GetWorkflowStepExecution#stepExecutionId:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    get:
+      operationId: GetWorkflowStepExecution
+      description: Get the runtime information that was logged for a specific runtime instance of the workflow step.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetWorkflowStepExecutionResponse'
+              examples:
+                GetWorkflowStepExecution200Example:
+                  summary: Default GetWorkflowStepExecution 200 response
+                  x-microcks-default: true
+                  value:
+                    requestId: example-id-1234
+                    stepExecutionId: example-id-1234
+                    workflowBuildVersionArn: arn:aws:service:us-east-1:123456789012:resource/example
+        '480':
+          description: ServiceException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceException'
+              examples:
+                GetWorkflowStepExecution480Example:
+                  summary: Default GetWorkflowStepExecution 480 response
+                  x-microcks-default: true
+                  value: {}
+        '481':
+          description: ClientException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientException'
+              examples:
+                GetWorkflowStepExecution481Example:
+                  summary: Default GetWorkflowStepExecution 481 response
+                  x-microcks-default: true
+                  value: {}
+        '482':
+          description: ServiceUnavailableException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceUnavailableException'
+        '483':
+          description: InvalidRequestException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidRequestException'
+        '484':
+          description: ForbiddenException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForbiddenException'
+        '485':
+          description: CallRateLimitExceededException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CallRateLimitExceededException'
+      parameters:
+      - name: stepExecutionId
+        in: query
+        required: true
+        description: Use the unique identifier for a specific runtime instance of the workflow step to get runtime details for that step.
+        schema:
+          type: string
+          pattern: ^step-[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$
+      summary: Amazon EC2 Image Builder Get Workflow Step Execution
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - GetWorkflowStepExecution#stepExecutionId
+components:
+  parameters:
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+  schemas:
+    WorkflowStepExecutionRollbackStatus:
+      type: string
+      enum:
+      - RUNNING
+      - COMPLETED
+      - SKIPPED
+      - FAILED
+    NonEmptyString:
+      type: string
+      minLength: 1
+      maxLength: 1024
+    WorkflowBuildVersionArn:
+      type: string
+      pattern: ^arn:aws(?:-[a-z]+)*:imagebuilder:[a-z]{2,}(?:-[a-z]+)+-[0-9]+:(?:[0-9]{12}|aws):workflow/(build|test|distribution)/[a-z0-9-_]+/[0-9]+\.[0-9]+\.[0-9]+/[0-9]+$
+      maxLength: 1024
+    ServiceException: {}
+    ImageBuildVersionArn:
+      type: string
+      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):image/[a-z0-9-_]+/[0-9]+\.[0-9]+\.[0-9]+/[0-9]+$
+    DateTime:
+      type: string
+    WorkflowStepTimeoutSecondsInteger:
+      type: integer
+      minimum: 0
+      maximum: 43200
+    ForbiddenException: {}
+    ServiceUnavailableException: {}
+    WorkflowExecutionId:
+      type: string
+      pattern: ^wf-[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$
+    GetWorkflowStepExecutionResponse:
+      type: object
+      properties:
+        requestId:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The request ID that uniquely identifies this request.
+        stepExecutionId:
+          allOf:
+          - $ref: '#/components/schemas/WorkflowStepExecutionId'
+          - description: The unique identifier for the runtime version of the workflow step that you specified in the request.
+        workflowBuildVersionArn:
+          allOf:
+          - $ref: '#/components/schemas/WorkflowBuildVersionArn'
+          - description: The Amazon Resource Name (ARN) of the build version for the Image Builder workflow resource that defines this workflow step.
+        workflowExecutionId:
+          allOf:
+          - $ref: '#/components/schemas/WorkflowExecutionId'
+          - description: The unique identifier that Image Builder assigned to keep track of runtime details when it ran the workflow.
+        imageBuildVersionArn:
+          allOf:
+          - $ref: '#/components/schemas/ImageBuildVersionArn'
+          - description: The Amazon Resource Name (ARN) of the image resource build version that the specified runtime instance of the workflow step creates.
+        name:
+          allOf:
+          - $ref: '#/components/schemas/WorkflowStepName'
+          - description: The name of the specified runtime instance of the workflow step.
+        description:
+          allOf:
+          - $ref: '#/components/schemas/WorkflowStepDescription'
+          - description: Describes the specified workflow step.
+        action:
+          allOf:
+          - $ref: '#/components/schemas/WorkflowStepAction'
+          - description: The name of the action that the specified step performs.
+        status:
+          allOf:
+          - $ref: '#/components/schemas/WorkflowStepExecutionStatus'
+          - description: The current status for the specified runtime version of the workflow step.
+        rollbackStatus:
+          allOf:
+          - $ref: '#/components/schemas/WorkflowStepExecutionRollbackStatus'
+          - description: Reports on the rollback status of the specified runtime version of the workflow step, if applicable.
+        message:
+          allOf:
+          - $ref: '#/components/schemas/WorkflowStepMessage'
+          - description: The output message from the specified runtime instance of the workflow step, if applicable.
+        inputs:
+          allOf:
+          - $ref: '#/components/schemas/WorkflowStepInputs'
+          - description: Input parameters that Image Builder provided for the specified runtime instance of the workflow step.
+        outputs:
+          allOf:
+          - $ref: '#/components/schemas/WorkflowStepOutputs'
+          - description: The file names that the specified runtime version of the workflow step created as output.
+        startTime:
+          allOf:
+          - $ref: '#/components/schemas/DateTime'
+          - description: The timestamp when the specified runtime version of the workflow step started.
+        endTime:
+          allOf:
+          - $ref: '#/components/schemas/DateTime'
+          - description: The timestamp when the specified runtime instance of the workflow step finished.
+        onFailure:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The action to perform if the workflow step fails.
+        timeoutSeconds:
+          allOf:
+          - $ref: '#/components/schemas/WorkflowStepTimeoutSecondsInteger'
+          - description: The maximum duration in seconds for this step to complete its action.
+    WorkflowStepInputs:
+      type: string
+    WorkflowStepOutputs:
+      type: string
+    CallRateLimitExceededException: {}
+    ClientException: {}
+    InvalidRequestException: {}
+    WorkflowStepDescription:
+      type: string
+      minLength: 0
+      maxLength: 500
+    WorkflowStepMessage:
+      type: string
+      minLength: 0
+      maxLength: 500
+    WorkflowStepAction:
+      type: string
+      pattern: ^[A-Za-z][A-Za-z0-9-_]{1,99}$
+    WorkflowStepExecutionId:
+      type: string
+      pattern: ^step-[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$
+    WorkflowStepName:
+      type: string
+      pattern: ^[A-Za-z][A-Za-z0-9-_]{1,99}$
+    WorkflowStepExecutionStatus:
+      type: string
+      enum:
+      - PENDING
+      - SKIPPED
+      - RUNNING
+      - COMPLETED
+      - FAILED
+  securitySchemes:
+    hmac:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: Amazon Signature authorization v4
+      x-amazon-apigateway-authtype: awsSigv4
+externalDocs:
+  description: Amazon Web Services documentation
+  url: https://docs.aws.amazon.com/imagebuilder/
+x-hasEquivalentPaths: true

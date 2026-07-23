@@ -1,0 +1,434 @@
+openapi: 3.0.0
+info:
+  version: 2019-12-02
+  x-release: v4
+  title: EC2 Image Builder CancelImageCreation CreateInfrastructureConfiguration API
+  description: EC2 Image Builder is a fully managed Amazon Web Services service that makes it easier to automate the creation, management, and deployment of customized, secure, and up-to-date "golden" server images that are pre-installed and pre-configured with software and settings to meet specific IT standards.
+  x-logo:
+    url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
+    backgroundColor: '#FFFFFF'
+  termsOfService: https://aws.amazon.com/service-terms/
+  contact:
+    name: Mike Ralphson
+    email: mike.ralphson@gmail.com
+    url: https://github.com/mermade/aws2openapi
+    x-twitter: PermittedSoc
+  license:
+    name: Apache 2.0 License
+    url: http://www.apache.org/licenses/
+  x-providerName: amazonaws.com
+  x-serviceName: imagebuilder
+  x-aws-signingName: imagebuilder
+  x-origin:
+  - contentType: application/json
+    url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/imagebuilder-2019-12-02.normal.json
+    converter:
+      url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
+    x-apisguru-driver: external
+  x-apiClientRegistration:
+    url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
+  x-apisguru-categories:
+  - cloud
+  x-preferred: true
+servers:
+- url: http://imagebuilder.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The imagebuilder multi-region endpoint
+- url: https://imagebuilder.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The imagebuilder multi-region endpoint
+- url: http://imagebuilder.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The imagebuilder endpoint for China (Beijing) and China (Ningxia)
+- url: https://imagebuilder.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The imagebuilder endpoint for China (Beijing) and China (Ningxia)
+security:
+- hmac: []
+tags:
+- name: CreateInfrastructureConfiguration
+paths:
+  /CreateInfrastructureConfiguration:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    put:
+      operationId: CreateInfrastructureConfiguration
+      description: Creates a new infrastructure configuration. An infrastructure configuration defines the environment in which your image will be built and tested.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateInfrastructureConfigurationResponse'
+              examples:
+                CreateInfrastructureConfiguration200Example:
+                  summary: Default CreateInfrastructureConfiguration 200 response
+                  x-microcks-default: true
+                  value:
+                    requestId: example-id-1234
+                    clientToken: example-string
+                    infrastructureConfigurationArn: arn:aws:service:us-east-1:123456789012:resource/example
+        '480':
+          description: ServiceException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceException'
+              examples:
+                CreateInfrastructureConfiguration480Example:
+                  summary: Default CreateInfrastructureConfiguration 480 response
+                  x-microcks-default: true
+                  value: {}
+        '481':
+          description: ClientException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientException'
+              examples:
+                CreateInfrastructureConfiguration481Example:
+                  summary: Default CreateInfrastructureConfiguration 481 response
+                  x-microcks-default: true
+                  value: {}
+        '482':
+          description: ServiceUnavailableException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceUnavailableException'
+        '483':
+          description: InvalidRequestException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidRequestException'
+        '484':
+          description: IdempotentParameterMismatchException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdempotentParameterMismatchException'
+        '485':
+          description: ForbiddenException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForbiddenException'
+        '486':
+          description: CallRateLimitExceededException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CallRateLimitExceededException'
+        '487':
+          description: ResourceInUseException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceInUseException'
+        '488':
+          description: ResourceAlreadyExistsException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceAlreadyExistsException'
+        '489':
+          description: ServiceQuotaExceededException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceQuotaExceededException'
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - name
+              - instanceProfileName
+              - clientToken
+              properties:
+                name:
+                  description: The name of the infrastructure configuration.
+                  type: string
+                  pattern: ^[-_A-Za-z-0-9][-_A-Za-z0-9 ]{1,126}[-_A-Za-z-0-9]$
+                description:
+                  description: The description of the infrastructure configuration.
+                  type: string
+                  minLength: 1
+                  maxLength: 1024
+                instanceTypes:
+                  description: The instance types of the infrastructure configuration. You can specify one or more instance types to use for this build. The service will pick one of these instance types based on availability.
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/InstanceType'
+                instanceProfileName:
+                  description: The instance profile to associate with the instance used to customize your Amazon EC2 AMI.
+                  type: string
+                  pattern: ^[\w+=,.@-]+$
+                  minLength: 1
+                  maxLength: 256
+                securityGroupIds:
+                  description: The security group IDs to associate with the instance used to customize your Amazon EC2 AMI.
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/NonEmptyString'
+                subnetId:
+                  description: The subnet ID in which to place the instance used to customize your Amazon EC2 AMI.
+                  type: string
+                  minLength: 1
+                  maxLength: 1024
+                logging:
+                  description: Logging configuration defines where Image Builder uploads your logs.
+                  type: object
+                  properties:
+                    s3Logs:
+                      allOf:
+                      - $ref: '#/components/schemas/S3Logs'
+                      - description: The Amazon S3 logging configuration.
+                keyPair:
+                  description: The key pair of the infrastructure configuration. You can use this to log on to and debug the instance used to create your image.
+                  type: string
+                  minLength: 1
+                  maxLength: 1024
+                terminateInstanceOnFailure:
+                  description: The terminate instance on failure setting of the infrastructure configuration. Set to false if you want Image Builder to retain the instance used to configure your AMI if the build or test phase of your workflow fails.
+                  type: boolean
+                snsTopicArn:
+                  description: <p>The Amazon Resource Name (ARN) for the SNS topic to which we send image build event notifications.</p> <note> <p>EC2 Image Builder is unable to send notifications to SNS topics that are encrypted using keys from other accounts. The key that is used to encrypt the SNS topic must reside in the account that the Image Builder service runs under.</p> </note>
+                  type: string
+                  pattern: ^arn:aws[^:]*:sns:[^:]+:[0-9]{12}:[a-zA-Z0-9-_]{1,256}$
+                resourceTags:
+                  description: The tags attached to the resource created by Image Builder.
+                  type: object
+                  minProperties: 1
+                  maxProperties: 30
+                  additionalProperties:
+                    $ref: '#/components/schemas/TagValue'
+                instanceMetadataOptions:
+                  description: The instance metadata options that apply to the HTTP requests that pipeline builds use to launch EC2 build and test instances. For more information about instance metadata options, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-options.html">Configure the instance metadata options</a> in the <i> <i>Amazon EC2 User Guide</i> </i> for Linux instances, or <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/configuring-instance-metadata-options.html">Configure the instance metadata options</a> in the <i> <i>Amazon EC2 Windows Guide</i> </i> for Windows instances.
+                  type: object
+                  properties:
+                    httpTokens:
+                      allOf:
+                      - $ref: '#/components/schemas/HttpTokens'
+                      - description: <p>Indicates whether a signed token header is required for instance metadata retrieval requests. The values affect the response as follows:</p> <ul> <li> <p> <b>required</b> – When you retrieve the IAM role credentials, version 2.0 credentials are returned in all cases.</p> </li> <li> <p> <b>optional</b> – You can include a signed token header in your request to retrieve instance metadata, or you can leave it out. If you include it, version 2.0 credentials are returned for the IAM role. Otherwise, version 1.0 credentials are returned.</p> </li> </ul> <p>The default setting is <b>optional</b>.</p>
+                    httpPutResponseHopLimit:
+                      allOf:
+                      - $ref: '#/components/schemas/HttpPutResponseHopLimit'
+                      - description: Limit the number of hops that an instance metadata request can traverse to reach its destination. The default is one hop. However, if HTTP tokens are required, container image builds need a minimum of two hops.
+                tags:
+                  description: The tags of the infrastructure configuration.
+                  type: object
+                  minProperties: 1
+                  maxProperties: 50
+                  additionalProperties:
+                    $ref: '#/components/schemas/TagValue'
+                clientToken:
+                  description: The idempotency token used to make this request idempotent.
+                  type: string
+                  minLength: 1
+                  maxLength: 36
+      summary: Amazon EC2 Image Builder Create Infrastructure Configuration
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - CreateInfrastructureConfiguration
+components:
+  parameters:
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+  schemas:
+    NonEmptyString:
+      type: string
+      minLength: 1
+      maxLength: 1024
+    ServiceException: {}
+    CreateInfrastructureConfigurationResponse:
+      type: object
+      properties:
+        requestId:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The request ID that uniquely identifies this request.
+          example: example-id-1234
+        clientToken:
+          allOf:
+          - $ref: '#/components/schemas/ClientToken'
+          - description: The idempotency token used to make this request idempotent.
+          example: example-string
+        infrastructureConfigurationArn:
+          allOf:
+          - $ref: '#/components/schemas/InfrastructureConfigurationArn'
+          - description: The Amazon Resource Name (ARN) of the infrastructure configuration that was created by this request.
+          example: arn:aws:service:us-east-1:123456789012:resource/example
+    ForbiddenException: {}
+    ServiceUnavailableException: {}
+    ResourceAlreadyExistsException: {}
+    ResourceInUseException: {}
+    IdempotentParameterMismatchException: {}
+    S3Logs:
+      type: object
+      properties:
+        s3BucketName:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The S3 bucket in which to store the logs.
+          example: example-resource-name
+        s3KeyPrefix:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The Amazon S3 path to the bucket where the logs are stored.
+          example: example-string
+      description: Amazon S3 logging configuration.
+    CallRateLimitExceededException: {}
+    TagValue:
+      type: string
+      maxLength: 256
+    ClientToken:
+      type: string
+      minLength: 1
+      maxLength: 36
+    InfrastructureConfigurationArn:
+      type: string
+      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):infrastructure-configuration/[a-z0-9-_]+$
+    ClientException: {}
+    InvalidRequestException: {}
+    HttpPutResponseHopLimit:
+      type: integer
+      minimum: 1
+      maximum: 64
+    ServiceQuotaExceededException: {}
+    InstanceType:
+      type: string
+    HttpTokens:
+      type: string
+      pattern: optional|required
+  securitySchemes:
+    hmac:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: Amazon Signature authorization v4
+      x-amazon-apigateway-authtype: awsSigv4
+externalDocs:
+  description: Amazon Web Services documentation
+  url: https://docs.aws.amazon.com/imagebuilder/
+x-hasEquivalentPaths: true

@@ -1,0 +1,639 @@
+openapi: 3.0.0
+info:
+  version: 2019-12-02
+  x-release: v4
+  title: EC2 Image Builder CancelImageCreation UpdateDistributionConfiguration API
+  description: EC2 Image Builder is a fully managed Amazon Web Services service that makes it easier to automate the creation, management, and deployment of customized, secure, and up-to-date "golden" server images that are pre-installed and pre-configured with software and settings to meet specific IT standards.
+  x-logo:
+    url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
+    backgroundColor: '#FFFFFF'
+  termsOfService: https://aws.amazon.com/service-terms/
+  contact:
+    name: Mike Ralphson
+    email: mike.ralphson@gmail.com
+    url: https://github.com/mermade/aws2openapi
+    x-twitter: PermittedSoc
+  license:
+    name: Apache 2.0 License
+    url: http://www.apache.org/licenses/
+  x-providerName: amazonaws.com
+  x-serviceName: imagebuilder
+  x-aws-signingName: imagebuilder
+  x-origin:
+  - contentType: application/json
+    url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/imagebuilder-2019-12-02.normal.json
+    converter:
+      url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
+    x-apisguru-driver: external
+  x-apiClientRegistration:
+    url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
+  x-apisguru-categories:
+  - cloud
+  x-preferred: true
+servers:
+- url: http://imagebuilder.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The imagebuilder multi-region endpoint
+- url: https://imagebuilder.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The imagebuilder multi-region endpoint
+- url: http://imagebuilder.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The imagebuilder endpoint for China (Beijing) and China (Ningxia)
+- url: https://imagebuilder.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The imagebuilder endpoint for China (Beijing) and China (Ningxia)
+security:
+- hmac: []
+tags:
+- name: UpdateDistributionConfiguration
+paths:
+  /UpdateDistributionConfiguration:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    put:
+      operationId: UpdateDistributionConfiguration
+      description: Updates a new distribution configuration. Distribution configurations define and configure the outputs of your pipeline.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateDistributionConfigurationResponse'
+              examples:
+                UpdateDistributionConfiguration200Example:
+                  summary: Default UpdateDistributionConfiguration 200 response
+                  x-microcks-default: true
+                  value:
+                    requestId: example-id-1234
+                    clientToken: example-string
+                    distributionConfigurationArn: arn:aws:service:us-east-1:123456789012:resource/example
+        '480':
+          description: ServiceException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceException'
+              examples:
+                UpdateDistributionConfiguration480Example:
+                  summary: Default UpdateDistributionConfiguration 480 response
+                  x-microcks-default: true
+                  value: {}
+        '481':
+          description: ClientException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientException'
+              examples:
+                UpdateDistributionConfiguration481Example:
+                  summary: Default UpdateDistributionConfiguration 481 response
+                  x-microcks-default: true
+                  value: {}
+        '482':
+          description: ServiceUnavailableException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceUnavailableException'
+        '483':
+          description: InvalidRequestException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidRequestException'
+        '484':
+          description: IdempotentParameterMismatchException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdempotentParameterMismatchException'
+        '485':
+          description: ForbiddenException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForbiddenException'
+        '486':
+          description: CallRateLimitExceededException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CallRateLimitExceededException'
+        '487':
+          description: ResourceInUseException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceInUseException'
+        '488':
+          description: InvalidParameterCombinationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidParameterCombinationException'
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - distributionConfigurationArn
+              - distributions
+              - clientToken
+              properties:
+                distributionConfigurationArn:
+                  description: The Amazon Resource Name (ARN) of the distribution configuration that you want to update.
+                  type: string
+                  pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):distribution-configuration/[a-z0-9-_]+$
+                description:
+                  description: The description of the distribution configuration.
+                  type: string
+                  minLength: 1
+                  maxLength: 1024
+                distributions:
+                  description: The distributions of the distribution configuration.
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Distribution'
+                clientToken:
+                  description: The idempotency token of the distribution configuration.
+                  type: string
+                  minLength: 1
+                  maxLength: 36
+      summary: Amazon EC2 Image Builder Update Distribution Configuration
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - UpdateDistributionConfiguration
+components:
+  schemas:
+    LaunchTemplateConfigurationList:
+      type: array
+      items:
+        $ref: '#/components/schemas/LaunchTemplateConfiguration'
+      minItems: 1
+      maxItems: 100
+    S3ExportConfiguration:
+      type: object
+      required:
+      - roleName
+      - diskImageFormat
+      - s3Bucket
+      properties:
+        roleName:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The name of the role that grants VM Import/Export permission to export images to your S3 bucket.
+        diskImageFormat:
+          allOf:
+          - $ref: '#/components/schemas/DiskImageFormat'
+          - description: <p>Export the updated image to one of the following supported disk image formats:</p> <ul> <li> <p> <b>Virtual Hard Disk (VHD)</b> – Compatible with Citrix Xen and Microsoft Hyper-V virtualization products.</p> </li> <li> <p> <b>Stream-optimized ESX Virtual Machine Disk (VMDK)</b> – Compatible with VMware ESX and VMware vSphere versions 4, 5, and 6.</p> </li> <li> <p> <b>Raw</b> – Raw format.</p> </li> </ul>
+        s3Bucket:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The S3 bucket in which to store the output disk images for your VM.
+        s3Prefix:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The Amazon S3 path for the bucket where the output disk images for your VM are stored.
+      description: Properties that configure export from your build instance to a compatible file format for your VM.
+    StringList:
+      type: array
+      items:
+        $ref: '#/components/schemas/NonEmptyString'
+    NonEmptyString:
+      type: string
+      minLength: 1
+      maxLength: 1024
+    FastLaunchConfigurationList:
+      type: array
+      items:
+        $ref: '#/components/schemas/FastLaunchConfiguration'
+      minItems: 1
+      maxItems: 1000
+    ServiceException: {}
+    LaunchPermissionConfiguration:
+      type: object
+      properties:
+        userIds:
+          allOf:
+          - $ref: '#/components/schemas/AccountList'
+          - description: The Amazon Web Services account ID.
+        userGroups:
+          allOf:
+          - $ref: '#/components/schemas/StringList'
+          - description: The name of the group.
+        organizationArns:
+          allOf:
+          - $ref: '#/components/schemas/OrganizationArnList'
+          - description: The ARN for an Amazon Web Services Organization that you want to share your AMI with. For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html">What is Organizations?</a>.
+        organizationalUnitArns:
+          allOf:
+          - $ref: '#/components/schemas/OrganizationalUnitArnList'
+          - description: The ARN for an Organizations organizational unit (OU) that you want to share your AMI with. For more information about key concepts for Organizations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html">Organizations terminology and concepts</a>.
+      description: Describes the configuration for a launch permission. The launch permission modification request is sent to the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyImageAttribute.html">Amazon EC2 ModifyImageAttribute</a> API on behalf of the user for each Region they have selected to distribute the AMI. To make an AMI public, set the launch permission authorized accounts to <code>all</code>. See the examples for making an AMI public at <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyImageAttribute.html">Amazon EC2 ModifyImageAttribute</a>.
+    ForbiddenException: {}
+    DistributionConfigurationArn:
+      type: string
+      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):distribution-configuration/[a-z0-9-_]+$
+    LicenseConfigurationArnList:
+      type: array
+      items:
+        $ref: '#/components/schemas/LicenseConfigurationArn'
+      minItems: 1
+      maxItems: 50
+    ServiceUnavailableException: {}
+    OrganizationalUnitArn:
+      type: string
+      pattern: ^arn:aws[^:]*:organizations::[0-9]{12}:ou/o-[a-z0-9]{10,32}/ou-[0-9a-z]{4,32}-[0-9a-z]{8,32}
+    TargetContainerRepository:
+      type: object
+      required:
+      - service
+      - repositoryName
+      properties:
+        service:
+          allOf:
+          - $ref: '#/components/schemas/ContainerRepositoryService'
+          - description: Specifies the service in which this image was registered.
+        repositoryName:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The name of the container repository where the output container image is stored. This name is prefixed by the repository location.
+      description: The container repository where the output container image is stored.
+    LaunchTemplateId:
+      type: string
+      pattern: ^lt-[a-z0-9-_]{17}$
+    AccountList:
+      type: array
+      items:
+        $ref: '#/components/schemas/AccountId'
+      minItems: 1
+      maxItems: 1536
+    OrganizationalUnitArnList:
+      type: array
+      items:
+        $ref: '#/components/schemas/OrganizationalUnitArn'
+      minItems: 1
+      maxItems: 25
+    OrganizationArn:
+      type: string
+      pattern: ^arn:aws[^:]*:organizations::[0-9]{12}:organization/o-[a-z0-9]{10,32}$
+    IdempotentParameterMismatchException: {}
+    Boolean:
+      type: boolean
+    AmiNameString:
+      type: string
+      pattern: ^[-_A-Za-z0-9{][-_A-Za-z0-9\s:{}\.]+[-_A-Za-z0-9}]$
+      minLength: 1
+      maxLength: 127
+    TagMap:
+      type: object
+      minProperties: 1
+      maxProperties: 50
+      additionalProperties:
+        $ref: '#/components/schemas/TagValue'
+    TagValue:
+      type: string
+      maxLength: 256
+    AccountId:
+      type: string
+      pattern: ^[0-9]{12}$
+    OrganizationArnList:
+      type: array
+      items:
+        $ref: '#/components/schemas/OrganizationArn'
+      minItems: 1
+      maxItems: 25
+    CallRateLimitExceededException: {}
+    ClientToken:
+      type: string
+      minLength: 1
+      maxLength: 36
+    MaxParallelLaunches:
+      type: integer
+      minimum: 1
+      maximum: 10000
+    FastLaunchLaunchTemplateSpecification:
+      type: object
+      properties:
+        launchTemplateId:
+          allOf:
+          - $ref: '#/components/schemas/LaunchTemplateId'
+          - description: The ID of the launch template to use for faster launching for a Windows AMI.
+        launchTemplateName:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The name of the launch template to use for faster launching for a Windows AMI.
+        launchTemplateVersion:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The version of the launch template to use for faster launching for a Windows AMI.
+      description: <p>Identifies the launch template that the associated Windows AMI uses for launching an instance when faster launching is enabled.</p> <note> <p>You can specify either the <code>launchTemplateName</code> or the <code>launchTemplateId</code>, but not both.</p> </note>
+    DiskImageFormat:
+      type: string
+      enum:
+      - VMDK
+      - RAW
+      - VHD
+    UpdateDistributionConfigurationResponse:
+      type: object
+      properties:
+        requestId:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The request ID that uniquely identifies this request.
+        clientToken:
+          allOf:
+          - $ref: '#/components/schemas/ClientToken'
+          - description: The idempotency token used to make this request idempotent.
+        distributionConfigurationArn:
+          allOf:
+          - $ref: '#/components/schemas/DistributionConfigurationArn'
+          - description: The Amazon Resource Name (ARN) of the distribution configuration that was updated by this request.
+    LaunchTemplateConfiguration:
+      type: object
+      required:
+      - launchTemplateId
+      properties:
+        launchTemplateId:
+          allOf:
+          - $ref: '#/components/schemas/LaunchTemplateId'
+          - description: Identifies the Amazon EC2 launch template to use.
+        accountId:
+          allOf:
+          - $ref: '#/components/schemas/AccountId'
+          - description: The account ID that this configuration applies to.
+        setDefaultVersion:
+          allOf:
+          - $ref: '#/components/schemas/Boolean'
+          - description: Set the specified Amazon EC2 launch template as the default launch template for the specified account.
+      description: Identifies an Amazon EC2 launch template to use for a specific account.
+    ClientException: {}
+    InvalidRequestException: {}
+    InvalidParameterCombinationException: {}
+    Distribution:
+      type: object
+      required:
+      - region
+      properties:
+        region:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The target Region.
+          example: example-string
+        amiDistributionConfiguration:
+          allOf:
+          - $ref: '#/components/schemas/AmiDistributionConfiguration'
+          - description: The specific AMI settings; for example, launch permissions or AMI tags.
+          example: example-id-1234
+        containerDistributionConfiguration:
+          allOf:
+          - $ref: '#/components/schemas/ContainerDistributionConfiguration'
+          - description: Container distribution settings for encryption, licensing, and sharing in a specific Region.
+          example: example-string
+        licenseConfigurationArns:
+          allOf:
+          - $ref: '#/components/schemas/LicenseConfigurationArnList'
+          - description: The License Manager Configuration to associate with the AMI in the specified Region.
+          example: arn:aws:service:us-east-1:123456789012:resource/example
+        launchTemplateConfigurations:
+          allOf:
+          - $ref: '#/components/schemas/LaunchTemplateConfigurationList'
+          - description: A group of launchTemplateConfiguration settings that apply to image distribution for specified accounts.
+          example: example-string
+        s3ExportConfiguration:
+          allOf:
+          - $ref: '#/components/schemas/S3ExportConfiguration'
+          - description: Configure export settings to deliver disk images created from your image build, using a file format that is compatible with your VMs in that Region.
+          example: example-string
+        fastLaunchConfigurations:
+          allOf:
+          - $ref: '#/components/schemas/FastLaunchConfigurationList'
+          - description: The Windows faster-launching configurations to use for AMI distribution.
+          example: example-string
+      description: Defines the settings for a specific Region.
+    AmiDistributionConfiguration:
+      type: object
+      properties:
+        name:
+          allOf:
+          - $ref: '#/components/schemas/AmiNameString'
+          - description: The name of the output AMI.
+        description:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The description of the AMI distribution configuration. Minimum and maximum length are in characters.
+        targetAccountIds:
+          allOf:
+          - $ref: '#/components/schemas/AccountList'
+          - description: The ID of an account to which you want to distribute an image.
+        amiTags:
+          allOf:
+          - $ref: '#/components/schemas/TagMap'
+          - description: The tags to apply to AMIs distributed to this Region.
+        kmsKeyId:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The KMS key identifier used to encrypt the distributed image.
+        launchPermission:
+          allOf:
+          - $ref: '#/components/schemas/LaunchPermissionConfiguration'
+          - description: Launch permissions can be used to configure which Amazon Web Services accounts can use the AMI to launch instances.
+      description: Define and configure the output AMIs of the pipeline.
+    ContainerDistributionConfiguration:
+      type: object
+      required:
+      - targetRepository
+      properties:
+        description:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The description of the container distribution configuration.
+        containerTags:
+          allOf:
+          - $ref: '#/components/schemas/StringList'
+          - description: Tags that are attached to the container distribution configuration.
+        targetRepository:
+          allOf:
+          - $ref: '#/components/schemas/TargetContainerRepository'
+          - description: The destination repository for the container distribution configuration.
+      description: Container distribution settings for encryption, licensing, and sharing in a specific Region.
+    FastLaunchSnapshotConfiguration:
+      type: object
+      properties:
+        targetResourceCount:
+          allOf:
+          - $ref: '#/components/schemas/TargetResourceCount'
+          - description: The number of pre-provisioned snapshots to keep on hand for a fast-launch enabled Windows AMI.
+      description: Configuration settings for creating and managing pre-provisioned snapshots for a fast-launch enabled Windows AMI.
+    LicenseConfigurationArn:
+      type: string
+      pattern: ^arn:aws[^:]*:license-manager:[^:]+:[0-9]{12}:license-configuration:lic-[a-z0-9-_]{32}$
+    ResourceInUseException: {}
+    ContainerRepositoryService:
+      type: string
+      enum:
+      - ECR
+    TargetResourceCount:
+      type: integer
+      minimum: 1
+      maximum: 10000
+    FastLaunchConfiguration:
+      type: object
+      required:
+      - enabled
+      properties:
+        enabled:
+          allOf:
+          - $ref: '#/components/schemas/Boolean'
+          - description: A Boolean that represents the current state of faster launching for the Windows AMI. Set to <code>true</code> to start using Windows faster launching, or <code>false</code> to stop using it.
+        snapshotConfiguration:
+          allOf:
+          - $ref: '#/components/schemas/FastLaunchSnapshotConfiguration'
+          - description: Configuration settings for managing the number of snapshots that are created from pre-provisioned instances for the Windows AMI when faster launching is enabled.
+        maxParallelLaunches:
+          allOf:
+          - $ref: '#/components/schemas/MaxParallelLaunches'
+          - description: The maximum number of parallel instances that are launched for creating resources.
+        launchTemplate:
+          allOf:
+          - $ref: '#/components/schemas/FastLaunchLaunchTemplateSpecification'
+          - description: The launch template that the fast-launch enabled Windows AMI uses when it launches Windows instances to create pre-provisioned snapshots.
+        accountId:
+          allOf:
+          - $ref: '#/components/schemas/AccountId'
+          - description: The owner account ID for the fast-launch enabled Windows AMI.
+      description: Define and configure faster launching for output Windows AMIs.
+  parameters:
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+  securitySchemes:
+    hmac:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: Amazon Signature authorization v4
+      x-amazon-apigateway-authtype: awsSigv4
+externalDocs:
+  description: Amazon Web Services documentation
+  url: https://docs.aws.amazon.com/imagebuilder/
+x-hasEquivalentPaths: true

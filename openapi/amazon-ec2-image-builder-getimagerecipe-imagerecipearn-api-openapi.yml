@@ -1,0 +1,545 @@
+openapi: 3.0.0
+info:
+  version: 2019-12-02
+  x-release: v4
+  title: EC2 Image Builder CancelImageCreation GetImageRecipe#imageRecipeArn API
+  description: EC2 Image Builder is a fully managed Amazon Web Services service that makes it easier to automate the creation, management, and deployment of customized, secure, and up-to-date "golden" server images that are pre-installed and pre-configured with software and settings to meet specific IT standards.
+  x-logo:
+    url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
+    backgroundColor: '#FFFFFF'
+  termsOfService: https://aws.amazon.com/service-terms/
+  contact:
+    name: Mike Ralphson
+    email: mike.ralphson@gmail.com
+    url: https://github.com/mermade/aws2openapi
+    x-twitter: PermittedSoc
+  license:
+    name: Apache 2.0 License
+    url: http://www.apache.org/licenses/
+  x-providerName: amazonaws.com
+  x-serviceName: imagebuilder
+  x-aws-signingName: imagebuilder
+  x-origin:
+  - contentType: application/json
+    url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/imagebuilder-2019-12-02.normal.json
+    converter:
+      url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
+    x-apisguru-driver: external
+  x-apiClientRegistration:
+    url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
+  x-apisguru-categories:
+  - cloud
+  x-preferred: true
+servers:
+- url: http://imagebuilder.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The imagebuilder multi-region endpoint
+- url: https://imagebuilder.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The imagebuilder multi-region endpoint
+- url: http://imagebuilder.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The imagebuilder endpoint for China (Beijing) and China (Ningxia)
+- url: https://imagebuilder.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The imagebuilder endpoint for China (Beijing) and China (Ningxia)
+security:
+- hmac: []
+tags:
+- name: GetImageRecipe#imageRecipeArn
+paths:
+  /GetImageRecipe#imageRecipeArn:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    get:
+      operationId: GetImageRecipe
+      description: Gets an image recipe.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetImageRecipeResponse'
+              examples:
+                GetImageRecipe200Example:
+                  summary: Default GetImageRecipe 200 response
+                  x-microcks-default: true
+                  value:
+                    requestId: example-id-1234
+                    imageRecipe: example-string
+        '480':
+          description: ServiceException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceException'
+              examples:
+                GetImageRecipe480Example:
+                  summary: Default GetImageRecipe 480 response
+                  x-microcks-default: true
+                  value: {}
+        '481':
+          description: ClientException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientException'
+              examples:
+                GetImageRecipe481Example:
+                  summary: Default GetImageRecipe 481 response
+                  x-microcks-default: true
+                  value: {}
+        '482':
+          description: ServiceUnavailableException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceUnavailableException'
+        '483':
+          description: InvalidRequestException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidRequestException'
+        '484':
+          description: ForbiddenException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForbiddenException'
+        '485':
+          description: CallRateLimitExceededException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CallRateLimitExceededException'
+      parameters:
+      - name: imageRecipeArn
+        in: query
+        required: true
+        description: The Amazon Resource Name (ARN) of the image recipe that you want to retrieve.
+        schema:
+          type: string
+          pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):image-recipe/[a-z0-9-_]+/[0-9]+\.[0-9]+\.[0-9]+$
+      summary: Amazon EC2 Image Builder Get Image Recipe
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - GetImageRecipe#imageRecipeArn
+components:
+  schemas:
+    Platform:
+      type: string
+      enum:
+      - Windows
+      - Linux
+    ImageType:
+      type: string
+      enum:
+      - AMI
+      - DOCKER
+    GetImageRecipeResponse:
+      type: object
+      properties:
+        requestId:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The request ID that uniquely identifies this request.
+        imageRecipe:
+          allOf:
+          - $ref: '#/components/schemas/ImageRecipe'
+          - description: The image recipe object.
+    VersionNumber:
+      type: string
+      pattern: ^[0-9]+\.[0-9]+\.[0-9]+$
+    EbsVolumeType:
+      type: string
+      enum:
+      - standard
+      - io1
+      - io2
+      - gp2
+      - gp3
+      - sc1
+      - st1
+    NonEmptyString:
+      type: string
+      minLength: 1
+      maxLength: 1024
+    ComponentVersionArnOrBuildVersionArn:
+      type: string
+      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):component/[a-z0-9-_]+/(?:(?:([0-9]+|x)\.([0-9]+|x)\.([0-9]+|x))|(?:[0-9]+\.[0-9]+\.[0-9]+/[0-9]+))$
+    ServiceException: {}
+    DateTime:
+      type: string
+    ComponentConfigurationList:
+      type: array
+      items:
+        $ref: '#/components/schemas/ComponentConfiguration'
+      minItems: 1
+    ForbiddenException: {}
+    ServiceUnavailableException: {}
+    EbsVolumeSizeInteger:
+      type: integer
+      minimum: 1
+      maximum: 16000
+    ComponentParameterValue:
+      type: string
+      pattern: '[^\x00]*'
+      minLength: 0
+    ComponentParameterName:
+      type: string
+      pattern: '[^\x00]+'
+      minLength: 1
+      maxLength: 256
+    EmptyString:
+      type: string
+      minLength: 0
+      maxLength: 0
+    ResourceName:
+      type: string
+      pattern: ^[-_A-Za-z-0-9][-_A-Za-z0-9 ]{1,126}[-_A-Za-z-0-9]$
+    TagMap:
+      type: object
+      minProperties: 1
+      maxProperties: 50
+      additionalProperties:
+        $ref: '#/components/schemas/TagValue'
+    CallRateLimitExceededException: {}
+    TagValue:
+      type: string
+      maxLength: 256
+    ComponentConfiguration:
+      type: object
+      required:
+      - componentArn
+      properties:
+        componentArn:
+          allOf:
+          - $ref: '#/components/schemas/ComponentVersionArnOrBuildVersionArn'
+          - description: The Amazon Resource Name (ARN) of the component.
+          example: arn:aws:service:us-east-1:123456789012:resource/example
+        parameters:
+          allOf:
+          - $ref: '#/components/schemas/ComponentParameterList'
+          - description: A group of parameter settings that Image Builder uses to configure the component for a specific recipe.
+          example: example-string
+      description: Configuration details of the component.
+    ImageRecipe:
+      type: object
+      properties:
+        arn:
+          allOf:
+          - $ref: '#/components/schemas/ImageBuilderArn'
+          - description: The Amazon Resource Name (ARN) of the image recipe.
+        type:
+          allOf:
+          - $ref: '#/components/schemas/ImageType'
+          - description: Specifies which type of image is created by the recipe - an AMI or a container image.
+        name:
+          allOf:
+          - $ref: '#/components/schemas/ResourceName'
+          - description: The name of the image recipe.
+        description:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The description of the image recipe.
+        platform:
+          allOf:
+          - $ref: '#/components/schemas/Platform'
+          - description: The platform of the image recipe.
+        owner:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The owner of the image recipe.
+        version:
+          allOf:
+          - $ref: '#/components/schemas/VersionNumber'
+          - description: The version of the image recipe.
+        components:
+          allOf:
+          - $ref: '#/components/schemas/ComponentConfigurationList'
+          - description: The components that are included in the image recipe. Recipes require a minimum of one build component, and can have a maximum of 20 build and test components in any combination.
+        parentImage:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The base image of the image recipe.
+        blockDeviceMappings:
+          allOf:
+          - $ref: '#/components/schemas/InstanceBlockDeviceMappings'
+          - description: The block device mappings to apply when creating images from this recipe.
+        dateCreated:
+          allOf:
+          - $ref: '#/components/schemas/DateTime'
+          - description: The date on which this image recipe was created.
+        tags:
+          allOf:
+          - $ref: '#/components/schemas/TagMap'
+          - description: The tags of the image recipe.
+        workingDirectory:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The working directory to be used during build and test workflows.
+        additionalInstanceConfiguration:
+          allOf:
+          - $ref: '#/components/schemas/AdditionalInstanceConfiguration'
+          - description: Before you create a new AMI, Image Builder launches temporary Amazon EC2 instances to build and test your image configuration. Instance configuration adds a layer of control over those instances. You can define settings and add scripts to run when an instance is launched from your AMI.
+      description: An image recipe.
+    InstanceBlockDeviceMapping:
+      type: object
+      properties:
+        deviceName:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The device to which these mappings apply.
+          example: example-resource-name
+        ebs:
+          allOf:
+          - $ref: '#/components/schemas/EbsInstanceBlockDeviceSpecification'
+          - description: Use to manage Amazon EBS-specific configuration for this mapping.
+          example: example-string
+        virtualName:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: Use to manage instance ephemeral devices.
+          example: example-resource-name
+        noDevice:
+          allOf:
+          - $ref: '#/components/schemas/EmptyString'
+          - description: Use to remove a mapping from the base image.
+          example: example-string
+      description: Defines block device mappings for the instance used to configure your image.
+    ClientException: {}
+    EbsInstanceBlockDeviceSpecification:
+      type: object
+      properties:
+        encrypted:
+          allOf:
+          - $ref: '#/components/schemas/NullableBoolean'
+          - description: Use to configure device encryption.
+        deleteOnTermination:
+          allOf:
+          - $ref: '#/components/schemas/NullableBoolean'
+          - description: Use to configure delete on termination of the associated device.
+        iops:
+          allOf:
+          - $ref: '#/components/schemas/EbsIopsInteger'
+          - description: Use to configure device IOPS.
+        kmsKeyId:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: Use to configure the KMS key to use when encrypting the device.
+        snapshotId:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The snapshot that defines the device contents.
+        volumeSize:
+          allOf:
+          - $ref: '#/components/schemas/EbsVolumeSizeInteger'
+          - description: Use to override the device's volume size.
+        volumeType:
+          allOf:
+          - $ref: '#/components/schemas/EbsVolumeType'
+          - description: Use to override the device's volume type.
+        throughput:
+          allOf:
+          - $ref: '#/components/schemas/EbsVolumeThroughput'
+          - description: ' <b>For GP3 volumes only</b> – The throughput in MiB/s that the volume supports.'
+      description: Amazon EBS-specific block device mapping specifications.
+    EbsIopsInteger:
+      type: integer
+      minimum: 100
+      maximum: 64000
+    InvalidRequestException: {}
+    ComponentParameter:
+      type: object
+      required:
+      - name
+      - value
+      properties:
+        name:
+          allOf:
+          - $ref: '#/components/schemas/ComponentParameterName'
+          - description: The name of the component parameter to set.
+        value:
+          allOf:
+          - $ref: '#/components/schemas/ComponentParameterValueList'
+          - description: Sets the value for the named component parameter.
+      description: Contains a key/value pair that sets the named component parameter.
+    AdditionalInstanceConfiguration:
+      type: object
+      properties:
+        systemsManagerAgent:
+          allOf:
+          - $ref: '#/components/schemas/SystemsManagerAgent'
+          - description: Contains settings for the Systems Manager agent on your build instance.
+        userDataOverride:
+          allOf:
+          - $ref: '#/components/schemas/UserDataOverride'
+          - description: <p>Use this property to provide commands or a command script to run when you launch your build instance.</p> <p>The userDataOverride property replaces any commands that Image Builder might have added to ensure that Systems Manager is installed on your Linux build instance. If you override the user data, make sure that you add commands to install Systems Manager, if it is not pre-installed on your base image.</p> <note> <p>The user data is always base 64 encoded. For example, the following commands are encoded as <code>IyEvYmluL2Jhc2gKbWtkaXIgLXAgL3Zhci9iYi8KdG91Y2ggL3Zhci$</code>:</p> <p> <i>#!/bin/bash</i> </p> <p>mkdir -p /var/bb/</p> <p>touch /var</p> </note>
+      description: <p>In addition to your infrastructure configuration, these settings provide an extra layer of control over your build instances. You can also specify commands to run on launch for all of your build instances.</p> <p>Image Builder does not automatically install the Systems Manager agent on Windows instances. If your base image includes the Systems Manager agent, then the AMI that you create will also include the agent. For Linux instances, if the base image does not already include the Systems Manager agent, Image Builder installs it. For Linux instances where Image Builder installs the Systems Manager agent, you can choose whether to keep it for the AMI that you create.</p>
+    ComponentParameterList:
+      type: array
+      items:
+        $ref: '#/components/schemas/ComponentParameter'
+      minItems: 1
+    SystemsManagerAgent:
+      type: object
+      properties:
+        uninstallAfterBuild:
+          allOf:
+          - $ref: '#/components/schemas/NullableBoolean'
+          - description: Controls whether the Systems Manager agent is removed from your final build image, prior to creating the new AMI. If this is set to true, then the agent is removed from the final image. If it's set to false, then the agent is left in, so that it is included in the new AMI. The default value is false.
+          example: example-string
+      description: Contains settings for the Systems Manager agent on your build instance.
+    InstanceBlockDeviceMappings:
+      type: array
+      items:
+        $ref: '#/components/schemas/InstanceBlockDeviceMapping'
+    NullableBoolean:
+      type: boolean
+    ComponentParameterValueList:
+      type: array
+      items:
+        $ref: '#/components/schemas/ComponentParameterValue'
+    UserDataOverride:
+      type: string
+      pattern: ^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$
+      minLength: 1
+      maxLength: 21847
+    EbsVolumeThroughput:
+      type: integer
+      minimum: 125
+      maximum: 1000
+    ImageBuilderArn:
+      type: string
+      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):(?:image-recipe|container-recipe|infrastructure-configuration|distribution-configuration|component|image|image-pipeline|workflow\/(?:build|test|distribution))/[a-z0-9-_]+(?:/(?:(?:x|[0-9]+)\.(?:x|[0-9]+)\.(?:x|[0-9]+))(?:/[0-9]+)?)?$
+  parameters:
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+  securitySchemes:
+    hmac:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: Amazon Signature authorization v4
+      x-amazon-apigateway-authtype: awsSigv4
+externalDocs:
+  description: Amazon Web Services documentation
+  url: https://docs.aws.amazon.com/imagebuilder/
+x-hasEquivalentPaths: true

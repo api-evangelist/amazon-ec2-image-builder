@@ -1,0 +1,1363 @@
+openapi: 3.0.0
+info:
+  version: 2019-12-02
+  x-release: v4
+  title: EC2 Image Builder CancelImageCreation GetImage#imageBuildVersionArn API
+  description: EC2 Image Builder is a fully managed Amazon Web Services service that makes it easier to automate the creation, management, and deployment of customized, secure, and up-to-date "golden" server images that are pre-installed and pre-configured with software and settings to meet specific IT standards.
+  x-logo:
+    url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
+    backgroundColor: '#FFFFFF'
+  termsOfService: https://aws.amazon.com/service-terms/
+  contact:
+    name: Mike Ralphson
+    email: mike.ralphson@gmail.com
+    url: https://github.com/mermade/aws2openapi
+    x-twitter: PermittedSoc
+  license:
+    name: Apache 2.0 License
+    url: http://www.apache.org/licenses/
+  x-providerName: amazonaws.com
+  x-serviceName: imagebuilder
+  x-aws-signingName: imagebuilder
+  x-origin:
+  - contentType: application/json
+    url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/imagebuilder-2019-12-02.normal.json
+    converter:
+      url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
+    x-apisguru-driver: external
+  x-apiClientRegistration:
+    url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
+  x-apisguru-categories:
+  - cloud
+  x-preferred: true
+servers:
+- url: http://imagebuilder.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The imagebuilder multi-region endpoint
+- url: https://imagebuilder.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The imagebuilder multi-region endpoint
+- url: http://imagebuilder.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The imagebuilder endpoint for China (Beijing) and China (Ningxia)
+- url: https://imagebuilder.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The imagebuilder endpoint for China (Beijing) and China (Ningxia)
+security:
+- hmac: []
+tags:
+- name: GetImage#imageBuildVersionArn
+paths:
+  /GetImage#imageBuildVersionArn:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    get:
+      operationId: GetImage
+      description: Gets an image.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetImageResponse'
+              examples:
+                GetImage200Example:
+                  summary: Default GetImage 200 response
+                  x-microcks-default: true
+                  value:
+                    requestId: example-id-1234
+                    image: example-string
+        '480':
+          description: ServiceException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceException'
+              examples:
+                GetImage480Example:
+                  summary: Default GetImage 480 response
+                  x-microcks-default: true
+                  value: {}
+        '481':
+          description: ClientException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientException'
+              examples:
+                GetImage481Example:
+                  summary: Default GetImage 481 response
+                  x-microcks-default: true
+                  value: {}
+        '482':
+          description: ServiceUnavailableException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceUnavailableException'
+        '483':
+          description: InvalidRequestException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidRequestException'
+        '484':
+          description: ForbiddenException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForbiddenException'
+        '485':
+          description: CallRateLimitExceededException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CallRateLimitExceededException'
+      parameters:
+      - name: imageBuildVersionArn
+        in: query
+        required: true
+        description: The Amazon Resource Name (ARN) of the image that you want to get.
+        schema:
+          type: string
+          pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):image/[a-z0-9-_]+/(?:(?:([0-9]+|x)\.([0-9]+|x)\.([0-9]+|x))|(?:[0-9]+\.[0-9]+\.[0-9]+/[0-9]+))$
+      summary: Amazon EC2 Image Builder Get Image
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - GetImage#imageBuildVersionArn
+components:
+  schemas:
+    LaunchTemplateConfigurationList:
+      type: array
+      items:
+        $ref: '#/components/schemas/LaunchTemplateConfiguration'
+      minItems: 1
+      maxItems: 100
+    Platform:
+      type: string
+      enum:
+      - Windows
+      - Linux
+    ImageType:
+      type: string
+      enum:
+      - AMI
+      - DOCKER
+    InstanceProfileNameType:
+      type: string
+      pattern: ^[\w+=,.@-]+$
+      minLength: 1
+      maxLength: 256
+    FastLaunchConfigurationList:
+      type: array
+      items:
+        $ref: '#/components/schemas/FastLaunchConfiguration'
+      minItems: 1
+      maxItems: 1000
+    Image:
+      type: object
+      properties:
+        arn:
+          allOf:
+          - $ref: '#/components/schemas/ImageBuilderArn'
+          - description: '<p>The Amazon Resource Name (ARN) of the image.</p> <note> <p>Semantic versioning is included in each object''s Amazon Resource Name (ARN), at the level that applies to that object as follows:</p> <ol> <li> <p>Versionless ARNs and Name ARNs do not include specific values in any of the nodes. The nodes are either left off entirely, or they are specified as wildcards, for example: x.x.x.</p> </li> <li> <p>Version ARNs have only the first three nodes: &lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;</p> </li> <li> <p>Build version ARNs have all four nodes, and point to a specific build for a specific version of an object.</p> </li> </ol> </note>'
+        type:
+          allOf:
+          - $ref: '#/components/schemas/ImageType'
+          - description: Specifies whether this image produces an AMI or a container image.
+        name:
+          allOf:
+          - $ref: '#/components/schemas/ResourceName'
+          - description: The name of the image.
+        version:
+          allOf:
+          - $ref: '#/components/schemas/VersionNumber'
+          - description: '<p>The semantic version of the image.</p> <note> <p>The semantic version has four nodes: &lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;/&lt;build&gt;. You can assign values for the first three, and can filter on all of them.</p> <p> <b>Assignment:</b> For the first three nodes you can assign any positive integer value, including zero, with an upper limit of 2^30-1, or 1073741823 for each node. Image Builder automatically assigns the build number to the fourth node.</p> <p> <b>Patterns:</b> You can use any numeric pattern that adheres to the assignment requirements for the nodes that you can assign. For example, you might choose a software version pattern, such as 1.0.0, or a date, such as 2021.01.01.</p> <p> <b>Filtering:</b> With semantic versioning, you have the flexibility to use wildcards (x) to specify the most recent versions or nodes when selecting the base image or components for your recipe. When you use a wildcard in any node, all nodes to the right of the first wildcard must also be wildcards.</p> </note>'
+        platform:
+          allOf:
+          - $ref: '#/components/schemas/Platform'
+          - description: The image operating system platform, such as Linux or Windows.
+        enhancedImageMetadataEnabled:
+          allOf:
+          - $ref: '#/components/schemas/NullableBoolean'
+          - description: Indicates whether Image Builder collects additional information about the image, such as the operating system (OS) version and package list.
+        osVersion:
+          allOf:
+          - $ref: '#/components/schemas/OsVersion'
+          - description: The operating system version for instances that launch from this image. For example, Amazon Linux 2, Ubuntu 18, or Microsoft Windows Server 2019.
+        state:
+          allOf:
+          - $ref: '#/components/schemas/ImageState'
+          - description: The state of the image.
+        imageRecipe:
+          allOf:
+          - $ref: '#/components/schemas/ImageRecipe'
+          - description: For images that distribute an AMI, this is the image recipe that Image Builder used to create the image. For container images, this is empty.
+        containerRecipe:
+          allOf:
+          - $ref: '#/components/schemas/ContainerRecipe'
+          - description: For container images, this is the container recipe that Image Builder used to create the image. For images that distribute an AMI, this is empty.
+        sourcePipelineName:
+          allOf:
+          - $ref: '#/components/schemas/ResourceName'
+          - description: The name of the image pipeline that created this image.
+        sourcePipelineArn:
+          allOf:
+          - $ref: '#/components/schemas/Arn'
+          - description: The Amazon Resource Name (ARN) of the image pipeline that created this image.
+        infrastructureConfiguration:
+          allOf:
+          - $ref: '#/components/schemas/InfrastructureConfiguration'
+          - description: The infrastructure that Image Builder used to create this image.
+        distributionConfiguration:
+          allOf:
+          - $ref: '#/components/schemas/DistributionConfiguration'
+          - description: The distribution configuration that Image Builder used to create this image.
+        imageTestsConfiguration:
+          allOf:
+          - $ref: '#/components/schemas/ImageTestsConfiguration'
+          - description: The image tests that ran when that Image Builder created this image.
+        dateCreated:
+          allOf:
+          - $ref: '#/components/schemas/DateTime'
+          - description: The date on which Image Builder created this image.
+        outputResources:
+          allOf:
+          - $ref: '#/components/schemas/OutputResources'
+          - description: The output resources that Image Builder produces for this image.
+        tags:
+          allOf:
+          - $ref: '#/components/schemas/TagMap'
+          - description: The tags that apply to this image.
+        buildType:
+          allOf:
+          - $ref: '#/components/schemas/BuildType'
+          - description: <p>Indicates the type of build that created this image. The build can be initiated in the following ways:</p> <ul> <li> <p> <b>USER_INITIATED</b> – A manual pipeline build request.</p> </li> <li> <p> <b>SCHEDULED</b> – A pipeline build initiated by a cron expression in the Image Builder pipeline, or from EventBridge.</p> </li> <li> <p> <b>IMPORT</b> – A VM import created the image to use as the base image for the recipe.</p> </li> </ul>
+        imageSource:
+          allOf:
+          - $ref: '#/components/schemas/ImageSource'
+          - description: The origin of the base image that Image Builder used to build this image.
+        scanState:
+          allOf:
+          - $ref: '#/components/schemas/ImageScanState'
+          - description: Contains information about the current state of scans for this image.
+        imageScanningConfiguration:
+          allOf:
+          - $ref: '#/components/schemas/ImageScanningConfiguration'
+          - description: Contains settings for vulnerability scans.
+      description: An Image Builder image. You must specify exactly one recipe for the image – either a container recipe (<code>containerRecipe</code>), which creates a container image, or an image recipe (<code>imageRecipe</code>), which creates an AMI.
+    InstanceConfiguration:
+      type: object
+      properties:
+        image:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The AMI ID to use as the base image for a container build and test instance. If not specified, Image Builder will use the appropriate ECS-optimized AMI as a base image.
+        blockDeviceMappings:
+          allOf:
+          - $ref: '#/components/schemas/InstanceBlockDeviceMappings'
+          - description: Defines the block devices to attach for building an instance from this Image Builder AMI.
+      description: Defines a custom base AMI and block device mapping configurations of an instance used for building and testing container images.
+    ImageScanState:
+      type: object
+      properties:
+        status:
+          allOf:
+          - $ref: '#/components/schemas/ImageScanStatus'
+          - description: The current state of vulnerability scans for the image.
+        reason:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The reason for the scan status for the image.
+      description: Shows the vulnerability scan status for a specific image, and the reason for that status.
+    ServiceUnavailableException: {}
+    Ami:
+      type: object
+      properties:
+        region:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The Amazon Web Services Region of the Amazon EC2 AMI.
+        image:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The AMI ID of the Amazon EC2 AMI.
+        name:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The name of the Amazon EC2 AMI.
+        description:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The description of the Amazon EC2 AMI. Minimum and maximum length are in characters.
+        state:
+          $ref: '#/components/schemas/ImageState'
+        accountId:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The account ID of the owner of the AMI.
+      description: Details of an Amazon EC2 AMI.
+    LaunchTemplateId:
+      type: string
+      pattern: ^lt-[a-z0-9-_]{17}$
+    ComponentParameterName:
+      type: string
+      pattern: '[^\x00]+'
+      minLength: 1
+      maxLength: 256
+    EmptyString:
+      type: string
+      minLength: 0
+      maxLength: 0
+    OrganizationalUnitArnList:
+      type: array
+      items:
+        $ref: '#/components/schemas/OrganizationalUnitArn'
+      minItems: 1
+      maxItems: 25
+    ImageScanningConfiguration:
+      type: object
+      properties:
+        imageScanningEnabled:
+          allOf:
+          - $ref: '#/components/schemas/NullableBoolean'
+          - description: A setting that indicates whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image.
+        ecrConfiguration:
+          allOf:
+          - $ref: '#/components/schemas/EcrConfiguration'
+          - description: Contains Amazon ECR settings for vulnerability scans.
+      description: Contains settings for Image Builder image resource and container image scans.
+    AmiNameString:
+      type: string
+      pattern: ^[-_A-Za-z0-9{][-_A-Za-z0-9\s:{}\.]+[-_A-Za-z0-9}]$
+      minLength: 1
+      maxLength: 127
+    SecurityGroupIds:
+      type: array
+      items:
+        $ref: '#/components/schemas/NonEmptyString'
+    OrganizationArnList:
+      type: array
+      items:
+        $ref: '#/components/schemas/OrganizationArn'
+      minItems: 1
+      maxItems: 25
+    MaxParallelLaunches:
+      type: integer
+      minimum: 1
+      maximum: 10000
+    FastLaunchLaunchTemplateSpecification:
+      type: object
+      properties:
+        launchTemplateId:
+          allOf:
+          - $ref: '#/components/schemas/LaunchTemplateId'
+          - description: The ID of the launch template to use for faster launching for a Windows AMI.
+        launchTemplateName:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The name of the launch template to use for faster launching for a Windows AMI.
+        launchTemplateVersion:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The version of the launch template to use for faster launching for a Windows AMI.
+      description: <p>Identifies the launch template that the associated Windows AMI uses for launching an instance when faster launching is enabled.</p> <note> <p>You can specify either the <code>launchTemplateName</code> or the <code>launchTemplateId</code>, but not both.</p> </note>
+    DiskImageFormat:
+      type: string
+      enum:
+      - VMDK
+      - RAW
+      - VHD
+    LaunchTemplateConfiguration:
+      type: object
+      required:
+      - launchTemplateId
+      properties:
+        launchTemplateId:
+          allOf:
+          - $ref: '#/components/schemas/LaunchTemplateId'
+          - description: Identifies the Amazon EC2 launch template to use.
+        accountId:
+          allOf:
+          - $ref: '#/components/schemas/AccountId'
+          - description: The account ID that this configuration applies to.
+        setDefaultVersion:
+          allOf:
+          - $ref: '#/components/schemas/Boolean'
+          - description: Set the specified Amazon EC2 launch template as the default launch template for the specified account.
+      description: Identifies an Amazon EC2 launch template to use for a specific account.
+    InvalidRequestException: {}
+    DockerFileTemplate:
+      type: string
+    AdditionalInstanceConfiguration:
+      type: object
+      properties:
+        systemsManagerAgent:
+          allOf:
+          - $ref: '#/components/schemas/SystemsManagerAgent'
+          - description: Contains settings for the Systems Manager agent on your build instance.
+        userDataOverride:
+          allOf:
+          - $ref: '#/components/schemas/UserDataOverride'
+          - description: <p>Use this property to provide commands or a command script to run when you launch your build instance.</p> <p>The userDataOverride property replaces any commands that Image Builder might have added to ensure that Systems Manager is installed on your Linux build instance. If you override the user data, make sure that you add commands to install Systems Manager, if it is not pre-installed on your base image.</p> <note> <p>The user data is always base 64 encoded. For example, the following commands are encoded as <code>IyEvYmluL2Jhc2gKbWtkaXIgLXAgL3Zhci9iYi8KdG91Y2ggL3Zhci$</code>:</p> <p> <i>#!/bin/bash</i> </p> <p>mkdir -p /var/bb/</p> <p>touch /var</p> </note>
+      description: <p>In addition to your infrastructure configuration, these settings provide an extra layer of control over your build instances. You can also specify commands to run on launch for all of your build instances.</p> <p>Image Builder does not automatically install the Systems Manager agent on Windows instances. If your base image includes the Systems Manager agent, then the AMI that you create will also include the agent. For Linux instances, if the base image does not already include the Systems Manager agent, Image Builder installs it. For Linux instances where Image Builder installs the Systems Manager agent, you can choose whether to keep it for the AMI that you create.</p>
+    Distribution:
+      type: object
+      required:
+      - region
+      properties:
+        region:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The target Region.
+          example: example-string
+        amiDistributionConfiguration:
+          allOf:
+          - $ref: '#/components/schemas/AmiDistributionConfiguration'
+          - description: The specific AMI settings; for example, launch permissions or AMI tags.
+          example: example-id-1234
+        containerDistributionConfiguration:
+          allOf:
+          - $ref: '#/components/schemas/ContainerDistributionConfiguration'
+          - description: Container distribution settings for encryption, licensing, and sharing in a specific Region.
+          example: example-string
+        licenseConfigurationArns:
+          allOf:
+          - $ref: '#/components/schemas/LicenseConfigurationArnList'
+          - description: The License Manager Configuration to associate with the AMI in the specified Region.
+          example: arn:aws:service:us-east-1:123456789012:resource/example
+        launchTemplateConfigurations:
+          allOf:
+          - $ref: '#/components/schemas/LaunchTemplateConfigurationList'
+          - description: A group of launchTemplateConfiguration settings that apply to image distribution for specified accounts.
+          example: example-string
+        s3ExportConfiguration:
+          allOf:
+          - $ref: '#/components/schemas/S3ExportConfiguration'
+          - description: Configure export settings to deliver disk images created from your image build, using a file format that is compatible with your VMs in that Region.
+          example: example-string
+        fastLaunchConfigurations:
+          allOf:
+          - $ref: '#/components/schemas/FastLaunchConfigurationList'
+          - description: The Windows faster-launching configurations to use for AMI distribution.
+          example: example-string
+      description: Defines the settings for a specific Region.
+    AmiDistributionConfiguration:
+      type: object
+      properties:
+        name:
+          allOf:
+          - $ref: '#/components/schemas/AmiNameString'
+          - description: The name of the output AMI.
+        description:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The description of the AMI distribution configuration. Minimum and maximum length are in characters.
+        targetAccountIds:
+          allOf:
+          - $ref: '#/components/schemas/AccountList'
+          - description: The ID of an account to which you want to distribute an image.
+        amiTags:
+          allOf:
+          - $ref: '#/components/schemas/TagMap'
+          - description: The tags to apply to AMIs distributed to this Region.
+        kmsKeyId:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The KMS key identifier used to encrypt the distributed image.
+        launchPermission:
+          allOf:
+          - $ref: '#/components/schemas/LaunchPermissionConfiguration'
+          - description: Launch permissions can be used to configure which Amazon Web Services accounts can use the AMI to launch instances.
+      description: Define and configure the output AMIs of the pipeline.
+    SystemsManagerAgent:
+      type: object
+      properties:
+        uninstallAfterBuild:
+          allOf:
+          - $ref: '#/components/schemas/NullableBoolean'
+          - description: Controls whether the Systems Manager agent is removed from your final build image, prior to creating the new AMI. If this is set to true, then the agent is removed from the final image. If it's set to false, then the agent is left in, so that it is included in the new AMI. The default value is false.
+          example: example-string
+      description: Contains settings for the Systems Manager agent on your build instance.
+    InstanceBlockDeviceMappings:
+      type: array
+      items:
+        $ref: '#/components/schemas/InstanceBlockDeviceMapping'
+    Logging:
+      type: object
+      properties:
+        s3Logs:
+          allOf:
+          - $ref: '#/components/schemas/S3Logs'
+          - description: The Amazon S3 logging configuration.
+      description: Logging configuration defines where Image Builder uploads your logs.
+    Container:
+      type: object
+      properties:
+        region:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: Containers and container images are Region-specific. This is the Region context for the container.
+        imageUris:
+          allOf:
+          - $ref: '#/components/schemas/StringList'
+          - description: A list of URIs for containers created in the context Region.
+      description: A container encapsulates the runtime environment for an application.
+    EbsVolumeThroughput:
+      type: integer
+      minimum: 125
+      maximum: 1000
+    HttpTokens:
+      type: string
+      pattern: optional|required
+    ContainerRecipe:
+      type: object
+      properties:
+        arn:
+          allOf:
+          - $ref: '#/components/schemas/ImageBuilderArn'
+          - description: '<p>The Amazon Resource Name (ARN) of the container recipe.</p> <note> <p>Semantic versioning is included in each object''s Amazon Resource Name (ARN), at the level that applies to that object as follows:</p> <ol> <li> <p>Versionless ARNs and Name ARNs do not include specific values in any of the nodes. The nodes are either left off entirely, or they are specified as wildcards, for example: x.x.x.</p> </li> <li> <p>Version ARNs have only the first three nodes: &lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;</p> </li> <li> <p>Build version ARNs have all four nodes, and point to a specific build for a specific version of an object.</p> </li> </ol> </note>'
+        containerType:
+          allOf:
+          - $ref: '#/components/schemas/ContainerType'
+          - description: Specifies the type of container, such as Docker.
+        name:
+          allOf:
+          - $ref: '#/components/schemas/ResourceName'
+          - description: The name of the container recipe.
+        description:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The description of the container recipe.
+        platform:
+          allOf:
+          - $ref: '#/components/schemas/Platform'
+          - description: The system platform for the container, such as Windows or Linux.
+        owner:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The owner of the container recipe.
+        version:
+          allOf:
+          - $ref: '#/components/schemas/VersionNumber'
+          - description: '<p>The semantic version of the container recipe.</p> <note> <p>The semantic version has four nodes: &lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;/&lt;build&gt;. You can assign values for the first three, and can filter on all of them.</p> <p> <b>Assignment:</b> For the first three nodes you can assign any positive integer value, including zero, with an upper limit of 2^30-1, or 1073741823 for each node. Image Builder automatically assigns the build number to the fourth node.</p> <p> <b>Patterns:</b> You can use any numeric pattern that adheres to the assignment requirements for the nodes that you can assign. For example, you might choose a software version pattern, such as 1.0.0, or a date, such as 2021.01.01.</p> <p> <b>Filtering:</b> With semantic versioning, you have the flexibility to use wildcards (x) to specify the most recent versions or nodes when selecting the base image or components for your recipe. When you use a wildcard in any node, all nodes to the right of the first wildcard must also be wildcards.</p> </note>'
+        components:
+          allOf:
+          - $ref: '#/components/schemas/ComponentConfigurationList'
+          - description: Build and test components that are included in the container recipe. Recipes require a minimum of one build component, and can have a maximum of 20 build and test components in any combination.
+        instanceConfiguration:
+          allOf:
+          - $ref: '#/components/schemas/InstanceConfiguration'
+          - description: A group of options that can be used to configure an instance for building and testing container images.
+        dockerfileTemplateData:
+          allOf:
+          - $ref: '#/components/schemas/DockerFileTemplate'
+          - description: Dockerfiles are text documents that are used to build Docker containers, and ensure that they contain all of the elements required by the application running inside. The template data consists of contextual variables where Image Builder places build information or scripts, based on your container image recipe.
+        kmsKeyId:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: Identifies which KMS key is used to encrypt the container image for distribution to the target Region.
+        encrypted:
+          allOf:
+          - $ref: '#/components/schemas/NullableBoolean'
+          - description: A flag that indicates if the target container is encrypted.
+        parentImage:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The base image for the container recipe.
+        dateCreated:
+          allOf:
+          - $ref: '#/components/schemas/DateTime'
+          - description: The date when this container recipe was created.
+        tags:
+          allOf:
+          - $ref: '#/components/schemas/TagMap'
+          - description: Tags that are attached to the container recipe.
+        workingDirectory:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The working directory for use during build and test workflows.
+        targetRepository:
+          allOf:
+          - $ref: '#/components/schemas/TargetContainerRepository'
+          - description: The destination repository for the container image.
+      description: A container recipe.
+    VersionNumber:
+      type: string
+      pattern: ^[0-9]+\.[0-9]+\.[0-9]+$
+    StringList:
+      type: array
+      items:
+        $ref: '#/components/schemas/NonEmptyString'
+    DistributionList:
+      type: array
+      items:
+        $ref: '#/components/schemas/Distribution'
+    ImageSource:
+      type: string
+      enum:
+      - AMAZON_MANAGED
+      - AWS_MARKETPLACE
+      - IMPORTED
+      - CUSTOM
+    ImageStatus:
+      type: string
+      enum:
+      - PENDING
+      - CREATING
+      - BUILDING
+      - TESTING
+      - DISTRIBUTING
+      - INTEGRATING
+      - AVAILABLE
+      - CANCELLED
+      - FAILED
+      - DEPRECATED
+      - DELETED
+    LicenseConfigurationArnList:
+      type: array
+      items:
+        $ref: '#/components/schemas/LicenseConfigurationArn'
+      minItems: 1
+      maxItems: 50
+    OrganizationalUnitArn:
+      type: string
+      pattern: ^arn:aws[^:]*:organizations::[0-9]{12}:ou/o-[a-z0-9]{10,32}/ou-[0-9a-z]{4,32}-[0-9a-z]{8,32}
+    AccountList:
+      type: array
+      items:
+        $ref: '#/components/schemas/AccountId'
+      minItems: 1
+      maxItems: 1536
+    CallRateLimitExceededException: {}
+    TagValue:
+      type: string
+      maxLength: 256
+    AccountId:
+      type: string
+      pattern: ^[0-9]{12}$
+    DistributionTimeoutMinutes:
+      type: integer
+      minimum: 30
+      maximum: 720
+    ImageRecipe:
+      type: object
+      properties:
+        arn:
+          allOf:
+          - $ref: '#/components/schemas/ImageBuilderArn'
+          - description: The Amazon Resource Name (ARN) of the image recipe.
+        type:
+          allOf:
+          - $ref: '#/components/schemas/ImageType'
+          - description: Specifies which type of image is created by the recipe - an AMI or a container image.
+        name:
+          allOf:
+          - $ref: '#/components/schemas/ResourceName'
+          - description: The name of the image recipe.
+        description:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The description of the image recipe.
+        platform:
+          allOf:
+          - $ref: '#/components/schemas/Platform'
+          - description: The platform of the image recipe.
+        owner:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The owner of the image recipe.
+        version:
+          allOf:
+          - $ref: '#/components/schemas/VersionNumber'
+          - description: The version of the image recipe.
+        components:
+          allOf:
+          - $ref: '#/components/schemas/ComponentConfigurationList'
+          - description: The components that are included in the image recipe. Recipes require a minimum of one build component, and can have a maximum of 20 build and test components in any combination.
+        parentImage:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The base image of the image recipe.
+        blockDeviceMappings:
+          allOf:
+          - $ref: '#/components/schemas/InstanceBlockDeviceMappings'
+          - description: The block device mappings to apply when creating images from this recipe.
+        dateCreated:
+          allOf:
+          - $ref: '#/components/schemas/DateTime'
+          - description: The date on which this image recipe was created.
+        tags:
+          allOf:
+          - $ref: '#/components/schemas/TagMap'
+          - description: The tags of the image recipe.
+        workingDirectory:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The working directory to be used during build and test workflows.
+        additionalInstanceConfiguration:
+          allOf:
+          - $ref: '#/components/schemas/AdditionalInstanceConfiguration'
+          - description: Before you create a new AMI, Image Builder launches temporary Amazon EC2 instances to build and test your image configuration. Instance configuration adds a layer of control over those instances. You can define settings and add scripts to run when an instance is launched from your AMI.
+      description: An image recipe.
+    InstanceBlockDeviceMapping:
+      type: object
+      properties:
+        deviceName:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The device to which these mappings apply.
+          example: example-resource-name
+        ebs:
+          allOf:
+          - $ref: '#/components/schemas/EbsInstanceBlockDeviceSpecification'
+          - description: Use to manage Amazon EBS-specific configuration for this mapping.
+          example: example-string
+        virtualName:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: Use to manage instance ephemeral devices.
+          example: example-resource-name
+        noDevice:
+          allOf:
+          - $ref: '#/components/schemas/EmptyString'
+          - description: Use to remove a mapping from the base image.
+          example: example-string
+      description: Defines block device mappings for the instance used to configure your image.
+    EbsIopsInteger:
+      type: integer
+      minimum: 100
+      maximum: 64000
+    ComponentParameter:
+      type: object
+      required:
+      - name
+      - value
+      properties:
+        name:
+          allOf:
+          - $ref: '#/components/schemas/ComponentParameterName'
+          - description: The name of the component parameter to set.
+        value:
+          allOf:
+          - $ref: '#/components/schemas/ComponentParameterValueList'
+          - description: Sets the value for the named component parameter.
+      description: Contains a key/value pair that sets the named component parameter.
+    InfrastructureConfiguration:
+      type: object
+      properties:
+        arn:
+          allOf:
+          - $ref: '#/components/schemas/ImageBuilderArn'
+          - description: The Amazon Resource Name (ARN) of the infrastructure configuration.
+        name:
+          allOf:
+          - $ref: '#/components/schemas/ResourceName'
+          - description: The name of the infrastructure configuration.
+        description:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The description of the infrastructure configuration.
+        instanceTypes:
+          allOf:
+          - $ref: '#/components/schemas/InstanceTypeList'
+          - description: The instance types of the infrastructure configuration.
+        instanceProfileName:
+          allOf:
+          - $ref: '#/components/schemas/InstanceProfileNameType'
+          - description: The instance profile of the infrastructure configuration.
+        securityGroupIds:
+          allOf:
+          - $ref: '#/components/schemas/SecurityGroupIds'
+          - description: The security group IDs of the infrastructure configuration.
+        subnetId:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The subnet ID of the infrastructure configuration.
+        logging:
+          allOf:
+          - $ref: '#/components/schemas/Logging'
+          - description: The logging configuration of the infrastructure configuration.
+        keyPair:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The Amazon EC2 key pair of the infrastructure configuration.
+        terminateInstanceOnFailure:
+          allOf:
+          - $ref: '#/components/schemas/NullableBoolean'
+          - description: The terminate instance on failure configuration of the infrastructure configuration.
+        snsTopicArn:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: <p>The Amazon Resource Name (ARN) for the SNS topic to which we send image build event notifications.</p> <note> <p>EC2 Image Builder is unable to send notifications to SNS topics that are encrypted using keys from other accounts. The key that is used to encrypt the SNS topic must reside in the account that the Image Builder service runs under.</p> </note>
+        dateCreated:
+          allOf:
+          - $ref: '#/components/schemas/DateTime'
+          - description: The date on which the infrastructure configuration was created.
+        dateUpdated:
+          allOf:
+          - $ref: '#/components/schemas/DateTime'
+          - description: The date on which the infrastructure configuration was last updated.
+        resourceTags:
+          allOf:
+          - $ref: '#/components/schemas/ResourceTagMap'
+          - description: The tags attached to the resource created by Image Builder.
+        instanceMetadataOptions:
+          allOf:
+          - $ref: '#/components/schemas/InstanceMetadataOptions'
+          - description: The instance metadata option settings for the infrastructure configuration.
+        tags:
+          allOf:
+          - $ref: '#/components/schemas/TagMap'
+          - description: The tags of the infrastructure configuration.
+      description: Details of the infrastructure configuration.
+    FastLaunchSnapshotConfiguration:
+      type: object
+      properties:
+        targetResourceCount:
+          allOf:
+          - $ref: '#/components/schemas/TargetResourceCount'
+          - description: The number of pre-provisioned snapshots to keep on hand for a fast-launch enabled Windows AMI.
+      description: Configuration settings for creating and managing pre-provisioned snapshots for a fast-launch enabled Windows AMI.
+    HttpPutResponseHopLimit:
+      type: integer
+      minimum: 1
+      maximum: 64
+    Arn:
+      type: string
+    EbsVolumeType:
+      type: string
+      enum:
+      - standard
+      - io1
+      - io2
+      - gp2
+      - gp3
+      - sc1
+      - st1
+    ComponentVersionArnOrBuildVersionArn:
+      type: string
+      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):component/[a-z0-9-_]+/(?:(?:([0-9]+|x)\.([0-9]+|x)\.([0-9]+|x))|(?:[0-9]+\.[0-9]+\.[0-9]+/[0-9]+))$
+    ServiceException: {}
+    DistributionConfiguration:
+      type: object
+      required:
+      - timeoutMinutes
+      properties:
+        arn:
+          allOf:
+          - $ref: '#/components/schemas/ImageBuilderArn'
+          - description: The Amazon Resource Name (ARN) of the distribution configuration.
+        name:
+          allOf:
+          - $ref: '#/components/schemas/ResourceName'
+          - description: The name of the distribution configuration.
+        description:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The description of the distribution configuration.
+        distributions:
+          allOf:
+          - $ref: '#/components/schemas/DistributionList'
+          - description: The distribution objects that apply Region-specific settings for the deployment of the image to targeted Regions.
+        timeoutMinutes:
+          allOf:
+          - $ref: '#/components/schemas/DistributionTimeoutMinutes'
+          - description: The maximum duration in minutes for this distribution configuration.
+        dateCreated:
+          allOf:
+          - $ref: '#/components/schemas/DateTime'
+          - description: The date on which this distribution configuration was created.
+        dateUpdated:
+          allOf:
+          - $ref: '#/components/schemas/DateTime'
+          - description: The date on which this distribution configuration was last updated.
+        tags:
+          allOf:
+          - $ref: '#/components/schemas/TagMap'
+          - description: The tags of the distribution configuration.
+      description: A distribution configuration.
+    LaunchPermissionConfiguration:
+      type: object
+      properties:
+        userIds:
+          allOf:
+          - $ref: '#/components/schemas/AccountList'
+          - description: The Amazon Web Services account ID.
+        userGroups:
+          allOf:
+          - $ref: '#/components/schemas/StringList'
+          - description: The name of the group.
+        organizationArns:
+          allOf:
+          - $ref: '#/components/schemas/OrganizationArnList'
+          - description: The ARN for an Amazon Web Services Organization that you want to share your AMI with. For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html">What is Organizations?</a>.
+        organizationalUnitArns:
+          allOf:
+          - $ref: '#/components/schemas/OrganizationalUnitArnList'
+          - description: The ARN for an Organizations organizational unit (OU) that you want to share your AMI with. For more information about key concepts for Organizations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html">Organizations terminology and concepts</a>.
+      description: Describes the configuration for a launch permission. The launch permission modification request is sent to the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyImageAttribute.html">Amazon EC2 ModifyImageAttribute</a> API on behalf of the user for each Region they have selected to distribute the AMI. To make an AMI public, set the launch permission authorized accounts to <code>all</code>. See the examples for making an AMI public at <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyImageAttribute.html">Amazon EC2 ModifyImageAttribute</a>.
+    EbsVolumeSizeInteger:
+      type: integer
+      minimum: 1
+      maximum: 16000
+    OrganizationArn:
+      type: string
+      pattern: ^arn:aws[^:]*:organizations::[0-9]{12}:organization/o-[a-z0-9]{10,32}$
+    ImageScanStatus:
+      type: string
+      enum:
+      - PENDING
+      - SCANNING
+      - COLLECTING
+      - COMPLETED
+      - ABANDONED
+      - FAILED
+      - TIMED_OUT
+    Boolean:
+      type: boolean
+    ImageTestsConfiguration:
+      type: object
+      properties:
+        imageTestsEnabled:
+          allOf:
+          - $ref: '#/components/schemas/NullableBoolean'
+          - description: Determines if tests should run after building the image. Image Builder defaults to enable tests to run following the image build, before image distribution.
+        timeoutMinutes:
+          allOf:
+          - $ref: '#/components/schemas/ImageTestsTimeoutMinutes'
+          - description: <p>The maximum time in minutes that tests are permitted to run.</p> <note> <p>The timeoutMinutes attribute is not currently active. This value is ignored.</p> </note>
+      description: Configure image tests for your pipeline build. Tests run after building the image, to verify that the AMI or container image is valid before distributing it.
+    ContainerType:
+      type: string
+      enum:
+      - DOCKER
+    InstanceMetadataOptions:
+      type: object
+      properties:
+        httpTokens:
+          allOf:
+          - $ref: '#/components/schemas/HttpTokens'
+          - description: <p>Indicates whether a signed token header is required for instance metadata retrieval requests. The values affect the response as follows:</p> <ul> <li> <p> <b>required</b> – When you retrieve the IAM role credentials, version 2.0 credentials are returned in all cases.</p> </li> <li> <p> <b>optional</b> – You can include a signed token header in your request to retrieve instance metadata, or you can leave it out. If you include it, version 2.0 credentials are returned for the IAM role. Otherwise, version 1.0 credentials are returned.</p> </li> </ul> <p>The default setting is <b>optional</b>.</p>
+        httpPutResponseHopLimit:
+          allOf:
+          - $ref: '#/components/schemas/HttpPutResponseHopLimit'
+          - description: Limit the number of hops that an instance metadata request can traverse to reach its destination. The default is one hop. However, if HTTP tokens are required, container image builds need a minimum of two hops.
+      description: The instance metadata options that apply to the HTTP requests that pipeline builds use to launch EC2 build and test instances. For more information about instance metadata options, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-options.html">Configure the instance metadata options</a> in the <i> <i>Amazon EC2 User Guide</i> </i> for Linux instances, or <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/configuring-instance-metadata-options.html">Configure the instance metadata options</a> in the <i> <i>Amazon EC2 Windows Guide</i> </i> for Windows instances.
+    AmiList:
+      type: array
+      items:
+        $ref: '#/components/schemas/Ami'
+    ComponentParameterValueList:
+      type: array
+      items:
+        $ref: '#/components/schemas/ComponentParameterValue'
+    UserDataOverride:
+      type: string
+      pattern: ^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$
+      minLength: 1
+      maxLength: 21847
+    ContainerRepositoryService:
+      type: string
+      enum:
+      - ECR
+    InstanceType:
+      type: string
+    EcrConfiguration:
+      type: object
+      properties:
+        repositoryName:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The name of the container repository that Amazon Inspector scans to identify findings for your container images. The name includes the path for the repository location. If you don’t provide this information, Image Builder creates a repository in your account named <code>image-builder-image-scanning-repository</code> for vulnerability scans of your output container images.
+          example: example-resource-name
+        containerTags:
+          allOf:
+          - $ref: '#/components/schemas/StringList'
+          - description: Tags for Image Builder to apply to the output container image that &amp;INS; scans. Tags can help you identify and manage your scanned images.
+          example: example-string
+      description: Settings that Image Builder uses to configure the ECR repository and the output container images that Amazon Inspector scans.
+    ImageBuilderArn:
+      type: string
+      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):(?:image-recipe|container-recipe|infrastructure-configuration|distribution-configuration|component|image|image-pipeline|workflow\/(?:build|test|distribution))/[a-z0-9-_]+(?:/(?:(?:x|[0-9]+)\.(?:x|[0-9]+)\.(?:x|[0-9]+))(?:/[0-9]+)?)?$
+    OsVersion:
+      type: string
+      minLength: 1
+    S3ExportConfiguration:
+      type: object
+      required:
+      - roleName
+      - diskImageFormat
+      - s3Bucket
+      properties:
+        roleName:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The name of the role that grants VM Import/Export permission to export images to your S3 bucket.
+        diskImageFormat:
+          allOf:
+          - $ref: '#/components/schemas/DiskImageFormat'
+          - description: <p>Export the updated image to one of the following supported disk image formats:</p> <ul> <li> <p> <b>Virtual Hard Disk (VHD)</b> – Compatible with Citrix Xen and Microsoft Hyper-V virtualization products.</p> </li> <li> <p> <b>Stream-optimized ESX Virtual Machine Disk (VMDK)</b> – Compatible with VMware ESX and VMware vSphere versions 4, 5, and 6.</p> </li> <li> <p> <b>Raw</b> – Raw format.</p> </li> </ul>
+        s3Bucket:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The S3 bucket in which to store the output disk images for your VM.
+        s3Prefix:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The Amazon S3 path for the bucket where the output disk images for your VM are stored.
+      description: Properties that configure export from your build instance to a compatible file format for your VM.
+    NonEmptyString:
+      type: string
+      minLength: 1
+      maxLength: 1024
+    InstanceTypeList:
+      type: array
+      items:
+        $ref: '#/components/schemas/InstanceType'
+    ImageTestsTimeoutMinutes:
+      type: integer
+      minimum: 60
+      maximum: 1440
+    DateTime:
+      type: string
+    ComponentConfigurationList:
+      type: array
+      items:
+        $ref: '#/components/schemas/ComponentConfiguration'
+      minItems: 1
+    ForbiddenException: {}
+    TargetContainerRepository:
+      type: object
+      required:
+      - service
+      - repositoryName
+      properties:
+        service:
+          allOf:
+          - $ref: '#/components/schemas/ContainerRepositoryService'
+          - description: Specifies the service in which this image was registered.
+        repositoryName:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The name of the container repository where the output container image is stored. This name is prefixed by the repository location.
+      description: The container repository where the output container image is stored.
+    ComponentParameterValue:
+      type: string
+      pattern: '[^\x00]*'
+      minLength: 0
+    ResourceName:
+      type: string
+      pattern: ^[-_A-Za-z-0-9][-_A-Za-z0-9 ]{1,126}[-_A-Za-z-0-9]$
+    ContainerList:
+      type: array
+      items:
+        $ref: '#/components/schemas/Container'
+    S3Logs:
+      type: object
+      properties:
+        s3BucketName:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The S3 bucket in which to store the logs.
+          example: example-resource-name
+        s3KeyPrefix:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The Amazon S3 path to the bucket where the logs are stored.
+          example: example-string
+      description: Amazon S3 logging configuration.
+    BuildType:
+      type: string
+      enum:
+      - USER_INITIATED
+      - SCHEDULED
+      - IMPORT
+    TagMap:
+      type: object
+      minProperties: 1
+      maxProperties: 50
+      additionalProperties:
+        $ref: '#/components/schemas/TagValue'
+    ComponentConfiguration:
+      type: object
+      required:
+      - componentArn
+      properties:
+        componentArn:
+          allOf:
+          - $ref: '#/components/schemas/ComponentVersionArnOrBuildVersionArn'
+          - description: The Amazon Resource Name (ARN) of the component.
+          example: arn:aws:service:us-east-1:123456789012:resource/example
+        parameters:
+          allOf:
+          - $ref: '#/components/schemas/ComponentParameterList'
+          - description: A group of parameter settings that Image Builder uses to configure the component for a specific recipe.
+          example: example-string
+      description: Configuration details of the component.
+    OutputResources:
+      type: object
+      properties:
+        amis:
+          allOf:
+          - $ref: '#/components/schemas/AmiList'
+          - description: The Amazon EC2 AMIs created by this image.
+        containers:
+          allOf:
+          - $ref: '#/components/schemas/ContainerList'
+          - description: Container images that the pipeline has generated and stored in the output repository.
+      description: The resources produced by this image.
+    ClientException: {}
+    EbsInstanceBlockDeviceSpecification:
+      type: object
+      properties:
+        encrypted:
+          allOf:
+          - $ref: '#/components/schemas/NullableBoolean'
+          - description: Use to configure device encryption.
+        deleteOnTermination:
+          allOf:
+          - $ref: '#/components/schemas/NullableBoolean'
+          - description: Use to configure delete on termination of the associated device.
+        iops:
+          allOf:
+          - $ref: '#/components/schemas/EbsIopsInteger'
+          - description: Use to configure device IOPS.
+        kmsKeyId:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: Use to configure the KMS key to use when encrypting the device.
+        snapshotId:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The snapshot that defines the device contents.
+        volumeSize:
+          allOf:
+          - $ref: '#/components/schemas/EbsVolumeSizeInteger'
+          - description: Use to override the device's volume size.
+        volumeType:
+          allOf:
+          - $ref: '#/components/schemas/EbsVolumeType'
+          - description: Use to override the device's volume type.
+        throughput:
+          allOf:
+          - $ref: '#/components/schemas/EbsVolumeThroughput'
+          - description: ' <b>For GP3 volumes only</b> – The throughput in MiB/s that the volume supports.'
+      description: Amazon EBS-specific block device mapping specifications.
+    ComponentParameterList:
+      type: array
+      items:
+        $ref: '#/components/schemas/ComponentParameter'
+      minItems: 1
+    ResourceTagMap:
+      type: object
+      minProperties: 1
+      maxProperties: 30
+      additionalProperties:
+        $ref: '#/components/schemas/TagValue'
+    ImageState:
+      type: object
+      properties:
+        status:
+          allOf:
+          - $ref: '#/components/schemas/ImageStatus'
+          - description: The status of the image.
+        reason:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The reason for the status of the image.
+      description: Image status and the reason for that status.
+    NullableBoolean:
+      type: boolean
+    ContainerDistributionConfiguration:
+      type: object
+      required:
+      - targetRepository
+      properties:
+        description:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The description of the container distribution configuration.
+        containerTags:
+          allOf:
+          - $ref: '#/components/schemas/StringList'
+          - description: Tags that are attached to the container distribution configuration.
+        targetRepository:
+          allOf:
+          - $ref: '#/components/schemas/TargetContainerRepository'
+          - description: The destination repository for the container distribution configuration.
+      description: Container distribution settings for encryption, licensing, and sharing in a specific Region.
+    LicenseConfigurationArn:
+      type: string
+      pattern: ^arn:aws[^:]*:license-manager:[^:]+:[0-9]{12}:license-configuration:lic-[a-z0-9-_]{32}$
+    TargetResourceCount:
+      type: integer
+      minimum: 1
+      maximum: 10000
+    FastLaunchConfiguration:
+      type: object
+      required:
+      - enabled
+      properties:
+        enabled:
+          allOf:
+          - $ref: '#/components/schemas/Boolean'
+          - description: A Boolean that represents the current state of faster launching for the Windows AMI. Set to <code>true</code> to start using Windows faster launching, or <code>false</code> to stop using it.
+        snapshotConfiguration:
+          allOf:
+          - $ref: '#/components/schemas/FastLaunchSnapshotConfiguration'
+          - description: Configuration settings for managing the number of snapshots that are created from pre-provisioned instances for the Windows AMI when faster launching is enabled.
+        maxParallelLaunches:
+          allOf:
+          - $ref: '#/components/schemas/MaxParallelLaunches'
+          - description: The maximum number of parallel instances that are launched for creating resources.
+        launchTemplate:
+          allOf:
+          - $ref: '#/components/schemas/FastLaunchLaunchTemplateSpecification'
+          - description: The launch template that the fast-launch enabled Windows AMI uses when it launches Windows instances to create pre-provisioned snapshots.
+        accountId:
+          allOf:
+          - $ref: '#/components/schemas/AccountId'
+          - description: The owner account ID for the fast-launch enabled Windows AMI.
+      description: Define and configure faster launching for output Windows AMIs.
+    GetImageResponse:
+      type: object
+      properties:
+        requestId:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The request ID that uniquely identifies this request.
+        image:
+          allOf:
+          - $ref: '#/components/schemas/Image'
+          - description: The image object.
+  parameters:
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+  securitySchemes:
+    hmac:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: Amazon Signature authorization v4
+      x-amazon-apigateway-authtype: awsSigv4
+externalDocs:
+  description: Amazon Web Services documentation
+  url: https://docs.aws.amazon.com/imagebuilder/
+x-hasEquivalentPaths: true
