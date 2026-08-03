@@ -1,0 +1,456 @@
+{
+  "info": {
+    "_postman_id": "2f1410aa-bd20-4c36-a09d-37b6426d6071",
+    "name": "EC2 Image Builder CancelImageCreation ImportVmImage API",
+    "description": "EC2 Image Builder is a fully managed Amazon Web Services service that makes it easier to automate the creation, management, and deployment of customized, secure, and up-to-date \"golden\" server images that are pre-installed and pre-configured with software and settings to meet specific IT standards.\n\nContact Support:\n Name: Mike Ralphson\n Email: mike.ralphson@gmail.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T10:20:43.000Z",
+    "updatedAt": "2026-07-28T10:20:44.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-2f1410aa-bd20-4c36-a09d-37b6426d6071"
+  },
+  "item": [
+    {
+      "name": "ImportVmImage",
+      "item": [
+        {
+          "name": "Amazon EC2 Image Builder Import Vm Image",
+          "id": "1aee8cef-ab15-458d-b9fa-c098ded15a37",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Amz-Content-Sha256",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Date",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Algorithm",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Credential",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Security-Token",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Signature",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-SignedHeaders",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"semanticVersion\": \"0840.8.17437698\",\n  \"platform\": \"Linux\",\n  \"vmImportTaskId\": \"<string>\",\n  \"clientToken\": \"<string>\",\n  \"description\": \"<string>\",\n  \"osVersion\": \"<string>\",\n  \"tags\": {\n    \"laborum_94\": \"<string>\",\n    \"laboris__c_\": \"<string>\",\n    \"quis_bae\": \"<string>\",\n    \"amet7c\": \"<string>\",\n    \"dolor_87\": \"<string>\",\n    \"occaecat4c\": \"<string>\",\n    \"aliqua__\": \"<string>\",\n    \"enim35\": \"<string>\",\n    \"deserunt1c\": \"<string>\",\n    \"irure666\": \"<string>\",\n    \"irure_1e1\": \"<string>\",\n    \"nulla530\": \"<string>\",\n    \"cupidatatcd\": \"<string>\",\n    \"consectetur860\": \"<string>\",\n    \"cupidatatee\": \"<string>\",\n    \"minim_1\": \"<string>\",\n    \"esse4a3\": \"<string>\",\n    \"ullamco_1\": \"<string>\",\n    \"adipisicingf70\": \"<string>\",\n    \"euba8\": \"<string>\",\n    \"sint_d\": \"<string>\",\n    \"est_d\": \"<string>\",\n    \"elit_1\": \"<string>\",\n    \"nostrudb\": \"<string>\",\n    \"do_bfb\": \"<string>\",\n    \"ut_aa7\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/ImportVmImage",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ImportVmImage"
+              ]
+            },
+            "description": "<p>When you export your virtual machine (VM) from its virtualization environment, that process creates a set of one or more disk container files that act as snapshots of your VM\u2019s environment, settings, and data. The Amazon EC2 API <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportImage.html\">ImportImage</a> action uses those files to import your VM and create an AMI. To import using the CLI command, see <a href=\"https://docs.aws.amazon.com/cli/latest/reference/ec2/import-image.html\">import-image</a> </p> <p>You can reference the task ID from the VM import to pull in the AMI that the import created as the base image for your Image Builder recipe.</p>"
+          },
+          "response": [
+            {
+              "id": "b1cf9334-3a5b-495e-bc5e-7ec5195358b5",
+              "name": "Success",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"semanticVersion\": \"0840.8.17437698\",\n  \"platform\": \"Linux\",\n  \"vmImportTaskId\": \"<string>\",\n  \"clientToken\": \"<string>\",\n  \"description\": \"<string>\",\n  \"osVersion\": \"<string>\",\n  \"tags\": {\n    \"laborum_94\": \"<string>\",\n    \"laboris__c_\": \"<string>\",\n    \"quis_bae\": \"<string>\",\n    \"amet7c\": \"<string>\",\n    \"dolor_87\": \"<string>\",\n    \"occaecat4c\": \"<string>\",\n    \"aliqua__\": \"<string>\",\n    \"enim35\": \"<string>\",\n    \"deserunt1c\": \"<string>\",\n    \"irure666\": \"<string>\",\n    \"irure_1e1\": \"<string>\",\n    \"nulla530\": \"<string>\",\n    \"cupidatatcd\": \"<string>\",\n    \"consectetur860\": \"<string>\",\n    \"cupidatatee\": \"<string>\",\n    \"minim_1\": \"<string>\",\n    \"esse4a3\": \"<string>\",\n    \"ullamco_1\": \"<string>\",\n    \"adipisicingf70\": \"<string>\",\n    \"euba8\": \"<string>\",\n    \"sint_d\": \"<string>\",\n    \"est_d\": \"<string>\",\n    \"elit_1\": \"<string>\",\n    \"nostrudb\": \"<string>\",\n    \"do_bfb\": \"<string>\",\n    \"ut_aa7\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/ImportVmImage",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ImportVmImage"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"requestId\": \"<string>\",\n  \"imageArn\": \"<string>\",\n  \"clientToken\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T10:20:44.000Z",
+              "updatedAt": "2026-07-28T10:20:44.000Z",
+              "uid": "35240-b1cf9334-3a5b-495e-bc5e-7ec5195358b5"
+            },
+            {
+              "id": "f78bcd94-f8a4-4dc0-9e25-23bee66d2b4b",
+              "name": "ServiceException",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"semanticVersion\": \"0840.8.17437698\",\n  \"platform\": \"Linux\",\n  \"vmImportTaskId\": \"<string>\",\n  \"clientToken\": \"<string>\",\n  \"description\": \"<string>\",\n  \"osVersion\": \"<string>\",\n  \"tags\": {\n    \"laborum_94\": \"<string>\",\n    \"laboris__c_\": \"<string>\",\n    \"quis_bae\": \"<string>\",\n    \"amet7c\": \"<string>\",\n    \"dolor_87\": \"<string>\",\n    \"occaecat4c\": \"<string>\",\n    \"aliqua__\": \"<string>\",\n    \"enim35\": \"<string>\",\n    \"deserunt1c\": \"<string>\",\n    \"irure666\": \"<string>\",\n    \"irure_1e1\": \"<string>\",\n    \"nulla530\": \"<string>\",\n    \"cupidatatcd\": \"<string>\",\n    \"consectetur860\": \"<string>\",\n    \"cupidatatee\": \"<string>\",\n    \"minim_1\": \"<string>\",\n    \"esse4a3\": \"<string>\",\n    \"ullamco_1\": \"<string>\",\n    \"adipisicingf70\": \"<string>\",\n    \"euba8\": \"<string>\",\n    \"sint_d\": \"<string>\",\n    \"est_d\": \"<string>\",\n    \"elit_1\": \"<string>\",\n    \"nostrudb\": \"<string>\",\n    \"do_bfb\": \"<string>\",\n    \"ut_aa7\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/ImportVmImage",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ImportVmImage"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:20:44.000Z",
+              "updatedAt": "2026-07-28T10:20:44.000Z",
+              "uid": "35240-f78bcd94-f8a4-4dc0-9e25-23bee66d2b4b"
+            },
+            {
+              "id": "bdba8490-4cf9-4ac5-957e-8c407cf01220",
+              "name": "ClientException",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"semanticVersion\": \"0840.8.17437698\",\n  \"platform\": \"Linux\",\n  \"vmImportTaskId\": \"<string>\",\n  \"clientToken\": \"<string>\",\n  \"description\": \"<string>\",\n  \"osVersion\": \"<string>\",\n  \"tags\": {\n    \"laborum_94\": \"<string>\",\n    \"laboris__c_\": \"<string>\",\n    \"quis_bae\": \"<string>\",\n    \"amet7c\": \"<string>\",\n    \"dolor_87\": \"<string>\",\n    \"occaecat4c\": \"<string>\",\n    \"aliqua__\": \"<string>\",\n    \"enim35\": \"<string>\",\n    \"deserunt1c\": \"<string>\",\n    \"irure666\": \"<string>\",\n    \"irure_1e1\": \"<string>\",\n    \"nulla530\": \"<string>\",\n    \"cupidatatcd\": \"<string>\",\n    \"consectetur860\": \"<string>\",\n    \"cupidatatee\": \"<string>\",\n    \"minim_1\": \"<string>\",\n    \"esse4a3\": \"<string>\",\n    \"ullamco_1\": \"<string>\",\n    \"adipisicingf70\": \"<string>\",\n    \"euba8\": \"<string>\",\n    \"sint_d\": \"<string>\",\n    \"est_d\": \"<string>\",\n    \"elit_1\": \"<string>\",\n    \"nostrudb\": \"<string>\",\n    \"do_bfb\": \"<string>\",\n    \"ut_aa7\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/ImportVmImage",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ImportVmImage"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:20:44.000Z",
+              "updatedAt": "2026-07-28T10:20:44.000Z",
+              "uid": "35240-bdba8490-4cf9-4ac5-957e-8c407cf01220"
+            },
+            {
+              "id": "8cfbdf2a-823e-4760-b4e3-8d8d8403db1d",
+              "name": "ServiceUnavailableException",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"semanticVersion\": \"0840.8.17437698\",\n  \"platform\": \"Linux\",\n  \"vmImportTaskId\": \"<string>\",\n  \"clientToken\": \"<string>\",\n  \"description\": \"<string>\",\n  \"osVersion\": \"<string>\",\n  \"tags\": {\n    \"laborum_94\": \"<string>\",\n    \"laboris__c_\": \"<string>\",\n    \"quis_bae\": \"<string>\",\n    \"amet7c\": \"<string>\",\n    \"dolor_87\": \"<string>\",\n    \"occaecat4c\": \"<string>\",\n    \"aliqua__\": \"<string>\",\n    \"enim35\": \"<string>\",\n    \"deserunt1c\": \"<string>\",\n    \"irure666\": \"<string>\",\n    \"irure_1e1\": \"<string>\",\n    \"nulla530\": \"<string>\",\n    \"cupidatatcd\": \"<string>\",\n    \"consectetur860\": \"<string>\",\n    \"cupidatatee\": \"<string>\",\n    \"minim_1\": \"<string>\",\n    \"esse4a3\": \"<string>\",\n    \"ullamco_1\": \"<string>\",\n    \"adipisicingf70\": \"<string>\",\n    \"euba8\": \"<string>\",\n    \"sint_d\": \"<string>\",\n    \"est_d\": \"<string>\",\n    \"elit_1\": \"<string>\",\n    \"nostrudb\": \"<string>\",\n    \"do_bfb\": \"<string>\",\n    \"ut_aa7\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/ImportVmImage",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ImportVmImage"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:20:44.000Z",
+              "updatedAt": "2026-07-28T10:20:44.000Z",
+              "uid": "35240-8cfbdf2a-823e-4760-b4e3-8d8d8403db1d"
+            }
+          ],
+          "createdAt": "2026-07-28T10:20:44.000Z",
+          "updatedAt": "2026-07-28T10:20:44.000Z",
+          "uid": "35240-1aee8cef-ab15-458d-b9fa-c098ded15a37"
+        }
+      ],
+      "id": "828df3f1-1180-46c6-84e6-d50f9f326c92",
+      "createdAt": "2026-07-28T10:20:44.000Z",
+      "updatedAt": "2026-07-28T10:20:44.000Z",
+      "uid": "35240-828df3f1-1180-46c6-84e6-d50f9f326c92"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "us-east-1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "http://imagebuilder.{{region}}.amazonaws.com"
+    }
+  ]
+}

@@ -1,0 +1,1112 @@
+{
+  "info": {
+    "_postman_id": "7f616574-cc19-43c7-985a-3e95a0fda9c9",
+    "name": "EC2 Image Builder CancelImageCreation CreateDistributionConfiguration API",
+    "description": "EC2 Image Builder is a fully managed Amazon Web Services service that makes it easier to automate the creation, management, and deployment of customized, secure, and up-to-date \"golden\" server images that are pre-installed and pre-configured with software and settings to meet specific IT standards.\n\nContact Support:\n Name: Mike Ralphson\n Email: mike.ralphson@gmail.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T10:19:37.000Z",
+    "updatedAt": "2026-07-28T10:19:37.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-7f616574-cc19-43c7-985a-3e95a0fda9c9"
+  },
+  "item": [
+    {
+      "name": "CreateDistributionConfiguration",
+      "item": [
+        {
+          "name": "Amazon EC2 Image Builder Create Distribution Configuration",
+          "id": "116bedda-55f6-40a1-8cff-b788d668a6df",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Amz-Content-Sha256",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Date",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Algorithm",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Credential",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Security-Token",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Signature",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-SignedHeaders",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"MyhhSsuoEmMZ-F7YDZphORCPrcZJ2Bacf1xY\",\n  \"distributions\": [\n    {\n      \"region\": \"<string>\",\n      \"amiDistributionConfiguration\": {\n        \"name\": \"NU9\ufeffn\",\n        \"description\": \"<string>\",\n        \"targetAccountIds\": [\n          \"907213322794\"\n        ],\n        \"amiTags\": {\n          \"dolorebd\": \"<string>\",\n          \"nisi_a\": \"<string>\",\n          \"commodo_65b\": \"<string>\",\n          \"ut_4_\": \"<string>\",\n          \"incididunta3b\": \"<string>\",\n          \"voluptated\": \"<string>\",\n          \"pariatur_b01\": \"<string>\",\n          \"cupidatate4f\": \"<string>\",\n          \"et074\": \"<string>\",\n          \"consectetur95a\": \"<string>\",\n          \"adipisicingb1\": \"<string>\",\n          \"occaecat_c9a\": \"<string>\",\n          \"amet_12\": \"<string>\",\n          \"Duis2\": \"<string>\",\n          \"velit_15\": \"<string>\",\n          \"magna_9f\": \"<string>\",\n          \"incididunt_12c\": \"<string>\",\n          \"Excepteur8\": \"<string>\",\n          \"in_96\": \"<string>\",\n          \"doloreb\": \"<string>\",\n          \"ut9\": \"<string>\",\n          \"voluptatefd\": \"<string>\",\n          \"ipsum1\": \"<string>\",\n          \"consectetur_0a\": \"<string>\",\n          \"et27d\": \"<string>\",\n          \"laboris__\": \"<string>\",\n          \"Duis_5\": \"<string>\",\n          \"labore00\": \"<string>\",\n          \"velit2\": \"<string>\",\n          \"sed_06e\": \"<string>\",\n          \"est_5b\": \"<string>\",\n          \"aliquab\": \"<string>\",\n          \"cupidatat_05\": \"<string>\",\n          \"est_bac\": \"<string>\",\n          \"quis6\": \"<string>\",\n          \"irure_e7\": \"<string>\",\n          \"irure_1d\": \"<string>\",\n          \"reprehenderit__1\": \"<string>\",\n          \"sed_f9\": \"<string>\",\n          \"occaecat_29\": \"<string>\",\n          \"incididunt_0\": \"<string>\",\n          \"magna_e98\": \"<string>\",\n          \"voluptate_94\": \"<string>\",\n          \"Uteb\": \"<string>\"\n        },\n        \"kmsKeyId\": \"<string>\",\n        \"launchPermission\": {\n          \"userIds\": [\n            \"014831510090\"\n          ],\n          \"userGroups\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"organizationArns\": [\n            \"arn:awsO%fe1:organizations::198381830824:organization/o-5ojp7kuvmesplftjs79conxetoz8\"\n          ],\n          \"organizationalUnitArns\": [\n            \"arn:aws+\\\"S_k,8Mlq:organizations::258930220668:ou/o-ed3yy0kuv0/ou-5upti8fqyj4gcc855xv2npjuk8c1-m55dhkjvvt53u5yub1al\"\n          ]\n        }\n      },\n      \"containerDistributionConfiguration\": {\n        \"targetRepository\": {\n          \"service\": \"ECR\",\n          \"repositoryName\": \"<string>\"\n        },\n        \"description\": \"<string>\",\n        \"containerTags\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"licenseConfigurationArns\": [\n        \"arn:aws:license-manager:@;S;<KTf:174046818062:license-configuration:lic-1eesdp2q3ehzuy2457nfdu_2lqnbmt9t\"\n      ],\n      \"launchTemplateConfigurations\": [\n        {\n          \"launchTemplateId\": \"lt-49h9j4ymt8qom-_og\",\n          \"accountId\": \"172618134357\",\n          \"setDefaultVersion\": \"<boolean>\"\n        }\n      ],\n      \"s3ExportConfiguration\": {\n        \"roleName\": \"<string>\",\n        \"diskImageFormat\": \"VMDK\",\n        \"s3Bucket\": \"<string>\",\n        \"s3Prefix\": \"<string>\"\n      },\n      \"fastLaunchConfigurations\": [\n        {\n          \"enabled\": \"<boolean>\",\n          \"snapshotConfiguration\": {\n            \"targetResourceCount\": \"<integer>\"\n          },\n          \"maxParallelLaunches\": \"<integer>\",\n          \"launchTemplate\": {\n            \"launchTemplateId\": \"lt-m_dszos53e1zwzsfw\",\n            \"launchTemplateName\": \"<string>\",\n            \"launchTemplateVersion\": \"<string>\"\n          },\n          \"accountId\": \"593321691633\"\n        }\n      ]\n    },\n    {\n      \"region\": \"<string>\",\n      \"amiDistributionConfiguration\": {\n        \"name\": \"5.KpB1-dp\",\n        \"description\": \"<string>\",\n        \"targetAccountIds\": [\n          \"019955946451\"\n        ],\n        \"amiTags\": {\n          \"laboris96\": \"<string>\",\n          \"exercitation_94_\": \"<string>\",\n          \"elit_5e\": \"<string>\",\n          \"nostrud9\": \"<string>\",\n          \"pariatur0\": \"<string>\",\n          \"adipisicing_43c\": \"<string>\",\n          \"est8\": \"<string>\",\n          \"dolor_a\": \"<string>\",\n          \"in0\": \"<string>\",\n          \"Duis_50\": \"<string>\",\n          \"commodoeb\": \"<string>\",\n          \"aliquad\": \"<string>\",\n          \"consecteturb8\": \"<string>\",\n          \"dolor_00\": \"<string>\",\n          \"exercitation4d\": \"<string>\",\n          \"do9f7\": \"<string>\",\n          \"enim58\": \"<string>\",\n          \"esse_d_7\": \"<string>\",\n          \"dolor_0\": \"<string>\",\n          \"incididunta94\": \"<string>\",\n          \"in54f\": \"<string>\",\n          \"enim_5ad\": \"<string>\",\n          \"Utf3f\": \"<string>\",\n          \"consectetur5\": \"<string>\",\n          \"ute81\": \"<string>\",\n          \"quie\": \"<string>\",\n          \"magna_64_\": \"<string>\",\n          \"proident_3\": \"<string>\",\n          \"sunt_5_3\": \"<string>\",\n          \"voluptate7a\": \"<string>\",\n          \"pariatur__b\": \"<string>\",\n          \"sit1_\": \"<string>\",\n          \"consectetur9_e\": \"<string>\",\n          \"qui5\": \"<string>\"\n        },\n        \"kmsKeyId\": \"<string>\",\n        \"launchPermission\": {\n          \"userIds\": [\n            \"744700991492\"\n          ],\n          \"userGroups\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"organizationArns\": [\n            \"arn:awsN':organizations::129029222060:organization/o-5l5icaarqx212e340yzd3i4t2ebd00\"\n          ],\n          \"organizationalUnitArns\": [\n            \"arn:aws\\\\+:organizations::256752630929:ou/o-1e0dj1yijvc/ou-wcdc70t1v8p8eliytrebj-gb8jrbh0t87xqmfif65vd625yc41\"\n          ]\n        }\n      },\n      \"containerDistributionConfiguration\": {\n        \"targetRepository\": {\n          \"service\": \"ECR\",\n          \"repositoryName\": \"<string>\"\n        },\n        \"description\": \"<string>\",\n        \"containerTags\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"licenseConfigurationArns\": [\n        \"arn:aws@;i]+:license-manager:b):168339405594:license-configuration:lic-jn8_k_v0twrqlcicfn8a7xn125g7i4v1\"\n      ],\n      \"launchTemplateConfigurations\": [\n        {\n          \"launchTemplateId\": \"lt-xynhpa9x0femt32d1\",\n          \"accountId\": \"868857765799\",\n          \"setDefaultVersion\": \"<boolean>\"\n        }\n      ],\n      \"s3ExportConfiguration\": {\n        \"roleName\": \"<string>\",\n        \"diskImageFormat\": \"VHD\",\n        \"s3Bucket\": \"<string>\",\n        \"s3Prefix\": \"<string>\"\n      },\n      \"fastLaunchConfigurations\": [\n        {\n          \"enabled\": \"<boolean>\",\n          \"snapshotConfiguration\": {\n            \"targetResourceCount\": \"<integer>\"\n          },\n          \"maxParallelLaunches\": \"<integer>\",\n          \"launchTemplate\": {\n            \"launchTemplateId\": \"lt-mxq0e12f09yjluxzw\",\n            \"launchTemplateName\": \"<string>\",\n            \"launchTemplateVersion\": \"<string>\"\n          },\n          \"accountId\": \"681049340504\"\n        }\n      ]\n    }\n  ],\n  \"clientToken\": \"<string>\",\n  \"description\": \"<string>\",\n  \"tags\": {\n    \"sed__\": \"<string>\",\n    \"enim_c44\": \"<string>\",\n    \"nulla_26\": \"<string>\",\n    \"aliquace8\": \"<string>\",\n    \"Loreme\": \"<string>\",\n    \"id9\": \"<string>\",\n    \"ullamcoa\": \"<string>\",\n    \"utb\": \"<string>\",\n    \"eu_9dc\": \"<string>\",\n    \"anim50a\": \"<string>\",\n    \"exercitation_e_\": \"<string>\",\n    \"culpaab0\": \"<string>\",\n    \"in_f\": \"<string>\",\n    \"eaeec\": \"<string>\",\n    \"dolor_cd\": \"<string>\",\n    \"reprehenderit_d9\": \"<string>\",\n    \"sint4\": \"<string>\",\n    \"cillum_54\": \"<string>\",\n    \"et_74\": \"<string>\",\n    \"deserunt_20\": \"<string>\",\n    \"enim_8\": \"<string>\",\n    \"enim_599\": \"<string>\",\n    \"culpa_880\": \"<string>\",\n    \"nisib8\": \"<string>\",\n    \"dolor_e4\": \"<string>\",\n    \"sunt46\": \"<string>\",\n    \"sint85\": \"<string>\",\n    \"ullamcob1\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/CreateDistributionConfiguration",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "CreateDistributionConfiguration"
+              ]
+            },
+            "description": "Creates a new distribution configuration. Distribution configurations define and configure the outputs of your pipeline."
+          },
+          "response": [
+            {
+              "id": "d771b697-5386-4c61-84b2-78bd0a2047e7",
+              "name": "Success",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"MyhhSsuoEmMZ-F7YDZphORCPrcZJ2Bacf1xY\",\n  \"distributions\": [\n    {\n      \"region\": \"<string>\",\n      \"amiDistributionConfiguration\": {\n        \"name\": \"NU9\ufeffn\",\n        \"description\": \"<string>\",\n        \"targetAccountIds\": [\n          \"907213322794\"\n        ],\n        \"amiTags\": {\n          \"dolorebd\": \"<string>\",\n          \"nisi_a\": \"<string>\",\n          \"commodo_65b\": \"<string>\",\n          \"ut_4_\": \"<string>\",\n          \"incididunta3b\": \"<string>\",\n          \"voluptated\": \"<string>\",\n          \"pariatur_b01\": \"<string>\",\n          \"cupidatate4f\": \"<string>\",\n          \"et074\": \"<string>\",\n          \"consectetur95a\": \"<string>\",\n          \"adipisicingb1\": \"<string>\",\n          \"occaecat_c9a\": \"<string>\",\n          \"amet_12\": \"<string>\",\n          \"Duis2\": \"<string>\",\n          \"velit_15\": \"<string>\",\n          \"magna_9f\": \"<string>\",\n          \"incididunt_12c\": \"<string>\",\n          \"Excepteur8\": \"<string>\",\n          \"in_96\": \"<string>\",\n          \"doloreb\": \"<string>\",\n          \"ut9\": \"<string>\",\n          \"voluptatefd\": \"<string>\",\n          \"ipsum1\": \"<string>\",\n          \"consectetur_0a\": \"<string>\",\n          \"et27d\": \"<string>\",\n          \"laboris__\": \"<string>\",\n          \"Duis_5\": \"<string>\",\n          \"labore00\": \"<string>\",\n          \"velit2\": \"<string>\",\n          \"sed_06e\": \"<string>\",\n          \"est_5b\": \"<string>\",\n          \"aliquab\": \"<string>\",\n          \"cupidatat_05\": \"<string>\",\n          \"est_bac\": \"<string>\",\n          \"quis6\": \"<string>\",\n          \"irure_e7\": \"<string>\",\n          \"irure_1d\": \"<string>\",\n          \"reprehenderit__1\": \"<string>\",\n          \"sed_f9\": \"<string>\",\n          \"occaecat_29\": \"<string>\",\n          \"incididunt_0\": \"<string>\",\n          \"magna_e98\": \"<string>\",\n          \"voluptate_94\": \"<string>\",\n          \"Uteb\": \"<string>\"\n        },\n        \"kmsKeyId\": \"<string>\",\n        \"launchPermission\": {\n          \"userIds\": [\n            \"014831510090\"\n          ],\n          \"userGroups\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"organizationArns\": [\n            \"arn:awsO%fe1:organizations::198381830824:organization/o-5ojp7kuvmesplftjs79conxetoz8\"\n          ],\n          \"organizationalUnitArns\": [\n            \"arn:aws+\\\"S_k,8Mlq:organizations::258930220668:ou/o-ed3yy0kuv0/ou-5upti8fqyj4gcc855xv2npjuk8c1-m55dhkjvvt53u5yub1al\"\n          ]\n        }\n      },\n      \"containerDistributionConfiguration\": {\n        \"targetRepository\": {\n          \"service\": \"ECR\",\n          \"repositoryName\": \"<string>\"\n        },\n        \"description\": \"<string>\",\n        \"containerTags\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"licenseConfigurationArns\": [\n        \"arn:aws:license-manager:@;S;<KTf:174046818062:license-configuration:lic-1eesdp2q3ehzuy2457nfdu_2lqnbmt9t\"\n      ],\n      \"launchTemplateConfigurations\": [\n        {\n          \"launchTemplateId\": \"lt-49h9j4ymt8qom-_og\",\n          \"accountId\": \"172618134357\",\n          \"setDefaultVersion\": \"<boolean>\"\n        }\n      ],\n      \"s3ExportConfiguration\": {\n        \"roleName\": \"<string>\",\n        \"diskImageFormat\": \"VMDK\",\n        \"s3Bucket\": \"<string>\",\n        \"s3Prefix\": \"<string>\"\n      },\n      \"fastLaunchConfigurations\": [\n        {\n          \"enabled\": \"<boolean>\",\n          \"snapshotConfiguration\": {\n            \"targetResourceCount\": \"<integer>\"\n          },\n          \"maxParallelLaunches\": \"<integer>\",\n          \"launchTemplate\": {\n            \"launchTemplateId\": \"lt-m_dszos53e1zwzsfw\",\n            \"launchTemplateName\": \"<string>\",\n            \"launchTemplateVersion\": \"<string>\"\n          },\n          \"accountId\": \"593321691633\"\n        }\n      ]\n    },\n    {\n      \"region\": \"<string>\",\n      \"amiDistributionConfiguration\": {\n        \"name\": \"5.KpB1-dp\",\n        \"description\": \"<string>\",\n        \"targetAccountIds\": [\n          \"019955946451\"\n        ],\n        \"amiTags\": {\n          \"laboris96\": \"<string>\",\n          \"exercitation_94_\": \"<string>\",\n          \"elit_5e\": \"<string>\",\n          \"nostrud9\": \"<string>\",\n          \"pariatur0\": \"<string>\",\n          \"adipisicing_43c\": \"<string>\",\n          \"est8\": \"<string>\",\n          \"dolor_a\": \"<string>\",\n          \"in0\": \"<string>\",\n          \"Duis_50\": \"<string>\",\n          \"commodoeb\": \"<string>\",\n          \"aliquad\": \"<string>\",\n          \"consecteturb8\": \"<string>\",\n          \"dolor_00\": \"<string>\",\n          \"exercitation4d\": \"<string>\",\n          \"do9f7\": \"<string>\",\n          \"enim58\": \"<string>\",\n          \"esse_d_7\": \"<string>\",\n          \"dolor_0\": \"<string>\",\n          \"incididunta94\": \"<string>\",\n          \"in54f\": \"<string>\",\n          \"enim_5ad\": \"<string>\",\n          \"Utf3f\": \"<string>\",\n          \"consectetur5\": \"<string>\",\n          \"ute81\": \"<string>\",\n          \"quie\": \"<string>\",\n          \"magna_64_\": \"<string>\",\n          \"proident_3\": \"<string>\",\n          \"sunt_5_3\": \"<string>\",\n          \"voluptate7a\": \"<string>\",\n          \"pariatur__b\": \"<string>\",\n          \"sit1_\": \"<string>\",\n          \"consectetur9_e\": \"<string>\",\n          \"qui5\": \"<string>\"\n        },\n        \"kmsKeyId\": \"<string>\",\n        \"launchPermission\": {\n          \"userIds\": [\n            \"744700991492\"\n          ],\n          \"userGroups\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"organizationArns\": [\n            \"arn:awsN':organizations::129029222060:organization/o-5l5icaarqx212e340yzd3i4t2ebd00\"\n          ],\n          \"organizationalUnitArns\": [\n            \"arn:aws\\\\+:organizations::256752630929:ou/o-1e0dj1yijvc/ou-wcdc70t1v8p8eliytrebj-gb8jrbh0t87xqmfif65vd625yc41\"\n          ]\n        }\n      },\n      \"containerDistributionConfiguration\": {\n        \"targetRepository\": {\n          \"service\": \"ECR\",\n          \"repositoryName\": \"<string>\"\n        },\n        \"description\": \"<string>\",\n        \"containerTags\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"licenseConfigurationArns\": [\n        \"arn:aws@;i]+:license-manager:b):168339405594:license-configuration:lic-jn8_k_v0twrqlcicfn8a7xn125g7i4v1\"\n      ],\n      \"launchTemplateConfigurations\": [\n        {\n          \"launchTemplateId\": \"lt-xynhpa9x0femt32d1\",\n          \"accountId\": \"868857765799\",\n          \"setDefaultVersion\": \"<boolean>\"\n        }\n      ],\n      \"s3ExportConfiguration\": {\n        \"roleName\": \"<string>\",\n        \"diskImageFormat\": \"VHD\",\n        \"s3Bucket\": \"<string>\",\n        \"s3Prefix\": \"<string>\"\n      },\n      \"fastLaunchConfigurations\": [\n        {\n          \"enabled\": \"<boolean>\",\n          \"snapshotConfiguration\": {\n            \"targetResourceCount\": \"<integer>\"\n          },\n          \"maxParallelLaunches\": \"<integer>\",\n          \"launchTemplate\": {\n            \"launchTemplateId\": \"lt-mxq0e12f09yjluxzw\",\n            \"launchTemplateName\": \"<string>\",\n            \"launchTemplateVersion\": \"<string>\"\n          },\n          \"accountId\": \"681049340504\"\n        }\n      ]\n    }\n  ],\n  \"clientToken\": \"<string>\",\n  \"description\": \"<string>\",\n  \"tags\": {\n    \"sed__\": \"<string>\",\n    \"enim_c44\": \"<string>\",\n    \"nulla_26\": \"<string>\",\n    \"aliquace8\": \"<string>\",\n    \"Loreme\": \"<string>\",\n    \"id9\": \"<string>\",\n    \"ullamcoa\": \"<string>\",\n    \"utb\": \"<string>\",\n    \"eu_9dc\": \"<string>\",\n    \"anim50a\": \"<string>\",\n    \"exercitation_e_\": \"<string>\",\n    \"culpaab0\": \"<string>\",\n    \"in_f\": \"<string>\",\n    \"eaeec\": \"<string>\",\n    \"dolor_cd\": \"<string>\",\n    \"reprehenderit_d9\": \"<string>\",\n    \"sint4\": \"<string>\",\n    \"cillum_54\": \"<string>\",\n    \"et_74\": \"<string>\",\n    \"deserunt_20\": \"<string>\",\n    \"enim_8\": \"<string>\",\n    \"enim_599\": \"<string>\",\n    \"culpa_880\": \"<string>\",\n    \"nisib8\": \"<string>\",\n    \"dolor_e4\": \"<string>\",\n    \"sunt46\": \"<string>\",\n    \"sint85\": \"<string>\",\n    \"ullamcob1\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/CreateDistributionConfiguration",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "CreateDistributionConfiguration"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"requestId\": \"<string>\",\n  \"clientToken\": \"<string>\",\n  \"distributionConfigurationArn\": \"arn:aws^OVjC'FgD:imagebuilder:% n;^BJ1z :487267979921:distribution-configuration/q409\"\n}",
+              "createdAt": "2026-07-28T10:19:37.000Z",
+              "updatedAt": "2026-07-28T10:19:37.000Z",
+              "uid": "35240-d771b697-5386-4c61-84b2-78bd0a2047e7"
+            },
+            {
+              "id": "956ecdc5-dfe9-489e-80eb-01915d81a866",
+              "name": "ServiceException",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"MyhhSsuoEmMZ-F7YDZphORCPrcZJ2Bacf1xY\",\n  \"distributions\": [\n    {\n      \"region\": \"<string>\",\n      \"amiDistributionConfiguration\": {\n        \"name\": \"NU9\ufeffn\",\n        \"description\": \"<string>\",\n        \"targetAccountIds\": [\n          \"907213322794\"\n        ],\n        \"amiTags\": {\n          \"dolorebd\": \"<string>\",\n          \"nisi_a\": \"<string>\",\n          \"commodo_65b\": \"<string>\",\n          \"ut_4_\": \"<string>\",\n          \"incididunta3b\": \"<string>\",\n          \"voluptated\": \"<string>\",\n          \"pariatur_b01\": \"<string>\",\n          \"cupidatate4f\": \"<string>\",\n          \"et074\": \"<string>\",\n          \"consectetur95a\": \"<string>\",\n          \"adipisicingb1\": \"<string>\",\n          \"occaecat_c9a\": \"<string>\",\n          \"amet_12\": \"<string>\",\n          \"Duis2\": \"<string>\",\n          \"velit_15\": \"<string>\",\n          \"magna_9f\": \"<string>\",\n          \"incididunt_12c\": \"<string>\",\n          \"Excepteur8\": \"<string>\",\n          \"in_96\": \"<string>\",\n          \"doloreb\": \"<string>\",\n          \"ut9\": \"<string>\",\n          \"voluptatefd\": \"<string>\",\n          \"ipsum1\": \"<string>\",\n          \"consectetur_0a\": \"<string>\",\n          \"et27d\": \"<string>\",\n          \"laboris__\": \"<string>\",\n          \"Duis_5\": \"<string>\",\n          \"labore00\": \"<string>\",\n          \"velit2\": \"<string>\",\n          \"sed_06e\": \"<string>\",\n          \"est_5b\": \"<string>\",\n          \"aliquab\": \"<string>\",\n          \"cupidatat_05\": \"<string>\",\n          \"est_bac\": \"<string>\",\n          \"quis6\": \"<string>\",\n          \"irure_e7\": \"<string>\",\n          \"irure_1d\": \"<string>\",\n          \"reprehenderit__1\": \"<string>\",\n          \"sed_f9\": \"<string>\",\n          \"occaecat_29\": \"<string>\",\n          \"incididunt_0\": \"<string>\",\n          \"magna_e98\": \"<string>\",\n          \"voluptate_94\": \"<string>\",\n          \"Uteb\": \"<string>\"\n        },\n        \"kmsKeyId\": \"<string>\",\n        \"launchPermission\": {\n          \"userIds\": [\n            \"014831510090\"\n          ],\n          \"userGroups\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"organizationArns\": [\n            \"arn:awsO%fe1:organizations::198381830824:organization/o-5ojp7kuvmesplftjs79conxetoz8\"\n          ],\n          \"organizationalUnitArns\": [\n            \"arn:aws+\\\"S_k,8Mlq:organizations::258930220668:ou/o-ed3yy0kuv0/ou-5upti8fqyj4gcc855xv2npjuk8c1-m55dhkjvvt53u5yub1al\"\n          ]\n        }\n      },\n      \"containerDistributionConfiguration\": {\n        \"targetRepository\": {\n          \"service\": \"ECR\",\n          \"repositoryName\": \"<string>\"\n        },\n        \"description\": \"<string>\",\n        \"containerTags\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"licenseConfigurationArns\": [\n        \"arn:aws:license-manager:@;S;<KTf:174046818062:license-configuration:lic-1eesdp2q3ehzuy2457nfdu_2lqnbmt9t\"\n      ],\n      \"launchTemplateConfigurations\": [\n        {\n          \"launchTemplateId\": \"lt-49h9j4ymt8qom-_og\",\n          \"accountId\": \"172618134357\",\n          \"setDefaultVersion\": \"<boolean>\"\n        }\n      ],\n      \"s3ExportConfiguration\": {\n        \"roleName\": \"<string>\",\n        \"diskImageFormat\": \"VMDK\",\n        \"s3Bucket\": \"<string>\",\n        \"s3Prefix\": \"<string>\"\n      },\n      \"fastLaunchConfigurations\": [\n        {\n          \"enabled\": \"<boolean>\",\n          \"snapshotConfiguration\": {\n            \"targetResourceCount\": \"<integer>\"\n          },\n          \"maxParallelLaunches\": \"<integer>\",\n          \"launchTemplate\": {\n            \"launchTemplateId\": \"lt-m_dszos53e1zwzsfw\",\n            \"launchTemplateName\": \"<string>\",\n            \"launchTemplateVersion\": \"<string>\"\n          },\n          \"accountId\": \"593321691633\"\n        }\n      ]\n    },\n    {\n      \"region\": \"<string>\",\n      \"amiDistributionConfiguration\": {\n        \"name\": \"5.KpB1-dp\",\n        \"description\": \"<string>\",\n        \"targetAccountIds\": [\n          \"019955946451\"\n        ],\n        \"amiTags\": {\n          \"laboris96\": \"<string>\",\n          \"exercitation_94_\": \"<string>\",\n          \"elit_5e\": \"<string>\",\n          \"nostrud9\": \"<string>\",\n          \"pariatur0\": \"<string>\",\n          \"adipisicing_43c\": \"<string>\",\n          \"est8\": \"<string>\",\n          \"dolor_a\": \"<string>\",\n          \"in0\": \"<string>\",\n          \"Duis_50\": \"<string>\",\n          \"commodoeb\": \"<string>\",\n          \"aliquad\": \"<string>\",\n          \"consecteturb8\": \"<string>\",\n          \"dolor_00\": \"<string>\",\n          \"exercitation4d\": \"<string>\",\n          \"do9f7\": \"<string>\",\n          \"enim58\": \"<string>\",\n          \"esse_d_7\": \"<string>\",\n          \"dolor_0\": \"<string>\",\n          \"incididunta94\": \"<string>\",\n          \"in54f\": \"<string>\",\n          \"enim_5ad\": \"<string>\",\n          \"Utf3f\": \"<string>\",\n          \"consectetur5\": \"<string>\",\n          \"ute81\": \"<string>\",\n          \"quie\": \"<string>\",\n          \"magna_64_\": \"<string>\",\n          \"proident_3\": \"<string>\",\n          \"sunt_5_3\": \"<string>\",\n          \"voluptate7a\": \"<string>\",\n          \"pariatur__b\": \"<string>\",\n          \"sit1_\": \"<string>\",\n          \"consectetur9_e\": \"<string>\",\n          \"qui5\": \"<string>\"\n        },\n        \"kmsKeyId\": \"<string>\",\n        \"launchPermission\": {\n          \"userIds\": [\n            \"744700991492\"\n          ],\n          \"userGroups\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"organizationArns\": [\n            \"arn:awsN':organizations::129029222060:organization/o-5l5icaarqx212e340yzd3i4t2ebd00\"\n          ],\n          \"organizationalUnitArns\": [\n            \"arn:aws\\\\+:organizations::256752630929:ou/o-1e0dj1yijvc/ou-wcdc70t1v8p8eliytrebj-gb8jrbh0t87xqmfif65vd625yc41\"\n          ]\n        }\n      },\n      \"containerDistributionConfiguration\": {\n        \"targetRepository\": {\n          \"service\": \"ECR\",\n          \"repositoryName\": \"<string>\"\n        },\n        \"description\": \"<string>\",\n        \"containerTags\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"licenseConfigurationArns\": [\n        \"arn:aws@;i]+:license-manager:b):168339405594:license-configuration:lic-jn8_k_v0twrqlcicfn8a7xn125g7i4v1\"\n      ],\n      \"launchTemplateConfigurations\": [\n        {\n          \"launchTemplateId\": \"lt-xynhpa9x0femt32d1\",\n          \"accountId\": \"868857765799\",\n          \"setDefaultVersion\": \"<boolean>\"\n        }\n      ],\n      \"s3ExportConfiguration\": {\n        \"roleName\": \"<string>\",\n        \"diskImageFormat\": \"VHD\",\n        \"s3Bucket\": \"<string>\",\n        \"s3Prefix\": \"<string>\"\n      },\n      \"fastLaunchConfigurations\": [\n        {\n          \"enabled\": \"<boolean>\",\n          \"snapshotConfiguration\": {\n            \"targetResourceCount\": \"<integer>\"\n          },\n          \"maxParallelLaunches\": \"<integer>\",\n          \"launchTemplate\": {\n            \"launchTemplateId\": \"lt-mxq0e12f09yjluxzw\",\n            \"launchTemplateName\": \"<string>\",\n            \"launchTemplateVersion\": \"<string>\"\n          },\n          \"accountId\": \"681049340504\"\n        }\n      ]\n    }\n  ],\n  \"clientToken\": \"<string>\",\n  \"description\": \"<string>\",\n  \"tags\": {\n    \"sed__\": \"<string>\",\n    \"enim_c44\": \"<string>\",\n    \"nulla_26\": \"<string>\",\n    \"aliquace8\": \"<string>\",\n    \"Loreme\": \"<string>\",\n    \"id9\": \"<string>\",\n    \"ullamcoa\": \"<string>\",\n    \"utb\": \"<string>\",\n    \"eu_9dc\": \"<string>\",\n    \"anim50a\": \"<string>\",\n    \"exercitation_e_\": \"<string>\",\n    \"culpaab0\": \"<string>\",\n    \"in_f\": \"<string>\",\n    \"eaeec\": \"<string>\",\n    \"dolor_cd\": \"<string>\",\n    \"reprehenderit_d9\": \"<string>\",\n    \"sint4\": \"<string>\",\n    \"cillum_54\": \"<string>\",\n    \"et_74\": \"<string>\",\n    \"deserunt_20\": \"<string>\",\n    \"enim_8\": \"<string>\",\n    \"enim_599\": \"<string>\",\n    \"culpa_880\": \"<string>\",\n    \"nisib8\": \"<string>\",\n    \"dolor_e4\": \"<string>\",\n    \"sunt46\": \"<string>\",\n    \"sint85\": \"<string>\",\n    \"ullamcob1\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/CreateDistributionConfiguration",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "CreateDistributionConfiguration"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:19:37.000Z",
+              "updatedAt": "2026-07-28T10:19:37.000Z",
+              "uid": "35240-956ecdc5-dfe9-489e-80eb-01915d81a866"
+            },
+            {
+              "id": "eb7436d9-371a-4096-8099-c93fb706058e",
+              "name": "ClientException",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"MyhhSsuoEmMZ-F7YDZphORCPrcZJ2Bacf1xY\",\n  \"distributions\": [\n    {\n      \"region\": \"<string>\",\n      \"amiDistributionConfiguration\": {\n        \"name\": \"NU9\ufeffn\",\n        \"description\": \"<string>\",\n        \"targetAccountIds\": [\n          \"907213322794\"\n        ],\n        \"amiTags\": {\n          \"dolorebd\": \"<string>\",\n          \"nisi_a\": \"<string>\",\n          \"commodo_65b\": \"<string>\",\n          \"ut_4_\": \"<string>\",\n          \"incididunta3b\": \"<string>\",\n          \"voluptated\": \"<string>\",\n          \"pariatur_b01\": \"<string>\",\n          \"cupidatate4f\": \"<string>\",\n          \"et074\": \"<string>\",\n          \"consectetur95a\": \"<string>\",\n          \"adipisicingb1\": \"<string>\",\n          \"occaecat_c9a\": \"<string>\",\n          \"amet_12\": \"<string>\",\n          \"Duis2\": \"<string>\",\n          \"velit_15\": \"<string>\",\n          \"magna_9f\": \"<string>\",\n          \"incididunt_12c\": \"<string>\",\n          \"Excepteur8\": \"<string>\",\n          \"in_96\": \"<string>\",\n          \"doloreb\": \"<string>\",\n          \"ut9\": \"<string>\",\n          \"voluptatefd\": \"<string>\",\n          \"ipsum1\": \"<string>\",\n          \"consectetur_0a\": \"<string>\",\n          \"et27d\": \"<string>\",\n          \"laboris__\": \"<string>\",\n          \"Duis_5\": \"<string>\",\n          \"labore00\": \"<string>\",\n          \"velit2\": \"<string>\",\n          \"sed_06e\": \"<string>\",\n          \"est_5b\": \"<string>\",\n          \"aliquab\": \"<string>\",\n          \"cupidatat_05\": \"<string>\",\n          \"est_bac\": \"<string>\",\n          \"quis6\": \"<string>\",\n          \"irure_e7\": \"<string>\",\n          \"irure_1d\": \"<string>\",\n          \"reprehenderit__1\": \"<string>\",\n          \"sed_f9\": \"<string>\",\n          \"occaecat_29\": \"<string>\",\n          \"incididunt_0\": \"<string>\",\n          \"magna_e98\": \"<string>\",\n          \"voluptate_94\": \"<string>\",\n          \"Uteb\": \"<string>\"\n        },\n        \"kmsKeyId\": \"<string>\",\n        \"launchPermission\": {\n          \"userIds\": [\n            \"014831510090\"\n          ],\n          \"userGroups\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"organizationArns\": [\n            \"arn:awsO%fe1:organizations::198381830824:organization/o-5ojp7kuvmesplftjs79conxetoz8\"\n          ],\n          \"organizationalUnitArns\": [\n            \"arn:aws+\\\"S_k,8Mlq:organizations::258930220668:ou/o-ed3yy0kuv0/ou-5upti8fqyj4gcc855xv2npjuk8c1-m55dhkjvvt53u5yub1al\"\n          ]\n        }\n      },\n      \"containerDistributionConfiguration\": {\n        \"targetRepository\": {\n          \"service\": \"ECR\",\n          \"repositoryName\": \"<string>\"\n        },\n        \"description\": \"<string>\",\n        \"containerTags\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"licenseConfigurationArns\": [\n        \"arn:aws:license-manager:@;S;<KTf:174046818062:license-configuration:lic-1eesdp2q3ehzuy2457nfdu_2lqnbmt9t\"\n      ],\n      \"launchTemplateConfigurations\": [\n        {\n          \"launchTemplateId\": \"lt-49h9j4ymt8qom-_og\",\n          \"accountId\": \"172618134357\",\n          \"setDefaultVersion\": \"<boolean>\"\n        }\n      ],\n      \"s3ExportConfiguration\": {\n        \"roleName\": \"<string>\",\n        \"diskImageFormat\": \"VMDK\",\n        \"s3Bucket\": \"<string>\",\n        \"s3Prefix\": \"<string>\"\n      },\n      \"fastLaunchConfigurations\": [\n        {\n          \"enabled\": \"<boolean>\",\n          \"snapshotConfiguration\": {\n            \"targetResourceCount\": \"<integer>\"\n          },\n          \"maxParallelLaunches\": \"<integer>\",\n          \"launchTemplate\": {\n            \"launchTemplateId\": \"lt-m_dszos53e1zwzsfw\",\n            \"launchTemplateName\": \"<string>\",\n            \"launchTemplateVersion\": \"<string>\"\n          },\n          \"accountId\": \"593321691633\"\n        }\n      ]\n    },\n    {\n      \"region\": \"<string>\",\n      \"amiDistributionConfiguration\": {\n        \"name\": \"5.KpB1-dp\",\n        \"description\": \"<string>\",\n        \"targetAccountIds\": [\n          \"019955946451\"\n        ],\n        \"amiTags\": {\n          \"laboris96\": \"<string>\",\n          \"exercitation_94_\": \"<string>\",\n          \"elit_5e\": \"<string>\",\n          \"nostrud9\": \"<string>\",\n          \"pariatur0\": \"<string>\",\n          \"adipisicing_43c\": \"<string>\",\n          \"est8\": \"<string>\",\n          \"dolor_a\": \"<string>\",\n          \"in0\": \"<string>\",\n          \"Duis_50\": \"<string>\",\n          \"commodoeb\": \"<string>\",\n          \"aliquad\": \"<string>\",\n          \"consecteturb8\": \"<string>\",\n          \"dolor_00\": \"<string>\",\n          \"exercitation4d\": \"<string>\",\n          \"do9f7\": \"<string>\",\n          \"enim58\": \"<string>\",\n          \"esse_d_7\": \"<string>\",\n          \"dolor_0\": \"<string>\",\n          \"incididunta94\": \"<string>\",\n          \"in54f\": \"<string>\",\n          \"enim_5ad\": \"<string>\",\n          \"Utf3f\": \"<string>\",\n          \"consectetur5\": \"<string>\",\n          \"ute81\": \"<string>\",\n          \"quie\": \"<string>\",\n          \"magna_64_\": \"<string>\",\n          \"proident_3\": \"<string>\",\n          \"sunt_5_3\": \"<string>\",\n          \"voluptate7a\": \"<string>\",\n          \"pariatur__b\": \"<string>\",\n          \"sit1_\": \"<string>\",\n          \"consectetur9_e\": \"<string>\",\n          \"qui5\": \"<string>\"\n        },\n        \"kmsKeyId\": \"<string>\",\n        \"launchPermission\": {\n          \"userIds\": [\n            \"744700991492\"\n          ],\n          \"userGroups\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"organizationArns\": [\n            \"arn:awsN':organizations::129029222060:organization/o-5l5icaarqx212e340yzd3i4t2ebd00\"\n          ],\n          \"organizationalUnitArns\": [\n            \"arn:aws\\\\+:organizations::256752630929:ou/o-1e0dj1yijvc/ou-wcdc70t1v8p8eliytrebj-gb8jrbh0t87xqmfif65vd625yc41\"\n          ]\n        }\n      },\n      \"containerDistributionConfiguration\": {\n        \"targetRepository\": {\n          \"service\": \"ECR\",\n          \"repositoryName\": \"<string>\"\n        },\n        \"description\": \"<string>\",\n        \"containerTags\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"licenseConfigurationArns\": [\n        \"arn:aws@;i]+:license-manager:b):168339405594:license-configuration:lic-jn8_k_v0twrqlcicfn8a7xn125g7i4v1\"\n      ],\n      \"launchTemplateConfigurations\": [\n        {\n          \"launchTemplateId\": \"lt-xynhpa9x0femt32d1\",\n          \"accountId\": \"868857765799\",\n          \"setDefaultVersion\": \"<boolean>\"\n        }\n      ],\n      \"s3ExportConfiguration\": {\n        \"roleName\": \"<string>\",\n        \"diskImageFormat\": \"VHD\",\n        \"s3Bucket\": \"<string>\",\n        \"s3Prefix\": \"<string>\"\n      },\n      \"fastLaunchConfigurations\": [\n        {\n          \"enabled\": \"<boolean>\",\n          \"snapshotConfiguration\": {\n            \"targetResourceCount\": \"<integer>\"\n          },\n          \"maxParallelLaunches\": \"<integer>\",\n          \"launchTemplate\": {\n            \"launchTemplateId\": \"lt-mxq0e12f09yjluxzw\",\n            \"launchTemplateName\": \"<string>\",\n            \"launchTemplateVersion\": \"<string>\"\n          },\n          \"accountId\": \"681049340504\"\n        }\n      ]\n    }\n  ],\n  \"clientToken\": \"<string>\",\n  \"description\": \"<string>\",\n  \"tags\": {\n    \"sed__\": \"<string>\",\n    \"enim_c44\": \"<string>\",\n    \"nulla_26\": \"<string>\",\n    \"aliquace8\": \"<string>\",\n    \"Loreme\": \"<string>\",\n    \"id9\": \"<string>\",\n    \"ullamcoa\": \"<string>\",\n    \"utb\": \"<string>\",\n    \"eu_9dc\": \"<string>\",\n    \"anim50a\": \"<string>\",\n    \"exercitation_e_\": \"<string>\",\n    \"culpaab0\": \"<string>\",\n    \"in_f\": \"<string>\",\n    \"eaeec\": \"<string>\",\n    \"dolor_cd\": \"<string>\",\n    \"reprehenderit_d9\": \"<string>\",\n    \"sint4\": \"<string>\",\n    \"cillum_54\": \"<string>\",\n    \"et_74\": \"<string>\",\n    \"deserunt_20\": \"<string>\",\n    \"enim_8\": \"<string>\",\n    \"enim_599\": \"<string>\",\n    \"culpa_880\": \"<string>\",\n    \"nisib8\": \"<string>\",\n    \"dolor_e4\": \"<string>\",\n    \"sunt46\": \"<string>\",\n    \"sint85\": \"<string>\",\n    \"ullamcob1\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/CreateDistributionConfiguration",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "CreateDistributionConfiguration"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:19:37.000Z",
+              "updatedAt": "2026-07-28T10:19:37.000Z",
+              "uid": "35240-eb7436d9-371a-4096-8099-c93fb706058e"
+            },
+            {
+              "id": "05807167-66a7-4eb5-84ca-b425e51b5360",
+              "name": "ServiceUnavailableException",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"MyhhSsuoEmMZ-F7YDZphORCPrcZJ2Bacf1xY\",\n  \"distributions\": [\n    {\n      \"region\": \"<string>\",\n      \"amiDistributionConfiguration\": {\n        \"name\": \"NU9\ufeffn\",\n        \"description\": \"<string>\",\n        \"targetAccountIds\": [\n          \"907213322794\"\n        ],\n        \"amiTags\": {\n          \"dolorebd\": \"<string>\",\n          \"nisi_a\": \"<string>\",\n          \"commodo_65b\": \"<string>\",\n          \"ut_4_\": \"<string>\",\n          \"incididunta3b\": \"<string>\",\n          \"voluptated\": \"<string>\",\n          \"pariatur_b01\": \"<string>\",\n          \"cupidatate4f\": \"<string>\",\n          \"et074\": \"<string>\",\n          \"consectetur95a\": \"<string>\",\n          \"adipisicingb1\": \"<string>\",\n          \"occaecat_c9a\": \"<string>\",\n          \"amet_12\": \"<string>\",\n          \"Duis2\": \"<string>\",\n          \"velit_15\": \"<string>\",\n          \"magna_9f\": \"<string>\",\n          \"incididunt_12c\": \"<string>\",\n          \"Excepteur8\": \"<string>\",\n          \"in_96\": \"<string>\",\n          \"doloreb\": \"<string>\",\n          \"ut9\": \"<string>\",\n          \"voluptatefd\": \"<string>\",\n          \"ipsum1\": \"<string>\",\n          \"consectetur_0a\": \"<string>\",\n          \"et27d\": \"<string>\",\n          \"laboris__\": \"<string>\",\n          \"Duis_5\": \"<string>\",\n          \"labore00\": \"<string>\",\n          \"velit2\": \"<string>\",\n          \"sed_06e\": \"<string>\",\n          \"est_5b\": \"<string>\",\n          \"aliquab\": \"<string>\",\n          \"cupidatat_05\": \"<string>\",\n          \"est_bac\": \"<string>\",\n          \"quis6\": \"<string>\",\n          \"irure_e7\": \"<string>\",\n          \"irure_1d\": \"<string>\",\n          \"reprehenderit__1\": \"<string>\",\n          \"sed_f9\": \"<string>\",\n          \"occaecat_29\": \"<string>\",\n          \"incididunt_0\": \"<string>\",\n          \"magna_e98\": \"<string>\",\n          \"voluptate_94\": \"<string>\",\n          \"Uteb\": \"<string>\"\n        },\n        \"kmsKeyId\": \"<string>\",\n        \"launchPermission\": {\n          \"userIds\": [\n            \"014831510090\"\n          ],\n          \"userGroups\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"organizationArns\": [\n            \"arn:awsO%fe1:organizations::198381830824:organization/o-5ojp7kuvmesplftjs79conxetoz8\"\n          ],\n          \"organizationalUnitArns\": [\n            \"arn:aws+\\\"S_k,8Mlq:organizations::258930220668:ou/o-ed3yy0kuv0/ou-5upti8fqyj4gcc855xv2npjuk8c1-m55dhkjvvt53u5yub1al\"\n          ]\n        }\n      },\n      \"containerDistributionConfiguration\": {\n        \"targetRepository\": {\n          \"service\": \"ECR\",\n          \"repositoryName\": \"<string>\"\n        },\n        \"description\": \"<string>\",\n        \"containerTags\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"licenseConfigurationArns\": [\n        \"arn:aws:license-manager:@;S;<KTf:174046818062:license-configuration:lic-1eesdp2q3ehzuy2457nfdu_2lqnbmt9t\"\n      ],\n      \"launchTemplateConfigurations\": [\n        {\n          \"launchTemplateId\": \"lt-49h9j4ymt8qom-_og\",\n          \"accountId\": \"172618134357\",\n          \"setDefaultVersion\": \"<boolean>\"\n        }\n      ],\n      \"s3ExportConfiguration\": {\n        \"roleName\": \"<string>\",\n        \"diskImageFormat\": \"VMDK\",\n        \"s3Bucket\": \"<string>\",\n        \"s3Prefix\": \"<string>\"\n      },\n      \"fastLaunchConfigurations\": [\n        {\n          \"enabled\": \"<boolean>\",\n          \"snapshotConfiguration\": {\n            \"targetResourceCount\": \"<integer>\"\n          },\n          \"maxParallelLaunches\": \"<integer>\",\n          \"launchTemplate\": {\n            \"launchTemplateId\": \"lt-m_dszos53e1zwzsfw\",\n            \"launchTemplateName\": \"<string>\",\n            \"launchTemplateVersion\": \"<string>\"\n          },\n          \"accountId\": \"593321691633\"\n        }\n      ]\n    },\n    {\n      \"region\": \"<string>\",\n      \"amiDistributionConfiguration\": {\n        \"name\": \"5.KpB1-dp\",\n        \"description\": \"<string>\",\n        \"targetAccountIds\": [\n          \"019955946451\"\n        ],\n        \"amiTags\": {\n          \"laboris96\": \"<string>\",\n          \"exercitation_94_\": \"<string>\",\n          \"elit_5e\": \"<string>\",\n          \"nostrud9\": \"<string>\",\n          \"pariatur0\": \"<string>\",\n          \"adipisicing_43c\": \"<string>\",\n          \"est8\": \"<string>\",\n          \"dolor_a\": \"<string>\",\n          \"in0\": \"<string>\",\n          \"Duis_50\": \"<string>\",\n          \"commodoeb\": \"<string>\",\n          \"aliquad\": \"<string>\",\n          \"consecteturb8\": \"<string>\",\n          \"dolor_00\": \"<string>\",\n          \"exercitation4d\": \"<string>\",\n          \"do9f7\": \"<string>\",\n          \"enim58\": \"<string>\",\n          \"esse_d_7\": \"<string>\",\n          \"dolor_0\": \"<string>\",\n          \"incididunta94\": \"<string>\",\n          \"in54f\": \"<string>\",\n          \"enim_5ad\": \"<string>\",\n          \"Utf3f\": \"<string>\",\n          \"consectetur5\": \"<string>\",\n          \"ute81\": \"<string>\",\n          \"quie\": \"<string>\",\n          \"magna_64_\": \"<string>\",\n          \"proident_3\": \"<string>\",\n          \"sunt_5_3\": \"<string>\",\n          \"voluptate7a\": \"<string>\",\n          \"pariatur__b\": \"<string>\",\n          \"sit1_\": \"<string>\",\n          \"consectetur9_e\": \"<string>\",\n          \"qui5\": \"<string>\"\n        },\n        \"kmsKeyId\": \"<string>\",\n        \"launchPermission\": {\n          \"userIds\": [\n            \"744700991492\"\n          ],\n          \"userGroups\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"organizationArns\": [\n            \"arn:awsN':organizations::129029222060:organization/o-5l5icaarqx212e340yzd3i4t2ebd00\"\n          ],\n          \"organizationalUnitArns\": [\n            \"arn:aws\\\\+:organizations::256752630929:ou/o-1e0dj1yijvc/ou-wcdc70t1v8p8eliytrebj-gb8jrbh0t87xqmfif65vd625yc41\"\n          ]\n        }\n      },\n      \"containerDistributionConfiguration\": {\n        \"targetRepository\": {\n          \"service\": \"ECR\",\n          \"repositoryName\": \"<string>\"\n        },\n        \"description\": \"<string>\",\n        \"containerTags\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"licenseConfigurationArns\": [\n        \"arn:aws@;i]+:license-manager:b):168339405594:license-configuration:lic-jn8_k_v0twrqlcicfn8a7xn125g7i4v1\"\n      ],\n      \"launchTemplateConfigurations\": [\n        {\n          \"launchTemplateId\": \"lt-xynhpa9x0femt32d1\",\n          \"accountId\": \"868857765799\",\n          \"setDefaultVersion\": \"<boolean>\"\n        }\n      ],\n      \"s3ExportConfiguration\": {\n        \"roleName\": \"<string>\",\n        \"diskImageFormat\": \"VHD\",\n        \"s3Bucket\": \"<string>\",\n        \"s3Prefix\": \"<string>\"\n      },\n      \"fastLaunchConfigurations\": [\n        {\n          \"enabled\": \"<boolean>\",\n          \"snapshotConfiguration\": {\n            \"targetResourceCount\": \"<integer>\"\n          },\n          \"maxParallelLaunches\": \"<integer>\",\n          \"launchTemplate\": {\n            \"launchTemplateId\": \"lt-mxq0e12f09yjluxzw\",\n            \"launchTemplateName\": \"<string>\",\n            \"launchTemplateVersion\": \"<string>\"\n          },\n          \"accountId\": \"681049340504\"\n        }\n      ]\n    }\n  ],\n  \"clientToken\": \"<string>\",\n  \"description\": \"<string>\",\n  \"tags\": {\n    \"sed__\": \"<string>\",\n    \"enim_c44\": \"<string>\",\n    \"nulla_26\": \"<string>\",\n    \"aliquace8\": \"<string>\",\n    \"Loreme\": \"<string>\",\n    \"id9\": \"<string>\",\n    \"ullamcoa\": \"<string>\",\n    \"utb\": \"<string>\",\n    \"eu_9dc\": \"<string>\",\n    \"anim50a\": \"<string>\",\n    \"exercitation_e_\": \"<string>\",\n    \"culpaab0\": \"<string>\",\n    \"in_f\": \"<string>\",\n    \"eaeec\": \"<string>\",\n    \"dolor_cd\": \"<string>\",\n    \"reprehenderit_d9\": \"<string>\",\n    \"sint4\": \"<string>\",\n    \"cillum_54\": \"<string>\",\n    \"et_74\": \"<string>\",\n    \"deserunt_20\": \"<string>\",\n    \"enim_8\": \"<string>\",\n    \"enim_599\": \"<string>\",\n    \"culpa_880\": \"<string>\",\n    \"nisib8\": \"<string>\",\n    \"dolor_e4\": \"<string>\",\n    \"sunt46\": \"<string>\",\n    \"sint85\": \"<string>\",\n    \"ullamcob1\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/CreateDistributionConfiguration",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "CreateDistributionConfiguration"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:19:37.000Z",
+              "updatedAt": "2026-07-28T10:19:37.000Z",
+              "uid": "35240-05807167-66a7-4eb5-84ca-b425e51b5360"
+            },
+            {
+              "id": "7de39bc7-7f3c-4d34-b7f6-743c48605555",
+              "name": "InvalidRequestException",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"MyhhSsuoEmMZ-F7YDZphORCPrcZJ2Bacf1xY\",\n  \"distributions\": [\n    {\n      \"region\": \"<string>\",\n      \"amiDistributionConfiguration\": {\n        \"name\": \"NU9\ufeffn\",\n        \"description\": \"<string>\",\n        \"targetAccountIds\": [\n          \"907213322794\"\n        ],\n        \"amiTags\": {\n          \"dolorebd\": \"<string>\",\n          \"nisi_a\": \"<string>\",\n          \"commodo_65b\": \"<string>\",\n          \"ut_4_\": \"<string>\",\n          \"incididunta3b\": \"<string>\",\n          \"voluptated\": \"<string>\",\n          \"pariatur_b01\": \"<string>\",\n          \"cupidatate4f\": \"<string>\",\n          \"et074\": \"<string>\",\n          \"consectetur95a\": \"<string>\",\n          \"adipisicingb1\": \"<string>\",\n          \"occaecat_c9a\": \"<string>\",\n          \"amet_12\": \"<string>\",\n          \"Duis2\": \"<string>\",\n          \"velit_15\": \"<string>\",\n          \"magna_9f\": \"<string>\",\n          \"incididunt_12c\": \"<string>\",\n          \"Excepteur8\": \"<string>\",\n          \"in_96\": \"<string>\",\n          \"doloreb\": \"<string>\",\n          \"ut9\": \"<string>\",\n          \"voluptatefd\": \"<string>\",\n          \"ipsum1\": \"<string>\",\n          \"consectetur_0a\": \"<string>\",\n          \"et27d\": \"<string>\",\n          \"laboris__\": \"<string>\",\n          \"Duis_5\": \"<string>\",\n          \"labore00\": \"<string>\",\n          \"velit2\": \"<string>\",\n          \"sed_06e\": \"<string>\",\n          \"est_5b\": \"<string>\",\n          \"aliquab\": \"<string>\",\n          \"cupidatat_05\": \"<string>\",\n          \"est_bac\": \"<string>\",\n          \"quis6\": \"<string>\",\n          \"irure_e7\": \"<string>\",\n          \"irure_1d\": \"<string>\",\n          \"reprehenderit__1\": \"<string>\",\n          \"sed_f9\": \"<string>\",\n          \"occaecat_29\": \"<string>\",\n          \"incididunt_0\": \"<string>\",\n          \"magna_e98\": \"<string>\",\n          \"voluptate_94\": \"<string>\",\n          \"Uteb\": \"<string>\"\n        },\n        \"kmsKeyId\": \"<string>\",\n        \"launchPermission\": {\n          \"userIds\": [\n            \"014831510090\"\n          ],\n          \"userGroups\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"organizationArns\": [\n            \"arn:awsO%fe1:organizations::198381830824:organization/o-5ojp7kuvmesplftjs79conxetoz8\"\n          ],\n          \"organizationalUnitArns\": [\n            \"arn:aws+\\\"S_k,8Mlq:organizations::258930220668:ou/o-ed3yy0kuv0/ou-5upti8fqyj4gcc855xv2npjuk8c1-m55dhkjvvt53u5yub1al\"\n          ]\n        }\n      },\n      \"containerDistributionConfiguration\": {\n        \"targetRepository\": {\n          \"service\": \"ECR\",\n          \"repositoryName\": \"<string>\"\n        },\n        \"description\": \"<string>\",\n        \"containerTags\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"licenseConfigurationArns\": [\n        \"arn:aws:license-manager:@;S;<KTf:174046818062:license-configuration:lic-1eesdp2q3ehzuy2457nfdu_2lqnbmt9t\"\n      ],\n      \"launchTemplateConfigurations\": [\n        {\n          \"launchTemplateId\": \"lt-49h9j4ymt8qom-_og\",\n          \"accountId\": \"172618134357\",\n          \"setDefaultVersion\": \"<boolean>\"\n        }\n      ],\n      \"s3ExportConfiguration\": {\n        \"roleName\": \"<string>\",\n        \"diskImageFormat\": \"VMDK\",\n        \"s3Bucket\": \"<string>\",\n        \"s3Prefix\": \"<string>\"\n      },\n      \"fastLaunchConfigurations\": [\n        {\n          \"enabled\": \"<boolean>\",\n          \"snapshotConfiguration\": {\n            \"targetResourceCount\": \"<integer>\"\n          },\n          \"maxParallelLaunches\": \"<integer>\",\n          \"launchTemplate\": {\n            \"launchTemplateId\": \"lt-m_dszos53e1zwzsfw\",\n            \"launchTemplateName\": \"<string>\",\n            \"launchTemplateVersion\": \"<string>\"\n          },\n          \"accountId\": \"593321691633\"\n        }\n      ]\n    },\n    {\n      \"region\": \"<string>\",\n      \"amiDistributionConfiguration\": {\n        \"name\": \"5.KpB1-dp\",\n        \"description\": \"<string>\",\n        \"targetAccountIds\": [\n          \"019955946451\"\n        ],\n        \"amiTags\": {\n          \"laboris96\": \"<string>\",\n          \"exercitation_94_\": \"<string>\",\n          \"elit_5e\": \"<string>\",\n          \"nostrud9\": \"<string>\",\n          \"pariatur0\": \"<string>\",\n          \"adipisicing_43c\": \"<string>\",\n          \"est8\": \"<string>\",\n          \"dolor_a\": \"<string>\",\n          \"in0\": \"<string>\",\n          \"Duis_50\": \"<string>\",\n          \"commodoeb\": \"<string>\",\n          \"aliquad\": \"<string>\",\n          \"consecteturb8\": \"<string>\",\n          \"dolor_00\": \"<string>\",\n          \"exercitation4d\": \"<string>\",\n          \"do9f7\": \"<string>\",\n          \"enim58\": \"<string>\",\n          \"esse_d_7\": \"<string>\",\n          \"dolor_0\": \"<string>\",\n          \"incididunta94\": \"<string>\",\n          \"in54f\": \"<string>\",\n          \"enim_5ad\": \"<string>\",\n          \"Utf3f\": \"<string>\",\n          \"consectetur5\": \"<string>\",\n          \"ute81\": \"<string>\",\n          \"quie\": \"<string>\",\n          \"magna_64_\": \"<string>\",\n          \"proident_3\": \"<string>\",\n          \"sunt_5_3\": \"<string>\",\n          \"voluptate7a\": \"<string>\",\n          \"pariatur__b\": \"<string>\",\n          \"sit1_\": \"<string>\",\n          \"consectetur9_e\": \"<string>\",\n          \"qui5\": \"<string>\"\n        },\n        \"kmsKeyId\": \"<string>\",\n        \"launchPermission\": {\n          \"userIds\": [\n            \"744700991492\"\n          ],\n          \"userGroups\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"organizationArns\": [\n            \"arn:awsN':organizations::129029222060:organization/o-5l5icaarqx212e340yzd3i4t2ebd00\"\n          ],\n          \"organizationalUnitArns\": [\n            \"arn:aws\\\\+:organizations::256752630929:ou/o-1e0dj1yijvc/ou-wcdc70t1v8p8eliytrebj-gb8jrbh0t87xqmfif65vd625yc41\"\n          ]\n        }\n      },\n      \"containerDistributionConfiguration\": {\n        \"targetRepository\": {\n          \"service\": \"ECR\",\n          \"repositoryName\": \"<string>\"\n        },\n        \"description\": \"<string>\",\n        \"containerTags\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"licenseConfigurationArns\": [\n        \"arn:aws@;i]+:license-manager:b):168339405594:license-configuration:lic-jn8_k_v0twrqlcicfn8a7xn125g7i4v1\"\n      ],\n      \"launchTemplateConfigurations\": [\n        {\n          \"launchTemplateId\": \"lt-xynhpa9x0femt32d1\",\n          \"accountId\": \"868857765799\",\n          \"setDefaultVersion\": \"<boolean>\"\n        }\n      ],\n      \"s3ExportConfiguration\": {\n        \"roleName\": \"<string>\",\n        \"diskImageFormat\": \"VHD\",\n        \"s3Bucket\": \"<string>\",\n        \"s3Prefix\": \"<string>\"\n      },\n      \"fastLaunchConfigurations\": [\n        {\n          \"enabled\": \"<boolean>\",\n          \"snapshotConfiguration\": {\n            \"targetResourceCount\": \"<integer>\"\n          },\n          \"maxParallelLaunches\": \"<integer>\",\n          \"launchTemplate\": {\n            \"launchTemplateId\": \"lt-mxq0e12f09yjluxzw\",\n            \"launchTemplateName\": \"<string>\",\n            \"launchTemplateVersion\": \"<string>\"\n          },\n          \"accountId\": \"681049340504\"\n        }\n      ]\n    }\n  ],\n  \"clientToken\": \"<string>\",\n  \"description\": \"<string>\",\n  \"tags\": {\n    \"sed__\": \"<string>\",\n    \"enim_c44\": \"<string>\",\n    \"nulla_26\": \"<string>\",\n    \"aliquace8\": \"<string>\",\n    \"Loreme\": \"<string>\",\n    \"id9\": \"<string>\",\n    \"ullamcoa\": \"<string>\",\n    \"utb\": \"<string>\",\n    \"eu_9dc\": \"<string>\",\n    \"anim50a\": \"<string>\",\n    \"exercitation_e_\": \"<string>\",\n    \"culpaab0\": \"<string>\",\n    \"in_f\": \"<string>\",\n    \"eaeec\": \"<string>\",\n    \"dolor_cd\": \"<string>\",\n    \"reprehenderit_d9\": \"<string>\",\n    \"sint4\": \"<string>\",\n    \"cillum_54\": \"<string>\",\n    \"et_74\": \"<string>\",\n    \"deserunt_20\": \"<string>\",\n    \"enim_8\": \"<string>\",\n    \"enim_599\": \"<string>\",\n    \"culpa_880\": \"<string>\",\n    \"nisib8\": \"<string>\",\n    \"dolor_e4\": \"<string>\",\n    \"sunt46\": \"<string>\",\n    \"sint85\": \"<string>\",\n    \"ullamcob1\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/CreateDistributionConfiguration",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "CreateDistributionConfiguration"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:19:37.000Z",
+              "updatedAt": "2026-07-28T10:19:37.000Z",
+              "uid": "35240-7de39bc7-7f3c-4d34-b7f6-743c48605555"
+            },
+            {
+              "id": "737fa621-c29e-48dd-a635-3c8dcbe9880a",
+              "name": "IdempotentParameterMismatchException",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"MyhhSsuoEmMZ-F7YDZphORCPrcZJ2Bacf1xY\",\n  \"distributions\": [\n    {\n      \"region\": \"<string>\",\n      \"amiDistributionConfiguration\": {\n        \"name\": \"NU9\ufeffn\",\n        \"description\": \"<string>\",\n        \"targetAccountIds\": [\n          \"907213322794\"\n        ],\n        \"amiTags\": {\n          \"dolorebd\": \"<string>\",\n          \"nisi_a\": \"<string>\",\n          \"commodo_65b\": \"<string>\",\n          \"ut_4_\": \"<string>\",\n          \"incididunta3b\": \"<string>\",\n          \"voluptated\": \"<string>\",\n          \"pariatur_b01\": \"<string>\",\n          \"cupidatate4f\": \"<string>\",\n          \"et074\": \"<string>\",\n          \"consectetur95a\": \"<string>\",\n          \"adipisicingb1\": \"<string>\",\n          \"occaecat_c9a\": \"<string>\",\n          \"amet_12\": \"<string>\",\n          \"Duis2\": \"<string>\",\n          \"velit_15\": \"<string>\",\n          \"magna_9f\": \"<string>\",\n          \"incididunt_12c\": \"<string>\",\n          \"Excepteur8\": \"<string>\",\n          \"in_96\": \"<string>\",\n          \"doloreb\": \"<string>\",\n          \"ut9\": \"<string>\",\n          \"voluptatefd\": \"<string>\",\n          \"ipsum1\": \"<string>\",\n          \"consectetur_0a\": \"<string>\",\n          \"et27d\": \"<string>\",\n          \"laboris__\": \"<string>\",\n          \"Duis_5\": \"<string>\",\n          \"labore00\": \"<string>\",\n          \"velit2\": \"<string>\",\n          \"sed_06e\": \"<string>\",\n          \"est_5b\": \"<string>\",\n          \"aliquab\": \"<string>\",\n          \"cupidatat_05\": \"<string>\",\n          \"est_bac\": \"<string>\",\n          \"quis6\": \"<string>\",\n          \"irure_e7\": \"<string>\",\n          \"irure_1d\": \"<string>\",\n          \"reprehenderit__1\": \"<string>\",\n          \"sed_f9\": \"<string>\",\n          \"occaecat_29\": \"<string>\",\n          \"incididunt_0\": \"<string>\",\n          \"magna_e98\": \"<string>\",\n          \"voluptate_94\": \"<string>\",\n          \"Uteb\": \"<string>\"\n        },\n        \"kmsKeyId\": \"<string>\",\n        \"launchPermission\": {\n          \"userIds\": [\n            \"014831510090\"\n          ],\n          \"userGroups\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"organizationArns\": [\n            \"arn:awsO%fe1:organizations::198381830824:organization/o-5ojp7kuvmesplftjs79conxetoz8\"\n          ],\n          \"organizationalUnitArns\": [\n            \"arn:aws+\\\"S_k,8Mlq:organizations::258930220668:ou/o-ed3yy0kuv0/ou-5upti8fqyj4gcc855xv2npjuk8c1-m55dhkjvvt53u5yub1al\"\n          ]\n        }\n      },\n      \"containerDistributionConfiguration\": {\n        \"targetRepository\": {\n          \"service\": \"ECR\",\n          \"repositoryName\": \"<string>\"\n        },\n        \"description\": \"<string>\",\n        \"containerTags\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"licenseConfigurationArns\": [\n        \"arn:aws:license-manager:@;S;<KTf:174046818062:license-configuration:lic-1eesdp2q3ehzuy2457nfdu_2lqnbmt9t\"\n      ],\n      \"launchTemplateConfigurations\": [\n        {\n          \"launchTemplateId\": \"lt-49h9j4ymt8qom-_og\",\n          \"accountId\": \"172618134357\",\n          \"setDefaultVersion\": \"<boolean>\"\n        }\n      ],\n      \"s3ExportConfiguration\": {\n        \"roleName\": \"<string>\",\n        \"diskImageFormat\": \"VMDK\",\n        \"s3Bucket\": \"<string>\",\n        \"s3Prefix\": \"<string>\"\n      },\n      \"fastLaunchConfigurations\": [\n        {\n          \"enabled\": \"<boolean>\",\n          \"snapshotConfiguration\": {\n            \"targetResourceCount\": \"<integer>\"\n          },\n          \"maxParallelLaunches\": \"<integer>\",\n          \"launchTemplate\": {\n            \"launchTemplateId\": \"lt-m_dszos53e1zwzsfw\",\n            \"launchTemplateName\": \"<string>\",\n            \"launchTemplateVersion\": \"<string>\"\n          },\n          \"accountId\": \"593321691633\"\n        }\n      ]\n    },\n    {\n      \"region\": \"<string>\",\n      \"amiDistributionConfiguration\": {\n        \"name\": \"5.KpB1-dp\",\n        \"description\": \"<string>\",\n        \"targetAccountIds\": [\n          \"019955946451\"\n        ],\n        \"amiTags\": {\n          \"laboris96\": \"<string>\",\n          \"exercitation_94_\": \"<string>\",\n          \"elit_5e\": \"<string>\",\n          \"nostrud9\": \"<string>\",\n          \"pariatur0\": \"<string>\",\n          \"adipisicing_43c\": \"<string>\",\n          \"est8\": \"<string>\",\n          \"dolor_a\": \"<string>\",\n          \"in0\": \"<string>\",\n          \"Duis_50\": \"<string>\",\n          \"commodoeb\": \"<string>\",\n          \"aliquad\": \"<string>\",\n          \"consecteturb8\": \"<string>\",\n          \"dolor_00\": \"<string>\",\n          \"exercitation4d\": \"<string>\",\n          \"do9f7\": \"<string>\",\n          \"enim58\": \"<string>\",\n          \"esse_d_7\": \"<string>\",\n          \"dolor_0\": \"<string>\",\n          \"incididunta94\": \"<string>\",\n          \"in54f\": \"<string>\",\n          \"enim_5ad\": \"<string>\",\n          \"Utf3f\": \"<string>\",\n          \"consectetur5\": \"<string>\",\n          \"ute81\": \"<string>\",\n          \"quie\": \"<string>\",\n          \"magna_64_\": \"<string>\",\n          \"proident_3\": \"<string>\",\n          \"sunt_5_3\": \"<string>\",\n          \"voluptate7a\": \"<string>\",\n          \"pariatur__b\": \"<string>\",\n          \"sit1_\": \"<string>\",\n          \"consectetur9_e\": \"<string>\",\n          \"qui5\": \"<string>\"\n        },\n        \"kmsKeyId\": \"<string>\",\n        \"launchPermission\": {\n          \"userIds\": [\n            \"744700991492\"\n          ],\n          \"userGroups\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"organizationArns\": [\n            \"arn:awsN':organizations::129029222060:organization/o-5l5icaarqx212e340yzd3i4t2ebd00\"\n          ],\n          \"organizationalUnitArns\": [\n            \"arn:aws\\\\+:organizations::256752630929:ou/o-1e0dj1yijvc/ou-wcdc70t1v8p8eliytrebj-gb8jrbh0t87xqmfif65vd625yc41\"\n          ]\n        }\n      },\n      \"containerDistributionConfiguration\": {\n        \"targetRepository\": {\n          \"service\": \"ECR\",\n          \"repositoryName\": \"<string>\"\n        },\n        \"description\": \"<string>\",\n        \"containerTags\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"licenseConfigurationArns\": [\n        \"arn:aws@;i]+:license-manager:b):168339405594:license-configuration:lic-jn8_k_v0twrqlcicfn8a7xn125g7i4v1\"\n      ],\n      \"launchTemplateConfigurations\": [\n        {\n          \"launchTemplateId\": \"lt-xynhpa9x0femt32d1\",\n          \"accountId\": \"868857765799\",\n          \"setDefaultVersion\": \"<boolean>\"\n        }\n      ],\n      \"s3ExportConfiguration\": {\n        \"roleName\": \"<string>\",\n        \"diskImageFormat\": \"VHD\",\n        \"s3Bucket\": \"<string>\",\n        \"s3Prefix\": \"<string>\"\n      },\n      \"fastLaunchConfigurations\": [\n        {\n          \"enabled\": \"<boolean>\",\n          \"snapshotConfiguration\": {\n            \"targetResourceCount\": \"<integer>\"\n          },\n          \"maxParallelLaunches\": \"<integer>\",\n          \"launchTemplate\": {\n            \"launchTemplateId\": \"lt-mxq0e12f09yjluxzw\",\n            \"launchTemplateName\": \"<string>\",\n            \"launchTemplateVersion\": \"<string>\"\n          },\n          \"accountId\": \"681049340504\"\n        }\n      ]\n    }\n  ],\n  \"clientToken\": \"<string>\",\n  \"description\": \"<string>\",\n  \"tags\": {\n    \"sed__\": \"<string>\",\n    \"enim_c44\": \"<string>\",\n    \"nulla_26\": \"<string>\",\n    \"aliquace8\": \"<string>\",\n    \"Loreme\": \"<string>\",\n    \"id9\": \"<string>\",\n    \"ullamcoa\": \"<string>\",\n    \"utb\": \"<string>\",\n    \"eu_9dc\": \"<string>\",\n    \"anim50a\": \"<string>\",\n    \"exercitation_e_\": \"<string>\",\n    \"culpaab0\": \"<string>\",\n    \"in_f\": \"<string>\",\n    \"eaeec\": \"<string>\",\n    \"dolor_cd\": \"<string>\",\n    \"reprehenderit_d9\": \"<string>\",\n    \"sint4\": \"<string>\",\n    \"cillum_54\": \"<string>\",\n    \"et_74\": \"<string>\",\n    \"deserunt_20\": \"<string>\",\n    \"enim_8\": \"<string>\",\n    \"enim_599\": \"<string>\",\n    \"culpa_880\": \"<string>\",\n    \"nisib8\": \"<string>\",\n    \"dolor_e4\": \"<string>\",\n    \"sunt46\": \"<string>\",\n    \"sint85\": \"<string>\",\n    \"ullamcob1\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/CreateDistributionConfiguration",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "CreateDistributionConfiguration"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:19:37.000Z",
+              "updatedAt": "2026-07-28T10:19:37.000Z",
+              "uid": "35240-737fa621-c29e-48dd-a635-3c8dcbe9880a"
+            },
+            {
+              "id": "1a769514-b6f3-41ff-95b6-ca1a1b1af0e5",
+              "name": "ForbiddenException",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"MyhhSsuoEmMZ-F7YDZphORCPrcZJ2Bacf1xY\",\n  \"distributions\": [\n    {\n      \"region\": \"<string>\",\n      \"amiDistributionConfiguration\": {\n        \"name\": \"NU9\ufeffn\",\n        \"description\": \"<string>\",\n        \"targetAccountIds\": [\n          \"907213322794\"\n        ],\n        \"amiTags\": {\n          \"dolorebd\": \"<string>\",\n          \"nisi_a\": \"<string>\",\n          \"commodo_65b\": \"<string>\",\n          \"ut_4_\": \"<string>\",\n          \"incididunta3b\": \"<string>\",\n          \"voluptated\": \"<string>\",\n          \"pariatur_b01\": \"<string>\",\n          \"cupidatate4f\": \"<string>\",\n          \"et074\": \"<string>\",\n          \"consectetur95a\": \"<string>\",\n          \"adipisicingb1\": \"<string>\",\n          \"occaecat_c9a\": \"<string>\",\n          \"amet_12\": \"<string>\",\n          \"Duis2\": \"<string>\",\n          \"velit_15\": \"<string>\",\n          \"magna_9f\": \"<string>\",\n          \"incididunt_12c\": \"<string>\",\n          \"Excepteur8\": \"<string>\",\n          \"in_96\": \"<string>\",\n          \"doloreb\": \"<string>\",\n          \"ut9\": \"<string>\",\n          \"voluptatefd\": \"<string>\",\n          \"ipsum1\": \"<string>\",\n          \"consectetur_0a\": \"<string>\",\n          \"et27d\": \"<string>\",\n          \"laboris__\": \"<string>\",\n          \"Duis_5\": \"<string>\",\n          \"labore00\": \"<string>\",\n          \"velit2\": \"<string>\",\n          \"sed_06e\": \"<string>\",\n          \"est_5b\": \"<string>\",\n          \"aliquab\": \"<string>\",\n          \"cupidatat_05\": \"<string>\",\n          \"est_bac\": \"<string>\",\n          \"quis6\": \"<string>\",\n          \"irure_e7\": \"<string>\",\n          \"irure_1d\": \"<string>\",\n          \"reprehenderit__1\": \"<string>\",\n          \"sed_f9\": \"<string>\",\n          \"occaecat_29\": \"<string>\",\n          \"incididunt_0\": \"<string>\",\n          \"magna_e98\": \"<string>\",\n          \"voluptate_94\": \"<string>\",\n          \"Uteb\": \"<string>\"\n        },\n        \"kmsKeyId\": \"<string>\",\n        \"launchPermission\": {\n          \"userIds\": [\n            \"014831510090\"\n          ],\n          \"userGroups\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"organizationArns\": [\n            \"arn:awsO%fe1:organizations::198381830824:organization/o-5ojp7kuvmesplftjs79conxetoz8\"\n          ],\n          \"organizationalUnitArns\": [\n            \"arn:aws+\\\"S_k,8Mlq:organizations::258930220668:ou/o-ed3yy0kuv0/ou-5upti8fqyj4gcc855xv2npjuk8c1-m55dhkjvvt53u5yub1al\"\n          ]\n        }\n      },\n      \"containerDistributionConfiguration\": {\n        \"targetRepository\": {\n          \"service\": \"ECR\",\n          \"repositoryName\": \"<string>\"\n        },\n        \"description\": \"<string>\",\n        \"containerTags\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"licenseConfigurationArns\": [\n        \"arn:aws:license-manager:@;S;<KTf:174046818062:license-configuration:lic-1eesdp2q3ehzuy2457nfdu_2lqnbmt9t\"\n      ],\n      \"launchTemplateConfigurations\": [\n        {\n          \"launchTemplateId\": \"lt-49h9j4ymt8qom-_og\",\n          \"accountId\": \"172618134357\",\n          \"setDefaultVersion\": \"<boolean>\"\n        }\n      ],\n      \"s3ExportConfiguration\": {\n        \"roleName\": \"<string>\",\n        \"diskImageFormat\": \"VMDK\",\n        \"s3Bucket\": \"<string>\",\n        \"s3Prefix\": \"<string>\"\n      },\n      \"fastLaunchConfigurations\": [\n        {\n          \"enabled\": \"<boolean>\",\n          \"snapshotConfiguration\": {\n            \"targetResourceCount\": \"<integer>\"\n          },\n          \"maxParallelLaunches\": \"<integer>\",\n          \"launchTemplate\": {\n            \"launchTemplateId\": \"lt-m_dszos53e1zwzsfw\",\n            \"launchTemplateName\": \"<string>\",\n            \"launchTemplateVersion\": \"<string>\"\n          },\n          \"accountId\": \"593321691633\"\n        }\n      ]\n    },\n    {\n      \"region\": \"<string>\",\n      \"amiDistributionConfiguration\": {\n        \"name\": \"5.KpB1-dp\",\n        \"description\": \"<string>\",\n        \"targetAccountIds\": [\n          \"019955946451\"\n        ],\n        \"amiTags\": {\n          \"laboris96\": \"<string>\",\n          \"exercitation_94_\": \"<string>\",\n          \"elit_5e\": \"<string>\",\n          \"nostrud9\": \"<string>\",\n          \"pariatur0\": \"<string>\",\n          \"adipisicing_43c\": \"<string>\",\n          \"est8\": \"<string>\",\n          \"dolor_a\": \"<string>\",\n          \"in0\": \"<string>\",\n          \"Duis_50\": \"<string>\",\n          \"commodoeb\": \"<string>\",\n          \"aliquad\": \"<string>\",\n          \"consecteturb8\": \"<string>\",\n          \"dolor_00\": \"<string>\",\n          \"exercitation4d\": \"<string>\",\n          \"do9f7\": \"<string>\",\n          \"enim58\": \"<string>\",\n          \"esse_d_7\": \"<string>\",\n          \"dolor_0\": \"<string>\",\n          \"incididunta94\": \"<string>\",\n          \"in54f\": \"<string>\",\n          \"enim_5ad\": \"<string>\",\n          \"Utf3f\": \"<string>\",\n          \"consectetur5\": \"<string>\",\n          \"ute81\": \"<string>\",\n          \"quie\": \"<string>\",\n          \"magna_64_\": \"<string>\",\n          \"proident_3\": \"<string>\",\n          \"sunt_5_3\": \"<string>\",\n          \"voluptate7a\": \"<string>\",\n          \"pariatur__b\": \"<string>\",\n          \"sit1_\": \"<string>\",\n          \"consectetur9_e\": \"<string>\",\n          \"qui5\": \"<string>\"\n        },\n        \"kmsKeyId\": \"<string>\",\n        \"launchPermission\": {\n          \"userIds\": [\n            \"744700991492\"\n          ],\n          \"userGroups\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"organizationArns\": [\n            \"arn:awsN':organizations::129029222060:organization/o-5l5icaarqx212e340yzd3i4t2ebd00\"\n          ],\n          \"organizationalUnitArns\": [\n            \"arn:aws\\\\+:organizations::256752630929:ou/o-1e0dj1yijvc/ou-wcdc70t1v8p8eliytrebj-gb8jrbh0t87xqmfif65vd625yc41\"\n          ]\n        }\n      },\n      \"containerDistributionConfiguration\": {\n        \"targetRepository\": {\n          \"service\": \"ECR\",\n          \"repositoryName\": \"<string>\"\n        },\n        \"description\": \"<string>\",\n        \"containerTags\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"licenseConfigurationArns\": [\n        \"arn:aws@;i]+:license-manager:b):168339405594:license-configuration:lic-jn8_k_v0twrqlcicfn8a7xn125g7i4v1\"\n      ],\n      \"launchTemplateConfigurations\": [\n        {\n          \"launchTemplateId\": \"lt-xynhpa9x0femt32d1\",\n          \"accountId\": \"868857765799\",\n          \"setDefaultVersion\": \"<boolean>\"\n        }\n      ],\n      \"s3ExportConfiguration\": {\n        \"roleName\": \"<string>\",\n        \"diskImageFormat\": \"VHD\",\n        \"s3Bucket\": \"<string>\",\n        \"s3Prefix\": \"<string>\"\n      },\n      \"fastLaunchConfigurations\": [\n        {\n          \"enabled\": \"<boolean>\",\n          \"snapshotConfiguration\": {\n            \"targetResourceCount\": \"<integer>\"\n          },\n          \"maxParallelLaunches\": \"<integer>\",\n          \"launchTemplate\": {\n            \"launchTemplateId\": \"lt-mxq0e12f09yjluxzw\",\n            \"launchTemplateName\": \"<string>\",\n            \"launchTemplateVersion\": \"<string>\"\n          },\n          \"accountId\": \"681049340504\"\n        }\n      ]\n    }\n  ],\n  \"clientToken\": \"<string>\",\n  \"description\": \"<string>\",\n  \"tags\": {\n    \"sed__\": \"<string>\",\n    \"enim_c44\": \"<string>\",\n    \"nulla_26\": \"<string>\",\n    \"aliquace8\": \"<string>\",\n    \"Loreme\": \"<string>\",\n    \"id9\": \"<string>\",\n    \"ullamcoa\": \"<string>\",\n    \"utb\": \"<string>\",\n    \"eu_9dc\": \"<string>\",\n    \"anim50a\": \"<string>\",\n    \"exercitation_e_\": \"<string>\",\n    \"culpaab0\": \"<string>\",\n    \"in_f\": \"<string>\",\n    \"eaeec\": \"<string>\",\n    \"dolor_cd\": \"<string>\",\n    \"reprehenderit_d9\": \"<string>\",\n    \"sint4\": \"<string>\",\n    \"cillum_54\": \"<string>\",\n    \"et_74\": \"<string>\",\n    \"deserunt_20\": \"<string>\",\n    \"enim_8\": \"<string>\",\n    \"enim_599\": \"<string>\",\n    \"culpa_880\": \"<string>\",\n    \"nisib8\": \"<string>\",\n    \"dolor_e4\": \"<string>\",\n    \"sunt46\": \"<string>\",\n    \"sint85\": \"<string>\",\n    \"ullamcob1\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/CreateDistributionConfiguration",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "CreateDistributionConfiguration"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:19:37.000Z",
+              "updatedAt": "2026-07-28T10:19:37.000Z",
+              "uid": "35240-1a769514-b6f3-41ff-95b6-ca1a1b1af0e5"
+            },
+            {
+              "id": "ccbc6e4d-1b56-435f-a356-55dacfa2dcc0",
+              "name": "CallRateLimitExceededException",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"MyhhSsuoEmMZ-F7YDZphORCPrcZJ2Bacf1xY\",\n  \"distributions\": [\n    {\n      \"region\": \"<string>\",\n      \"amiDistributionConfiguration\": {\n        \"name\": \"NU9\ufeffn\",\n        \"description\": \"<string>\",\n        \"targetAccountIds\": [\n          \"907213322794\"\n        ],\n        \"amiTags\": {\n          \"dolorebd\": \"<string>\",\n          \"nisi_a\": \"<string>\",\n          \"commodo_65b\": \"<string>\",\n          \"ut_4_\": \"<string>\",\n          \"incididunta3b\": \"<string>\",\n          \"voluptated\": \"<string>\",\n          \"pariatur_b01\": \"<string>\",\n          \"cupidatate4f\": \"<string>\",\n          \"et074\": \"<string>\",\n          \"consectetur95a\": \"<string>\",\n          \"adipisicingb1\": \"<string>\",\n          \"occaecat_c9a\": \"<string>\",\n          \"amet_12\": \"<string>\",\n          \"Duis2\": \"<string>\",\n          \"velit_15\": \"<string>\",\n          \"magna_9f\": \"<string>\",\n          \"incididunt_12c\": \"<string>\",\n          \"Excepteur8\": \"<string>\",\n          \"in_96\": \"<string>\",\n          \"doloreb\": \"<string>\",\n          \"ut9\": \"<string>\",\n          \"voluptatefd\": \"<string>\",\n          \"ipsum1\": \"<string>\",\n          \"consectetur_0a\": \"<string>\",\n          \"et27d\": \"<string>\",\n          \"laboris__\": \"<string>\",\n          \"Duis_5\": \"<string>\",\n          \"labore00\": \"<string>\",\n          \"velit2\": \"<string>\",\n          \"sed_06e\": \"<string>\",\n          \"est_5b\": \"<string>\",\n          \"aliquab\": \"<string>\",\n          \"cupidatat_05\": \"<string>\",\n          \"est_bac\": \"<string>\",\n          \"quis6\": \"<string>\",\n          \"irure_e7\": \"<string>\",\n          \"irure_1d\": \"<string>\",\n          \"reprehenderit__1\": \"<string>\",\n          \"sed_f9\": \"<string>\",\n          \"occaecat_29\": \"<string>\",\n          \"incididunt_0\": \"<string>\",\n          \"magna_e98\": \"<string>\",\n          \"voluptate_94\": \"<string>\",\n          \"Uteb\": \"<string>\"\n        },\n        \"kmsKeyId\": \"<string>\",\n        \"launchPermission\": {\n          \"userIds\": [\n            \"014831510090\"\n          ],\n          \"userGroups\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"organizationArns\": [\n            \"arn:awsO%fe1:organizations::198381830824:organization/o-5ojp7kuvmesplftjs79conxetoz8\"\n          ],\n          \"organizationalUnitArns\": [\n            \"arn:aws+\\\"S_k,8Mlq:organizations::258930220668:ou/o-ed3yy0kuv0/ou-5upti8fqyj4gcc855xv2npjuk8c1-m55dhkjvvt53u5yub1al\"\n          ]\n        }\n      },\n      \"containerDistributionConfiguration\": {\n        \"targetRepository\": {\n          \"service\": \"ECR\",\n          \"repositoryName\": \"<string>\"\n        },\n        \"description\": \"<string>\",\n        \"containerTags\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"licenseConfigurationArns\": [\n        \"arn:aws:license-manager:@;S;<KTf:174046818062:license-configuration:lic-1eesdp2q3ehzuy2457nfdu_2lqnbmt9t\"\n      ],\n      \"launchTemplateConfigurations\": [\n        {\n          \"launchTemplateId\": \"lt-49h9j4ymt8qom-_og\",\n          \"accountId\": \"172618134357\",\n          \"setDefaultVersion\": \"<boolean>\"\n        }\n      ],\n      \"s3ExportConfiguration\": {\n        \"roleName\": \"<string>\",\n        \"diskImageFormat\": \"VMDK\",\n        \"s3Bucket\": \"<string>\",\n        \"s3Prefix\": \"<string>\"\n      },\n      \"fastLaunchConfigurations\": [\n        {\n          \"enabled\": \"<boolean>\",\n          \"snapshotConfiguration\": {\n            \"targetResourceCount\": \"<integer>\"\n          },\n          \"maxParallelLaunches\": \"<integer>\",\n          \"launchTemplate\": {\n            \"launchTemplateId\": \"lt-m_dszos53e1zwzsfw\",\n            \"launchTemplateName\": \"<string>\",\n            \"launchTemplateVersion\": \"<string>\"\n          },\n          \"accountId\": \"593321691633\"\n        }\n      ]\n    },\n    {\n      \"region\": \"<string>\",\n      \"amiDistributionConfiguration\": {\n        \"name\": \"5.KpB1-dp\",\n        \"description\": \"<string>\",\n        \"targetAccountIds\": [\n          \"019955946451\"\n        ],\n        \"amiTags\": {\n          \"laboris96\": \"<string>\",\n          \"exercitation_94_\": \"<string>\",\n          \"elit_5e\": \"<string>\",\n          \"nostrud9\": \"<string>\",\n          \"pariatur0\": \"<string>\",\n          \"adipisicing_43c\": \"<string>\",\n          \"est8\": \"<string>\",\n          \"dolor_a\": \"<string>\",\n          \"in0\": \"<string>\",\n          \"Duis_50\": \"<string>\",\n          \"commodoeb\": \"<string>\",\n          \"aliquad\": \"<string>\",\n          \"consecteturb8\": \"<string>\",\n          \"dolor_00\": \"<string>\",\n          \"exercitation4d\": \"<string>\",\n          \"do9f7\": \"<string>\",\n          \"enim58\": \"<string>\",\n          \"esse_d_7\": \"<string>\",\n          \"dolor_0\": \"<string>\",\n          \"incididunta94\": \"<string>\",\n          \"in54f\": \"<string>\",\n          \"enim_5ad\": \"<string>\",\n          \"Utf3f\": \"<string>\",\n          \"consectetur5\": \"<string>\",\n          \"ute81\": \"<string>\",\n          \"quie\": \"<string>\",\n          \"magna_64_\": \"<string>\",\n          \"proident_3\": \"<string>\",\n          \"sunt_5_3\": \"<string>\",\n          \"voluptate7a\": \"<string>\",\n          \"pariatur__b\": \"<string>\",\n          \"sit1_\": \"<string>\",\n          \"consectetur9_e\": \"<string>\",\n          \"qui5\": \"<string>\"\n        },\n        \"kmsKeyId\": \"<string>\",\n        \"launchPermission\": {\n          \"userIds\": [\n            \"744700991492\"\n          ],\n          \"userGroups\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"organizationArns\": [\n            \"arn:awsN':organizations::129029222060:organization/o-5l5icaarqx212e340yzd3i4t2ebd00\"\n          ],\n          \"organizationalUnitArns\": [\n            \"arn:aws\\\\+:organizations::256752630929:ou/o-1e0dj1yijvc/ou-wcdc70t1v8p8eliytrebj-gb8jrbh0t87xqmfif65vd625yc41\"\n          ]\n        }\n      },\n      \"containerDistributionConfiguration\": {\n        \"targetRepository\": {\n          \"service\": \"ECR\",\n          \"repositoryName\": \"<string>\"\n        },\n        \"description\": \"<string>\",\n        \"containerTags\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"licenseConfigurationArns\": [\n        \"arn:aws@;i]+:license-manager:b):168339405594:license-configuration:lic-jn8_k_v0twrqlcicfn8a7xn125g7i4v1\"\n      ],\n      \"launchTemplateConfigurations\": [\n        {\n          \"launchTemplateId\": \"lt-xynhpa9x0femt32d1\",\n          \"accountId\": \"868857765799\",\n          \"setDefaultVersion\": \"<boolean>\"\n        }\n      ],\n      \"s3ExportConfiguration\": {\n        \"roleName\": \"<string>\",\n        \"diskImageFormat\": \"VHD\",\n        \"s3Bucket\": \"<string>\",\n        \"s3Prefix\": \"<string>\"\n      },\n      \"fastLaunchConfigurations\": [\n        {\n          \"enabled\": \"<boolean>\",\n          \"snapshotConfiguration\": {\n            \"targetResourceCount\": \"<integer>\"\n          },\n          \"maxParallelLaunches\": \"<integer>\",\n          \"launchTemplate\": {\n            \"launchTemplateId\": \"lt-mxq0e12f09yjluxzw\",\n            \"launchTemplateName\": \"<string>\",\n            \"launchTemplateVersion\": \"<string>\"\n          },\n          \"accountId\": \"681049340504\"\n        }\n      ]\n    }\n  ],\n  \"clientToken\": \"<string>\",\n  \"description\": \"<string>\",\n  \"tags\": {\n    \"sed__\": \"<string>\",\n    \"enim_c44\": \"<string>\",\n    \"nulla_26\": \"<string>\",\n    \"aliquace8\": \"<string>\",\n    \"Loreme\": \"<string>\",\n    \"id9\": \"<string>\",\n    \"ullamcoa\": \"<string>\",\n    \"utb\": \"<string>\",\n    \"eu_9dc\": \"<string>\",\n    \"anim50a\": \"<string>\",\n    \"exercitation_e_\": \"<string>\",\n    \"culpaab0\": \"<string>\",\n    \"in_f\": \"<string>\",\n    \"eaeec\": \"<string>\",\n    \"dolor_cd\": \"<string>\",\n    \"reprehenderit_d9\": \"<string>\",\n    \"sint4\": \"<string>\",\n    \"cillum_54\": \"<string>\",\n    \"et_74\": \"<string>\",\n    \"deserunt_20\": \"<string>\",\n    \"enim_8\": \"<string>\",\n    \"enim_599\": \"<string>\",\n    \"culpa_880\": \"<string>\",\n    \"nisib8\": \"<string>\",\n    \"dolor_e4\": \"<string>\",\n    \"sunt46\": \"<string>\",\n    \"sint85\": \"<string>\",\n    \"ullamcob1\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/CreateDistributionConfiguration",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "CreateDistributionConfiguration"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:19:37.000Z",
+              "updatedAt": "2026-07-28T10:19:37.000Z",
+              "uid": "35240-ccbc6e4d-1b56-435f-a356-55dacfa2dcc0"
+            },
+            {
+              "id": "6fdd0c19-8872-4a95-906e-4e4afcd2880d",
+              "name": "ResourceInUseException",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"MyhhSsuoEmMZ-F7YDZphORCPrcZJ2Bacf1xY\",\n  \"distributions\": [\n    {\n      \"region\": \"<string>\",\n      \"amiDistributionConfiguration\": {\n        \"name\": \"NU9\ufeffn\",\n        \"description\": \"<string>\",\n        \"targetAccountIds\": [\n          \"907213322794\"\n        ],\n        \"amiTags\": {\n          \"dolorebd\": \"<string>\",\n          \"nisi_a\": \"<string>\",\n          \"commodo_65b\": \"<string>\",\n          \"ut_4_\": \"<string>\",\n          \"incididunta3b\": \"<string>\",\n          \"voluptated\": \"<string>\",\n          \"pariatur_b01\": \"<string>\",\n          \"cupidatate4f\": \"<string>\",\n          \"et074\": \"<string>\",\n          \"consectetur95a\": \"<string>\",\n          \"adipisicingb1\": \"<string>\",\n          \"occaecat_c9a\": \"<string>\",\n          \"amet_12\": \"<string>\",\n          \"Duis2\": \"<string>\",\n          \"velit_15\": \"<string>\",\n          \"magna_9f\": \"<string>\",\n          \"incididunt_12c\": \"<string>\",\n          \"Excepteur8\": \"<string>\",\n          \"in_96\": \"<string>\",\n          \"doloreb\": \"<string>\",\n          \"ut9\": \"<string>\",\n          \"voluptatefd\": \"<string>\",\n          \"ipsum1\": \"<string>\",\n          \"consectetur_0a\": \"<string>\",\n          \"et27d\": \"<string>\",\n          \"laboris__\": \"<string>\",\n          \"Duis_5\": \"<string>\",\n          \"labore00\": \"<string>\",\n          \"velit2\": \"<string>\",\n          \"sed_06e\": \"<string>\",\n          \"est_5b\": \"<string>\",\n          \"aliquab\": \"<string>\",\n          \"cupidatat_05\": \"<string>\",\n          \"est_bac\": \"<string>\",\n          \"quis6\": \"<string>\",\n          \"irure_e7\": \"<string>\",\n          \"irure_1d\": \"<string>\",\n          \"reprehenderit__1\": \"<string>\",\n          \"sed_f9\": \"<string>\",\n          \"occaecat_29\": \"<string>\",\n          \"incididunt_0\": \"<string>\",\n          \"magna_e98\": \"<string>\",\n          \"voluptate_94\": \"<string>\",\n          \"Uteb\": \"<string>\"\n        },\n        \"kmsKeyId\": \"<string>\",\n        \"launchPermission\": {\n          \"userIds\": [\n            \"014831510090\"\n          ],\n          \"userGroups\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"organizationArns\": [\n            \"arn:awsO%fe1:organizations::198381830824:organization/o-5ojp7kuvmesplftjs79conxetoz8\"\n          ],\n          \"organizationalUnitArns\": [\n            \"arn:aws+\\\"S_k,8Mlq:organizations::258930220668:ou/o-ed3yy0kuv0/ou-5upti8fqyj4gcc855xv2npjuk8c1-m55dhkjvvt53u5yub1al\"\n          ]\n        }\n      },\n      \"containerDistributionConfiguration\": {\n        \"targetRepository\": {\n          \"service\": \"ECR\",\n          \"repositoryName\": \"<string>\"\n        },\n        \"description\": \"<string>\",\n        \"containerTags\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"licenseConfigurationArns\": [\n        \"arn:aws:license-manager:@;S;<KTf:174046818062:license-configuration:lic-1eesdp2q3ehzuy2457nfdu_2lqnbmt9t\"\n      ],\n      \"launchTemplateConfigurations\": [\n        {\n          \"launchTemplateId\": \"lt-49h9j4ymt8qom-_og\",\n          \"accountId\": \"172618134357\",\n          \"setDefaultVersion\": \"<boolean>\"\n        }\n      ],\n      \"s3ExportConfiguration\": {\n        \"roleName\": \"<string>\",\n        \"diskImageFormat\": \"VMDK\",\n        \"s3Bucket\": \"<string>\",\n        \"s3Prefix\": \"<string>\"\n      },\n      \"fastLaunchConfigurations\": [\n        {\n          \"enabled\": \"<boolean>\",\n          \"snapshotConfiguration\": {\n            \"targetResourceCount\": \"<integer>\"\n          },\n          \"maxParallelLaunches\": \"<integer>\",\n          \"launchTemplate\": {\n            \"launchTemplateId\": \"lt-m_dszos53e1zwzsfw\",\n            \"launchTemplateName\": \"<string>\",\n            \"launchTemplateVersion\": \"<string>\"\n          },\n          \"accountId\": \"593321691633\"\n        }\n      ]\n    },\n    {\n      \"region\": \"<string>\",\n      \"amiDistributionConfiguration\": {\n        \"name\": \"5.KpB1-dp\",\n        \"description\": \"<string>\",\n        \"targetAccountIds\": [\n          \"019955946451\"\n        ],\n        \"amiTags\": {\n          \"laboris96\": \"<string>\",\n          \"exercitation_94_\": \"<string>\",\n          \"elit_5e\": \"<string>\",\n          \"nostrud9\": \"<string>\",\n          \"pariatur0\": \"<string>\",\n          \"adipisicing_43c\": \"<string>\",\n          \"est8\": \"<string>\",\n          \"dolor_a\": \"<string>\",\n          \"in0\": \"<string>\",\n          \"Duis_50\": \"<string>\",\n          \"commodoeb\": \"<string>\",\n          \"aliquad\": \"<string>\",\n          \"consecteturb8\": \"<string>\",\n          \"dolor_00\": \"<string>\",\n          \"exercitation4d\": \"<string>\",\n          \"do9f7\": \"<string>\",\n          \"enim58\": \"<string>\",\n          \"esse_d_7\": \"<string>\",\n          \"dolor_0\": \"<string>\",\n          \"incididunta94\": \"<string>\",\n          \"in54f\": \"<string>\",\n          \"enim_5ad\": \"<string>\",\n          \"Utf3f\": \"<string>\",\n          \"consectetur5\": \"<string>\",\n          \"ute81\": \"<string>\",\n          \"quie\": \"<string>\",\n          \"magna_64_\": \"<string>\",\n          \"proident_3\": \"<string>\",\n          \"sunt_5_3\": \"<string>\",\n          \"voluptate7a\": \"<string>\",\n          \"pariatur__b\": \"<string>\",\n          \"sit1_\": \"<string>\",\n          \"consectetur9_e\": \"<string>\",\n          \"qui5\": \"<string>\"\n        },\n        \"kmsKeyId\": \"<string>\",\n        \"launchPermission\": {\n          \"userIds\": [\n            \"744700991492\"\n          ],\n          \"userGroups\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"organizationArns\": [\n            \"arn:awsN':organizations::129029222060:organization/o-5l5icaarqx212e340yzd3i4t2ebd00\"\n          ],\n          \"organizationalUnitArns\": [\n            \"arn:aws\\\\+:organizations::256752630929:ou/o-1e0dj1yijvc/ou-wcdc70t1v8p8eliytrebj-gb8jrbh0t87xqmfif65vd625yc41\"\n          ]\n        }\n      },\n      \"containerDistributionConfiguration\": {\n        \"targetRepository\": {\n          \"service\": \"ECR\",\n          \"repositoryName\": \"<string>\"\n        },\n        \"description\": \"<string>\",\n        \"containerTags\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"licenseConfigurationArns\": [\n        \"arn:aws@;i]+:license-manager:b):168339405594:license-configuration:lic-jn8_k_v0twrqlcicfn8a7xn125g7i4v1\"\n      ],\n      \"launchTemplateConfigurations\": [\n        {\n          \"launchTemplateId\": \"lt-xynhpa9x0femt32d1\",\n          \"accountId\": \"868857765799\",\n          \"setDefaultVersion\": \"<boolean>\"\n        }\n      ],\n      \"s3ExportConfiguration\": {\n        \"roleName\": \"<string>\",\n        \"diskImageFormat\": \"VHD\",\n        \"s3Bucket\": \"<string>\",\n        \"s3Prefix\": \"<string>\"\n      },\n      \"fastLaunchConfigurations\": [\n        {\n          \"enabled\": \"<boolean>\",\n          \"snapshotConfiguration\": {\n            \"targetResourceCount\": \"<integer>\"\n          },\n          \"maxParallelLaunches\": \"<integer>\",\n          \"launchTemplate\": {\n            \"launchTemplateId\": \"lt-mxq0e12f09yjluxzw\",\n            \"launchTemplateName\": \"<string>\",\n            \"launchTemplateVersion\": \"<string>\"\n          },\n          \"accountId\": \"681049340504\"\n        }\n      ]\n    }\n  ],\n  \"clientToken\": \"<string>\",\n  \"description\": \"<string>\",\n  \"tags\": {\n    \"sed__\": \"<string>\",\n    \"enim_c44\": \"<string>\",\n    \"nulla_26\": \"<string>\",\n    \"aliquace8\": \"<string>\",\n    \"Loreme\": \"<string>\",\n    \"id9\": \"<string>\",\n    \"ullamcoa\": \"<string>\",\n    \"utb\": \"<string>\",\n    \"eu_9dc\": \"<string>\",\n    \"anim50a\": \"<string>\",\n    \"exercitation_e_\": \"<string>\",\n    \"culpaab0\": \"<string>\",\n    \"in_f\": \"<string>\",\n    \"eaeec\": \"<string>\",\n    \"dolor_cd\": \"<string>\",\n    \"reprehenderit_d9\": \"<string>\",\n    \"sint4\": \"<string>\",\n    \"cillum_54\": \"<string>\",\n    \"et_74\": \"<string>\",\n    \"deserunt_20\": \"<string>\",\n    \"enim_8\": \"<string>\",\n    \"enim_599\": \"<string>\",\n    \"culpa_880\": \"<string>\",\n    \"nisib8\": \"<string>\",\n    \"dolor_e4\": \"<string>\",\n    \"sunt46\": \"<string>\",\n    \"sint85\": \"<string>\",\n    \"ullamcob1\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/CreateDistributionConfiguration",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "CreateDistributionConfiguration"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:19:37.000Z",
+              "updatedAt": "2026-07-28T10:19:37.000Z",
+              "uid": "35240-6fdd0c19-8872-4a95-906e-4e4afcd2880d"
+            },
+            {
+              "id": "d1bb71b7-9ac9-4467-a963-8073ebc0d0cd",
+              "name": "ResourceAlreadyExistsException",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"MyhhSsuoEmMZ-F7YDZphORCPrcZJ2Bacf1xY\",\n  \"distributions\": [\n    {\n      \"region\": \"<string>\",\n      \"amiDistributionConfiguration\": {\n        \"name\": \"NU9\ufeffn\",\n        \"description\": \"<string>\",\n        \"targetAccountIds\": [\n          \"907213322794\"\n        ],\n        \"amiTags\": {\n          \"dolorebd\": \"<string>\",\n          \"nisi_a\": \"<string>\",\n          \"commodo_65b\": \"<string>\",\n          \"ut_4_\": \"<string>\",\n          \"incididunta3b\": \"<string>\",\n          \"voluptated\": \"<string>\",\n          \"pariatur_b01\": \"<string>\",\n          \"cupidatate4f\": \"<string>\",\n          \"et074\": \"<string>\",\n          \"consectetur95a\": \"<string>\",\n          \"adipisicingb1\": \"<string>\",\n          \"occaecat_c9a\": \"<string>\",\n          \"amet_12\": \"<string>\",\n          \"Duis2\": \"<string>\",\n          \"velit_15\": \"<string>\",\n          \"magna_9f\": \"<string>\",\n          \"incididunt_12c\": \"<string>\",\n          \"Excepteur8\": \"<string>\",\n          \"in_96\": \"<string>\",\n          \"doloreb\": \"<string>\",\n          \"ut9\": \"<string>\",\n          \"voluptatefd\": \"<string>\",\n          \"ipsum1\": \"<string>\",\n          \"consectetur_0a\": \"<string>\",\n          \"et27d\": \"<string>\",\n          \"laboris__\": \"<string>\",\n          \"Duis_5\": \"<string>\",\n          \"labore00\": \"<string>\",\n          \"velit2\": \"<string>\",\n          \"sed_06e\": \"<string>\",\n          \"est_5b\": \"<string>\",\n          \"aliquab\": \"<string>\",\n          \"cupidatat_05\": \"<string>\",\n          \"est_bac\": \"<string>\",\n          \"quis6\": \"<string>\",\n          \"irure_e7\": \"<string>\",\n          \"irure_1d\": \"<string>\",\n          \"reprehenderit__1\": \"<string>\",\n          \"sed_f9\": \"<string>\",\n          \"occaecat_29\": \"<string>\",\n          \"incididunt_0\": \"<string>\",\n          \"magna_e98\": \"<string>\",\n          \"voluptate_94\": \"<string>\",\n          \"Uteb\": \"<string>\"\n        },\n        \"kmsKeyId\": \"<string>\",\n        \"launchPermission\": {\n          \"userIds\": [\n            \"014831510090\"\n          ],\n          \"userGroups\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"organizationArns\": [\n            \"arn:awsO%fe1:organizations::198381830824:organization/o-5ojp7kuvmesplftjs79conxetoz8\"\n          ],\n          \"organizationalUnitArns\": [\n            \"arn:aws+\\\"S_k,8Mlq:organizations::258930220668:ou/o-ed3yy0kuv0/ou-5upti8fqyj4gcc855xv2npjuk8c1-m55dhkjvvt53u5yub1al\"\n          ]\n        }\n      },\n      \"containerDistributionConfiguration\": {\n        \"targetRepository\": {\n          \"service\": \"ECR\",\n          \"repositoryName\": \"<string>\"\n        },\n        \"description\": \"<string>\",\n        \"containerTags\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"licenseConfigurationArns\": [\n        \"arn:aws:license-manager:@;S;<KTf:174046818062:license-configuration:lic-1eesdp2q3ehzuy2457nfdu_2lqnbmt9t\"\n      ],\n      \"launchTemplateConfigurations\": [\n        {\n          \"launchTemplateId\": \"lt-49h9j4ymt8qom-_og\",\n          \"accountId\": \"172618134357\",\n          \"setDefaultVersion\": \"<boolean>\"\n        }\n      ],\n      \"s3ExportConfiguration\": {\n        \"roleName\": \"<string>\",\n        \"diskImageFormat\": \"VMDK\",\n        \"s3Bucket\": \"<string>\",\n        \"s3Prefix\": \"<string>\"\n      },\n      \"fastLaunchConfigurations\": [\n        {\n          \"enabled\": \"<boolean>\",\n          \"snapshotConfiguration\": {\n            \"targetResourceCount\": \"<integer>\"\n          },\n          \"maxParallelLaunches\": \"<integer>\",\n          \"launchTemplate\": {\n            \"launchTemplateId\": \"lt-m_dszos53e1zwzsfw\",\n            \"launchTemplateName\": \"<string>\",\n            \"launchTemplateVersion\": \"<string>\"\n          },\n          \"accountId\": \"593321691633\"\n        }\n      ]\n    },\n    {\n      \"region\": \"<string>\",\n      \"amiDistributionConfiguration\": {\n        \"name\": \"5.KpB1-dp\",\n        \"description\": \"<string>\",\n        \"targetAccountIds\": [\n          \"019955946451\"\n        ],\n        \"amiTags\": {\n          \"laboris96\": \"<string>\",\n          \"exercitation_94_\": \"<string>\",\n          \"elit_5e\": \"<string>\",\n          \"nostrud9\": \"<string>\",\n          \"pariatur0\": \"<string>\",\n          \"adipisicing_43c\": \"<string>\",\n          \"est8\": \"<string>\",\n          \"dolor_a\": \"<string>\",\n          \"in0\": \"<string>\",\n          \"Duis_50\": \"<string>\",\n          \"commodoeb\": \"<string>\",\n          \"aliquad\": \"<string>\",\n          \"consecteturb8\": \"<string>\",\n          \"dolor_00\": \"<string>\",\n          \"exercitation4d\": \"<string>\",\n          \"do9f7\": \"<string>\",\n          \"enim58\": \"<string>\",\n          \"esse_d_7\": \"<string>\",\n          \"dolor_0\": \"<string>\",\n          \"incididunta94\": \"<string>\",\n          \"in54f\": \"<string>\",\n          \"enim_5ad\": \"<string>\",\n          \"Utf3f\": \"<string>\",\n          \"consectetur5\": \"<string>\",\n          \"ute81\": \"<string>\",\n          \"quie\": \"<string>\",\n          \"magna_64_\": \"<string>\",\n          \"proident_3\": \"<string>\",\n          \"sunt_5_3\": \"<string>\",\n          \"voluptate7a\": \"<string>\",\n          \"pariatur__b\": \"<string>\",\n          \"sit1_\": \"<string>\",\n          \"consectetur9_e\": \"<string>\",\n          \"qui5\": \"<string>\"\n        },\n        \"kmsKeyId\": \"<string>\",\n        \"launchPermission\": {\n          \"userIds\": [\n            \"744700991492\"\n          ],\n          \"userGroups\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"organizationArns\": [\n            \"arn:awsN':organizations::129029222060:organization/o-5l5icaarqx212e340yzd3i4t2ebd00\"\n          ],\n          \"organizationalUnitArns\": [\n            \"arn:aws\\\\+:organizations::256752630929:ou/o-1e0dj1yijvc/ou-wcdc70t1v8p8eliytrebj-gb8jrbh0t87xqmfif65vd625yc41\"\n          ]\n        }\n      },\n      \"containerDistributionConfiguration\": {\n        \"targetRepository\": {\n          \"service\": \"ECR\",\n          \"repositoryName\": \"<string>\"\n        },\n        \"description\": \"<string>\",\n        \"containerTags\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"licenseConfigurationArns\": [\n        \"arn:aws@;i]+:license-manager:b):168339405594:license-configuration:lic-jn8_k_v0twrqlcicfn8a7xn125g7i4v1\"\n      ],\n      \"launchTemplateConfigurations\": [\n        {\n          \"launchTemplateId\": \"lt-xynhpa9x0femt32d1\",\n          \"accountId\": \"868857765799\",\n          \"setDefaultVersion\": \"<boolean>\"\n        }\n      ],\n      \"s3ExportConfiguration\": {\n        \"roleName\": \"<string>\",\n        \"diskImageFormat\": \"VHD\",\n        \"s3Bucket\": \"<string>\",\n        \"s3Prefix\": \"<string>\"\n      },\n      \"fastLaunchConfigurations\": [\n        {\n          \"enabled\": \"<boolean>\",\n          \"snapshotConfiguration\": {\n            \"targetResourceCount\": \"<integer>\"\n          },\n          \"maxParallelLaunches\": \"<integer>\",\n          \"launchTemplate\": {\n            \"launchTemplateId\": \"lt-mxq0e12f09yjluxzw\",\n            \"launchTemplateName\": \"<string>\",\n            \"launchTemplateVersion\": \"<string>\"\n          },\n          \"accountId\": \"681049340504\"\n        }\n      ]\n    }\n  ],\n  \"clientToken\": \"<string>\",\n  \"description\": \"<string>\",\n  \"tags\": {\n    \"sed__\": \"<string>\",\n    \"enim_c44\": \"<string>\",\n    \"nulla_26\": \"<string>\",\n    \"aliquace8\": \"<string>\",\n    \"Loreme\": \"<string>\",\n    \"id9\": \"<string>\",\n    \"ullamcoa\": \"<string>\",\n    \"utb\": \"<string>\",\n    \"eu_9dc\": \"<string>\",\n    \"anim50a\": \"<string>\",\n    \"exercitation_e_\": \"<string>\",\n    \"culpaab0\": \"<string>\",\n    \"in_f\": \"<string>\",\n    \"eaeec\": \"<string>\",\n    \"dolor_cd\": \"<string>\",\n    \"reprehenderit_d9\": \"<string>\",\n    \"sint4\": \"<string>\",\n    \"cillum_54\": \"<string>\",\n    \"et_74\": \"<string>\",\n    \"deserunt_20\": \"<string>\",\n    \"enim_8\": \"<string>\",\n    \"enim_599\": \"<string>\",\n    \"culpa_880\": \"<string>\",\n    \"nisib8\": \"<string>\",\n    \"dolor_e4\": \"<string>\",\n    \"sunt46\": \"<string>\",\n    \"sint85\": \"<string>\",\n    \"ullamcob1\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/CreateDistributionConfiguration",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "CreateDistributionConfiguration"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:19:37.000Z",
+              "updatedAt": "2026-07-28T10:19:37.000Z",
+              "uid": "35240-d1bb71b7-9ac9-4467-a963-8073ebc0d0cd"
+            },
+            {
+              "id": "f0f8aab4-858f-47cf-a857-ddb3192b57f3",
+              "name": "InvalidParameterCombinationException",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"MyhhSsuoEmMZ-F7YDZphORCPrcZJ2Bacf1xY\",\n  \"distributions\": [\n    {\n      \"region\": \"<string>\",\n      \"amiDistributionConfiguration\": {\n        \"name\": \"NU9\ufeffn\",\n        \"description\": \"<string>\",\n        \"targetAccountIds\": [\n          \"907213322794\"\n        ],\n        \"amiTags\": {\n          \"dolorebd\": \"<string>\",\n          \"nisi_a\": \"<string>\",\n          \"commodo_65b\": \"<string>\",\n          \"ut_4_\": \"<string>\",\n          \"incididunta3b\": \"<string>\",\n          \"voluptated\": \"<string>\",\n          \"pariatur_b01\": \"<string>\",\n          \"cupidatate4f\": \"<string>\",\n          \"et074\": \"<string>\",\n          \"consectetur95a\": \"<string>\",\n          \"adipisicingb1\": \"<string>\",\n          \"occaecat_c9a\": \"<string>\",\n          \"amet_12\": \"<string>\",\n          \"Duis2\": \"<string>\",\n          \"velit_15\": \"<string>\",\n          \"magna_9f\": \"<string>\",\n          \"incididunt_12c\": \"<string>\",\n          \"Excepteur8\": \"<string>\",\n          \"in_96\": \"<string>\",\n          \"doloreb\": \"<string>\",\n          \"ut9\": \"<string>\",\n          \"voluptatefd\": \"<string>\",\n          \"ipsum1\": \"<string>\",\n          \"consectetur_0a\": \"<string>\",\n          \"et27d\": \"<string>\",\n          \"laboris__\": \"<string>\",\n          \"Duis_5\": \"<string>\",\n          \"labore00\": \"<string>\",\n          \"velit2\": \"<string>\",\n          \"sed_06e\": \"<string>\",\n          \"est_5b\": \"<string>\",\n          \"aliquab\": \"<string>\",\n          \"cupidatat_05\": \"<string>\",\n          \"est_bac\": \"<string>\",\n          \"quis6\": \"<string>\",\n          \"irure_e7\": \"<string>\",\n          \"irure_1d\": \"<string>\",\n          \"reprehenderit__1\": \"<string>\",\n          \"sed_f9\": \"<string>\",\n          \"occaecat_29\": \"<string>\",\n          \"incididunt_0\": \"<string>\",\n          \"magna_e98\": \"<string>\",\n          \"voluptate_94\": \"<string>\",\n          \"Uteb\": \"<string>\"\n        },\n        \"kmsKeyId\": \"<string>\",\n        \"launchPermission\": {\n          \"userIds\": [\n            \"014831510090\"\n          ],\n          \"userGroups\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"organizationArns\": [\n            \"arn:awsO%fe1:organizations::198381830824:organization/o-5ojp7kuvmesplftjs79conxetoz8\"\n          ],\n          \"organizationalUnitArns\": [\n            \"arn:aws+\\\"S_k,8Mlq:organizations::258930220668:ou/o-ed3yy0kuv0/ou-5upti8fqyj4gcc855xv2npjuk8c1-m55dhkjvvt53u5yub1al\"\n          ]\n        }\n      },\n      \"containerDistributionConfiguration\": {\n        \"targetRepository\": {\n          \"service\": \"ECR\",\n          \"repositoryName\": \"<string>\"\n        },\n        \"description\": \"<string>\",\n        \"containerTags\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"licenseConfigurationArns\": [\n        \"arn:aws:license-manager:@;S;<KTf:174046818062:license-configuration:lic-1eesdp2q3ehzuy2457nfdu_2lqnbmt9t\"\n      ],\n      \"launchTemplateConfigurations\": [\n        {\n          \"launchTemplateId\": \"lt-49h9j4ymt8qom-_og\",\n          \"accountId\": \"172618134357\",\n          \"setDefaultVersion\": \"<boolean>\"\n        }\n      ],\n      \"s3ExportConfiguration\": {\n        \"roleName\": \"<string>\",\n        \"diskImageFormat\": \"VMDK\",\n        \"s3Bucket\": \"<string>\",\n        \"s3Prefix\": \"<string>\"\n      },\n      \"fastLaunchConfigurations\": [\n        {\n          \"enabled\": \"<boolean>\",\n          \"snapshotConfiguration\": {\n            \"targetResourceCount\": \"<integer>\"\n          },\n          \"maxParallelLaunches\": \"<integer>\",\n          \"launchTemplate\": {\n            \"launchTemplateId\": \"lt-m_dszos53e1zwzsfw\",\n            \"launchTemplateName\": \"<string>\",\n            \"launchTemplateVersion\": \"<string>\"\n          },\n          \"accountId\": \"593321691633\"\n        }\n      ]\n    },\n    {\n      \"region\": \"<string>\",\n      \"amiDistributionConfiguration\": {\n        \"name\": \"5.KpB1-dp\",\n        \"description\": \"<string>\",\n        \"targetAccountIds\": [\n          \"019955946451\"\n        ],\n        \"amiTags\": {\n          \"laboris96\": \"<string>\",\n          \"exercitation_94_\": \"<string>\",\n          \"elit_5e\": \"<string>\",\n          \"nostrud9\": \"<string>\",\n          \"pariatur0\": \"<string>\",\n          \"adipisicing_43c\": \"<string>\",\n          \"est8\": \"<string>\",\n          \"dolor_a\": \"<string>\",\n          \"in0\": \"<string>\",\n          \"Duis_50\": \"<string>\",\n          \"commodoeb\": \"<string>\",\n          \"aliquad\": \"<string>\",\n          \"consecteturb8\": \"<string>\",\n          \"dolor_00\": \"<string>\",\n          \"exercitation4d\": \"<string>\",\n          \"do9f7\": \"<string>\",\n          \"enim58\": \"<string>\",\n          \"esse_d_7\": \"<string>\",\n          \"dolor_0\": \"<string>\",\n          \"incididunta94\": \"<string>\",\n          \"in54f\": \"<string>\",\n          \"enim_5ad\": \"<string>\",\n          \"Utf3f\": \"<string>\",\n          \"consectetur5\": \"<string>\",\n          \"ute81\": \"<string>\",\n          \"quie\": \"<string>\",\n          \"magna_64_\": \"<string>\",\n          \"proident_3\": \"<string>\",\n          \"sunt_5_3\": \"<string>\",\n          \"voluptate7a\": \"<string>\",\n          \"pariatur__b\": \"<string>\",\n          \"sit1_\": \"<string>\",\n          \"consectetur9_e\": \"<string>\",\n          \"qui5\": \"<string>\"\n        },\n        \"kmsKeyId\": \"<string>\",\n        \"launchPermission\": {\n          \"userIds\": [\n            \"744700991492\"\n          ],\n          \"userGroups\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"organizationArns\": [\n            \"arn:awsN':organizations::129029222060:organization/o-5l5icaarqx212e340yzd3i4t2ebd00\"\n          ],\n          \"organizationalUnitArns\": [\n            \"arn:aws\\\\+:organizations::256752630929:ou/o-1e0dj1yijvc/ou-wcdc70t1v8p8eliytrebj-gb8jrbh0t87xqmfif65vd625yc41\"\n          ]\n        }\n      },\n      \"containerDistributionConfiguration\": {\n        \"targetRepository\": {\n          \"service\": \"ECR\",\n          \"repositoryName\": \"<string>\"\n        },\n        \"description\": \"<string>\",\n        \"containerTags\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"licenseConfigurationArns\": [\n        \"arn:aws@;i]+:license-manager:b):168339405594:license-configuration:lic-jn8_k_v0twrqlcicfn8a7xn125g7i4v1\"\n      ],\n      \"launchTemplateConfigurations\": [\n        {\n          \"launchTemplateId\": \"lt-xynhpa9x0femt32d1\",\n          \"accountId\": \"868857765799\",\n          \"setDefaultVersion\": \"<boolean>\"\n        }\n      ],\n      \"s3ExportConfiguration\": {\n        \"roleName\": \"<string>\",\n        \"diskImageFormat\": \"VHD\",\n        \"s3Bucket\": \"<string>\",\n        \"s3Prefix\": \"<string>\"\n      },\n      \"fastLaunchConfigurations\": [\n        {\n          \"enabled\": \"<boolean>\",\n          \"snapshotConfiguration\": {\n            \"targetResourceCount\": \"<integer>\"\n          },\n          \"maxParallelLaunches\": \"<integer>\",\n          \"launchTemplate\": {\n            \"launchTemplateId\": \"lt-mxq0e12f09yjluxzw\",\n            \"launchTemplateName\": \"<string>\",\n            \"launchTemplateVersion\": \"<string>\"\n          },\n          \"accountId\": \"681049340504\"\n        }\n      ]\n    }\n  ],\n  \"clientToken\": \"<string>\",\n  \"description\": \"<string>\",\n  \"tags\": {\n    \"sed__\": \"<string>\",\n    \"enim_c44\": \"<string>\",\n    \"nulla_26\": \"<string>\",\n    \"aliquace8\": \"<string>\",\n    \"Loreme\": \"<string>\",\n    \"id9\": \"<string>\",\n    \"ullamcoa\": \"<string>\",\n    \"utb\": \"<string>\",\n    \"eu_9dc\": \"<string>\",\n    \"anim50a\": \"<string>\",\n    \"exercitation_e_\": \"<string>\",\n    \"culpaab0\": \"<string>\",\n    \"in_f\": \"<string>\",\n    \"eaeec\": \"<string>\",\n    \"dolor_cd\": \"<string>\",\n    \"reprehenderit_d9\": \"<string>\",\n    \"sint4\": \"<string>\",\n    \"cillum_54\": \"<string>\",\n    \"et_74\": \"<string>\",\n    \"deserunt_20\": \"<string>\",\n    \"enim_8\": \"<string>\",\n    \"enim_599\": \"<string>\",\n    \"culpa_880\": \"<string>\",\n    \"nisib8\": \"<string>\",\n    \"dolor_e4\": \"<string>\",\n    \"sunt46\": \"<string>\",\n    \"sint85\": \"<string>\",\n    \"ullamcob1\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/CreateDistributionConfiguration",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "CreateDistributionConfiguration"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:19:37.000Z",
+              "updatedAt": "2026-07-28T10:19:37.000Z",
+              "uid": "35240-f0f8aab4-858f-47cf-a857-ddb3192b57f3"
+            },
+            {
+              "id": "c4298f5a-d701-4a40-b464-9f8cfac44726",
+              "name": "ServiceQuotaExceededException",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"MyhhSsuoEmMZ-F7YDZphORCPrcZJ2Bacf1xY\",\n  \"distributions\": [\n    {\n      \"region\": \"<string>\",\n      \"amiDistributionConfiguration\": {\n        \"name\": \"NU9\ufeffn\",\n        \"description\": \"<string>\",\n        \"targetAccountIds\": [\n          \"907213322794\"\n        ],\n        \"amiTags\": {\n          \"dolorebd\": \"<string>\",\n          \"nisi_a\": \"<string>\",\n          \"commodo_65b\": \"<string>\",\n          \"ut_4_\": \"<string>\",\n          \"incididunta3b\": \"<string>\",\n          \"voluptated\": \"<string>\",\n          \"pariatur_b01\": \"<string>\",\n          \"cupidatate4f\": \"<string>\",\n          \"et074\": \"<string>\",\n          \"consectetur95a\": \"<string>\",\n          \"adipisicingb1\": \"<string>\",\n          \"occaecat_c9a\": \"<string>\",\n          \"amet_12\": \"<string>\",\n          \"Duis2\": \"<string>\",\n          \"velit_15\": \"<string>\",\n          \"magna_9f\": \"<string>\",\n          \"incididunt_12c\": \"<string>\",\n          \"Excepteur8\": \"<string>\",\n          \"in_96\": \"<string>\",\n          \"doloreb\": \"<string>\",\n          \"ut9\": \"<string>\",\n          \"voluptatefd\": \"<string>\",\n          \"ipsum1\": \"<string>\",\n          \"consectetur_0a\": \"<string>\",\n          \"et27d\": \"<string>\",\n          \"laboris__\": \"<string>\",\n          \"Duis_5\": \"<string>\",\n          \"labore00\": \"<string>\",\n          \"velit2\": \"<string>\",\n          \"sed_06e\": \"<string>\",\n          \"est_5b\": \"<string>\",\n          \"aliquab\": \"<string>\",\n          \"cupidatat_05\": \"<string>\",\n          \"est_bac\": \"<string>\",\n          \"quis6\": \"<string>\",\n          \"irure_e7\": \"<string>\",\n          \"irure_1d\": \"<string>\",\n          \"reprehenderit__1\": \"<string>\",\n          \"sed_f9\": \"<string>\",\n          \"occaecat_29\": \"<string>\",\n          \"incididunt_0\": \"<string>\",\n          \"magna_e98\": \"<string>\",\n          \"voluptate_94\": \"<string>\",\n          \"Uteb\": \"<string>\"\n        },\n        \"kmsKeyId\": \"<string>\",\n        \"launchPermission\": {\n          \"userIds\": [\n            \"014831510090\"\n          ],\n          \"userGroups\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"organizationArns\": [\n            \"arn:awsO%fe1:organizations::198381830824:organization/o-5ojp7kuvmesplftjs79conxetoz8\"\n          ],\n          \"organizationalUnitArns\": [\n            \"arn:aws+\\\"S_k,8Mlq:organizations::258930220668:ou/o-ed3yy0kuv0/ou-5upti8fqyj4gcc855xv2npjuk8c1-m55dhkjvvt53u5yub1al\"\n          ]\n        }\n      },\n      \"containerDistributionConfiguration\": {\n        \"targetRepository\": {\n          \"service\": \"ECR\",\n          \"repositoryName\": \"<string>\"\n        },\n        \"description\": \"<string>\",\n        \"containerTags\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"licenseConfigurationArns\": [\n        \"arn:aws:license-manager:@;S;<KTf:174046818062:license-configuration:lic-1eesdp2q3ehzuy2457nfdu_2lqnbmt9t\"\n      ],\n      \"launchTemplateConfigurations\": [\n        {\n          \"launchTemplateId\": \"lt-49h9j4ymt8qom-_og\",\n          \"accountId\": \"172618134357\",\n          \"setDefaultVersion\": \"<boolean>\"\n        }\n      ],\n      \"s3ExportConfiguration\": {\n        \"roleName\": \"<string>\",\n        \"diskImageFormat\": \"VMDK\",\n        \"s3Bucket\": \"<string>\",\n        \"s3Prefix\": \"<string>\"\n      },\n      \"fastLaunchConfigurations\": [\n        {\n          \"enabled\": \"<boolean>\",\n          \"snapshotConfiguration\": {\n            \"targetResourceCount\": \"<integer>\"\n          },\n          \"maxParallelLaunches\": \"<integer>\",\n          \"launchTemplate\": {\n            \"launchTemplateId\": \"lt-m_dszos53e1zwzsfw\",\n            \"launchTemplateName\": \"<string>\",\n            \"launchTemplateVersion\": \"<string>\"\n          },\n          \"accountId\": \"593321691633\"\n        }\n      ]\n    },\n    {\n      \"region\": \"<string>\",\n      \"amiDistributionConfiguration\": {\n        \"name\": \"5.KpB1-dp\",\n        \"description\": \"<string>\",\n        \"targetAccountIds\": [\n          \"019955946451\"\n        ],\n        \"amiTags\": {\n          \"laboris96\": \"<string>\",\n          \"exercitation_94_\": \"<string>\",\n          \"elit_5e\": \"<string>\",\n          \"nostrud9\": \"<string>\",\n          \"pariatur0\": \"<string>\",\n          \"adipisicing_43c\": \"<string>\",\n          \"est8\": \"<string>\",\n          \"dolor_a\": \"<string>\",\n          \"in0\": \"<string>\",\n          \"Duis_50\": \"<string>\",\n          \"commodoeb\": \"<string>\",\n          \"aliquad\": \"<string>\",\n          \"consecteturb8\": \"<string>\",\n          \"dolor_00\": \"<string>\",\n          \"exercitation4d\": \"<string>\",\n          \"do9f7\": \"<string>\",\n          \"enim58\": \"<string>\",\n          \"esse_d_7\": \"<string>\",\n          \"dolor_0\": \"<string>\",\n          \"incididunta94\": \"<string>\",\n          \"in54f\": \"<string>\",\n          \"enim_5ad\": \"<string>\",\n          \"Utf3f\": \"<string>\",\n          \"consectetur5\": \"<string>\",\n          \"ute81\": \"<string>\",\n          \"quie\": \"<string>\",\n          \"magna_64_\": \"<string>\",\n          \"proident_3\": \"<string>\",\n          \"sunt_5_3\": \"<string>\",\n          \"voluptate7a\": \"<string>\",\n          \"pariatur__b\": \"<string>\",\n          \"sit1_\": \"<string>\",\n          \"consectetur9_e\": \"<string>\",\n          \"qui5\": \"<string>\"\n        },\n        \"kmsKeyId\": \"<string>\",\n        \"launchPermission\": {\n          \"userIds\": [\n            \"744700991492\"\n          ],\n          \"userGroups\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"organizationArns\": [\n            \"arn:awsN':organizations::129029222060:organization/o-5l5icaarqx212e340yzd3i4t2ebd00\"\n          ],\n          \"organizationalUnitArns\": [\n            \"arn:aws\\\\+:organizations::256752630929:ou/o-1e0dj1yijvc/ou-wcdc70t1v8p8eliytrebj-gb8jrbh0t87xqmfif65vd625yc41\"\n          ]\n        }\n      },\n      \"containerDistributionConfiguration\": {\n        \"targetRepository\": {\n          \"service\": \"ECR\",\n          \"repositoryName\": \"<string>\"\n        },\n        \"description\": \"<string>\",\n        \"containerTags\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"licenseConfigurationArns\": [\n        \"arn:aws@;i]+:license-manager:b):168339405594:license-configuration:lic-jn8_k_v0twrqlcicfn8a7xn125g7i4v1\"\n      ],\n      \"launchTemplateConfigurations\": [\n        {\n          \"launchTemplateId\": \"lt-xynhpa9x0femt32d1\",\n          \"accountId\": \"868857765799\",\n          \"setDefaultVersion\": \"<boolean>\"\n        }\n      ],\n      \"s3ExportConfiguration\": {\n        \"roleName\": \"<string>\",\n        \"diskImageFormat\": \"VHD\",\n        \"s3Bucket\": \"<string>\",\n        \"s3Prefix\": \"<string>\"\n      },\n      \"fastLaunchConfigurations\": [\n        {\n          \"enabled\": \"<boolean>\",\n          \"snapshotConfiguration\": {\n            \"targetResourceCount\": \"<integer>\"\n          },\n          \"maxParallelLaunches\": \"<integer>\",\n          \"launchTemplate\": {\n            \"launchTemplateId\": \"lt-mxq0e12f09yjluxzw\",\n            \"launchTemplateName\": \"<string>\",\n            \"launchTemplateVersion\": \"<string>\"\n          },\n          \"accountId\": \"681049340504\"\n        }\n      ]\n    }\n  ],\n  \"clientToken\": \"<string>\",\n  \"description\": \"<string>\",\n  \"tags\": {\n    \"sed__\": \"<string>\",\n    \"enim_c44\": \"<string>\",\n    \"nulla_26\": \"<string>\",\n    \"aliquace8\": \"<string>\",\n    \"Loreme\": \"<string>\",\n    \"id9\": \"<string>\",\n    \"ullamcoa\": \"<string>\",\n    \"utb\": \"<string>\",\n    \"eu_9dc\": \"<string>\",\n    \"anim50a\": \"<string>\",\n    \"exercitation_e_\": \"<string>\",\n    \"culpaab0\": \"<string>\",\n    \"in_f\": \"<string>\",\n    \"eaeec\": \"<string>\",\n    \"dolor_cd\": \"<string>\",\n    \"reprehenderit_d9\": \"<string>\",\n    \"sint4\": \"<string>\",\n    \"cillum_54\": \"<string>\",\n    \"et_74\": \"<string>\",\n    \"deserunt_20\": \"<string>\",\n    \"enim_8\": \"<string>\",\n    \"enim_599\": \"<string>\",\n    \"culpa_880\": \"<string>\",\n    \"nisib8\": \"<string>\",\n    \"dolor_e4\": \"<string>\",\n    \"sunt46\": \"<string>\",\n    \"sint85\": \"<string>\",\n    \"ullamcob1\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/CreateDistributionConfiguration",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "CreateDistributionConfiguration"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:19:37.000Z",
+              "updatedAt": "2026-07-28T10:19:37.000Z",
+              "uid": "35240-c4298f5a-d701-4a40-b464-9f8cfac44726"
+            }
+          ],
+          "createdAt": "2026-07-28T10:19:37.000Z",
+          "updatedAt": "2026-07-28T10:19:37.000Z",
+          "uid": "35240-116bedda-55f6-40a1-8cff-b788d668a6df"
+        }
+      ],
+      "id": "241bfc23-9851-4178-b842-2cba9bf93223",
+      "createdAt": "2026-07-28T10:19:37.000Z",
+      "updatedAt": "2026-07-28T10:19:37.000Z",
+      "uid": "35240-241bfc23-9851-4178-b842-2cba9bf93223"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "us-east-1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "http://imagebuilder.{{region}}.amazonaws.com"
+    }
+  ]
+}

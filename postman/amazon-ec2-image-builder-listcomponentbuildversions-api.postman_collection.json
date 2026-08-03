@@ -1,0 +1,892 @@
+{
+  "info": {
+    "_postman_id": "78435a6d-7989-404a-bb3e-3b8105d3ce66",
+    "name": "EC2 Image Builder CancelImageCreation ListComponentBuildVersions API",
+    "description": "EC2 Image Builder is a fully managed Amazon Web Services service that makes it easier to automate the creation, management, and deployment of customized, secure, and up-to-date \"golden\" server images that are pre-installed and pre-configured with software and settings to meet specific IT standards.\n\nContact Support:\n Name: Mike Ralphson\n Email: mike.ralphson@gmail.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T10:20:45.000Z",
+    "updatedAt": "2026-07-28T10:20:46.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-78435a6d-7989-404a-bb3e-3b8105d3ce66"
+  },
+  "item": [
+    {
+      "name": "ListComponentBuildVersions",
+      "item": [
+        {
+          "name": "Amazon EC2 Image Builder List Component Build Versions",
+          "id": "0a6b77a8-3c60-4a54-b8c3-8789df4c34a9",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Amz-Content-Sha256",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Date",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Algorithm",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Credential",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Security-Token",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Signature",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-SignedHeaders",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"componentVersionArn\": \"arn:aws:imagebuilder:t:aws:component/gqk/5117794.261.31698244\",\n  \"maxResults\": \"<integer>\",\n  \"nextToken\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/ListComponentBuildVersions?maxResults=<string>&nextToken=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ListComponentBuildVersions"
+              ],
+              "query": [
+                {
+                  "description": "Pagination limit",
+                  "key": "maxResults",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Pagination token",
+                  "key": "nextToken",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "<p>Returns the list of component build versions for the specified semantic version.</p> <note> <p>The semantic version has four nodes: &lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;/&lt;build&gt;. You can assign values for the first three, and can filter on all of them.</p> <p> <b>Filtering:</b> With semantic versioning, you have the flexibility to use wildcards (x) to specify the most recent versions or nodes when selecting the base image or components for your recipe. When you use a wildcard in any node, all nodes to the right of the first wildcard must also be wildcards.</p> </note>"
+          },
+          "response": [
+            {
+              "id": "8151945a-17ca-4c2e-b170-81e5b43511a0",
+              "name": "Success",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"componentVersionArn\": \"arn:aws:imagebuilder:t:aws:component/gqk/5117794.261.31698244\",\n  \"maxResults\": \"<integer>\",\n  \"nextToken\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/ListComponentBuildVersions?maxResults=<string>&nextToken=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ListComponentBuildVersions"
+                  ],
+                  "query": [
+                    {
+                      "description": "Pagination limit",
+                      "key": "maxResults",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Pagination token",
+                      "key": "nextToken",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"requestId\": \"<string>\",\n  \"componentSummaryList\": [\n    {\n      \"arn\": \"arn:aws]C6j{4j,:imagebuilder:?zBVL<iO-&:115537948758:container-recipe/mwm_/x.x.632057127\",\n      \"name\": \"-XxSJGeZ2nG2j8_-bNC23jdn3g5OjlTS7\",\n      \"version\": \"987181726.15782317.18685940\",\n      \"platform\": \"Windows\",\n      \"supportedOsVersions\": [\n        \"<string>\"\n      ],\n      \"state\": {\n        \"status\": \"DEPRECATED\",\n        \"reason\": \"<string>\"\n      },\n      \"type\": \"BUILD\",\n      \"owner\": \"<string>\",\n      \"description\": \"<string>\",\n      \"changeDescription\": \"<string>\",\n      \"dateCreated\": \"<string>\",\n      \"tags\": {\n        \"et_64\": \"<string>\",\n        \"Ut_ce\": \"<string>\",\n        \"id81e\": \"<string>\",\n        \"dolore_1eb\": \"<string>\",\n        \"id_7e8\": \"<string>\",\n        \"commodo_0\": \"<string>\",\n        \"proidenta\": \"<string>\",\n        \"nisi21\": \"<string>\",\n        \"Ut_163\": \"<string>\",\n        \"velit_86f\": \"<string>\",\n        \"irure6\": \"<string>\",\n        \"veniam_e95\": \"<string>\",\n        \"pariatur_d\": \"<string>\",\n        \"minim73\": \"<string>\",\n        \"dolor_a5\": \"<string>\",\n        \"magna_3\": \"<string>\",\n        \"Loremcb8\": \"<string>\",\n        \"consequat_f\": \"<string>\",\n        \"fugiat_ec2\": \"<string>\",\n        \"laborec4\": \"<string>\",\n        \"laborum_e\": \"<string>\",\n        \"enim_28\": \"<string>\",\n        \"ea_b2c\": \"<string>\",\n        \"elit_e0\": \"<string>\",\n        \"sit2_e\": \"<string>\",\n        \"ut_6\": \"<string>\"\n      },\n      \"publisher\": \"<string>\",\n      \"obfuscate\": \"<boolean>\"\n    },\n    {\n      \"arn\": \"arn:aws?e\\\\-_n:imagebuilder:2W:549282359132:distribution-configuration/70jof93gt/4648055.x.x\",\n      \"name\": \"0xZHbr5omyY0jp7XioxXBMAZM0R8_tnawfExLIUV_kFQL6Bpxo4_Sv3Qr1_Jk90F_E6My\",\n      \"version\": \"4349.2.28554513\",\n      \"platform\": \"Linux\",\n      \"supportedOsVersions\": [\n        \"<string>\"\n      ],\n      \"state\": {\n        \"status\": \"DEPRECATED\",\n        \"reason\": \"<string>\"\n      },\n      \"type\": \"TEST\",\n      \"owner\": \"<string>\",\n      \"description\": \"<string>\",\n      \"changeDescription\": \"<string>\",\n      \"dateCreated\": \"<string>\",\n      \"tags\": {\n        \"quis_c\": \"<string>\",\n        \"aliqua__f\": \"<string>\",\n        \"exercitation1\": \"<string>\",\n        \"ad_57\": \"<string>\",\n        \"consectetur_9f\": \"<string>\",\n        \"magna5\": \"<string>\",\n        \"enim23\": \"<string>\",\n        \"exercitation_fe\": \"<string>\",\n        \"ea_0b\": \"<string>\",\n        \"cupidatat_9a\": \"<string>\",\n        \"deserunt7f1\": \"<string>\",\n        \"dolor1a\": \"<string>\",\n        \"eua\": \"<string>\",\n        \"ipsum_8e8\": \"<string>\",\n        \"temporf3\": \"<string>\",\n        \"exercitation_80\": \"<string>\",\n        \"esseda\": \"<string>\",\n        \"qui_48\": \"<string>\",\n        \"veniam8\": \"<string>\",\n        \"exa3\": \"<string>\",\n        \"aute1\": \"<string>\",\n        \"aute7\": \"<string>\",\n        \"do_d\": \"<string>\",\n        \"tempor4\": \"<string>\",\n        \"consequat0\": \"<string>\",\n        \"Lorem0d\": \"<string>\",\n        \"est8\": \"<string>\"\n      },\n      \"publisher\": \"<string>\",\n      \"obfuscate\": \"<boolean>\"\n    }\n  ],\n  \"nextToken\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T10:20:46.000Z",
+              "updatedAt": "2026-07-28T10:20:46.000Z",
+              "uid": "35240-8151945a-17ca-4c2e-b170-81e5b43511a0"
+            },
+            {
+              "id": "d2843499-f1af-4d3c-99eb-a8e752d974c9",
+              "name": "ServiceException",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"componentVersionArn\": \"arn:aws:imagebuilder:t:aws:component/gqk/5117794.261.31698244\",\n  \"maxResults\": \"<integer>\",\n  \"nextToken\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/ListComponentBuildVersions?maxResults=<string>&nextToken=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ListComponentBuildVersions"
+                  ],
+                  "query": [
+                    {
+                      "description": "Pagination limit",
+                      "key": "maxResults",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Pagination token",
+                      "key": "nextToken",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:20:46.000Z",
+              "updatedAt": "2026-07-28T10:20:46.000Z",
+              "uid": "35240-d2843499-f1af-4d3c-99eb-a8e752d974c9"
+            },
+            {
+              "id": "94531171-3a48-450e-9c94-d75e53b5bb8e",
+              "name": "ClientException",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"componentVersionArn\": \"arn:aws:imagebuilder:t:aws:component/gqk/5117794.261.31698244\",\n  \"maxResults\": \"<integer>\",\n  \"nextToken\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/ListComponentBuildVersions?maxResults=<string>&nextToken=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ListComponentBuildVersions"
+                  ],
+                  "query": [
+                    {
+                      "description": "Pagination limit",
+                      "key": "maxResults",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Pagination token",
+                      "key": "nextToken",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:20:46.000Z",
+              "updatedAt": "2026-07-28T10:20:46.000Z",
+              "uid": "35240-94531171-3a48-450e-9c94-d75e53b5bb8e"
+            },
+            {
+              "id": "7a91a48b-7b05-4d8e-b7b5-7f16e4641ad2",
+              "name": "ServiceUnavailableException",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"componentVersionArn\": \"arn:aws:imagebuilder:t:aws:component/gqk/5117794.261.31698244\",\n  \"maxResults\": \"<integer>\",\n  \"nextToken\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/ListComponentBuildVersions?maxResults=<string>&nextToken=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ListComponentBuildVersions"
+                  ],
+                  "query": [
+                    {
+                      "description": "Pagination limit",
+                      "key": "maxResults",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Pagination token",
+                      "key": "nextToken",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:20:46.000Z",
+              "updatedAt": "2026-07-28T10:20:46.000Z",
+              "uid": "35240-7a91a48b-7b05-4d8e-b7b5-7f16e4641ad2"
+            },
+            {
+              "id": "c2b60b6e-c8b7-41f0-99fd-80c216ab2dd8",
+              "name": "InvalidRequestException",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"componentVersionArn\": \"arn:aws:imagebuilder:t:aws:component/gqk/5117794.261.31698244\",\n  \"maxResults\": \"<integer>\",\n  \"nextToken\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/ListComponentBuildVersions?maxResults=<string>&nextToken=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ListComponentBuildVersions"
+                  ],
+                  "query": [
+                    {
+                      "description": "Pagination limit",
+                      "key": "maxResults",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Pagination token",
+                      "key": "nextToken",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:20:46.000Z",
+              "updatedAt": "2026-07-28T10:20:46.000Z",
+              "uid": "35240-c2b60b6e-c8b7-41f0-99fd-80c216ab2dd8"
+            },
+            {
+              "id": "786baf7c-294e-42d8-aca6-9f63fb33c823",
+              "name": "InvalidPaginationTokenException",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"componentVersionArn\": \"arn:aws:imagebuilder:t:aws:component/gqk/5117794.261.31698244\",\n  \"maxResults\": \"<integer>\",\n  \"nextToken\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/ListComponentBuildVersions?maxResults=<string>&nextToken=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ListComponentBuildVersions"
+                  ],
+                  "query": [
+                    {
+                      "description": "Pagination limit",
+                      "key": "maxResults",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Pagination token",
+                      "key": "nextToken",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:20:46.000Z",
+              "updatedAt": "2026-07-28T10:20:46.000Z",
+              "uid": "35240-786baf7c-294e-42d8-aca6-9f63fb33c823"
+            },
+            {
+              "id": "9f2ca914-c727-4122-a24b-f4d18432bcc1",
+              "name": "ForbiddenException",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"componentVersionArn\": \"arn:aws:imagebuilder:t:aws:component/gqk/5117794.261.31698244\",\n  \"maxResults\": \"<integer>\",\n  \"nextToken\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/ListComponentBuildVersions?maxResults=<string>&nextToken=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ListComponentBuildVersions"
+                  ],
+                  "query": [
+                    {
+                      "description": "Pagination limit",
+                      "key": "maxResults",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Pagination token",
+                      "key": "nextToken",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:20:46.000Z",
+              "updatedAt": "2026-07-28T10:20:46.000Z",
+              "uid": "35240-9f2ca914-c727-4122-a24b-f4d18432bcc1"
+            },
+            {
+              "id": "1b22a80d-a78c-4a6c-abbf-3172caa96d4f",
+              "name": "CallRateLimitExceededException",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"componentVersionArn\": \"arn:aws:imagebuilder:t:aws:component/gqk/5117794.261.31698244\",\n  \"maxResults\": \"<integer>\",\n  \"nextToken\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/ListComponentBuildVersions?maxResults=<string>&nextToken=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ListComponentBuildVersions"
+                  ],
+                  "query": [
+                    {
+                      "description": "Pagination limit",
+                      "key": "maxResults",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Pagination token",
+                      "key": "nextToken",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:20:46.000Z",
+              "updatedAt": "2026-07-28T10:20:46.000Z",
+              "uid": "35240-1b22a80d-a78c-4a6c-abbf-3172caa96d4f"
+            }
+          ],
+          "createdAt": "2026-07-28T10:20:46.000Z",
+          "updatedAt": "2026-07-28T10:20:46.000Z",
+          "uid": "35240-0a6b77a8-3c60-4a54-b8c3-8789df4c34a9"
+        }
+      ],
+      "id": "89c11de7-db18-4620-847a-a117bbaee0a7",
+      "createdAt": "2026-07-28T10:20:46.000Z",
+      "updatedAt": "2026-07-28T10:20:46.000Z",
+      "uid": "35240-89c11de7-db18-4620-847a-a117bbaee0a7"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "us-east-1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "http://imagebuilder.{{region}}.amazonaws.com"
+    }
+  ]
+}

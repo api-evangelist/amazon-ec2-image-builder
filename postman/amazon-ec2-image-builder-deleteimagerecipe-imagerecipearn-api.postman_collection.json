@@ -1,0 +1,730 @@
+{
+  "info": {
+    "_postman_id": "6402e373-6eb8-4e54-89ed-e35a5df6fb8a",
+    "name": "EC2 Image Builder CancelImageCreation DeleteImageRecipe#imageRecipeArn API",
+    "description": "EC2 Image Builder is a fully managed Amazon Web Services service that makes it easier to automate the creation, management, and deployment of customized, secure, and up-to-date \"golden\" server images that are pre-installed and pre-configured with software and settings to meet specific IT standards.\n\nContact Support:\n Name: Mike Ralphson\n Email: mike.ralphson@gmail.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T10:20:04.000Z",
+    "updatedAt": "2026-07-28T10:20:04.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-6402e373-6eb8-4e54-89ed-e35a5df6fb8a"
+  },
+  "item": [
+    {
+      "name": "DeleteImageRecipe#imageRecipeArn",
+      "item": [
+        {
+          "name": "Amazon EC2 Image Builder Delete Image Recipe",
+          "id": "42ef6528-1354-4f85-8e56-285489108d7a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-Amz-Content-Sha256",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Date",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Algorithm",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Credential",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Security-Token",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Signature",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-SignedHeaders",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/DeleteImageRecipe?imageRecipeArn=arn:aws6g`iKjSc:imagebuilder:Aw.:aws:image-recipe/rea-ie99su/30.12.6235#imageRecipeArn",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "DeleteImageRecipe"
+              ],
+              "query": [
+                {
+                  "description": "(Required) The Amazon Resource Name (ARN) of the image recipe to delete.",
+                  "key": "imageRecipeArn",
+                  "value": "arn:aws6g`iKjSc:imagebuilder:Aw.:aws:image-recipe/rea-ie99su/30.12.6235"
+                }
+              ],
+              "hash": "imageRecipeArn"
+            },
+            "description": "Deletes an image recipe."
+          },
+          "response": [
+            {
+              "id": "8d521995-83b2-49cc-8557-0641003f037f",
+              "name": "Success",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/DeleteImageRecipe?imageRecipeArn=arn:aws6g`iKjSc:imagebuilder:Aw.:aws:image-recipe/rea-ie99su/30.12.6235#imageRecipeArn",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "DeleteImageRecipe"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The Amazon Resource Name (ARN) of the image recipe to delete.",
+                      "key": "imageRecipeArn",
+                      "value": "arn:aws6g`iKjSc:imagebuilder:Aw.:aws:image-recipe/rea-ie99su/30.12.6235"
+                    }
+                  ],
+                  "hash": "imageRecipeArn"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"requestId\": \"<string>\",\n  \"imageRecipeArn\": \"arn:aws#|h:imagebuilder:8G:055625139462:image-recipe/seu5wtd28u/863.79.335\"\n}",
+              "createdAt": "2026-07-28T10:20:04.000Z",
+              "updatedAt": "2026-07-28T10:20:04.000Z",
+              "uid": "35240-8d521995-83b2-49cc-8557-0641003f037f"
+            },
+            {
+              "id": "fb54b0c4-b90c-42c1-8674-6606102f3da7",
+              "name": "ServiceException",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/DeleteImageRecipe?imageRecipeArn=arn:aws6g`iKjSc:imagebuilder:Aw.:aws:image-recipe/rea-ie99su/30.12.6235#imageRecipeArn",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "DeleteImageRecipe"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The Amazon Resource Name (ARN) of the image recipe to delete.",
+                      "key": "imageRecipeArn",
+                      "value": "arn:aws6g`iKjSc:imagebuilder:Aw.:aws:image-recipe/rea-ie99su/30.12.6235"
+                    }
+                  ],
+                  "hash": "imageRecipeArn"
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:20:04.000Z",
+              "updatedAt": "2026-07-28T10:20:04.000Z",
+              "uid": "35240-fb54b0c4-b90c-42c1-8674-6606102f3da7"
+            },
+            {
+              "id": "1bceaeb9-aaa8-4e57-8f65-5a33ada5d09f",
+              "name": "ClientException",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/DeleteImageRecipe?imageRecipeArn=arn:aws6g`iKjSc:imagebuilder:Aw.:aws:image-recipe/rea-ie99su/30.12.6235#imageRecipeArn",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "DeleteImageRecipe"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The Amazon Resource Name (ARN) of the image recipe to delete.",
+                      "key": "imageRecipeArn",
+                      "value": "arn:aws6g`iKjSc:imagebuilder:Aw.:aws:image-recipe/rea-ie99su/30.12.6235"
+                    }
+                  ],
+                  "hash": "imageRecipeArn"
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:20:04.000Z",
+              "updatedAt": "2026-07-28T10:20:04.000Z",
+              "uid": "35240-1bceaeb9-aaa8-4e57-8f65-5a33ada5d09f"
+            },
+            {
+              "id": "74df267b-7e96-4b15-a42e-9413326a9ee1",
+              "name": "ServiceUnavailableException",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/DeleteImageRecipe?imageRecipeArn=arn:aws6g`iKjSc:imagebuilder:Aw.:aws:image-recipe/rea-ie99su/30.12.6235#imageRecipeArn",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "DeleteImageRecipe"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The Amazon Resource Name (ARN) of the image recipe to delete.",
+                      "key": "imageRecipeArn",
+                      "value": "arn:aws6g`iKjSc:imagebuilder:Aw.:aws:image-recipe/rea-ie99su/30.12.6235"
+                    }
+                  ],
+                  "hash": "imageRecipeArn"
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:20:04.000Z",
+              "updatedAt": "2026-07-28T10:20:04.000Z",
+              "uid": "35240-74df267b-7e96-4b15-a42e-9413326a9ee1"
+            },
+            {
+              "id": "c72454f5-9a57-4d0a-b8d6-b770be4b886a",
+              "name": "InvalidRequestException",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/DeleteImageRecipe?imageRecipeArn=arn:aws6g`iKjSc:imagebuilder:Aw.:aws:image-recipe/rea-ie99su/30.12.6235#imageRecipeArn",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "DeleteImageRecipe"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The Amazon Resource Name (ARN) of the image recipe to delete.",
+                      "key": "imageRecipeArn",
+                      "value": "arn:aws6g`iKjSc:imagebuilder:Aw.:aws:image-recipe/rea-ie99su/30.12.6235"
+                    }
+                  ],
+                  "hash": "imageRecipeArn"
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:20:04.000Z",
+              "updatedAt": "2026-07-28T10:20:04.000Z",
+              "uid": "35240-c72454f5-9a57-4d0a-b8d6-b770be4b886a"
+            },
+            {
+              "id": "036fa6ef-c7bc-4778-9397-b201395689d7",
+              "name": "ForbiddenException",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/DeleteImageRecipe?imageRecipeArn=arn:aws6g`iKjSc:imagebuilder:Aw.:aws:image-recipe/rea-ie99su/30.12.6235#imageRecipeArn",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "DeleteImageRecipe"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The Amazon Resource Name (ARN) of the image recipe to delete.",
+                      "key": "imageRecipeArn",
+                      "value": "arn:aws6g`iKjSc:imagebuilder:Aw.:aws:image-recipe/rea-ie99su/30.12.6235"
+                    }
+                  ],
+                  "hash": "imageRecipeArn"
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:20:04.000Z",
+              "updatedAt": "2026-07-28T10:20:04.000Z",
+              "uid": "35240-036fa6ef-c7bc-4778-9397-b201395689d7"
+            },
+            {
+              "id": "2c7db368-80f6-4c8e-a163-2d4383ea8b0d",
+              "name": "CallRateLimitExceededException",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/DeleteImageRecipe?imageRecipeArn=arn:aws6g`iKjSc:imagebuilder:Aw.:aws:image-recipe/rea-ie99su/30.12.6235#imageRecipeArn",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "DeleteImageRecipe"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The Amazon Resource Name (ARN) of the image recipe to delete.",
+                      "key": "imageRecipeArn",
+                      "value": "arn:aws6g`iKjSc:imagebuilder:Aw.:aws:image-recipe/rea-ie99su/30.12.6235"
+                    }
+                  ],
+                  "hash": "imageRecipeArn"
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:20:04.000Z",
+              "updatedAt": "2026-07-28T10:20:04.000Z",
+              "uid": "35240-2c7db368-80f6-4c8e-a163-2d4383ea8b0d"
+            },
+            {
+              "id": "29723f73-5665-45ef-abc8-b7335b21c59f",
+              "name": "ResourceDependencyException",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/DeleteImageRecipe?imageRecipeArn=arn:aws6g`iKjSc:imagebuilder:Aw.:aws:image-recipe/rea-ie99su/30.12.6235#imageRecipeArn",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "DeleteImageRecipe"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The Amazon Resource Name (ARN) of the image recipe to delete.",
+                      "key": "imageRecipeArn",
+                      "value": "arn:aws6g`iKjSc:imagebuilder:Aw.:aws:image-recipe/rea-ie99su/30.12.6235"
+                    }
+                  ],
+                  "hash": "imageRecipeArn"
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:20:04.000Z",
+              "updatedAt": "2026-07-28T10:20:04.000Z",
+              "uid": "35240-29723f73-5665-45ef-abc8-b7335b21c59f"
+            }
+          ],
+          "createdAt": "2026-07-28T10:20:04.000Z",
+          "updatedAt": "2026-07-28T10:20:04.000Z",
+          "uid": "35240-42ef6528-1354-4f85-8e56-285489108d7a"
+        }
+      ],
+      "id": "5c9aed20-c224-4277-b1fd-9268392e3a7c",
+      "createdAt": "2026-07-28T10:20:04.000Z",
+      "updatedAt": "2026-07-28T10:20:04.000Z",
+      "uid": "35240-5c9aed20-c224-4277-b1fd-9268392e3a7c"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "us-east-1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "http://imagebuilder.{{region}}.amazonaws.com"
+    }
+  ]
+}

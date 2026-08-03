@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  version: 2019-12-02
+  version: "1.0.0"
   x-release: v4
   title: EC2 Image Builder CancelImageCreation ListWorkflowExecutions API
   description: EC2 Image Builder is a fully managed Amazon Web Services service that makes it easier to automate the creation, management, and deployment of customized, secure, and up-to-date "golden" server images that are pre-installed and pre-configured with software and settings to meet specific IT standards.
@@ -24,7 +24,6 @@ info:
     url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/imagebuilder-2019-12-02.normal.json
     converter:
       url: https://github.com/mermade/aws2openapi
-      version: 1.0.0
     x-apisguru-driver: external
   x-apiClientRegistration:
     url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct

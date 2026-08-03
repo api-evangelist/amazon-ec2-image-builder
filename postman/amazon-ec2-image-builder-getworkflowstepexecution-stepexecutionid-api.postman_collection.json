@@ -1,0 +1,654 @@
+{
+  "info": {
+    "_postman_id": "04a52ca0-f004-457b-bc9f-dbb0a29025a3",
+    "name": "EC2 Image Builder CancelImageCreation GetWorkflowStepExecution#stepExecutionId API",
+    "description": "EC2 Image Builder is a fully managed Amazon Web Services service that makes it easier to automate the creation, management, and deployment of customized, secure, and up-to-date \"golden\" server images that are pre-installed and pre-configured with software and settings to meet specific IT standards.\n\nContact Support:\n Name: Mike Ralphson\n Email: mike.ralphson@gmail.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T10:20:41.000Z",
+    "updatedAt": "2026-07-28T10:20:42.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-04a52ca0-f004-457b-bc9f-dbb0a29025a3"
+  },
+  "item": [
+    {
+      "name": "GetWorkflowStepExecution#stepExecutionId",
+      "item": [
+        {
+          "name": "Amazon EC2 Image Builder Get Workflow Step Execution",
+          "id": "da581d4a-216b-4a33-84c3-a13d3d29e3aa",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Amz-Content-Sha256",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Date",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Algorithm",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Credential",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Security-Token",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Signature",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-SignedHeaders",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/GetWorkflowStepExecution?stepExecutionId=step-b8FC1Abc-d068-9126-ec9f-7232abC12a5d#stepExecutionId",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "GetWorkflowStepExecution"
+              ],
+              "query": [
+                {
+                  "description": "(Required) Use the unique identifier for a specific runtime instance of the workflow step to get runtime details for that step.",
+                  "key": "stepExecutionId",
+                  "value": "step-b8FC1Abc-d068-9126-ec9f-7232abC12a5d"
+                }
+              ],
+              "hash": "stepExecutionId"
+            },
+            "description": "Get the runtime information that was logged for a specific runtime instance of the workflow step."
+          },
+          "response": [
+            {
+              "id": "d7072b62-7d0f-43b4-8e43-90d4b2e2a502",
+              "name": "Success",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/GetWorkflowStepExecution?stepExecutionId=step-b8FC1Abc-d068-9126-ec9f-7232abC12a5d#stepExecutionId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "GetWorkflowStepExecution"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Use the unique identifier for a specific runtime instance of the workflow step to get runtime details for that step.",
+                      "key": "stepExecutionId",
+                      "value": "step-b8FC1Abc-d068-9126-ec9f-7232abC12a5d"
+                    }
+                  ],
+                  "hash": "stepExecutionId"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"requestId\": \"<string>\",\n  \"stepExecutionId\": \"step-EEadAA1c-cDEe-eCc7-7FC7-3Fb99eC8EaAD\",\n  \"workflowBuildVersionArn\": \"arn:aws:imagebuilder:xqmbytven-ydtvail-fziuj-n-flqmbuskm-psnefbrd-ujmzm-scywn-6450174:557833424497:workflow/build/nu350/10812.6191.0/1\",\n  \"workflowExecutionId\": \"wf-a5a0940E-DB0d-3D1c-f636-13Ef1Eeb4014\",\n  \"imageBuildVersionArn\": \"arn:aws:imagebuilder:MHkV:aws:image/zpk9adt/93561.198835376.9408/5242\",\n  \"name\": \"SkTLD-MQFz-J15SycAowrn2H4E9fvBepS73GVp\",\n  \"description\": \"<string>\",\n  \"action\": \"y7d4zbdMK4m8O8EljSZnTcAolm3_cjqy9YIew4cnZxFbhsNp6SLQr1pqg0HR4puFaaiuuY86wks3CiGdonrR_\",\n  \"status\": \"SKIPPED\",\n  \"rollbackStatus\": \"RUNNING\",\n  \"message\": \"<string>\",\n  \"inputs\": \"<string>\",\n  \"outputs\": \"<string>\",\n  \"startTime\": \"<string>\",\n  \"endTime\": \"<string>\",\n  \"onFailure\": \"<string>\",\n  \"timeoutSeconds\": \"<integer>\"\n}",
+              "createdAt": "2026-07-28T10:20:42.000Z",
+              "updatedAt": "2026-07-28T10:20:42.000Z",
+              "uid": "35240-d7072b62-7d0f-43b4-8e43-90d4b2e2a502"
+            },
+            {
+              "id": "2d8880fc-e503-45b5-b00e-f46d7645cdcf",
+              "name": "ServiceException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/GetWorkflowStepExecution?stepExecutionId=step-b8FC1Abc-d068-9126-ec9f-7232abC12a5d#stepExecutionId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "GetWorkflowStepExecution"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Use the unique identifier for a specific runtime instance of the workflow step to get runtime details for that step.",
+                      "key": "stepExecutionId",
+                      "value": "step-b8FC1Abc-d068-9126-ec9f-7232abC12a5d"
+                    }
+                  ],
+                  "hash": "stepExecutionId"
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:20:42.000Z",
+              "updatedAt": "2026-07-28T10:20:42.000Z",
+              "uid": "35240-2d8880fc-e503-45b5-b00e-f46d7645cdcf"
+            },
+            {
+              "id": "660a1ed2-0998-4213-8eaf-2a67683c1fe0",
+              "name": "ClientException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/GetWorkflowStepExecution?stepExecutionId=step-b8FC1Abc-d068-9126-ec9f-7232abC12a5d#stepExecutionId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "GetWorkflowStepExecution"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Use the unique identifier for a specific runtime instance of the workflow step to get runtime details for that step.",
+                      "key": "stepExecutionId",
+                      "value": "step-b8FC1Abc-d068-9126-ec9f-7232abC12a5d"
+                    }
+                  ],
+                  "hash": "stepExecutionId"
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:20:42.000Z",
+              "updatedAt": "2026-07-28T10:20:42.000Z",
+              "uid": "35240-660a1ed2-0998-4213-8eaf-2a67683c1fe0"
+            },
+            {
+              "id": "ef7476cd-3ccc-4b22-ab79-ea08bd960851",
+              "name": "ServiceUnavailableException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/GetWorkflowStepExecution?stepExecutionId=step-b8FC1Abc-d068-9126-ec9f-7232abC12a5d#stepExecutionId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "GetWorkflowStepExecution"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Use the unique identifier for a specific runtime instance of the workflow step to get runtime details for that step.",
+                      "key": "stepExecutionId",
+                      "value": "step-b8FC1Abc-d068-9126-ec9f-7232abC12a5d"
+                    }
+                  ],
+                  "hash": "stepExecutionId"
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:20:42.000Z",
+              "updatedAt": "2026-07-28T10:20:42.000Z",
+              "uid": "35240-ef7476cd-3ccc-4b22-ab79-ea08bd960851"
+            },
+            {
+              "id": "a975cc99-0387-4811-b325-39577d67597a",
+              "name": "InvalidRequestException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/GetWorkflowStepExecution?stepExecutionId=step-b8FC1Abc-d068-9126-ec9f-7232abC12a5d#stepExecutionId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "GetWorkflowStepExecution"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Use the unique identifier for a specific runtime instance of the workflow step to get runtime details for that step.",
+                      "key": "stepExecutionId",
+                      "value": "step-b8FC1Abc-d068-9126-ec9f-7232abC12a5d"
+                    }
+                  ],
+                  "hash": "stepExecutionId"
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:20:42.000Z",
+              "updatedAt": "2026-07-28T10:20:42.000Z",
+              "uid": "35240-a975cc99-0387-4811-b325-39577d67597a"
+            },
+            {
+              "id": "c964714e-6986-4d63-aa2e-01f55bc65c6f",
+              "name": "ForbiddenException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/GetWorkflowStepExecution?stepExecutionId=step-b8FC1Abc-d068-9126-ec9f-7232abC12a5d#stepExecutionId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "GetWorkflowStepExecution"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Use the unique identifier for a specific runtime instance of the workflow step to get runtime details for that step.",
+                      "key": "stepExecutionId",
+                      "value": "step-b8FC1Abc-d068-9126-ec9f-7232abC12a5d"
+                    }
+                  ],
+                  "hash": "stepExecutionId"
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:20:42.000Z",
+              "updatedAt": "2026-07-28T10:20:42.000Z",
+              "uid": "35240-c964714e-6986-4d63-aa2e-01f55bc65c6f"
+            },
+            {
+              "id": "0a4a3de6-1843-4288-8722-84146eefa71e",
+              "name": "CallRateLimitExceededException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/GetWorkflowStepExecution?stepExecutionId=step-b8FC1Abc-d068-9126-ec9f-7232abC12a5d#stepExecutionId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "GetWorkflowStepExecution"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Use the unique identifier for a specific runtime instance of the workflow step to get runtime details for that step.",
+                      "key": "stepExecutionId",
+                      "value": "step-b8FC1Abc-d068-9126-ec9f-7232abC12a5d"
+                    }
+                  ],
+                  "hash": "stepExecutionId"
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:20:42.000Z",
+              "updatedAt": "2026-07-28T10:20:42.000Z",
+              "uid": "35240-0a4a3de6-1843-4288-8722-84146eefa71e"
+            }
+          ],
+          "createdAt": "2026-07-28T10:20:42.000Z",
+          "updatedAt": "2026-07-28T10:20:42.000Z",
+          "uid": "35240-da581d4a-216b-4a33-84c3-a13d3d29e3aa"
+        }
+      ],
+      "id": "ad68c1f3-5e81-48b7-ae18-534973bb23a8",
+      "createdAt": "2026-07-28T10:20:42.000Z",
+      "updatedAt": "2026-07-28T10:20:42.000Z",
+      "uid": "35240-ad68c1f3-5e81-48b7-ae18-534973bb23a8"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "us-east-1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "http://imagebuilder.{{region}}.amazonaws.com"
+    }
+  ]
+}

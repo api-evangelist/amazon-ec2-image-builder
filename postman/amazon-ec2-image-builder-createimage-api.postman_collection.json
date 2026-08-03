@@ -1,0 +1,948 @@
+{
+  "info": {
+    "_postman_id": "05310972-a2ff-4a6f-9586-888a730a2622",
+    "name": "EC2 Image Builder CancelImageCreation CreateImage API",
+    "description": "EC2 Image Builder is a fully managed Amazon Web Services service that makes it easier to automate the creation, management, and deployment of customized, secure, and up-to-date \"golden\" server images that are pre-installed and pre-configured with software and settings to meet specific IT standards.\n\nContact Support:\n Name: Mike Ralphson\n Email: mike.ralphson@gmail.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T10:19:49.000Z",
+    "updatedAt": "2026-07-28T10:19:50.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-05310972-a2ff-4a6f-9586-888a730a2622"
+  },
+  "item": [
+    {
+      "name": "CreateImage",
+      "item": [
+        {
+          "name": "Amazon EC2 Image Builder Create Image",
+          "id": "66698069-b40b-44fa-b01e-74d01bd3cc4b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Amz-Content-Sha256",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Date",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Algorithm",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Credential",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Security-Token",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Signature",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-SignedHeaders",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"infrastructureConfigurationArn\": \"arn:awsk\\\"y%.l:imagebuilder:EfGk r-~G:052089597677:infrastructure-configuration/n\",\n  \"clientToken\": \"<string>\",\n  \"imageRecipeArn\": \"arn:awsV:imagebuilder:-b:788020477731:image-recipe/6yg886xp9/254638.377088.4252\",\n  \"containerRecipeArn\": \"arn:awsEecU:imagebuilder:H&5:aws:container-recipe/apijd4y1/784531766.6181977.33\",\n  \"distributionConfigurationArn\": \"arn:awsGX%^:imagebuilder:Dj94:aws:distribution-configuration/1w-_mk\",\n  \"imageTestsConfiguration\": {\n    \"imageTestsEnabled\": \"<boolean>\",\n    \"timeoutMinutes\": \"<integer>\"\n  },\n  \"enhancedImageMetadataEnabled\": \"<boolean>\",\n  \"tags\": {\n    \"minim_3f\": \"<string>\",\n    \"proidentce\": \"<string>\",\n    \"laboris8_d\": \"<string>\",\n    \"minim955\": \"<string>\",\n    \"aliquip_4\": \"<string>\",\n    \"eude\": \"<string>\",\n    \"Excepteur945\": \"<string>\",\n    \"proident_c2\": \"<string>\",\n    \"nisif\": \"<string>\",\n    \"pariaturac9\": \"<string>\",\n    \"voluptatef\": \"<string>\",\n    \"pariaturbb\": \"<string>\",\n    \"culpa1\": \"<string>\",\n    \"ea_7d\": \"<string>\",\n    \"exercitation075\": \"<string>\",\n    \"enime\": \"<string>\",\n    \"incididunt_48d\": \"<string>\",\n    \"autea_\": \"<string>\",\n    \"nisi2_\": \"<string>\",\n    \"nostrud_6ef\": \"<string>\",\n    \"ut_d\": \"<string>\",\n    \"veniam0\": \"<string>\",\n    \"nisib9\": \"<string>\",\n    \"laborum85e\": \"<string>\",\n    \"aliqua_c9\": \"<string>\",\n    \"ad_b_\": \"<string>\",\n    \"magna_185\": \"<string>\",\n    \"incididunt294\": \"<string>\",\n    \"veniam32\": \"<string>\",\n    \"esse_79\": \"<string>\",\n    \"do__\": \"<string>\",\n    \"veniam_30\": \"<string>\",\n    \"magnaf9\": \"<string>\",\n    \"aute_5d\": \"<string>\"\n  },\n  \"imageScanningConfiguration\": {\n    \"imageScanningEnabled\": \"<boolean>\",\n    \"ecrConfiguration\": {\n      \"repositoryName\": \"<string>\",\n      \"containerTags\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/CreateImage",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "CreateImage"
+              ]
+            },
+            "description": "Creates a new image. This request will create a new image along with all of the configured output resources defined in the distribution configuration. You must specify exactly one recipe for your image, using either a ContainerRecipeArn or an ImageRecipeArn."
+          },
+          "response": [
+            {
+              "id": "4dcb3e25-2aa3-428a-a940-cd658721425a",
+              "name": "Success",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"infrastructureConfigurationArn\": \"arn:awsk\\\"y%.l:imagebuilder:EfGk r-~G:052089597677:infrastructure-configuration/n\",\n  \"clientToken\": \"<string>\",\n  \"imageRecipeArn\": \"arn:awsV:imagebuilder:-b:788020477731:image-recipe/6yg886xp9/254638.377088.4252\",\n  \"containerRecipeArn\": \"arn:awsEecU:imagebuilder:H&5:aws:container-recipe/apijd4y1/784531766.6181977.33\",\n  \"distributionConfigurationArn\": \"arn:awsGX%^:imagebuilder:Dj94:aws:distribution-configuration/1w-_mk\",\n  \"imageTestsConfiguration\": {\n    \"imageTestsEnabled\": \"<boolean>\",\n    \"timeoutMinutes\": \"<integer>\"\n  },\n  \"enhancedImageMetadataEnabled\": \"<boolean>\",\n  \"tags\": {\n    \"minim_3f\": \"<string>\",\n    \"proidentce\": \"<string>\",\n    \"laboris8_d\": \"<string>\",\n    \"minim955\": \"<string>\",\n    \"aliquip_4\": \"<string>\",\n    \"eude\": \"<string>\",\n    \"Excepteur945\": \"<string>\",\n    \"proident_c2\": \"<string>\",\n    \"nisif\": \"<string>\",\n    \"pariaturac9\": \"<string>\",\n    \"voluptatef\": \"<string>\",\n    \"pariaturbb\": \"<string>\",\n    \"culpa1\": \"<string>\",\n    \"ea_7d\": \"<string>\",\n    \"exercitation075\": \"<string>\",\n    \"enime\": \"<string>\",\n    \"incididunt_48d\": \"<string>\",\n    \"autea_\": \"<string>\",\n    \"nisi2_\": \"<string>\",\n    \"nostrud_6ef\": \"<string>\",\n    \"ut_d\": \"<string>\",\n    \"veniam0\": \"<string>\",\n    \"nisib9\": \"<string>\",\n    \"laborum85e\": \"<string>\",\n    \"aliqua_c9\": \"<string>\",\n    \"ad_b_\": \"<string>\",\n    \"magna_185\": \"<string>\",\n    \"incididunt294\": \"<string>\",\n    \"veniam32\": \"<string>\",\n    \"esse_79\": \"<string>\",\n    \"do__\": \"<string>\",\n    \"veniam_30\": \"<string>\",\n    \"magnaf9\": \"<string>\",\n    \"aute_5d\": \"<string>\"\n  },\n  \"imageScanningConfiguration\": {\n    \"imageScanningEnabled\": \"<boolean>\",\n    \"ecrConfiguration\": {\n      \"repositoryName\": \"<string>\",\n      \"containerTags\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/CreateImage",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "CreateImage"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"requestId\": \"<string>\",\n  \"clientToken\": \"<string>\",\n  \"imageBuildVersionArn\": \"arn:awsy)6hi^x:imagebuilder:}+RvaA:aws:image/52p4f/3909953.56882173931.1201763/905000023\"\n}",
+              "createdAt": "2026-07-28T10:19:50.000Z",
+              "updatedAt": "2026-07-28T10:19:50.000Z",
+              "uid": "35240-4dcb3e25-2aa3-428a-a940-cd658721425a"
+            },
+            {
+              "id": "ada526c1-8fa6-42bc-8b79-e0abe12ad463",
+              "name": "ServiceException",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"infrastructureConfigurationArn\": \"arn:awsk\\\"y%.l:imagebuilder:EfGk r-~G:052089597677:infrastructure-configuration/n\",\n  \"clientToken\": \"<string>\",\n  \"imageRecipeArn\": \"arn:awsV:imagebuilder:-b:788020477731:image-recipe/6yg886xp9/254638.377088.4252\",\n  \"containerRecipeArn\": \"arn:awsEecU:imagebuilder:H&5:aws:container-recipe/apijd4y1/784531766.6181977.33\",\n  \"distributionConfigurationArn\": \"arn:awsGX%^:imagebuilder:Dj94:aws:distribution-configuration/1w-_mk\",\n  \"imageTestsConfiguration\": {\n    \"imageTestsEnabled\": \"<boolean>\",\n    \"timeoutMinutes\": \"<integer>\"\n  },\n  \"enhancedImageMetadataEnabled\": \"<boolean>\",\n  \"tags\": {\n    \"minim_3f\": \"<string>\",\n    \"proidentce\": \"<string>\",\n    \"laboris8_d\": \"<string>\",\n    \"minim955\": \"<string>\",\n    \"aliquip_4\": \"<string>\",\n    \"eude\": \"<string>\",\n    \"Excepteur945\": \"<string>\",\n    \"proident_c2\": \"<string>\",\n    \"nisif\": \"<string>\",\n    \"pariaturac9\": \"<string>\",\n    \"voluptatef\": \"<string>\",\n    \"pariaturbb\": \"<string>\",\n    \"culpa1\": \"<string>\",\n    \"ea_7d\": \"<string>\",\n    \"exercitation075\": \"<string>\",\n    \"enime\": \"<string>\",\n    \"incididunt_48d\": \"<string>\",\n    \"autea_\": \"<string>\",\n    \"nisi2_\": \"<string>\",\n    \"nostrud_6ef\": \"<string>\",\n    \"ut_d\": \"<string>\",\n    \"veniam0\": \"<string>\",\n    \"nisib9\": \"<string>\",\n    \"laborum85e\": \"<string>\",\n    \"aliqua_c9\": \"<string>\",\n    \"ad_b_\": \"<string>\",\n    \"magna_185\": \"<string>\",\n    \"incididunt294\": \"<string>\",\n    \"veniam32\": \"<string>\",\n    \"esse_79\": \"<string>\",\n    \"do__\": \"<string>\",\n    \"veniam_30\": \"<string>\",\n    \"magnaf9\": \"<string>\",\n    \"aute_5d\": \"<string>\"\n  },\n  \"imageScanningConfiguration\": {\n    \"imageScanningEnabled\": \"<boolean>\",\n    \"ecrConfiguration\": {\n      \"repositoryName\": \"<string>\",\n      \"containerTags\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/CreateImage",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "CreateImage"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:19:50.000Z",
+              "updatedAt": "2026-07-28T10:19:50.000Z",
+              "uid": "35240-ada526c1-8fa6-42bc-8b79-e0abe12ad463"
+            },
+            {
+              "id": "cb2104af-09a8-4d57-8aa7-bb27a87acda9",
+              "name": "ClientException",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"infrastructureConfigurationArn\": \"arn:awsk\\\"y%.l:imagebuilder:EfGk r-~G:052089597677:infrastructure-configuration/n\",\n  \"clientToken\": \"<string>\",\n  \"imageRecipeArn\": \"arn:awsV:imagebuilder:-b:788020477731:image-recipe/6yg886xp9/254638.377088.4252\",\n  \"containerRecipeArn\": \"arn:awsEecU:imagebuilder:H&5:aws:container-recipe/apijd4y1/784531766.6181977.33\",\n  \"distributionConfigurationArn\": \"arn:awsGX%^:imagebuilder:Dj94:aws:distribution-configuration/1w-_mk\",\n  \"imageTestsConfiguration\": {\n    \"imageTestsEnabled\": \"<boolean>\",\n    \"timeoutMinutes\": \"<integer>\"\n  },\n  \"enhancedImageMetadataEnabled\": \"<boolean>\",\n  \"tags\": {\n    \"minim_3f\": \"<string>\",\n    \"proidentce\": \"<string>\",\n    \"laboris8_d\": \"<string>\",\n    \"minim955\": \"<string>\",\n    \"aliquip_4\": \"<string>\",\n    \"eude\": \"<string>\",\n    \"Excepteur945\": \"<string>\",\n    \"proident_c2\": \"<string>\",\n    \"nisif\": \"<string>\",\n    \"pariaturac9\": \"<string>\",\n    \"voluptatef\": \"<string>\",\n    \"pariaturbb\": \"<string>\",\n    \"culpa1\": \"<string>\",\n    \"ea_7d\": \"<string>\",\n    \"exercitation075\": \"<string>\",\n    \"enime\": \"<string>\",\n    \"incididunt_48d\": \"<string>\",\n    \"autea_\": \"<string>\",\n    \"nisi2_\": \"<string>\",\n    \"nostrud_6ef\": \"<string>\",\n    \"ut_d\": \"<string>\",\n    \"veniam0\": \"<string>\",\n    \"nisib9\": \"<string>\",\n    \"laborum85e\": \"<string>\",\n    \"aliqua_c9\": \"<string>\",\n    \"ad_b_\": \"<string>\",\n    \"magna_185\": \"<string>\",\n    \"incididunt294\": \"<string>\",\n    \"veniam32\": \"<string>\",\n    \"esse_79\": \"<string>\",\n    \"do__\": \"<string>\",\n    \"veniam_30\": \"<string>\",\n    \"magnaf9\": \"<string>\",\n    \"aute_5d\": \"<string>\"\n  },\n  \"imageScanningConfiguration\": {\n    \"imageScanningEnabled\": \"<boolean>\",\n    \"ecrConfiguration\": {\n      \"repositoryName\": \"<string>\",\n      \"containerTags\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/CreateImage",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "CreateImage"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:19:50.000Z",
+              "updatedAt": "2026-07-28T10:19:50.000Z",
+              "uid": "35240-cb2104af-09a8-4d57-8aa7-bb27a87acda9"
+            },
+            {
+              "id": "84738bf0-956e-4b83-94ec-0f3276e04c90",
+              "name": "ServiceUnavailableException",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"infrastructureConfigurationArn\": \"arn:awsk\\\"y%.l:imagebuilder:EfGk r-~G:052089597677:infrastructure-configuration/n\",\n  \"clientToken\": \"<string>\",\n  \"imageRecipeArn\": \"arn:awsV:imagebuilder:-b:788020477731:image-recipe/6yg886xp9/254638.377088.4252\",\n  \"containerRecipeArn\": \"arn:awsEecU:imagebuilder:H&5:aws:container-recipe/apijd4y1/784531766.6181977.33\",\n  \"distributionConfigurationArn\": \"arn:awsGX%^:imagebuilder:Dj94:aws:distribution-configuration/1w-_mk\",\n  \"imageTestsConfiguration\": {\n    \"imageTestsEnabled\": \"<boolean>\",\n    \"timeoutMinutes\": \"<integer>\"\n  },\n  \"enhancedImageMetadataEnabled\": \"<boolean>\",\n  \"tags\": {\n    \"minim_3f\": \"<string>\",\n    \"proidentce\": \"<string>\",\n    \"laboris8_d\": \"<string>\",\n    \"minim955\": \"<string>\",\n    \"aliquip_4\": \"<string>\",\n    \"eude\": \"<string>\",\n    \"Excepteur945\": \"<string>\",\n    \"proident_c2\": \"<string>\",\n    \"nisif\": \"<string>\",\n    \"pariaturac9\": \"<string>\",\n    \"voluptatef\": \"<string>\",\n    \"pariaturbb\": \"<string>\",\n    \"culpa1\": \"<string>\",\n    \"ea_7d\": \"<string>\",\n    \"exercitation075\": \"<string>\",\n    \"enime\": \"<string>\",\n    \"incididunt_48d\": \"<string>\",\n    \"autea_\": \"<string>\",\n    \"nisi2_\": \"<string>\",\n    \"nostrud_6ef\": \"<string>\",\n    \"ut_d\": \"<string>\",\n    \"veniam0\": \"<string>\",\n    \"nisib9\": \"<string>\",\n    \"laborum85e\": \"<string>\",\n    \"aliqua_c9\": \"<string>\",\n    \"ad_b_\": \"<string>\",\n    \"magna_185\": \"<string>\",\n    \"incididunt294\": \"<string>\",\n    \"veniam32\": \"<string>\",\n    \"esse_79\": \"<string>\",\n    \"do__\": \"<string>\",\n    \"veniam_30\": \"<string>\",\n    \"magnaf9\": \"<string>\",\n    \"aute_5d\": \"<string>\"\n  },\n  \"imageScanningConfiguration\": {\n    \"imageScanningEnabled\": \"<boolean>\",\n    \"ecrConfiguration\": {\n      \"repositoryName\": \"<string>\",\n      \"containerTags\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/CreateImage",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "CreateImage"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:19:50.000Z",
+              "updatedAt": "2026-07-28T10:19:50.000Z",
+              "uid": "35240-84738bf0-956e-4b83-94ec-0f3276e04c90"
+            },
+            {
+              "id": "17f7281c-7743-448e-8353-844b095dbef7",
+              "name": "InvalidRequestException",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"infrastructureConfigurationArn\": \"arn:awsk\\\"y%.l:imagebuilder:EfGk r-~G:052089597677:infrastructure-configuration/n\",\n  \"clientToken\": \"<string>\",\n  \"imageRecipeArn\": \"arn:awsV:imagebuilder:-b:788020477731:image-recipe/6yg886xp9/254638.377088.4252\",\n  \"containerRecipeArn\": \"arn:awsEecU:imagebuilder:H&5:aws:container-recipe/apijd4y1/784531766.6181977.33\",\n  \"distributionConfigurationArn\": \"arn:awsGX%^:imagebuilder:Dj94:aws:distribution-configuration/1w-_mk\",\n  \"imageTestsConfiguration\": {\n    \"imageTestsEnabled\": \"<boolean>\",\n    \"timeoutMinutes\": \"<integer>\"\n  },\n  \"enhancedImageMetadataEnabled\": \"<boolean>\",\n  \"tags\": {\n    \"minim_3f\": \"<string>\",\n    \"proidentce\": \"<string>\",\n    \"laboris8_d\": \"<string>\",\n    \"minim955\": \"<string>\",\n    \"aliquip_4\": \"<string>\",\n    \"eude\": \"<string>\",\n    \"Excepteur945\": \"<string>\",\n    \"proident_c2\": \"<string>\",\n    \"nisif\": \"<string>\",\n    \"pariaturac9\": \"<string>\",\n    \"voluptatef\": \"<string>\",\n    \"pariaturbb\": \"<string>\",\n    \"culpa1\": \"<string>\",\n    \"ea_7d\": \"<string>\",\n    \"exercitation075\": \"<string>\",\n    \"enime\": \"<string>\",\n    \"incididunt_48d\": \"<string>\",\n    \"autea_\": \"<string>\",\n    \"nisi2_\": \"<string>\",\n    \"nostrud_6ef\": \"<string>\",\n    \"ut_d\": \"<string>\",\n    \"veniam0\": \"<string>\",\n    \"nisib9\": \"<string>\",\n    \"laborum85e\": \"<string>\",\n    \"aliqua_c9\": \"<string>\",\n    \"ad_b_\": \"<string>\",\n    \"magna_185\": \"<string>\",\n    \"incididunt294\": \"<string>\",\n    \"veniam32\": \"<string>\",\n    \"esse_79\": \"<string>\",\n    \"do__\": \"<string>\",\n    \"veniam_30\": \"<string>\",\n    \"magnaf9\": \"<string>\",\n    \"aute_5d\": \"<string>\"\n  },\n  \"imageScanningConfiguration\": {\n    \"imageScanningEnabled\": \"<boolean>\",\n    \"ecrConfiguration\": {\n      \"repositoryName\": \"<string>\",\n      \"containerTags\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/CreateImage",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "CreateImage"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:19:50.000Z",
+              "updatedAt": "2026-07-28T10:19:50.000Z",
+              "uid": "35240-17f7281c-7743-448e-8353-844b095dbef7"
+            },
+            {
+              "id": "d9b3b9b1-d7fe-4d5a-9476-093707088b22",
+              "name": "IdempotentParameterMismatchException",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"infrastructureConfigurationArn\": \"arn:awsk\\\"y%.l:imagebuilder:EfGk r-~G:052089597677:infrastructure-configuration/n\",\n  \"clientToken\": \"<string>\",\n  \"imageRecipeArn\": \"arn:awsV:imagebuilder:-b:788020477731:image-recipe/6yg886xp9/254638.377088.4252\",\n  \"containerRecipeArn\": \"arn:awsEecU:imagebuilder:H&5:aws:container-recipe/apijd4y1/784531766.6181977.33\",\n  \"distributionConfigurationArn\": \"arn:awsGX%^:imagebuilder:Dj94:aws:distribution-configuration/1w-_mk\",\n  \"imageTestsConfiguration\": {\n    \"imageTestsEnabled\": \"<boolean>\",\n    \"timeoutMinutes\": \"<integer>\"\n  },\n  \"enhancedImageMetadataEnabled\": \"<boolean>\",\n  \"tags\": {\n    \"minim_3f\": \"<string>\",\n    \"proidentce\": \"<string>\",\n    \"laboris8_d\": \"<string>\",\n    \"minim955\": \"<string>\",\n    \"aliquip_4\": \"<string>\",\n    \"eude\": \"<string>\",\n    \"Excepteur945\": \"<string>\",\n    \"proident_c2\": \"<string>\",\n    \"nisif\": \"<string>\",\n    \"pariaturac9\": \"<string>\",\n    \"voluptatef\": \"<string>\",\n    \"pariaturbb\": \"<string>\",\n    \"culpa1\": \"<string>\",\n    \"ea_7d\": \"<string>\",\n    \"exercitation075\": \"<string>\",\n    \"enime\": \"<string>\",\n    \"incididunt_48d\": \"<string>\",\n    \"autea_\": \"<string>\",\n    \"nisi2_\": \"<string>\",\n    \"nostrud_6ef\": \"<string>\",\n    \"ut_d\": \"<string>\",\n    \"veniam0\": \"<string>\",\n    \"nisib9\": \"<string>\",\n    \"laborum85e\": \"<string>\",\n    \"aliqua_c9\": \"<string>\",\n    \"ad_b_\": \"<string>\",\n    \"magna_185\": \"<string>\",\n    \"incididunt294\": \"<string>\",\n    \"veniam32\": \"<string>\",\n    \"esse_79\": \"<string>\",\n    \"do__\": \"<string>\",\n    \"veniam_30\": \"<string>\",\n    \"magnaf9\": \"<string>\",\n    \"aute_5d\": \"<string>\"\n  },\n  \"imageScanningConfiguration\": {\n    \"imageScanningEnabled\": \"<boolean>\",\n    \"ecrConfiguration\": {\n      \"repositoryName\": \"<string>\",\n      \"containerTags\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/CreateImage",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "CreateImage"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:19:50.000Z",
+              "updatedAt": "2026-07-28T10:19:50.000Z",
+              "uid": "35240-d9b3b9b1-d7fe-4d5a-9476-093707088b22"
+            },
+            {
+              "id": "046322e9-4142-461c-87fe-580c7c5458c5",
+              "name": "ForbiddenException",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"infrastructureConfigurationArn\": \"arn:awsk\\\"y%.l:imagebuilder:EfGk r-~G:052089597677:infrastructure-configuration/n\",\n  \"clientToken\": \"<string>\",\n  \"imageRecipeArn\": \"arn:awsV:imagebuilder:-b:788020477731:image-recipe/6yg886xp9/254638.377088.4252\",\n  \"containerRecipeArn\": \"arn:awsEecU:imagebuilder:H&5:aws:container-recipe/apijd4y1/784531766.6181977.33\",\n  \"distributionConfigurationArn\": \"arn:awsGX%^:imagebuilder:Dj94:aws:distribution-configuration/1w-_mk\",\n  \"imageTestsConfiguration\": {\n    \"imageTestsEnabled\": \"<boolean>\",\n    \"timeoutMinutes\": \"<integer>\"\n  },\n  \"enhancedImageMetadataEnabled\": \"<boolean>\",\n  \"tags\": {\n    \"minim_3f\": \"<string>\",\n    \"proidentce\": \"<string>\",\n    \"laboris8_d\": \"<string>\",\n    \"minim955\": \"<string>\",\n    \"aliquip_4\": \"<string>\",\n    \"eude\": \"<string>\",\n    \"Excepteur945\": \"<string>\",\n    \"proident_c2\": \"<string>\",\n    \"nisif\": \"<string>\",\n    \"pariaturac9\": \"<string>\",\n    \"voluptatef\": \"<string>\",\n    \"pariaturbb\": \"<string>\",\n    \"culpa1\": \"<string>\",\n    \"ea_7d\": \"<string>\",\n    \"exercitation075\": \"<string>\",\n    \"enime\": \"<string>\",\n    \"incididunt_48d\": \"<string>\",\n    \"autea_\": \"<string>\",\n    \"nisi2_\": \"<string>\",\n    \"nostrud_6ef\": \"<string>\",\n    \"ut_d\": \"<string>\",\n    \"veniam0\": \"<string>\",\n    \"nisib9\": \"<string>\",\n    \"laborum85e\": \"<string>\",\n    \"aliqua_c9\": \"<string>\",\n    \"ad_b_\": \"<string>\",\n    \"magna_185\": \"<string>\",\n    \"incididunt294\": \"<string>\",\n    \"veniam32\": \"<string>\",\n    \"esse_79\": \"<string>\",\n    \"do__\": \"<string>\",\n    \"veniam_30\": \"<string>\",\n    \"magnaf9\": \"<string>\",\n    \"aute_5d\": \"<string>\"\n  },\n  \"imageScanningConfiguration\": {\n    \"imageScanningEnabled\": \"<boolean>\",\n    \"ecrConfiguration\": {\n      \"repositoryName\": \"<string>\",\n      \"containerTags\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/CreateImage",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "CreateImage"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:19:50.000Z",
+              "updatedAt": "2026-07-28T10:19:50.000Z",
+              "uid": "35240-046322e9-4142-461c-87fe-580c7c5458c5"
+            },
+            {
+              "id": "d0523fd2-5570-4c9b-a40f-b97f1148b2e0",
+              "name": "CallRateLimitExceededException",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"infrastructureConfigurationArn\": \"arn:awsk\\\"y%.l:imagebuilder:EfGk r-~G:052089597677:infrastructure-configuration/n\",\n  \"clientToken\": \"<string>\",\n  \"imageRecipeArn\": \"arn:awsV:imagebuilder:-b:788020477731:image-recipe/6yg886xp9/254638.377088.4252\",\n  \"containerRecipeArn\": \"arn:awsEecU:imagebuilder:H&5:aws:container-recipe/apijd4y1/784531766.6181977.33\",\n  \"distributionConfigurationArn\": \"arn:awsGX%^:imagebuilder:Dj94:aws:distribution-configuration/1w-_mk\",\n  \"imageTestsConfiguration\": {\n    \"imageTestsEnabled\": \"<boolean>\",\n    \"timeoutMinutes\": \"<integer>\"\n  },\n  \"enhancedImageMetadataEnabled\": \"<boolean>\",\n  \"tags\": {\n    \"minim_3f\": \"<string>\",\n    \"proidentce\": \"<string>\",\n    \"laboris8_d\": \"<string>\",\n    \"minim955\": \"<string>\",\n    \"aliquip_4\": \"<string>\",\n    \"eude\": \"<string>\",\n    \"Excepteur945\": \"<string>\",\n    \"proident_c2\": \"<string>\",\n    \"nisif\": \"<string>\",\n    \"pariaturac9\": \"<string>\",\n    \"voluptatef\": \"<string>\",\n    \"pariaturbb\": \"<string>\",\n    \"culpa1\": \"<string>\",\n    \"ea_7d\": \"<string>\",\n    \"exercitation075\": \"<string>\",\n    \"enime\": \"<string>\",\n    \"incididunt_48d\": \"<string>\",\n    \"autea_\": \"<string>\",\n    \"nisi2_\": \"<string>\",\n    \"nostrud_6ef\": \"<string>\",\n    \"ut_d\": \"<string>\",\n    \"veniam0\": \"<string>\",\n    \"nisib9\": \"<string>\",\n    \"laborum85e\": \"<string>\",\n    \"aliqua_c9\": \"<string>\",\n    \"ad_b_\": \"<string>\",\n    \"magna_185\": \"<string>\",\n    \"incididunt294\": \"<string>\",\n    \"veniam32\": \"<string>\",\n    \"esse_79\": \"<string>\",\n    \"do__\": \"<string>\",\n    \"veniam_30\": \"<string>\",\n    \"magnaf9\": \"<string>\",\n    \"aute_5d\": \"<string>\"\n  },\n  \"imageScanningConfiguration\": {\n    \"imageScanningEnabled\": \"<boolean>\",\n    \"ecrConfiguration\": {\n      \"repositoryName\": \"<string>\",\n      \"containerTags\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/CreateImage",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "CreateImage"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:19:50.000Z",
+              "updatedAt": "2026-07-28T10:19:50.000Z",
+              "uid": "35240-d0523fd2-5570-4c9b-a40f-b97f1148b2e0"
+            },
+            {
+              "id": "72160c2c-af0e-4c09-b280-446912fcca79",
+              "name": "ResourceInUseException",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"infrastructureConfigurationArn\": \"arn:awsk\\\"y%.l:imagebuilder:EfGk r-~G:052089597677:infrastructure-configuration/n\",\n  \"clientToken\": \"<string>\",\n  \"imageRecipeArn\": \"arn:awsV:imagebuilder:-b:788020477731:image-recipe/6yg886xp9/254638.377088.4252\",\n  \"containerRecipeArn\": \"arn:awsEecU:imagebuilder:H&5:aws:container-recipe/apijd4y1/784531766.6181977.33\",\n  \"distributionConfigurationArn\": \"arn:awsGX%^:imagebuilder:Dj94:aws:distribution-configuration/1w-_mk\",\n  \"imageTestsConfiguration\": {\n    \"imageTestsEnabled\": \"<boolean>\",\n    \"timeoutMinutes\": \"<integer>\"\n  },\n  \"enhancedImageMetadataEnabled\": \"<boolean>\",\n  \"tags\": {\n    \"minim_3f\": \"<string>\",\n    \"proidentce\": \"<string>\",\n    \"laboris8_d\": \"<string>\",\n    \"minim955\": \"<string>\",\n    \"aliquip_4\": \"<string>\",\n    \"eude\": \"<string>\",\n    \"Excepteur945\": \"<string>\",\n    \"proident_c2\": \"<string>\",\n    \"nisif\": \"<string>\",\n    \"pariaturac9\": \"<string>\",\n    \"voluptatef\": \"<string>\",\n    \"pariaturbb\": \"<string>\",\n    \"culpa1\": \"<string>\",\n    \"ea_7d\": \"<string>\",\n    \"exercitation075\": \"<string>\",\n    \"enime\": \"<string>\",\n    \"incididunt_48d\": \"<string>\",\n    \"autea_\": \"<string>\",\n    \"nisi2_\": \"<string>\",\n    \"nostrud_6ef\": \"<string>\",\n    \"ut_d\": \"<string>\",\n    \"veniam0\": \"<string>\",\n    \"nisib9\": \"<string>\",\n    \"laborum85e\": \"<string>\",\n    \"aliqua_c9\": \"<string>\",\n    \"ad_b_\": \"<string>\",\n    \"magna_185\": \"<string>\",\n    \"incididunt294\": \"<string>\",\n    \"veniam32\": \"<string>\",\n    \"esse_79\": \"<string>\",\n    \"do__\": \"<string>\",\n    \"veniam_30\": \"<string>\",\n    \"magnaf9\": \"<string>\",\n    \"aute_5d\": \"<string>\"\n  },\n  \"imageScanningConfiguration\": {\n    \"imageScanningEnabled\": \"<boolean>\",\n    \"ecrConfiguration\": {\n      \"repositoryName\": \"<string>\",\n      \"containerTags\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/CreateImage",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "CreateImage"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:19:50.000Z",
+              "updatedAt": "2026-07-28T10:19:50.000Z",
+              "uid": "35240-72160c2c-af0e-4c09-b280-446912fcca79"
+            },
+            {
+              "id": "c1fb0cb7-0be4-403b-8bd4-8ac2fb2b6748",
+              "name": "ServiceQuotaExceededException",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"infrastructureConfigurationArn\": \"arn:awsk\\\"y%.l:imagebuilder:EfGk r-~G:052089597677:infrastructure-configuration/n\",\n  \"clientToken\": \"<string>\",\n  \"imageRecipeArn\": \"arn:awsV:imagebuilder:-b:788020477731:image-recipe/6yg886xp9/254638.377088.4252\",\n  \"containerRecipeArn\": \"arn:awsEecU:imagebuilder:H&5:aws:container-recipe/apijd4y1/784531766.6181977.33\",\n  \"distributionConfigurationArn\": \"arn:awsGX%^:imagebuilder:Dj94:aws:distribution-configuration/1w-_mk\",\n  \"imageTestsConfiguration\": {\n    \"imageTestsEnabled\": \"<boolean>\",\n    \"timeoutMinutes\": \"<integer>\"\n  },\n  \"enhancedImageMetadataEnabled\": \"<boolean>\",\n  \"tags\": {\n    \"minim_3f\": \"<string>\",\n    \"proidentce\": \"<string>\",\n    \"laboris8_d\": \"<string>\",\n    \"minim955\": \"<string>\",\n    \"aliquip_4\": \"<string>\",\n    \"eude\": \"<string>\",\n    \"Excepteur945\": \"<string>\",\n    \"proident_c2\": \"<string>\",\n    \"nisif\": \"<string>\",\n    \"pariaturac9\": \"<string>\",\n    \"voluptatef\": \"<string>\",\n    \"pariaturbb\": \"<string>\",\n    \"culpa1\": \"<string>\",\n    \"ea_7d\": \"<string>\",\n    \"exercitation075\": \"<string>\",\n    \"enime\": \"<string>\",\n    \"incididunt_48d\": \"<string>\",\n    \"autea_\": \"<string>\",\n    \"nisi2_\": \"<string>\",\n    \"nostrud_6ef\": \"<string>\",\n    \"ut_d\": \"<string>\",\n    \"veniam0\": \"<string>\",\n    \"nisib9\": \"<string>\",\n    \"laborum85e\": \"<string>\",\n    \"aliqua_c9\": \"<string>\",\n    \"ad_b_\": \"<string>\",\n    \"magna_185\": \"<string>\",\n    \"incididunt294\": \"<string>\",\n    \"veniam32\": \"<string>\",\n    \"esse_79\": \"<string>\",\n    \"do__\": \"<string>\",\n    \"veniam_30\": \"<string>\",\n    \"magnaf9\": \"<string>\",\n    \"aute_5d\": \"<string>\"\n  },\n  \"imageScanningConfiguration\": {\n    \"imageScanningEnabled\": \"<boolean>\",\n    \"ecrConfiguration\": {\n      \"repositoryName\": \"<string>\",\n      \"containerTags\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/CreateImage",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "CreateImage"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:19:50.000Z",
+              "updatedAt": "2026-07-28T10:19:50.000Z",
+              "uid": "35240-c1fb0cb7-0be4-403b-8bd4-8ac2fb2b6748"
+            }
+          ],
+          "createdAt": "2026-07-28T10:19:50.000Z",
+          "updatedAt": "2026-07-28T10:19:50.000Z",
+          "uid": "35240-66698069-b40b-44fa-b01e-74d01bd3cc4b"
+        }
+      ],
+      "id": "3c3c90b7-08e2-4dd2-906f-eeb1601c715b",
+      "createdAt": "2026-07-28T10:19:50.000Z",
+      "updatedAt": "2026-07-28T10:19:50.000Z",
+      "uid": "35240-3c3c90b7-08e2-4dd2-906f-eeb1601c715b"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "us-east-1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "http://imagebuilder.{{region}}.amazonaws.com"
+    }
+  ]
+}

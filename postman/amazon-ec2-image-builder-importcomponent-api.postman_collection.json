@@ -1,0 +1,1030 @@
+{
+  "info": {
+    "_postman_id": "6d0f4fb4-2d2d-4273-a2d7-92764e50aab7",
+    "name": "EC2 Image Builder CancelImageCreation ImportComponent API",
+    "description": "EC2 Image Builder is a fully managed Amazon Web Services service that makes it easier to automate the creation, management, and deployment of customized, secure, and up-to-date \"golden\" server images that are pre-installed and pre-configured with software and settings to meet specific IT standards.\n\nContact Support:\n Name: Mike Ralphson\n Email: mike.ralphson@gmail.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T10:20:42.000Z",
+    "updatedAt": "2026-07-28T10:20:43.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-6d0f4fb4-2d2d-4273-a2d7-92764e50aab7"
+  },
+  "item": [
+    {
+      "name": "ImportComponent",
+      "item": [
+        {
+          "name": "Amazon EC2 Image Builder Import Component",
+          "id": "0fdf41dd-73a6-406f-af4a-2342b4e95ba7",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Amz-Content-Sha256",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Date",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Algorithm",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Credential",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Security-Token",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Signature",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-SignedHeaders",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"zwp81fND-audcENhE_X3T0bHjHuVXwtgjF8z2HRcqcaLI4X7ZrTaSgHT0GaIVwKF0P6\",\n  \"semanticVersion\": \"9801.668362540.6254292488\",\n  \"type\": \"TEST\",\n  \"format\": \"SHELL\",\n  \"platform\": \"Linux\",\n  \"clientToken\": \"<string>\",\n  \"description\": \"<string>\",\n  \"changeDescription\": \"<string>\",\n  \"data\": \"<string>\",\n  \"uri\": \"<string>\",\n  \"kmsKeyId\": \"<string>\",\n  \"tags\": {\n    \"dolor_fe\": \"<string>\",\n    \"esse_ecc\": \"<string>\",\n    \"enim6_\": \"<string>\",\n    \"eiusmod_f5d\": \"<string>\",\n    \"proident_25\": \"<string>\",\n    \"amet_c5c\": \"<string>\",\n    \"consequat3\": \"<string>\",\n    \"minim1\": \"<string>\",\n    \"fugiat_a6e\": \"<string>\",\n    \"dolor79\": \"<string>\",\n    \"ea_b2\": \"<string>\",\n    \"ine4\": \"<string>\",\n    \"in0a\": \"<string>\",\n    \"est_e\": \"<string>\",\n    \"incididunt_7f\": \"<string>\",\n    \"voluptatee\": \"<string>\",\n    \"mollitb3f\": \"<string>\",\n    \"dolor_3d0\": \"<string>\",\n    \"sint_2_\": \"<string>\",\n    \"ut282\": \"<string>\",\n    \"ut_d\": \"<string>\",\n    \"veniam_54_\": \"<string>\",\n    \"exercitation_3f9\": \"<string>\",\n    \"adipisicing365\": \"<string>\",\n    \"ad_ab\": \"<string>\",\n    \"culpa_cc\": \"<string>\",\n    \"adc2d\": \"<string>\",\n    \"occaecatc36\": \"<string>\",\n    \"anim3d\": \"<string>\",\n    \"id_56b\": \"<string>\",\n    \"enim_50f\": \"<string>\",\n    \"ea_e8\": \"<string>\",\n    \"voluptate_c\": \"<string>\",\n    \"amet8\": \"<string>\",\n    \"sitaa\": \"<string>\",\n    \"culpa_7a\": \"<string>\",\n    \"sunt_11\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/ImportComponent",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ImportComponent"
+              ]
+            },
+            "description": "Imports a component and transforms its data into a component document."
+          },
+          "response": [
+            {
+              "id": "3aefee5d-875c-4ca9-8069-09048988c5c4",
+              "name": "Success",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"zwp81fND-audcENhE_X3T0bHjHuVXwtgjF8z2HRcqcaLI4X7ZrTaSgHT0GaIVwKF0P6\",\n  \"semanticVersion\": \"9801.668362540.6254292488\",\n  \"type\": \"TEST\",\n  \"format\": \"SHELL\",\n  \"platform\": \"Linux\",\n  \"clientToken\": \"<string>\",\n  \"description\": \"<string>\",\n  \"changeDescription\": \"<string>\",\n  \"data\": \"<string>\",\n  \"uri\": \"<string>\",\n  \"kmsKeyId\": \"<string>\",\n  \"tags\": {\n    \"dolor_fe\": \"<string>\",\n    \"esse_ecc\": \"<string>\",\n    \"enim6_\": \"<string>\",\n    \"eiusmod_f5d\": \"<string>\",\n    \"proident_25\": \"<string>\",\n    \"amet_c5c\": \"<string>\",\n    \"consequat3\": \"<string>\",\n    \"minim1\": \"<string>\",\n    \"fugiat_a6e\": \"<string>\",\n    \"dolor79\": \"<string>\",\n    \"ea_b2\": \"<string>\",\n    \"ine4\": \"<string>\",\n    \"in0a\": \"<string>\",\n    \"est_e\": \"<string>\",\n    \"incididunt_7f\": \"<string>\",\n    \"voluptatee\": \"<string>\",\n    \"mollitb3f\": \"<string>\",\n    \"dolor_3d0\": \"<string>\",\n    \"sint_2_\": \"<string>\",\n    \"ut282\": \"<string>\",\n    \"ut_d\": \"<string>\",\n    \"veniam_54_\": \"<string>\",\n    \"exercitation_3f9\": \"<string>\",\n    \"adipisicing365\": \"<string>\",\n    \"ad_ab\": \"<string>\",\n    \"culpa_cc\": \"<string>\",\n    \"adc2d\": \"<string>\",\n    \"occaecatc36\": \"<string>\",\n    \"anim3d\": \"<string>\",\n    \"id_56b\": \"<string>\",\n    \"enim_50f\": \"<string>\",\n    \"ea_e8\": \"<string>\",\n    \"voluptate_c\": \"<string>\",\n    \"amet8\": \"<string>\",\n    \"sitaa\": \"<string>\",\n    \"culpa_7a\": \"<string>\",\n    \"sunt_11\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/ImportComponent",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ImportComponent"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"requestId\": \"<string>\",\n  \"clientToken\": \"<string>\",\n  \"componentBuildVersionArn\": \"arn:awsY4$4:imagebuilder:udBv#:aws:component/pw1xl7ed/226.401.78/58873819109\"\n}",
+              "createdAt": "2026-07-28T10:20:43.000Z",
+              "updatedAt": "2026-07-28T10:20:43.000Z",
+              "uid": "35240-3aefee5d-875c-4ca9-8069-09048988c5c4"
+            },
+            {
+              "id": "ad0f92d6-cc53-4b8f-b3e9-58e1d9fe3212",
+              "name": "ServiceException",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"zwp81fND-audcENhE_X3T0bHjHuVXwtgjF8z2HRcqcaLI4X7ZrTaSgHT0GaIVwKF0P6\",\n  \"semanticVersion\": \"9801.668362540.6254292488\",\n  \"type\": \"TEST\",\n  \"format\": \"SHELL\",\n  \"platform\": \"Linux\",\n  \"clientToken\": \"<string>\",\n  \"description\": \"<string>\",\n  \"changeDescription\": \"<string>\",\n  \"data\": \"<string>\",\n  \"uri\": \"<string>\",\n  \"kmsKeyId\": \"<string>\",\n  \"tags\": {\n    \"dolor_fe\": \"<string>\",\n    \"esse_ecc\": \"<string>\",\n    \"enim6_\": \"<string>\",\n    \"eiusmod_f5d\": \"<string>\",\n    \"proident_25\": \"<string>\",\n    \"amet_c5c\": \"<string>\",\n    \"consequat3\": \"<string>\",\n    \"minim1\": \"<string>\",\n    \"fugiat_a6e\": \"<string>\",\n    \"dolor79\": \"<string>\",\n    \"ea_b2\": \"<string>\",\n    \"ine4\": \"<string>\",\n    \"in0a\": \"<string>\",\n    \"est_e\": \"<string>\",\n    \"incididunt_7f\": \"<string>\",\n    \"voluptatee\": \"<string>\",\n    \"mollitb3f\": \"<string>\",\n    \"dolor_3d0\": \"<string>\",\n    \"sint_2_\": \"<string>\",\n    \"ut282\": \"<string>\",\n    \"ut_d\": \"<string>\",\n    \"veniam_54_\": \"<string>\",\n    \"exercitation_3f9\": \"<string>\",\n    \"adipisicing365\": \"<string>\",\n    \"ad_ab\": \"<string>\",\n    \"culpa_cc\": \"<string>\",\n    \"adc2d\": \"<string>\",\n    \"occaecatc36\": \"<string>\",\n    \"anim3d\": \"<string>\",\n    \"id_56b\": \"<string>\",\n    \"enim_50f\": \"<string>\",\n    \"ea_e8\": \"<string>\",\n    \"voluptate_c\": \"<string>\",\n    \"amet8\": \"<string>\",\n    \"sitaa\": \"<string>\",\n    \"culpa_7a\": \"<string>\",\n    \"sunt_11\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/ImportComponent",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ImportComponent"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:20:43.000Z",
+              "updatedAt": "2026-07-28T10:20:43.000Z",
+              "uid": "35240-ad0f92d6-cc53-4b8f-b3e9-58e1d9fe3212"
+            },
+            {
+              "id": "8ce751be-5fe3-43ec-bb2d-570e583f0526",
+              "name": "ClientException",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"zwp81fND-audcENhE_X3T0bHjHuVXwtgjF8z2HRcqcaLI4X7ZrTaSgHT0GaIVwKF0P6\",\n  \"semanticVersion\": \"9801.668362540.6254292488\",\n  \"type\": \"TEST\",\n  \"format\": \"SHELL\",\n  \"platform\": \"Linux\",\n  \"clientToken\": \"<string>\",\n  \"description\": \"<string>\",\n  \"changeDescription\": \"<string>\",\n  \"data\": \"<string>\",\n  \"uri\": \"<string>\",\n  \"kmsKeyId\": \"<string>\",\n  \"tags\": {\n    \"dolor_fe\": \"<string>\",\n    \"esse_ecc\": \"<string>\",\n    \"enim6_\": \"<string>\",\n    \"eiusmod_f5d\": \"<string>\",\n    \"proident_25\": \"<string>\",\n    \"amet_c5c\": \"<string>\",\n    \"consequat3\": \"<string>\",\n    \"minim1\": \"<string>\",\n    \"fugiat_a6e\": \"<string>\",\n    \"dolor79\": \"<string>\",\n    \"ea_b2\": \"<string>\",\n    \"ine4\": \"<string>\",\n    \"in0a\": \"<string>\",\n    \"est_e\": \"<string>\",\n    \"incididunt_7f\": \"<string>\",\n    \"voluptatee\": \"<string>\",\n    \"mollitb3f\": \"<string>\",\n    \"dolor_3d0\": \"<string>\",\n    \"sint_2_\": \"<string>\",\n    \"ut282\": \"<string>\",\n    \"ut_d\": \"<string>\",\n    \"veniam_54_\": \"<string>\",\n    \"exercitation_3f9\": \"<string>\",\n    \"adipisicing365\": \"<string>\",\n    \"ad_ab\": \"<string>\",\n    \"culpa_cc\": \"<string>\",\n    \"adc2d\": \"<string>\",\n    \"occaecatc36\": \"<string>\",\n    \"anim3d\": \"<string>\",\n    \"id_56b\": \"<string>\",\n    \"enim_50f\": \"<string>\",\n    \"ea_e8\": \"<string>\",\n    \"voluptate_c\": \"<string>\",\n    \"amet8\": \"<string>\",\n    \"sitaa\": \"<string>\",\n    \"culpa_7a\": \"<string>\",\n    \"sunt_11\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/ImportComponent",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ImportComponent"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:20:43.000Z",
+              "updatedAt": "2026-07-28T10:20:43.000Z",
+              "uid": "35240-8ce751be-5fe3-43ec-bb2d-570e583f0526"
+            },
+            {
+              "id": "9cab6818-1d1b-4354-b138-722614784f35",
+              "name": "ServiceUnavailableException",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"zwp81fND-audcENhE_X3T0bHjHuVXwtgjF8z2HRcqcaLI4X7ZrTaSgHT0GaIVwKF0P6\",\n  \"semanticVersion\": \"9801.668362540.6254292488\",\n  \"type\": \"TEST\",\n  \"format\": \"SHELL\",\n  \"platform\": \"Linux\",\n  \"clientToken\": \"<string>\",\n  \"description\": \"<string>\",\n  \"changeDescription\": \"<string>\",\n  \"data\": \"<string>\",\n  \"uri\": \"<string>\",\n  \"kmsKeyId\": \"<string>\",\n  \"tags\": {\n    \"dolor_fe\": \"<string>\",\n    \"esse_ecc\": \"<string>\",\n    \"enim6_\": \"<string>\",\n    \"eiusmod_f5d\": \"<string>\",\n    \"proident_25\": \"<string>\",\n    \"amet_c5c\": \"<string>\",\n    \"consequat3\": \"<string>\",\n    \"minim1\": \"<string>\",\n    \"fugiat_a6e\": \"<string>\",\n    \"dolor79\": \"<string>\",\n    \"ea_b2\": \"<string>\",\n    \"ine4\": \"<string>\",\n    \"in0a\": \"<string>\",\n    \"est_e\": \"<string>\",\n    \"incididunt_7f\": \"<string>\",\n    \"voluptatee\": \"<string>\",\n    \"mollitb3f\": \"<string>\",\n    \"dolor_3d0\": \"<string>\",\n    \"sint_2_\": \"<string>\",\n    \"ut282\": \"<string>\",\n    \"ut_d\": \"<string>\",\n    \"veniam_54_\": \"<string>\",\n    \"exercitation_3f9\": \"<string>\",\n    \"adipisicing365\": \"<string>\",\n    \"ad_ab\": \"<string>\",\n    \"culpa_cc\": \"<string>\",\n    \"adc2d\": \"<string>\",\n    \"occaecatc36\": \"<string>\",\n    \"anim3d\": \"<string>\",\n    \"id_56b\": \"<string>\",\n    \"enim_50f\": \"<string>\",\n    \"ea_e8\": \"<string>\",\n    \"voluptate_c\": \"<string>\",\n    \"amet8\": \"<string>\",\n    \"sitaa\": \"<string>\",\n    \"culpa_7a\": \"<string>\",\n    \"sunt_11\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/ImportComponent",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ImportComponent"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:20:43.000Z",
+              "updatedAt": "2026-07-28T10:20:43.000Z",
+              "uid": "35240-9cab6818-1d1b-4354-b138-722614784f35"
+            },
+            {
+              "id": "bad6eedd-a948-46cb-9831-b2822e14ab63",
+              "name": "InvalidRequestException",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"zwp81fND-audcENhE_X3T0bHjHuVXwtgjF8z2HRcqcaLI4X7ZrTaSgHT0GaIVwKF0P6\",\n  \"semanticVersion\": \"9801.668362540.6254292488\",\n  \"type\": \"TEST\",\n  \"format\": \"SHELL\",\n  \"platform\": \"Linux\",\n  \"clientToken\": \"<string>\",\n  \"description\": \"<string>\",\n  \"changeDescription\": \"<string>\",\n  \"data\": \"<string>\",\n  \"uri\": \"<string>\",\n  \"kmsKeyId\": \"<string>\",\n  \"tags\": {\n    \"dolor_fe\": \"<string>\",\n    \"esse_ecc\": \"<string>\",\n    \"enim6_\": \"<string>\",\n    \"eiusmod_f5d\": \"<string>\",\n    \"proident_25\": \"<string>\",\n    \"amet_c5c\": \"<string>\",\n    \"consequat3\": \"<string>\",\n    \"minim1\": \"<string>\",\n    \"fugiat_a6e\": \"<string>\",\n    \"dolor79\": \"<string>\",\n    \"ea_b2\": \"<string>\",\n    \"ine4\": \"<string>\",\n    \"in0a\": \"<string>\",\n    \"est_e\": \"<string>\",\n    \"incididunt_7f\": \"<string>\",\n    \"voluptatee\": \"<string>\",\n    \"mollitb3f\": \"<string>\",\n    \"dolor_3d0\": \"<string>\",\n    \"sint_2_\": \"<string>\",\n    \"ut282\": \"<string>\",\n    \"ut_d\": \"<string>\",\n    \"veniam_54_\": \"<string>\",\n    \"exercitation_3f9\": \"<string>\",\n    \"adipisicing365\": \"<string>\",\n    \"ad_ab\": \"<string>\",\n    \"culpa_cc\": \"<string>\",\n    \"adc2d\": \"<string>\",\n    \"occaecatc36\": \"<string>\",\n    \"anim3d\": \"<string>\",\n    \"id_56b\": \"<string>\",\n    \"enim_50f\": \"<string>\",\n    \"ea_e8\": \"<string>\",\n    \"voluptate_c\": \"<string>\",\n    \"amet8\": \"<string>\",\n    \"sitaa\": \"<string>\",\n    \"culpa_7a\": \"<string>\",\n    \"sunt_11\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/ImportComponent",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ImportComponent"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:20:43.000Z",
+              "updatedAt": "2026-07-28T10:20:43.000Z",
+              "uid": "35240-bad6eedd-a948-46cb-9831-b2822e14ab63"
+            },
+            {
+              "id": "cfa485ea-a779-4b70-9fda-83b2ce96e120",
+              "name": "IdempotentParameterMismatchException",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"zwp81fND-audcENhE_X3T0bHjHuVXwtgjF8z2HRcqcaLI4X7ZrTaSgHT0GaIVwKF0P6\",\n  \"semanticVersion\": \"9801.668362540.6254292488\",\n  \"type\": \"TEST\",\n  \"format\": \"SHELL\",\n  \"platform\": \"Linux\",\n  \"clientToken\": \"<string>\",\n  \"description\": \"<string>\",\n  \"changeDescription\": \"<string>\",\n  \"data\": \"<string>\",\n  \"uri\": \"<string>\",\n  \"kmsKeyId\": \"<string>\",\n  \"tags\": {\n    \"dolor_fe\": \"<string>\",\n    \"esse_ecc\": \"<string>\",\n    \"enim6_\": \"<string>\",\n    \"eiusmod_f5d\": \"<string>\",\n    \"proident_25\": \"<string>\",\n    \"amet_c5c\": \"<string>\",\n    \"consequat3\": \"<string>\",\n    \"minim1\": \"<string>\",\n    \"fugiat_a6e\": \"<string>\",\n    \"dolor79\": \"<string>\",\n    \"ea_b2\": \"<string>\",\n    \"ine4\": \"<string>\",\n    \"in0a\": \"<string>\",\n    \"est_e\": \"<string>\",\n    \"incididunt_7f\": \"<string>\",\n    \"voluptatee\": \"<string>\",\n    \"mollitb3f\": \"<string>\",\n    \"dolor_3d0\": \"<string>\",\n    \"sint_2_\": \"<string>\",\n    \"ut282\": \"<string>\",\n    \"ut_d\": \"<string>\",\n    \"veniam_54_\": \"<string>\",\n    \"exercitation_3f9\": \"<string>\",\n    \"adipisicing365\": \"<string>\",\n    \"ad_ab\": \"<string>\",\n    \"culpa_cc\": \"<string>\",\n    \"adc2d\": \"<string>\",\n    \"occaecatc36\": \"<string>\",\n    \"anim3d\": \"<string>\",\n    \"id_56b\": \"<string>\",\n    \"enim_50f\": \"<string>\",\n    \"ea_e8\": \"<string>\",\n    \"voluptate_c\": \"<string>\",\n    \"amet8\": \"<string>\",\n    \"sitaa\": \"<string>\",\n    \"culpa_7a\": \"<string>\",\n    \"sunt_11\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/ImportComponent",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ImportComponent"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:20:43.000Z",
+              "updatedAt": "2026-07-28T10:20:43.000Z",
+              "uid": "35240-cfa485ea-a779-4b70-9fda-83b2ce96e120"
+            },
+            {
+              "id": "82ab79c0-ca6d-4f95-81bc-c3e4b448ff41",
+              "name": "ForbiddenException",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"zwp81fND-audcENhE_X3T0bHjHuVXwtgjF8z2HRcqcaLI4X7ZrTaSgHT0GaIVwKF0P6\",\n  \"semanticVersion\": \"9801.668362540.6254292488\",\n  \"type\": \"TEST\",\n  \"format\": \"SHELL\",\n  \"platform\": \"Linux\",\n  \"clientToken\": \"<string>\",\n  \"description\": \"<string>\",\n  \"changeDescription\": \"<string>\",\n  \"data\": \"<string>\",\n  \"uri\": \"<string>\",\n  \"kmsKeyId\": \"<string>\",\n  \"tags\": {\n    \"dolor_fe\": \"<string>\",\n    \"esse_ecc\": \"<string>\",\n    \"enim6_\": \"<string>\",\n    \"eiusmod_f5d\": \"<string>\",\n    \"proident_25\": \"<string>\",\n    \"amet_c5c\": \"<string>\",\n    \"consequat3\": \"<string>\",\n    \"minim1\": \"<string>\",\n    \"fugiat_a6e\": \"<string>\",\n    \"dolor79\": \"<string>\",\n    \"ea_b2\": \"<string>\",\n    \"ine4\": \"<string>\",\n    \"in0a\": \"<string>\",\n    \"est_e\": \"<string>\",\n    \"incididunt_7f\": \"<string>\",\n    \"voluptatee\": \"<string>\",\n    \"mollitb3f\": \"<string>\",\n    \"dolor_3d0\": \"<string>\",\n    \"sint_2_\": \"<string>\",\n    \"ut282\": \"<string>\",\n    \"ut_d\": \"<string>\",\n    \"veniam_54_\": \"<string>\",\n    \"exercitation_3f9\": \"<string>\",\n    \"adipisicing365\": \"<string>\",\n    \"ad_ab\": \"<string>\",\n    \"culpa_cc\": \"<string>\",\n    \"adc2d\": \"<string>\",\n    \"occaecatc36\": \"<string>\",\n    \"anim3d\": \"<string>\",\n    \"id_56b\": \"<string>\",\n    \"enim_50f\": \"<string>\",\n    \"ea_e8\": \"<string>\",\n    \"voluptate_c\": \"<string>\",\n    \"amet8\": \"<string>\",\n    \"sitaa\": \"<string>\",\n    \"culpa_7a\": \"<string>\",\n    \"sunt_11\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/ImportComponent",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ImportComponent"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:20:43.000Z",
+              "updatedAt": "2026-07-28T10:20:43.000Z",
+              "uid": "35240-82ab79c0-ca6d-4f95-81bc-c3e4b448ff41"
+            },
+            {
+              "id": "02131954-7a6f-4371-9115-9e935bf8fc0d",
+              "name": "CallRateLimitExceededException",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"zwp81fND-audcENhE_X3T0bHjHuVXwtgjF8z2HRcqcaLI4X7ZrTaSgHT0GaIVwKF0P6\",\n  \"semanticVersion\": \"9801.668362540.6254292488\",\n  \"type\": \"TEST\",\n  \"format\": \"SHELL\",\n  \"platform\": \"Linux\",\n  \"clientToken\": \"<string>\",\n  \"description\": \"<string>\",\n  \"changeDescription\": \"<string>\",\n  \"data\": \"<string>\",\n  \"uri\": \"<string>\",\n  \"kmsKeyId\": \"<string>\",\n  \"tags\": {\n    \"dolor_fe\": \"<string>\",\n    \"esse_ecc\": \"<string>\",\n    \"enim6_\": \"<string>\",\n    \"eiusmod_f5d\": \"<string>\",\n    \"proident_25\": \"<string>\",\n    \"amet_c5c\": \"<string>\",\n    \"consequat3\": \"<string>\",\n    \"minim1\": \"<string>\",\n    \"fugiat_a6e\": \"<string>\",\n    \"dolor79\": \"<string>\",\n    \"ea_b2\": \"<string>\",\n    \"ine4\": \"<string>\",\n    \"in0a\": \"<string>\",\n    \"est_e\": \"<string>\",\n    \"incididunt_7f\": \"<string>\",\n    \"voluptatee\": \"<string>\",\n    \"mollitb3f\": \"<string>\",\n    \"dolor_3d0\": \"<string>\",\n    \"sint_2_\": \"<string>\",\n    \"ut282\": \"<string>\",\n    \"ut_d\": \"<string>\",\n    \"veniam_54_\": \"<string>\",\n    \"exercitation_3f9\": \"<string>\",\n    \"adipisicing365\": \"<string>\",\n    \"ad_ab\": \"<string>\",\n    \"culpa_cc\": \"<string>\",\n    \"adc2d\": \"<string>\",\n    \"occaecatc36\": \"<string>\",\n    \"anim3d\": \"<string>\",\n    \"id_56b\": \"<string>\",\n    \"enim_50f\": \"<string>\",\n    \"ea_e8\": \"<string>\",\n    \"voluptate_c\": \"<string>\",\n    \"amet8\": \"<string>\",\n    \"sitaa\": \"<string>\",\n    \"culpa_7a\": \"<string>\",\n    \"sunt_11\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/ImportComponent",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ImportComponent"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:20:43.000Z",
+              "updatedAt": "2026-07-28T10:20:43.000Z",
+              "uid": "35240-02131954-7a6f-4371-9115-9e935bf8fc0d"
+            },
+            {
+              "id": "6137151b-1092-4a2f-a81c-8026a8141338",
+              "name": "InvalidVersionNumberException",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"zwp81fND-audcENhE_X3T0bHjHuVXwtgjF8z2HRcqcaLI4X7ZrTaSgHT0GaIVwKF0P6\",\n  \"semanticVersion\": \"9801.668362540.6254292488\",\n  \"type\": \"TEST\",\n  \"format\": \"SHELL\",\n  \"platform\": \"Linux\",\n  \"clientToken\": \"<string>\",\n  \"description\": \"<string>\",\n  \"changeDescription\": \"<string>\",\n  \"data\": \"<string>\",\n  \"uri\": \"<string>\",\n  \"kmsKeyId\": \"<string>\",\n  \"tags\": {\n    \"dolor_fe\": \"<string>\",\n    \"esse_ecc\": \"<string>\",\n    \"enim6_\": \"<string>\",\n    \"eiusmod_f5d\": \"<string>\",\n    \"proident_25\": \"<string>\",\n    \"amet_c5c\": \"<string>\",\n    \"consequat3\": \"<string>\",\n    \"minim1\": \"<string>\",\n    \"fugiat_a6e\": \"<string>\",\n    \"dolor79\": \"<string>\",\n    \"ea_b2\": \"<string>\",\n    \"ine4\": \"<string>\",\n    \"in0a\": \"<string>\",\n    \"est_e\": \"<string>\",\n    \"incididunt_7f\": \"<string>\",\n    \"voluptatee\": \"<string>\",\n    \"mollitb3f\": \"<string>\",\n    \"dolor_3d0\": \"<string>\",\n    \"sint_2_\": \"<string>\",\n    \"ut282\": \"<string>\",\n    \"ut_d\": \"<string>\",\n    \"veniam_54_\": \"<string>\",\n    \"exercitation_3f9\": \"<string>\",\n    \"adipisicing365\": \"<string>\",\n    \"ad_ab\": \"<string>\",\n    \"culpa_cc\": \"<string>\",\n    \"adc2d\": \"<string>\",\n    \"occaecatc36\": \"<string>\",\n    \"anim3d\": \"<string>\",\n    \"id_56b\": \"<string>\",\n    \"enim_50f\": \"<string>\",\n    \"ea_e8\": \"<string>\",\n    \"voluptate_c\": \"<string>\",\n    \"amet8\": \"<string>\",\n    \"sitaa\": \"<string>\",\n    \"culpa_7a\": \"<string>\",\n    \"sunt_11\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/ImportComponent",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ImportComponent"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:20:43.000Z",
+              "updatedAt": "2026-07-28T10:20:43.000Z",
+              "uid": "35240-6137151b-1092-4a2f-a81c-8026a8141338"
+            },
+            {
+              "id": "cd3f9dc4-bcd7-47a2-bc24-d4f6d651d83a",
+              "name": "ResourceInUseException",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"zwp81fND-audcENhE_X3T0bHjHuVXwtgjF8z2HRcqcaLI4X7ZrTaSgHT0GaIVwKF0P6\",\n  \"semanticVersion\": \"9801.668362540.6254292488\",\n  \"type\": \"TEST\",\n  \"format\": \"SHELL\",\n  \"platform\": \"Linux\",\n  \"clientToken\": \"<string>\",\n  \"description\": \"<string>\",\n  \"changeDescription\": \"<string>\",\n  \"data\": \"<string>\",\n  \"uri\": \"<string>\",\n  \"kmsKeyId\": \"<string>\",\n  \"tags\": {\n    \"dolor_fe\": \"<string>\",\n    \"esse_ecc\": \"<string>\",\n    \"enim6_\": \"<string>\",\n    \"eiusmod_f5d\": \"<string>\",\n    \"proident_25\": \"<string>\",\n    \"amet_c5c\": \"<string>\",\n    \"consequat3\": \"<string>\",\n    \"minim1\": \"<string>\",\n    \"fugiat_a6e\": \"<string>\",\n    \"dolor79\": \"<string>\",\n    \"ea_b2\": \"<string>\",\n    \"ine4\": \"<string>\",\n    \"in0a\": \"<string>\",\n    \"est_e\": \"<string>\",\n    \"incididunt_7f\": \"<string>\",\n    \"voluptatee\": \"<string>\",\n    \"mollitb3f\": \"<string>\",\n    \"dolor_3d0\": \"<string>\",\n    \"sint_2_\": \"<string>\",\n    \"ut282\": \"<string>\",\n    \"ut_d\": \"<string>\",\n    \"veniam_54_\": \"<string>\",\n    \"exercitation_3f9\": \"<string>\",\n    \"adipisicing365\": \"<string>\",\n    \"ad_ab\": \"<string>\",\n    \"culpa_cc\": \"<string>\",\n    \"adc2d\": \"<string>\",\n    \"occaecatc36\": \"<string>\",\n    \"anim3d\": \"<string>\",\n    \"id_56b\": \"<string>\",\n    \"enim_50f\": \"<string>\",\n    \"ea_e8\": \"<string>\",\n    \"voluptate_c\": \"<string>\",\n    \"amet8\": \"<string>\",\n    \"sitaa\": \"<string>\",\n    \"culpa_7a\": \"<string>\",\n    \"sunt_11\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/ImportComponent",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ImportComponent"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:20:43.000Z",
+              "updatedAt": "2026-07-28T10:20:43.000Z",
+              "uid": "35240-cd3f9dc4-bcd7-47a2-bc24-d4f6d651d83a"
+            },
+            {
+              "id": "189d6c16-c483-4fb5-92e0-23be121171c0",
+              "name": "InvalidParameterCombinationException",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"zwp81fND-audcENhE_X3T0bHjHuVXwtgjF8z2HRcqcaLI4X7ZrTaSgHT0GaIVwKF0P6\",\n  \"semanticVersion\": \"9801.668362540.6254292488\",\n  \"type\": \"TEST\",\n  \"format\": \"SHELL\",\n  \"platform\": \"Linux\",\n  \"clientToken\": \"<string>\",\n  \"description\": \"<string>\",\n  \"changeDescription\": \"<string>\",\n  \"data\": \"<string>\",\n  \"uri\": \"<string>\",\n  \"kmsKeyId\": \"<string>\",\n  \"tags\": {\n    \"dolor_fe\": \"<string>\",\n    \"esse_ecc\": \"<string>\",\n    \"enim6_\": \"<string>\",\n    \"eiusmod_f5d\": \"<string>\",\n    \"proident_25\": \"<string>\",\n    \"amet_c5c\": \"<string>\",\n    \"consequat3\": \"<string>\",\n    \"minim1\": \"<string>\",\n    \"fugiat_a6e\": \"<string>\",\n    \"dolor79\": \"<string>\",\n    \"ea_b2\": \"<string>\",\n    \"ine4\": \"<string>\",\n    \"in0a\": \"<string>\",\n    \"est_e\": \"<string>\",\n    \"incididunt_7f\": \"<string>\",\n    \"voluptatee\": \"<string>\",\n    \"mollitb3f\": \"<string>\",\n    \"dolor_3d0\": \"<string>\",\n    \"sint_2_\": \"<string>\",\n    \"ut282\": \"<string>\",\n    \"ut_d\": \"<string>\",\n    \"veniam_54_\": \"<string>\",\n    \"exercitation_3f9\": \"<string>\",\n    \"adipisicing365\": \"<string>\",\n    \"ad_ab\": \"<string>\",\n    \"culpa_cc\": \"<string>\",\n    \"adc2d\": \"<string>\",\n    \"occaecatc36\": \"<string>\",\n    \"anim3d\": \"<string>\",\n    \"id_56b\": \"<string>\",\n    \"enim_50f\": \"<string>\",\n    \"ea_e8\": \"<string>\",\n    \"voluptate_c\": \"<string>\",\n    \"amet8\": \"<string>\",\n    \"sitaa\": \"<string>\",\n    \"culpa_7a\": \"<string>\",\n    \"sunt_11\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/ImportComponent",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ImportComponent"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:20:43.000Z",
+              "updatedAt": "2026-07-28T10:20:43.000Z",
+              "uid": "35240-189d6c16-c483-4fb5-92e0-23be121171c0"
+            }
+          ],
+          "createdAt": "2026-07-28T10:20:43.000Z",
+          "updatedAt": "2026-07-28T10:20:43.000Z",
+          "uid": "35240-0fdf41dd-73a6-406f-af4a-2342b4e95ba7"
+        }
+      ],
+      "id": "2a301981-2e59-4906-98ca-40175f514c33",
+      "createdAt": "2026-07-28T10:20:43.000Z",
+      "updatedAt": "2026-07-28T10:20:43.000Z",
+      "uid": "35240-2a301981-2e59-4906-98ca-40175f514c33"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "us-east-1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "http://imagebuilder.{{region}}.amazonaws.com"
+    }
+  ]
+}

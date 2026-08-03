@@ -1,0 +1,730 @@
+{
+  "info": {
+    "_postman_id": "1a5eb560-f5f4-4047-84c7-e66a9fca0a5e",
+    "name": "EC2 Image Builder CancelImageCreation DeleteInfrastructureConfiguration#infrastructureConfigurationArn API",
+    "description": "EC2 Image Builder is a fully managed Amazon Web Services service that makes it easier to automate the creation, management, and deployment of customized, secure, and up-to-date \"golden\" server images that are pre-installed and pre-configured with software and settings to meet specific IT standards.\n\nContact Support:\n Name: Mike Ralphson\n Email: mike.ralphson@gmail.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T10:20:05.000Z",
+    "updatedAt": "2026-07-28T10:20:05.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-1a5eb560-f5f4-4047-84c7-e66a9fca0a5e"
+  },
+  "item": [
+    {
+      "name": "DeleteInfrastructureConfiguration#infrastructureConfigurationArn",
+      "item": [
+        {
+          "name": "Amazon EC2 Image Builder Delete Infrastructure Configuration",
+          "id": "6ac190d7-0b74-48f7-bb6e-9078a516a00d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-Amz-Content-Sha256",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Date",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Algorithm",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Credential",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Security-Token",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Signature",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-SignedHeaders",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/DeleteInfrastructureConfiguration?infrastructureConfigurationArn=arn:awszcp+5F:imagebuilder:%26kGn);(q:064468196056:infrastructure-configuration/xgy#infrastructureConfigurationArn",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "DeleteInfrastructureConfiguration"
+              ],
+              "query": [
+                {
+                  "description": "(Required) The Amazon Resource Name (ARN) of the infrastructure configuration to delete.",
+                  "key": "infrastructureConfigurationArn",
+                  "value": "arn:awszcp+5F:imagebuilder:&kGn);(q:064468196056:infrastructure-configuration/xgy"
+                }
+              ],
+              "hash": "infrastructureConfigurationArn"
+            },
+            "description": "Deletes an infrastructure configuration."
+          },
+          "response": [
+            {
+              "id": "d71000cc-5c02-4c93-b54c-23c5399eac29",
+              "name": "Success",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/DeleteInfrastructureConfiguration?infrastructureConfigurationArn=arn:awszcp+5F:imagebuilder:%26kGn);(q:064468196056:infrastructure-configuration/xgy#infrastructureConfigurationArn",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "DeleteInfrastructureConfiguration"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The Amazon Resource Name (ARN) of the infrastructure configuration to delete.",
+                      "key": "infrastructureConfigurationArn",
+                      "value": "arn:awszcp+5F:imagebuilder:&kGn);(q:064468196056:infrastructure-configuration/xgy"
+                    }
+                  ],
+                  "hash": "infrastructureConfigurationArn"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"requestId\": \"<string>\",\n  \"infrastructureConfigurationArn\": \"arn:awsP:imagebuilder:Z6/-dk&cg:620694105221:infrastructure-configuration/c4-1b5oi\"\n}",
+              "createdAt": "2026-07-28T10:20:05.000Z",
+              "updatedAt": "2026-07-28T10:20:05.000Z",
+              "uid": "35240-d71000cc-5c02-4c93-b54c-23c5399eac29"
+            },
+            {
+              "id": "9a660e0c-d6f6-42fe-a557-74a758b52ec3",
+              "name": "ServiceException",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/DeleteInfrastructureConfiguration?infrastructureConfigurationArn=arn:awszcp+5F:imagebuilder:%26kGn);(q:064468196056:infrastructure-configuration/xgy#infrastructureConfigurationArn",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "DeleteInfrastructureConfiguration"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The Amazon Resource Name (ARN) of the infrastructure configuration to delete.",
+                      "key": "infrastructureConfigurationArn",
+                      "value": "arn:awszcp+5F:imagebuilder:&kGn);(q:064468196056:infrastructure-configuration/xgy"
+                    }
+                  ],
+                  "hash": "infrastructureConfigurationArn"
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:20:05.000Z",
+              "updatedAt": "2026-07-28T10:20:05.000Z",
+              "uid": "35240-9a660e0c-d6f6-42fe-a557-74a758b52ec3"
+            },
+            {
+              "id": "a568afca-a787-44da-8680-30c2896750fb",
+              "name": "ClientException",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/DeleteInfrastructureConfiguration?infrastructureConfigurationArn=arn:awszcp+5F:imagebuilder:%26kGn);(q:064468196056:infrastructure-configuration/xgy#infrastructureConfigurationArn",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "DeleteInfrastructureConfiguration"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The Amazon Resource Name (ARN) of the infrastructure configuration to delete.",
+                      "key": "infrastructureConfigurationArn",
+                      "value": "arn:awszcp+5F:imagebuilder:&kGn);(q:064468196056:infrastructure-configuration/xgy"
+                    }
+                  ],
+                  "hash": "infrastructureConfigurationArn"
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:20:05.000Z",
+              "updatedAt": "2026-07-28T10:20:05.000Z",
+              "uid": "35240-a568afca-a787-44da-8680-30c2896750fb"
+            },
+            {
+              "id": "09f60ccc-3216-4ff9-9988-f088b32bcadf",
+              "name": "ServiceUnavailableException",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/DeleteInfrastructureConfiguration?infrastructureConfigurationArn=arn:awszcp+5F:imagebuilder:%26kGn);(q:064468196056:infrastructure-configuration/xgy#infrastructureConfigurationArn",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "DeleteInfrastructureConfiguration"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The Amazon Resource Name (ARN) of the infrastructure configuration to delete.",
+                      "key": "infrastructureConfigurationArn",
+                      "value": "arn:awszcp+5F:imagebuilder:&kGn);(q:064468196056:infrastructure-configuration/xgy"
+                    }
+                  ],
+                  "hash": "infrastructureConfigurationArn"
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:20:05.000Z",
+              "updatedAt": "2026-07-28T10:20:05.000Z",
+              "uid": "35240-09f60ccc-3216-4ff9-9988-f088b32bcadf"
+            },
+            {
+              "id": "2f2fa6f5-7994-46ec-8e85-003226adb842",
+              "name": "InvalidRequestException",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/DeleteInfrastructureConfiguration?infrastructureConfigurationArn=arn:awszcp+5F:imagebuilder:%26kGn);(q:064468196056:infrastructure-configuration/xgy#infrastructureConfigurationArn",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "DeleteInfrastructureConfiguration"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The Amazon Resource Name (ARN) of the infrastructure configuration to delete.",
+                      "key": "infrastructureConfigurationArn",
+                      "value": "arn:awszcp+5F:imagebuilder:&kGn);(q:064468196056:infrastructure-configuration/xgy"
+                    }
+                  ],
+                  "hash": "infrastructureConfigurationArn"
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:20:05.000Z",
+              "updatedAt": "2026-07-28T10:20:05.000Z",
+              "uid": "35240-2f2fa6f5-7994-46ec-8e85-003226adb842"
+            },
+            {
+              "id": "1d70d6ac-5864-4922-bc8f-6b21325b0a78",
+              "name": "ForbiddenException",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/DeleteInfrastructureConfiguration?infrastructureConfigurationArn=arn:awszcp+5F:imagebuilder:%26kGn);(q:064468196056:infrastructure-configuration/xgy#infrastructureConfigurationArn",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "DeleteInfrastructureConfiguration"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The Amazon Resource Name (ARN) of the infrastructure configuration to delete.",
+                      "key": "infrastructureConfigurationArn",
+                      "value": "arn:awszcp+5F:imagebuilder:&kGn);(q:064468196056:infrastructure-configuration/xgy"
+                    }
+                  ],
+                  "hash": "infrastructureConfigurationArn"
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:20:05.000Z",
+              "updatedAt": "2026-07-28T10:20:05.000Z",
+              "uid": "35240-1d70d6ac-5864-4922-bc8f-6b21325b0a78"
+            },
+            {
+              "id": "d663a3f9-4cbb-4750-8dcd-5fe6dd80451e",
+              "name": "CallRateLimitExceededException",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/DeleteInfrastructureConfiguration?infrastructureConfigurationArn=arn:awszcp+5F:imagebuilder:%26kGn);(q:064468196056:infrastructure-configuration/xgy#infrastructureConfigurationArn",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "DeleteInfrastructureConfiguration"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The Amazon Resource Name (ARN) of the infrastructure configuration to delete.",
+                      "key": "infrastructureConfigurationArn",
+                      "value": "arn:awszcp+5F:imagebuilder:&kGn);(q:064468196056:infrastructure-configuration/xgy"
+                    }
+                  ],
+                  "hash": "infrastructureConfigurationArn"
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:20:05.000Z",
+              "updatedAt": "2026-07-28T10:20:05.000Z",
+              "uid": "35240-d663a3f9-4cbb-4750-8dcd-5fe6dd80451e"
+            },
+            {
+              "id": "14ae8891-5753-47ff-9ef2-02b06b172210",
+              "name": "ResourceDependencyException",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/DeleteInfrastructureConfiguration?infrastructureConfigurationArn=arn:awszcp+5F:imagebuilder:%26kGn);(q:064468196056:infrastructure-configuration/xgy#infrastructureConfigurationArn",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "DeleteInfrastructureConfiguration"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The Amazon Resource Name (ARN) of the infrastructure configuration to delete.",
+                      "key": "infrastructureConfigurationArn",
+                      "value": "arn:awszcp+5F:imagebuilder:&kGn);(q:064468196056:infrastructure-configuration/xgy"
+                    }
+                  ],
+                  "hash": "infrastructureConfigurationArn"
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:20:05.000Z",
+              "updatedAt": "2026-07-28T10:20:05.000Z",
+              "uid": "35240-14ae8891-5753-47ff-9ef2-02b06b172210"
+            }
+          ],
+          "createdAt": "2026-07-28T10:20:05.000Z",
+          "updatedAt": "2026-07-28T10:20:05.000Z",
+          "uid": "35240-6ac190d7-0b74-48f7-bb6e-9078a516a00d"
+        }
+      ],
+      "id": "6ca12ecc-a8ef-4321-8b98-6af1f55efb58",
+      "createdAt": "2026-07-28T10:20:05.000Z",
+      "updatedAt": "2026-07-28T10:20:05.000Z",
+      "uid": "35240-6ca12ecc-a8ef-4321-8b98-6af1f55efb58"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "us-east-1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "http://imagebuilder.{{region}}.amazonaws.com"
+    }
+  ]
+}

@@ -1,0 +1,866 @@
+{
+  "info": {
+    "_postman_id": "e3768fc6-1d3f-48df-be3e-1904e084897b",
+    "name": "EC2 Image Builder CancelImageCreation UpdateInfrastructureConfiguration API",
+    "description": "EC2 Image Builder is a fully managed Amazon Web Services service that makes it easier to automate the creation, management, and deployment of customized, secure, and up-to-date \"golden\" server images that are pre-installed and pre-configured with software and settings to meet specific IT standards.\n\nContact Support:\n Name: Mike Ralphson\n Email: mike.ralphson@gmail.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T10:21:54.000Z",
+    "updatedAt": "2026-07-28T10:21:54.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-e3768fc6-1d3f-48df-be3e-1904e084897b"
+  },
+  "item": [
+    {
+      "name": "UpdateInfrastructureConfiguration",
+      "item": [
+        {
+          "name": "Amazon EC2 Image Builder Update Infrastructure Configuration",
+          "id": "777ecd08-8c85-42e3-bc7e-b74e103ef1a6",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Amz-Content-Sha256",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Date",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Algorithm",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Credential",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Security-Token",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Signature",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-SignedHeaders",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"infrastructureConfigurationArn\": \"arn:aws+)!)?:imagebuilder:x[h.Rd@:aws:infrastructure-configuration/ljxvekk\",\n  \"instanceProfileName\": \"Lw=-c+l\",\n  \"clientToken\": \"<string>\",\n  \"description\": \"<string>\",\n  \"instanceTypes\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"securityGroupIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"subnetId\": \"<string>\",\n  \"logging\": {\n    \"s3Logs\": {\n      \"s3BucketName\": \"<string>\",\n      \"s3KeyPrefix\": \"<string>\"\n    }\n  },\n  \"keyPair\": \"<string>\",\n  \"terminateInstanceOnFailure\": \"<boolean>\",\n  \"snsTopicArn\": \"arn:aws8)3:sns:[:132618250176:i5kgemLgAuS-KA8BBDev9EpOG6eMVwryCPdGs55dw42TQRt0Nm3aMk5cpBMQpQCmjBG0vIrIl\",\n  \"resourceTags\": {\n    \"et_1_\": \"<string>\",\n    \"in_a\": \"<string>\",\n    \"in77\": \"<string>\",\n    \"id02\": \"<string>\",\n    \"adipisicing_20\": \"<string>\",\n    \"nisi_6b\": \"<string>\",\n    \"in_d\": \"<string>\",\n    \"id0a\": \"<string>\",\n    \"sunt_a8\": \"<string>\",\n    \"incididunt9\": \"<string>\",\n    \"Ut_04\": \"<string>\",\n    \"aliquip46\": \"<string>\",\n    \"nisi6b2\": \"<string>\",\n    \"proident_6\": \"<string>\",\n    \"in59_\": \"<string>\",\n    \"enim_29\": \"<string>\",\n    \"cupidatat_264\": \"<string>\",\n    \"in_c7\": \"<string>\",\n    \"sedd8d\": \"<string>\",\n    \"occaecat__f\": \"<string>\",\n    \"cupidatatf_\": \"<string>\",\n    \"est2\": \"<string>\"\n  },\n  \"instanceMetadataOptions\": {\n    \"httpTokens\": \"optional\",\n    \"httpPutResponseHopLimit\": \"<integer>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/UpdateInfrastructureConfiguration",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "UpdateInfrastructureConfiguration"
+              ]
+            },
+            "description": "Updates a new infrastructure configuration. An infrastructure configuration defines the environment in which your image will be built and tested."
+          },
+          "response": [
+            {
+              "id": "e751e5c9-ab57-4f0f-acab-dc3faa238e30",
+              "name": "Success",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"infrastructureConfigurationArn\": \"arn:aws+)!)?:imagebuilder:x[h.Rd@:aws:infrastructure-configuration/ljxvekk\",\n  \"instanceProfileName\": \"Lw=-c+l\",\n  \"clientToken\": \"<string>\",\n  \"description\": \"<string>\",\n  \"instanceTypes\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"securityGroupIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"subnetId\": \"<string>\",\n  \"logging\": {\n    \"s3Logs\": {\n      \"s3BucketName\": \"<string>\",\n      \"s3KeyPrefix\": \"<string>\"\n    }\n  },\n  \"keyPair\": \"<string>\",\n  \"terminateInstanceOnFailure\": \"<boolean>\",\n  \"snsTopicArn\": \"arn:aws8)3:sns:[:132618250176:i5kgemLgAuS-KA8BBDev9EpOG6eMVwryCPdGs55dw42TQRt0Nm3aMk5cpBMQpQCmjBG0vIrIl\",\n  \"resourceTags\": {\n    \"et_1_\": \"<string>\",\n    \"in_a\": \"<string>\",\n    \"in77\": \"<string>\",\n    \"id02\": \"<string>\",\n    \"adipisicing_20\": \"<string>\",\n    \"nisi_6b\": \"<string>\",\n    \"in_d\": \"<string>\",\n    \"id0a\": \"<string>\",\n    \"sunt_a8\": \"<string>\",\n    \"incididunt9\": \"<string>\",\n    \"Ut_04\": \"<string>\",\n    \"aliquip46\": \"<string>\",\n    \"nisi6b2\": \"<string>\",\n    \"proident_6\": \"<string>\",\n    \"in59_\": \"<string>\",\n    \"enim_29\": \"<string>\",\n    \"cupidatat_264\": \"<string>\",\n    \"in_c7\": \"<string>\",\n    \"sedd8d\": \"<string>\",\n    \"occaecat__f\": \"<string>\",\n    \"cupidatatf_\": \"<string>\",\n    \"est2\": \"<string>\"\n  },\n  \"instanceMetadataOptions\": {\n    \"httpTokens\": \"optional\",\n    \"httpPutResponseHopLimit\": \"<integer>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/UpdateInfrastructureConfiguration",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "UpdateInfrastructureConfiguration"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"requestId\": \"<string>\",\n  \"clientToken\": \"<string>\",\n  \"infrastructureConfigurationArn\": \"arn:awskSm:imagebuilder:!:aws:infrastructure-configuration/pfo\"\n}",
+              "createdAt": "2026-07-28T10:21:55.000Z",
+              "updatedAt": "2026-07-28T10:21:55.000Z",
+              "uid": "35240-e751e5c9-ab57-4f0f-acab-dc3faa238e30"
+            },
+            {
+              "id": "1435144c-ec3e-435c-9b5c-0315d59ccd73",
+              "name": "ServiceException",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"infrastructureConfigurationArn\": \"arn:aws+)!)?:imagebuilder:x[h.Rd@:aws:infrastructure-configuration/ljxvekk\",\n  \"instanceProfileName\": \"Lw=-c+l\",\n  \"clientToken\": \"<string>\",\n  \"description\": \"<string>\",\n  \"instanceTypes\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"securityGroupIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"subnetId\": \"<string>\",\n  \"logging\": {\n    \"s3Logs\": {\n      \"s3BucketName\": \"<string>\",\n      \"s3KeyPrefix\": \"<string>\"\n    }\n  },\n  \"keyPair\": \"<string>\",\n  \"terminateInstanceOnFailure\": \"<boolean>\",\n  \"snsTopicArn\": \"arn:aws8)3:sns:[:132618250176:i5kgemLgAuS-KA8BBDev9EpOG6eMVwryCPdGs55dw42TQRt0Nm3aMk5cpBMQpQCmjBG0vIrIl\",\n  \"resourceTags\": {\n    \"et_1_\": \"<string>\",\n    \"in_a\": \"<string>\",\n    \"in77\": \"<string>\",\n    \"id02\": \"<string>\",\n    \"adipisicing_20\": \"<string>\",\n    \"nisi_6b\": \"<string>\",\n    \"in_d\": \"<string>\",\n    \"id0a\": \"<string>\",\n    \"sunt_a8\": \"<string>\",\n    \"incididunt9\": \"<string>\",\n    \"Ut_04\": \"<string>\",\n    \"aliquip46\": \"<string>\",\n    \"nisi6b2\": \"<string>\",\n    \"proident_6\": \"<string>\",\n    \"in59_\": \"<string>\",\n    \"enim_29\": \"<string>\",\n    \"cupidatat_264\": \"<string>\",\n    \"in_c7\": \"<string>\",\n    \"sedd8d\": \"<string>\",\n    \"occaecat__f\": \"<string>\",\n    \"cupidatatf_\": \"<string>\",\n    \"est2\": \"<string>\"\n  },\n  \"instanceMetadataOptions\": {\n    \"httpTokens\": \"optional\",\n    \"httpPutResponseHopLimit\": \"<integer>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/UpdateInfrastructureConfiguration",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "UpdateInfrastructureConfiguration"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:21:55.000Z",
+              "updatedAt": "2026-07-28T10:21:55.000Z",
+              "uid": "35240-1435144c-ec3e-435c-9b5c-0315d59ccd73"
+            },
+            {
+              "id": "3c0d930b-4f59-4c3a-ab06-6cfbc1f6bb40",
+              "name": "ClientException",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"infrastructureConfigurationArn\": \"arn:aws+)!)?:imagebuilder:x[h.Rd@:aws:infrastructure-configuration/ljxvekk\",\n  \"instanceProfileName\": \"Lw=-c+l\",\n  \"clientToken\": \"<string>\",\n  \"description\": \"<string>\",\n  \"instanceTypes\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"securityGroupIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"subnetId\": \"<string>\",\n  \"logging\": {\n    \"s3Logs\": {\n      \"s3BucketName\": \"<string>\",\n      \"s3KeyPrefix\": \"<string>\"\n    }\n  },\n  \"keyPair\": \"<string>\",\n  \"terminateInstanceOnFailure\": \"<boolean>\",\n  \"snsTopicArn\": \"arn:aws8)3:sns:[:132618250176:i5kgemLgAuS-KA8BBDev9EpOG6eMVwryCPdGs55dw42TQRt0Nm3aMk5cpBMQpQCmjBG0vIrIl\",\n  \"resourceTags\": {\n    \"et_1_\": \"<string>\",\n    \"in_a\": \"<string>\",\n    \"in77\": \"<string>\",\n    \"id02\": \"<string>\",\n    \"adipisicing_20\": \"<string>\",\n    \"nisi_6b\": \"<string>\",\n    \"in_d\": \"<string>\",\n    \"id0a\": \"<string>\",\n    \"sunt_a8\": \"<string>\",\n    \"incididunt9\": \"<string>\",\n    \"Ut_04\": \"<string>\",\n    \"aliquip46\": \"<string>\",\n    \"nisi6b2\": \"<string>\",\n    \"proident_6\": \"<string>\",\n    \"in59_\": \"<string>\",\n    \"enim_29\": \"<string>\",\n    \"cupidatat_264\": \"<string>\",\n    \"in_c7\": \"<string>\",\n    \"sedd8d\": \"<string>\",\n    \"occaecat__f\": \"<string>\",\n    \"cupidatatf_\": \"<string>\",\n    \"est2\": \"<string>\"\n  },\n  \"instanceMetadataOptions\": {\n    \"httpTokens\": \"optional\",\n    \"httpPutResponseHopLimit\": \"<integer>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/UpdateInfrastructureConfiguration",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "UpdateInfrastructureConfiguration"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:21:55.000Z",
+              "updatedAt": "2026-07-28T10:21:55.000Z",
+              "uid": "35240-3c0d930b-4f59-4c3a-ab06-6cfbc1f6bb40"
+            },
+            {
+              "id": "407c0fe0-9376-4238-beed-9a0149c233f6",
+              "name": "ServiceUnavailableException",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"infrastructureConfigurationArn\": \"arn:aws+)!)?:imagebuilder:x[h.Rd@:aws:infrastructure-configuration/ljxvekk\",\n  \"instanceProfileName\": \"Lw=-c+l\",\n  \"clientToken\": \"<string>\",\n  \"description\": \"<string>\",\n  \"instanceTypes\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"securityGroupIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"subnetId\": \"<string>\",\n  \"logging\": {\n    \"s3Logs\": {\n      \"s3BucketName\": \"<string>\",\n      \"s3KeyPrefix\": \"<string>\"\n    }\n  },\n  \"keyPair\": \"<string>\",\n  \"terminateInstanceOnFailure\": \"<boolean>\",\n  \"snsTopicArn\": \"arn:aws8)3:sns:[:132618250176:i5kgemLgAuS-KA8BBDev9EpOG6eMVwryCPdGs55dw42TQRt0Nm3aMk5cpBMQpQCmjBG0vIrIl\",\n  \"resourceTags\": {\n    \"et_1_\": \"<string>\",\n    \"in_a\": \"<string>\",\n    \"in77\": \"<string>\",\n    \"id02\": \"<string>\",\n    \"adipisicing_20\": \"<string>\",\n    \"nisi_6b\": \"<string>\",\n    \"in_d\": \"<string>\",\n    \"id0a\": \"<string>\",\n    \"sunt_a8\": \"<string>\",\n    \"incididunt9\": \"<string>\",\n    \"Ut_04\": \"<string>\",\n    \"aliquip46\": \"<string>\",\n    \"nisi6b2\": \"<string>\",\n    \"proident_6\": \"<string>\",\n    \"in59_\": \"<string>\",\n    \"enim_29\": \"<string>\",\n    \"cupidatat_264\": \"<string>\",\n    \"in_c7\": \"<string>\",\n    \"sedd8d\": \"<string>\",\n    \"occaecat__f\": \"<string>\",\n    \"cupidatatf_\": \"<string>\",\n    \"est2\": \"<string>\"\n  },\n  \"instanceMetadataOptions\": {\n    \"httpTokens\": \"optional\",\n    \"httpPutResponseHopLimit\": \"<integer>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/UpdateInfrastructureConfiguration",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "UpdateInfrastructureConfiguration"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:21:55.000Z",
+              "updatedAt": "2026-07-28T10:21:55.000Z",
+              "uid": "35240-407c0fe0-9376-4238-beed-9a0149c233f6"
+            },
+            {
+              "id": "960b09d6-bc8a-46b2-ace5-d3ae28316794",
+              "name": "InvalidRequestException",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"infrastructureConfigurationArn\": \"arn:aws+)!)?:imagebuilder:x[h.Rd@:aws:infrastructure-configuration/ljxvekk\",\n  \"instanceProfileName\": \"Lw=-c+l\",\n  \"clientToken\": \"<string>\",\n  \"description\": \"<string>\",\n  \"instanceTypes\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"securityGroupIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"subnetId\": \"<string>\",\n  \"logging\": {\n    \"s3Logs\": {\n      \"s3BucketName\": \"<string>\",\n      \"s3KeyPrefix\": \"<string>\"\n    }\n  },\n  \"keyPair\": \"<string>\",\n  \"terminateInstanceOnFailure\": \"<boolean>\",\n  \"snsTopicArn\": \"arn:aws8)3:sns:[:132618250176:i5kgemLgAuS-KA8BBDev9EpOG6eMVwryCPdGs55dw42TQRt0Nm3aMk5cpBMQpQCmjBG0vIrIl\",\n  \"resourceTags\": {\n    \"et_1_\": \"<string>\",\n    \"in_a\": \"<string>\",\n    \"in77\": \"<string>\",\n    \"id02\": \"<string>\",\n    \"adipisicing_20\": \"<string>\",\n    \"nisi_6b\": \"<string>\",\n    \"in_d\": \"<string>\",\n    \"id0a\": \"<string>\",\n    \"sunt_a8\": \"<string>\",\n    \"incididunt9\": \"<string>\",\n    \"Ut_04\": \"<string>\",\n    \"aliquip46\": \"<string>\",\n    \"nisi6b2\": \"<string>\",\n    \"proident_6\": \"<string>\",\n    \"in59_\": \"<string>\",\n    \"enim_29\": \"<string>\",\n    \"cupidatat_264\": \"<string>\",\n    \"in_c7\": \"<string>\",\n    \"sedd8d\": \"<string>\",\n    \"occaecat__f\": \"<string>\",\n    \"cupidatatf_\": \"<string>\",\n    \"est2\": \"<string>\"\n  },\n  \"instanceMetadataOptions\": {\n    \"httpTokens\": \"optional\",\n    \"httpPutResponseHopLimit\": \"<integer>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/UpdateInfrastructureConfiguration",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "UpdateInfrastructureConfiguration"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:21:55.000Z",
+              "updatedAt": "2026-07-28T10:21:55.000Z",
+              "uid": "35240-960b09d6-bc8a-46b2-ace5-d3ae28316794"
+            },
+            {
+              "id": "265724b8-18a0-4c3c-8038-284c92714e8c",
+              "name": "IdempotentParameterMismatchException",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"infrastructureConfigurationArn\": \"arn:aws+)!)?:imagebuilder:x[h.Rd@:aws:infrastructure-configuration/ljxvekk\",\n  \"instanceProfileName\": \"Lw=-c+l\",\n  \"clientToken\": \"<string>\",\n  \"description\": \"<string>\",\n  \"instanceTypes\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"securityGroupIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"subnetId\": \"<string>\",\n  \"logging\": {\n    \"s3Logs\": {\n      \"s3BucketName\": \"<string>\",\n      \"s3KeyPrefix\": \"<string>\"\n    }\n  },\n  \"keyPair\": \"<string>\",\n  \"terminateInstanceOnFailure\": \"<boolean>\",\n  \"snsTopicArn\": \"arn:aws8)3:sns:[:132618250176:i5kgemLgAuS-KA8BBDev9EpOG6eMVwryCPdGs55dw42TQRt0Nm3aMk5cpBMQpQCmjBG0vIrIl\",\n  \"resourceTags\": {\n    \"et_1_\": \"<string>\",\n    \"in_a\": \"<string>\",\n    \"in77\": \"<string>\",\n    \"id02\": \"<string>\",\n    \"adipisicing_20\": \"<string>\",\n    \"nisi_6b\": \"<string>\",\n    \"in_d\": \"<string>\",\n    \"id0a\": \"<string>\",\n    \"sunt_a8\": \"<string>\",\n    \"incididunt9\": \"<string>\",\n    \"Ut_04\": \"<string>\",\n    \"aliquip46\": \"<string>\",\n    \"nisi6b2\": \"<string>\",\n    \"proident_6\": \"<string>\",\n    \"in59_\": \"<string>\",\n    \"enim_29\": \"<string>\",\n    \"cupidatat_264\": \"<string>\",\n    \"in_c7\": \"<string>\",\n    \"sedd8d\": \"<string>\",\n    \"occaecat__f\": \"<string>\",\n    \"cupidatatf_\": \"<string>\",\n    \"est2\": \"<string>\"\n  },\n  \"instanceMetadataOptions\": {\n    \"httpTokens\": \"optional\",\n    \"httpPutResponseHopLimit\": \"<integer>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/UpdateInfrastructureConfiguration",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "UpdateInfrastructureConfiguration"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:21:55.000Z",
+              "updatedAt": "2026-07-28T10:21:55.000Z",
+              "uid": "35240-265724b8-18a0-4c3c-8038-284c92714e8c"
+            },
+            {
+              "id": "aa5e6bfc-03c7-403f-9936-7495f4e3e018",
+              "name": "ForbiddenException",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"infrastructureConfigurationArn\": \"arn:aws+)!)?:imagebuilder:x[h.Rd@:aws:infrastructure-configuration/ljxvekk\",\n  \"instanceProfileName\": \"Lw=-c+l\",\n  \"clientToken\": \"<string>\",\n  \"description\": \"<string>\",\n  \"instanceTypes\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"securityGroupIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"subnetId\": \"<string>\",\n  \"logging\": {\n    \"s3Logs\": {\n      \"s3BucketName\": \"<string>\",\n      \"s3KeyPrefix\": \"<string>\"\n    }\n  },\n  \"keyPair\": \"<string>\",\n  \"terminateInstanceOnFailure\": \"<boolean>\",\n  \"snsTopicArn\": \"arn:aws8)3:sns:[:132618250176:i5kgemLgAuS-KA8BBDev9EpOG6eMVwryCPdGs55dw42TQRt0Nm3aMk5cpBMQpQCmjBG0vIrIl\",\n  \"resourceTags\": {\n    \"et_1_\": \"<string>\",\n    \"in_a\": \"<string>\",\n    \"in77\": \"<string>\",\n    \"id02\": \"<string>\",\n    \"adipisicing_20\": \"<string>\",\n    \"nisi_6b\": \"<string>\",\n    \"in_d\": \"<string>\",\n    \"id0a\": \"<string>\",\n    \"sunt_a8\": \"<string>\",\n    \"incididunt9\": \"<string>\",\n    \"Ut_04\": \"<string>\",\n    \"aliquip46\": \"<string>\",\n    \"nisi6b2\": \"<string>\",\n    \"proident_6\": \"<string>\",\n    \"in59_\": \"<string>\",\n    \"enim_29\": \"<string>\",\n    \"cupidatat_264\": \"<string>\",\n    \"in_c7\": \"<string>\",\n    \"sedd8d\": \"<string>\",\n    \"occaecat__f\": \"<string>\",\n    \"cupidatatf_\": \"<string>\",\n    \"est2\": \"<string>\"\n  },\n  \"instanceMetadataOptions\": {\n    \"httpTokens\": \"optional\",\n    \"httpPutResponseHopLimit\": \"<integer>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/UpdateInfrastructureConfiguration",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "UpdateInfrastructureConfiguration"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:21:55.000Z",
+              "updatedAt": "2026-07-28T10:21:55.000Z",
+              "uid": "35240-aa5e6bfc-03c7-403f-9936-7495f4e3e018"
+            },
+            {
+              "id": "c5df0ab9-d2ed-4847-8b15-33119f38604a",
+              "name": "CallRateLimitExceededException",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"infrastructureConfigurationArn\": \"arn:aws+)!)?:imagebuilder:x[h.Rd@:aws:infrastructure-configuration/ljxvekk\",\n  \"instanceProfileName\": \"Lw=-c+l\",\n  \"clientToken\": \"<string>\",\n  \"description\": \"<string>\",\n  \"instanceTypes\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"securityGroupIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"subnetId\": \"<string>\",\n  \"logging\": {\n    \"s3Logs\": {\n      \"s3BucketName\": \"<string>\",\n      \"s3KeyPrefix\": \"<string>\"\n    }\n  },\n  \"keyPair\": \"<string>\",\n  \"terminateInstanceOnFailure\": \"<boolean>\",\n  \"snsTopicArn\": \"arn:aws8)3:sns:[:132618250176:i5kgemLgAuS-KA8BBDev9EpOG6eMVwryCPdGs55dw42TQRt0Nm3aMk5cpBMQpQCmjBG0vIrIl\",\n  \"resourceTags\": {\n    \"et_1_\": \"<string>\",\n    \"in_a\": \"<string>\",\n    \"in77\": \"<string>\",\n    \"id02\": \"<string>\",\n    \"adipisicing_20\": \"<string>\",\n    \"nisi_6b\": \"<string>\",\n    \"in_d\": \"<string>\",\n    \"id0a\": \"<string>\",\n    \"sunt_a8\": \"<string>\",\n    \"incididunt9\": \"<string>\",\n    \"Ut_04\": \"<string>\",\n    \"aliquip46\": \"<string>\",\n    \"nisi6b2\": \"<string>\",\n    \"proident_6\": \"<string>\",\n    \"in59_\": \"<string>\",\n    \"enim_29\": \"<string>\",\n    \"cupidatat_264\": \"<string>\",\n    \"in_c7\": \"<string>\",\n    \"sedd8d\": \"<string>\",\n    \"occaecat__f\": \"<string>\",\n    \"cupidatatf_\": \"<string>\",\n    \"est2\": \"<string>\"\n  },\n  \"instanceMetadataOptions\": {\n    \"httpTokens\": \"optional\",\n    \"httpPutResponseHopLimit\": \"<integer>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/UpdateInfrastructureConfiguration",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "UpdateInfrastructureConfiguration"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:21:55.000Z",
+              "updatedAt": "2026-07-28T10:21:55.000Z",
+              "uid": "35240-c5df0ab9-d2ed-4847-8b15-33119f38604a"
+            },
+            {
+              "id": "7ea9e522-0ea7-46ef-8438-eaa3d1cafdde",
+              "name": "ResourceInUseException",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"infrastructureConfigurationArn\": \"arn:aws+)!)?:imagebuilder:x[h.Rd@:aws:infrastructure-configuration/ljxvekk\",\n  \"instanceProfileName\": \"Lw=-c+l\",\n  \"clientToken\": \"<string>\",\n  \"description\": \"<string>\",\n  \"instanceTypes\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"securityGroupIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"subnetId\": \"<string>\",\n  \"logging\": {\n    \"s3Logs\": {\n      \"s3BucketName\": \"<string>\",\n      \"s3KeyPrefix\": \"<string>\"\n    }\n  },\n  \"keyPair\": \"<string>\",\n  \"terminateInstanceOnFailure\": \"<boolean>\",\n  \"snsTopicArn\": \"arn:aws8)3:sns:[:132618250176:i5kgemLgAuS-KA8BBDev9EpOG6eMVwryCPdGs55dw42TQRt0Nm3aMk5cpBMQpQCmjBG0vIrIl\",\n  \"resourceTags\": {\n    \"et_1_\": \"<string>\",\n    \"in_a\": \"<string>\",\n    \"in77\": \"<string>\",\n    \"id02\": \"<string>\",\n    \"adipisicing_20\": \"<string>\",\n    \"nisi_6b\": \"<string>\",\n    \"in_d\": \"<string>\",\n    \"id0a\": \"<string>\",\n    \"sunt_a8\": \"<string>\",\n    \"incididunt9\": \"<string>\",\n    \"Ut_04\": \"<string>\",\n    \"aliquip46\": \"<string>\",\n    \"nisi6b2\": \"<string>\",\n    \"proident_6\": \"<string>\",\n    \"in59_\": \"<string>\",\n    \"enim_29\": \"<string>\",\n    \"cupidatat_264\": \"<string>\",\n    \"in_c7\": \"<string>\",\n    \"sedd8d\": \"<string>\",\n    \"occaecat__f\": \"<string>\",\n    \"cupidatatf_\": \"<string>\",\n    \"est2\": \"<string>\"\n  },\n  \"instanceMetadataOptions\": {\n    \"httpTokens\": \"optional\",\n    \"httpPutResponseHopLimit\": \"<integer>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/UpdateInfrastructureConfiguration",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "UpdateInfrastructureConfiguration"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:21:55.000Z",
+              "updatedAt": "2026-07-28T10:21:55.000Z",
+              "uid": "35240-7ea9e522-0ea7-46ef-8438-eaa3d1cafdde"
+            }
+          ],
+          "createdAt": "2026-07-28T10:21:55.000Z",
+          "updatedAt": "2026-07-28T10:21:55.000Z",
+          "uid": "35240-777ecd08-8c85-42e3-bc7e-b74e103ef1a6"
+        }
+      ],
+      "id": "d911c2f7-c6c0-4259-bf7e-e3cc8b8b6049",
+      "createdAt": "2026-07-28T10:21:55.000Z",
+      "updatedAt": "2026-07-28T10:21:55.000Z",
+      "uid": "35240-d911c2f7-c6c0-4259-bf7e-e3cc8b8b6049"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "us-east-1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "http://imagebuilder.{{region}}.amazonaws.com"
+    }
+  ]
+}

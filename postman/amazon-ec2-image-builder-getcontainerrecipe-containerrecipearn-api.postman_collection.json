@@ -1,0 +1,654 @@
+{
+  "info": {
+    "_postman_id": "f333af3e-2dd6-4433-b3da-1d3301211eaf",
+    "name": "EC2 Image Builder CancelImageCreation GetContainerRecipe#containerRecipeArn API",
+    "description": "EC2 Image Builder is a fully managed Amazon Web Services service that makes it easier to automate the creation, management, and deployment of customized, secure, and up-to-date \"golden\" server images that are pre-installed and pre-configured with software and settings to meet specific IT standards.\n\nContact Support:\n Name: Mike Ralphson\n Email: mike.ralphson@gmail.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T10:20:09.000Z",
+    "updatedAt": "2026-07-28T10:20:09.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-f333af3e-2dd6-4433-b3da-1d3301211eaf"
+  },
+  "item": [
+    {
+      "name": "GetContainerRecipe#containerRecipeArn",
+      "item": [
+        {
+          "name": "Amazon EC2 Image Builder Get Container Recipe",
+          "id": "52eb41c1-fe48-4ea6-85c8-2455537bf0b8",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Amz-Content-Sha256",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Date",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Algorithm",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Credential",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Security-Token",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Signature",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-SignedHeaders",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/GetContainerRecipe?containerRecipeArn=arn:awsA@A6q=8*\":imagebuilder:jW98s:662899957367:container-recipe/pbusgd3e8gk/883395735.61491663.307723#containerRecipeArn",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "GetContainerRecipe"
+              ],
+              "query": [
+                {
+                  "description": "(Required) The Amazon Resource Name (ARN) of the container recipe to retrieve.",
+                  "key": "containerRecipeArn",
+                  "value": "arn:awsA@A6q=8*\":imagebuilder:jW98s:662899957367:container-recipe/pbusgd3e8gk/883395735.61491663.307723"
+                }
+              ],
+              "hash": "containerRecipeArn"
+            },
+            "description": "Retrieves a container recipe."
+          },
+          "response": [
+            {
+              "id": "a9526779-bf30-4bcb-8eac-ae96427ae25b",
+              "name": "Success",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/GetContainerRecipe?containerRecipeArn=arn:awsA@A6q=8*\":imagebuilder:jW98s:662899957367:container-recipe/pbusgd3e8gk/883395735.61491663.307723#containerRecipeArn",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "GetContainerRecipe"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The Amazon Resource Name (ARN) of the container recipe to retrieve.",
+                      "key": "containerRecipeArn",
+                      "value": "arn:awsA@A6q=8*\":imagebuilder:jW98s:662899957367:container-recipe/pbusgd3e8gk/883395735.61491663.307723"
+                    }
+                  ],
+                  "hash": "containerRecipeArn"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"requestId\": \"<string>\",\n  \"containerRecipe\": {\n    \"arn\": \"arn:awsc:imagebuilder:1T:415817296803:infrastructure-configuration/6pmt/x.x.99904868833\",\n    \"containerType\": \"DOCKER\",\n    \"name\": \"yU2PA_UTtGkjcL_ asGraTunloIiYM6Zrnf3qeavp1G7YSg-n ueccu8TgE4Om9LHo08esXbAPMda42B2mdjHnAp9aS8FcXbn6nelGf-xD uyHQmCOle\",\n    \"description\": \"<string>\",\n    \"platform\": \"Windows\",\n    \"owner\": \"<string>\",\n    \"version\": \"9938123.868.9248953990\",\n    \"components\": [\n      {\n        \"componentArn\": \"arn:aws:imagebuilder:#iluO:aws:component/a/3.77903.x\",\n        \"parameters\": [\n          {\n            \"name\": \"32VYug\\\\V,\",\n            \"value\": [\n              \"W\",\n              \"Ss>$*2\"\n            ]\n          }\n        ]\n      }\n    ],\n    \"instanceConfiguration\": {\n      \"image\": \"<string>\",\n      \"blockDeviceMappings\": [\n        {\n          \"deviceName\": \"<string>\",\n          \"ebs\": {\n            \"encrypted\": \"<boolean>\",\n            \"deleteOnTermination\": \"<boolean>\",\n            \"iops\": \"<integer>\",\n            \"kmsKeyId\": \"<string>\",\n            \"snapshotId\": \"<string>\",\n            \"volumeSize\": \"<integer>\",\n            \"volumeType\": \"sc1\",\n            \"throughput\": \"<integer>\"\n          },\n          \"virtualName\": \"<string>\",\n          \"noDevice\": \"<string>\"\n        },\n        {\n          \"deviceName\": \"<string>\",\n          \"ebs\": {\n            \"encrypted\": \"<boolean>\",\n            \"deleteOnTermination\": \"<boolean>\",\n            \"iops\": \"<integer>\",\n            \"kmsKeyId\": \"<string>\",\n            \"snapshotId\": \"<string>\",\n            \"volumeSize\": \"<integer>\",\n            \"volumeType\": \"sc1\",\n            \"throughput\": \"<integer>\"\n          },\n          \"virtualName\": \"<string>\",\n          \"noDevice\": \"<string>\"\n        }\n      ]\n    },\n    \"dockerfileTemplateData\": \"<string>\",\n    \"kmsKeyId\": \"<string>\",\n    \"encrypted\": \"<boolean>\",\n    \"parentImage\": \"<string>\",\n    \"dateCreated\": \"<string>\",\n    \"tags\": {\n      \"quisd\": \"<string>\",\n      \"in_cc\": \"<string>\",\n      \"sint_37\": \"<string>\",\n      \"mollit_068\": \"<string>\",\n      \"dolor9d\": \"<string>\",\n      \"anim_f_\": \"<string>\",\n      \"in_63\": \"<string>\",\n      \"cillum_27f\": \"<string>\",\n      \"essed\": \"<string>\",\n      \"tempor1\": \"<string>\",\n      \"dolor3\": \"<string>\",\n      \"ea80d\": \"<string>\",\n      \"nisi072\": \"<string>\",\n      \"commodo862\": \"<string>\",\n      \"culpa_3\": \"<string>\",\n      \"cillum_4\": \"<string>\",\n      \"minim__2\": \"<string>\",\n      \"Lorembb0\": \"<string>\",\n      \"velit_014\": \"<string>\",\n      \"adipisicing_c77\": \"<string>\",\n      \"dolore_bf3\": \"<string>\",\n      \"culpa_954\": \"<string>\",\n      \"in_f\": \"<string>\",\n      \"dolor2\": \"<string>\",\n      \"quisf\": \"<string>\",\n      \"deserunt_2bb\": \"<string>\",\n      \"enim5\": \"<string>\",\n      \"quis_7\": \"<string>\",\n      \"nisi_7\": \"<string>\",\n      \"ipsum_09\": \"<string>\",\n      \"Excepteurc70\": \"<string>\",\n      \"pariatur_d_\": \"<string>\",\n      \"proident_8c3\": \"<string>\",\n      \"in712\": \"<string>\",\n      \"Duis8\": \"<string>\",\n      \"elit6_\": \"<string>\",\n      \"dolor7\": \"<string>\",\n      \"Uteb\": \"<string>\",\n      \"mollit_cfd\": \"<string>\"\n    },\n    \"workingDirectory\": \"<string>\",\n    \"targetRepository\": {\n      \"service\": \"ECR\",\n      \"repositoryName\": \"<string>\"\n    }\n  }\n}",
+              "createdAt": "2026-07-28T10:20:10.000Z",
+              "updatedAt": "2026-07-28T10:20:10.000Z",
+              "uid": "35240-a9526779-bf30-4bcb-8eac-ae96427ae25b"
+            },
+            {
+              "id": "c90df7af-8728-475f-90e0-3b9a910a28c6",
+              "name": "ServiceException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/GetContainerRecipe?containerRecipeArn=arn:awsA@A6q=8*\":imagebuilder:jW98s:662899957367:container-recipe/pbusgd3e8gk/883395735.61491663.307723#containerRecipeArn",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "GetContainerRecipe"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The Amazon Resource Name (ARN) of the container recipe to retrieve.",
+                      "key": "containerRecipeArn",
+                      "value": "arn:awsA@A6q=8*\":imagebuilder:jW98s:662899957367:container-recipe/pbusgd3e8gk/883395735.61491663.307723"
+                    }
+                  ],
+                  "hash": "containerRecipeArn"
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:20:10.000Z",
+              "updatedAt": "2026-07-28T10:20:10.000Z",
+              "uid": "35240-c90df7af-8728-475f-90e0-3b9a910a28c6"
+            },
+            {
+              "id": "a7d9a57d-09d1-4c00-9c0d-fb0fab8a8ab2",
+              "name": "ClientException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/GetContainerRecipe?containerRecipeArn=arn:awsA@A6q=8*\":imagebuilder:jW98s:662899957367:container-recipe/pbusgd3e8gk/883395735.61491663.307723#containerRecipeArn",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "GetContainerRecipe"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The Amazon Resource Name (ARN) of the container recipe to retrieve.",
+                      "key": "containerRecipeArn",
+                      "value": "arn:awsA@A6q=8*\":imagebuilder:jW98s:662899957367:container-recipe/pbusgd3e8gk/883395735.61491663.307723"
+                    }
+                  ],
+                  "hash": "containerRecipeArn"
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:20:10.000Z",
+              "updatedAt": "2026-07-28T10:20:10.000Z",
+              "uid": "35240-a7d9a57d-09d1-4c00-9c0d-fb0fab8a8ab2"
+            },
+            {
+              "id": "37a8eeff-008f-4fa8-b24a-10a1d703eaa9",
+              "name": "ServiceUnavailableException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/GetContainerRecipe?containerRecipeArn=arn:awsA@A6q=8*\":imagebuilder:jW98s:662899957367:container-recipe/pbusgd3e8gk/883395735.61491663.307723#containerRecipeArn",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "GetContainerRecipe"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The Amazon Resource Name (ARN) of the container recipe to retrieve.",
+                      "key": "containerRecipeArn",
+                      "value": "arn:awsA@A6q=8*\":imagebuilder:jW98s:662899957367:container-recipe/pbusgd3e8gk/883395735.61491663.307723"
+                    }
+                  ],
+                  "hash": "containerRecipeArn"
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:20:10.000Z",
+              "updatedAt": "2026-07-28T10:20:10.000Z",
+              "uid": "35240-37a8eeff-008f-4fa8-b24a-10a1d703eaa9"
+            },
+            {
+              "id": "63acac52-d6c8-4e1a-bb40-1093e4136fb8",
+              "name": "InvalidRequestException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/GetContainerRecipe?containerRecipeArn=arn:awsA@A6q=8*\":imagebuilder:jW98s:662899957367:container-recipe/pbusgd3e8gk/883395735.61491663.307723#containerRecipeArn",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "GetContainerRecipe"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The Amazon Resource Name (ARN) of the container recipe to retrieve.",
+                      "key": "containerRecipeArn",
+                      "value": "arn:awsA@A6q=8*\":imagebuilder:jW98s:662899957367:container-recipe/pbusgd3e8gk/883395735.61491663.307723"
+                    }
+                  ],
+                  "hash": "containerRecipeArn"
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:20:10.000Z",
+              "updatedAt": "2026-07-28T10:20:10.000Z",
+              "uid": "35240-63acac52-d6c8-4e1a-bb40-1093e4136fb8"
+            },
+            {
+              "id": "d86050bd-2540-47d2-985f-6753777d45a1",
+              "name": "ForbiddenException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/GetContainerRecipe?containerRecipeArn=arn:awsA@A6q=8*\":imagebuilder:jW98s:662899957367:container-recipe/pbusgd3e8gk/883395735.61491663.307723#containerRecipeArn",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "GetContainerRecipe"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The Amazon Resource Name (ARN) of the container recipe to retrieve.",
+                      "key": "containerRecipeArn",
+                      "value": "arn:awsA@A6q=8*\":imagebuilder:jW98s:662899957367:container-recipe/pbusgd3e8gk/883395735.61491663.307723"
+                    }
+                  ],
+                  "hash": "containerRecipeArn"
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:20:10.000Z",
+              "updatedAt": "2026-07-28T10:20:10.000Z",
+              "uid": "35240-d86050bd-2540-47d2-985f-6753777d45a1"
+            },
+            {
+              "id": "df96f200-5cdc-452e-90d7-4de859eab98d",
+              "name": "CallRateLimitExceededException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/GetContainerRecipe?containerRecipeArn=arn:awsA@A6q=8*\":imagebuilder:jW98s:662899957367:container-recipe/pbusgd3e8gk/883395735.61491663.307723#containerRecipeArn",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "GetContainerRecipe"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The Amazon Resource Name (ARN) of the container recipe to retrieve.",
+                      "key": "containerRecipeArn",
+                      "value": "arn:awsA@A6q=8*\":imagebuilder:jW98s:662899957367:container-recipe/pbusgd3e8gk/883395735.61491663.307723"
+                    }
+                  ],
+                  "hash": "containerRecipeArn"
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:20:10.000Z",
+              "updatedAt": "2026-07-28T10:20:10.000Z",
+              "uid": "35240-df96f200-5cdc-452e-90d7-4de859eab98d"
+            }
+          ],
+          "createdAt": "2026-07-28T10:20:10.000Z",
+          "updatedAt": "2026-07-28T10:20:10.000Z",
+          "uid": "35240-52eb41c1-fe48-4ea6-85c8-2455537bf0b8"
+        }
+      ],
+      "id": "49f8afe4-91a7-436a-b93e-e3cb496a26e2",
+      "createdAt": "2026-07-28T10:20:10.000Z",
+      "updatedAt": "2026-07-28T10:20:10.000Z",
+      "uid": "35240-49f8afe4-91a7-436a-b93e-e3cb496a26e2"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "us-east-1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "http://imagebuilder.{{region}}.amazonaws.com"
+    }
+  ]
+}

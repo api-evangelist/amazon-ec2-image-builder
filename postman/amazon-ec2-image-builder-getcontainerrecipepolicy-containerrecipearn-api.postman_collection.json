@@ -1,0 +1,654 @@
+{
+  "info": {
+    "_postman_id": "e62ccf4b-0de5-43da-a83d-b23aac121226",
+    "name": "EC2 Image Builder CancelImageCreation GetContainerRecipePolicy#containerRecipeArn API",
+    "description": "EC2 Image Builder is a fully managed Amazon Web Services service that makes it easier to automate the creation, management, and deployment of customized, secure, and up-to-date \"golden\" server images that are pre-installed and pre-configured with software and settings to meet specific IT standards.\n\nContact Support:\n Name: Mike Ralphson\n Email: mike.ralphson@gmail.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T10:20:27.000Z",
+    "updatedAt": "2026-07-28T10:20:27.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-e62ccf4b-0de5-43da-a83d-b23aac121226"
+  },
+  "item": [
+    {
+      "name": "GetContainerRecipePolicy#containerRecipeArn",
+      "item": [
+        {
+          "name": "Amazon EC2 Image Builder Get Container Recipe Policy",
+          "id": "69df5d6d-22c6-4ff5-bccd-084a0538a9be",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Amz-Content-Sha256",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Date",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Algorithm",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Credential",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Security-Token",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Signature",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-SignedHeaders",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/GetContainerRecipePolicy?containerRecipeArn=arn:aws=/'m:imagebuilder:y$D7eOeK<MH:aws:container-recipe/_3w/855.84621937084.468334#containerRecipeArn",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "GetContainerRecipePolicy"
+              ],
+              "query": [
+                {
+                  "description": "(Required) The Amazon Resource Name (ARN) of the container recipe for the policy being requested.",
+                  "key": "containerRecipeArn",
+                  "value": "arn:aws=/'m:imagebuilder:y$D7eOeK<MH:aws:container-recipe/_3w/855.84621937084.468334"
+                }
+              ],
+              "hash": "containerRecipeArn"
+            },
+            "description": "Retrieves the policy for a container recipe."
+          },
+          "response": [
+            {
+              "id": "169276fb-b3f1-410a-a3af-01ecb8454e71",
+              "name": "Success",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/GetContainerRecipePolicy?containerRecipeArn=arn:aws=/'m:imagebuilder:y$D7eOeK<MH:aws:container-recipe/_3w/855.84621937084.468334#containerRecipeArn",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "GetContainerRecipePolicy"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The Amazon Resource Name (ARN) of the container recipe for the policy being requested.",
+                      "key": "containerRecipeArn",
+                      "value": "arn:aws=/'m:imagebuilder:y$D7eOeK<MH:aws:container-recipe/_3w/855.84621937084.468334"
+                    }
+                  ],
+                  "hash": "containerRecipeArn"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"requestId\": \"<string>\",\n  \"policy\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T10:20:28.000Z",
+              "updatedAt": "2026-07-28T10:20:28.000Z",
+              "uid": "35240-169276fb-b3f1-410a-a3af-01ecb8454e71"
+            },
+            {
+              "id": "92c118f7-f600-499e-9319-e6ce9de68e91",
+              "name": "ServiceException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/GetContainerRecipePolicy?containerRecipeArn=arn:aws=/'m:imagebuilder:y$D7eOeK<MH:aws:container-recipe/_3w/855.84621937084.468334#containerRecipeArn",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "GetContainerRecipePolicy"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The Amazon Resource Name (ARN) of the container recipe for the policy being requested.",
+                      "key": "containerRecipeArn",
+                      "value": "arn:aws=/'m:imagebuilder:y$D7eOeK<MH:aws:container-recipe/_3w/855.84621937084.468334"
+                    }
+                  ],
+                  "hash": "containerRecipeArn"
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:20:28.000Z",
+              "updatedAt": "2026-07-28T10:20:28.000Z",
+              "uid": "35240-92c118f7-f600-499e-9319-e6ce9de68e91"
+            },
+            {
+              "id": "493f7ae1-9bba-441b-b032-c61faddad67b",
+              "name": "ServiceUnavailableException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/GetContainerRecipePolicy?containerRecipeArn=arn:aws=/'m:imagebuilder:y$D7eOeK<MH:aws:container-recipe/_3w/855.84621937084.468334#containerRecipeArn",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "GetContainerRecipePolicy"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The Amazon Resource Name (ARN) of the container recipe for the policy being requested.",
+                      "key": "containerRecipeArn",
+                      "value": "arn:aws=/'m:imagebuilder:y$D7eOeK<MH:aws:container-recipe/_3w/855.84621937084.468334"
+                    }
+                  ],
+                  "hash": "containerRecipeArn"
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:20:28.000Z",
+              "updatedAt": "2026-07-28T10:20:28.000Z",
+              "uid": "35240-493f7ae1-9bba-441b-b032-c61faddad67b"
+            },
+            {
+              "id": "426d2d27-5404-4be8-bf2f-48d6f0c2861d",
+              "name": "InvalidRequestException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/GetContainerRecipePolicy?containerRecipeArn=arn:aws=/'m:imagebuilder:y$D7eOeK<MH:aws:container-recipe/_3w/855.84621937084.468334#containerRecipeArn",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "GetContainerRecipePolicy"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The Amazon Resource Name (ARN) of the container recipe for the policy being requested.",
+                      "key": "containerRecipeArn",
+                      "value": "arn:aws=/'m:imagebuilder:y$D7eOeK<MH:aws:container-recipe/_3w/855.84621937084.468334"
+                    }
+                  ],
+                  "hash": "containerRecipeArn"
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:20:28.000Z",
+              "updatedAt": "2026-07-28T10:20:28.000Z",
+              "uid": "35240-426d2d27-5404-4be8-bf2f-48d6f0c2861d"
+            },
+            {
+              "id": "8580d714-49e9-4c3c-9335-60a291d807e3",
+              "name": "ResourceNotFoundException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/GetContainerRecipePolicy?containerRecipeArn=arn:aws=/'m:imagebuilder:y$D7eOeK<MH:aws:container-recipe/_3w/855.84621937084.468334#containerRecipeArn",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "GetContainerRecipePolicy"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The Amazon Resource Name (ARN) of the container recipe for the policy being requested.",
+                      "key": "containerRecipeArn",
+                      "value": "arn:aws=/'m:imagebuilder:y$D7eOeK<MH:aws:container-recipe/_3w/855.84621937084.468334"
+                    }
+                  ],
+                  "hash": "containerRecipeArn"
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:20:28.000Z",
+              "updatedAt": "2026-07-28T10:20:28.000Z",
+              "uid": "35240-8580d714-49e9-4c3c-9335-60a291d807e3"
+            },
+            {
+              "id": "fe49913e-c83c-4493-9da0-0b0bb56a6b16",
+              "name": "ForbiddenException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/GetContainerRecipePolicy?containerRecipeArn=arn:aws=/'m:imagebuilder:y$D7eOeK<MH:aws:container-recipe/_3w/855.84621937084.468334#containerRecipeArn",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "GetContainerRecipePolicy"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The Amazon Resource Name (ARN) of the container recipe for the policy being requested.",
+                      "key": "containerRecipeArn",
+                      "value": "arn:aws=/'m:imagebuilder:y$D7eOeK<MH:aws:container-recipe/_3w/855.84621937084.468334"
+                    }
+                  ],
+                  "hash": "containerRecipeArn"
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:20:28.000Z",
+              "updatedAt": "2026-07-28T10:20:28.000Z",
+              "uid": "35240-fe49913e-c83c-4493-9da0-0b0bb56a6b16"
+            },
+            {
+              "id": "07fda186-845b-42fa-b0f2-9006cbc9573f",
+              "name": "CallRateLimitExceededException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/GetContainerRecipePolicy?containerRecipeArn=arn:aws=/'m:imagebuilder:y$D7eOeK<MH:aws:container-recipe/_3w/855.84621937084.468334#containerRecipeArn",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "GetContainerRecipePolicy"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The Amazon Resource Name (ARN) of the container recipe for the policy being requested.",
+                      "key": "containerRecipeArn",
+                      "value": "arn:aws=/'m:imagebuilder:y$D7eOeK<MH:aws:container-recipe/_3w/855.84621937084.468334"
+                    }
+                  ],
+                  "hash": "containerRecipeArn"
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:20:28.000Z",
+              "updatedAt": "2026-07-28T10:20:28.000Z",
+              "uid": "35240-07fda186-845b-42fa-b0f2-9006cbc9573f"
+            }
+          ],
+          "createdAt": "2026-07-28T10:20:27.000Z",
+          "updatedAt": "2026-07-28T10:20:27.000Z",
+          "uid": "35240-69df5d6d-22c6-4ff5-bccd-084a0538a9be"
+        }
+      ],
+      "id": "15875f3b-b4ac-4528-ba3d-c59dfbb431d7",
+      "createdAt": "2026-07-28T10:20:27.000Z",
+      "updatedAt": "2026-07-28T10:20:27.000Z",
+      "uid": "35240-15875f3b-b4ac-4528-ba3d-c59dfbb431d7"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "us-east-1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "http://imagebuilder.{{region}}.amazonaws.com"
+    }
+  ]
+}

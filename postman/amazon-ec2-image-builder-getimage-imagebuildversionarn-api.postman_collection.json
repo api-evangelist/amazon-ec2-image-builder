@@ -1,0 +1,654 @@
+{
+  "info": {
+    "_postman_id": "61d61aeb-6414-4c24-9349-39b4498ca8e4",
+    "name": "EC2 Image Builder CancelImageCreation GetImage#imageBuildVersionArn API",
+    "description": "EC2 Image Builder is a fully managed Amazon Web Services service that makes it easier to automate the creation, management, and deployment of customized, secure, and up-to-date \"golden\" server images that are pre-installed and pre-configured with software and settings to meet specific IT standards.\n\nContact Support:\n Name: Mike Ralphson\n Email: mike.ralphson@gmail.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T10:20:34.000Z",
+    "updatedAt": "2026-07-28T10:20:34.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-61d61aeb-6414-4c24-9349-39b4498ca8e4"
+  },
+  "item": [
+    {
+      "name": "GetImage#imageBuildVersionArn",
+      "item": [
+        {
+          "name": "Amazon EC2 Image Builder Get Image",
+          "id": "c3db7cbd-bf29-4733-a218-2f519e0b6eb1",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Amz-Content-Sha256",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Date",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Algorithm",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Credential",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Security-Token",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Signature",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-SignedHeaders",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/GetImage?imageBuildVersionArn=arn:aws9\\j%23q|:imagebuilder:W'GDYy1PS:246058992613:image/_hil5/x.2770592475.82662#imageBuildVersionArn",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "GetImage"
+              ],
+              "query": [
+                {
+                  "description": "(Required) The Amazon Resource Name (ARN) of the image that you want to get.",
+                  "key": "imageBuildVersionArn",
+                  "value": "arn:aws9\\j#q|:imagebuilder:W'GDYy1PS:246058992613:image/_hil5/x.2770592475.82662"
+                }
+              ],
+              "hash": "imageBuildVersionArn"
+            },
+            "description": "Gets an image."
+          },
+          "response": [
+            {
+              "id": "8a5de759-56c5-4f4f-932b-de7227102cdb",
+              "name": "Success",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/GetImage?imageBuildVersionArn=arn:aws9\\j%23q|:imagebuilder:W'GDYy1PS:246058992613:image/_hil5/x.2770592475.82662#imageBuildVersionArn",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "GetImage"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The Amazon Resource Name (ARN) of the image that you want to get.",
+                      "key": "imageBuildVersionArn",
+                      "value": "arn:aws9\\j#q|:imagebuilder:W'GDYy1PS:246058992613:image/_hil5/x.2770592475.82662"
+                    }
+                  ],
+                  "hash": "imageBuildVersionArn"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"requestId\": \"<string>\",\n  \"image\": {\n    \"arn\": \"arn:aws$C>R:imagebuilder:[&s{Q%/>:aws:distribution-configuration/py_3x/0050.34431554.0457923711\",\n    \"type\": \"DOCKER\",\n    \"name\": \"iuxNRPWdO8r7FACoBzhCvbe Gydv03XTPXhOla4DFLxqqYG6DecH4ENMMLE-o-d_aEuMF2VpUOctVDGUg6OFRwIvIvc5romreh8c\",\n    \"version\": \"9.1675889055.706373\",\n    \"platform\": \"Linux\",\n    \"enhancedImageMetadataEnabled\": \"<boolean>\",\n    \"osVersion\": \"<string>\",\n    \"state\": {\n      \"status\": \"AVAILABLE\",\n      \"reason\": \"<string>\"\n    },\n    \"imageRecipe\": {\n      \"arn\": \"arn:aws&T9z:imagebuilder:sk:aws:image-pipeline/ib/2844706.5380756821.x\",\n      \"type\": \"AMI\",\n      \"name\": \"FNzgtvyOACKIyK7EtvzkmEWWxRd\",\n      \"description\": \"<string>\",\n      \"platform\": \"Windows\",\n      \"owner\": \"<string>\",\n      \"version\": \"1656482250.5135793.513450880\",\n      \"components\": [\n        {\n          \"componentArn\": \"arn:awscm2:imagebuilder:QDa+I:aws:component/5h/342892.4565.8706372257/095\",\n          \"parameters\": [\n            {\n              \"name\": \"C;P\",\n              \"value\": [\n                \"h|4_S\\\"I\",\n                \"(q-#f:\"\n              ]\n            }\n          ]\n        }\n      ],\n      \"parentImage\": \"<string>\",\n      \"blockDeviceMappings\": [\n        {\n          \"deviceName\": \"<string>\",\n          \"ebs\": {\n            \"encrypted\": \"<boolean>\",\n            \"deleteOnTermination\": \"<boolean>\",\n            \"iops\": \"<integer>\",\n            \"kmsKeyId\": \"<string>\",\n            \"snapshotId\": \"<string>\",\n            \"volumeSize\": \"<integer>\",\n            \"volumeType\": \"gp2\",\n            \"throughput\": \"<integer>\"\n          },\n          \"virtualName\": \"<string>\",\n          \"noDevice\": \"<string>\"\n        },\n        {\n          \"deviceName\": \"<string>\",\n          \"ebs\": {\n            \"encrypted\": \"<boolean>\",\n            \"deleteOnTermination\": \"<boolean>\",\n            \"iops\": \"<integer>\",\n            \"kmsKeyId\": \"<string>\",\n            \"snapshotId\": \"<string>\",\n            \"volumeSize\": \"<integer>\",\n            \"volumeType\": \"st1\",\n            \"throughput\": \"<integer>\"\n          },\n          \"virtualName\": \"<string>\",\n          \"noDevice\": \"<string>\"\n        }\n      ],\n      \"dateCreated\": \"<string>\",\n      \"tags\": {\n        \"sed39\": \"<string>\",\n        \"incididunt_ae5\": \"<string>\",\n        \"est_5\": \"<string>\",\n        \"veniam3\": \"<string>\",\n        \"in2\": \"<string>\",\n        \"id_6_\": \"<string>\",\n        \"aute_697\": \"<string>\",\n        \"dolor_fd\": \"<string>\",\n        \"commodo_34\": \"<string>\",\n        \"deserunt_e3_\": \"<string>\",\n        \"dolor_1\": \"<string>\",\n        \"proident639\": \"<string>\",\n        \"Duis2\": \"<string>\",\n        \"eiusmod9\": \"<string>\",\n        \"pariatur4_e\": \"<string>\",\n        \"culpa9\": \"<string>\",\n        \"adipisicing82\": \"<string>\",\n        \"aliquip___\": \"<string>\",\n        \"culpa_c0\": \"<string>\",\n        \"Excepteur_3b\": \"<string>\",\n        \"sit_442\": \"<string>\",\n        \"cupidatat46\": \"<string>\"\n      },\n      \"workingDirectory\": \"<string>\",\n      \"additionalInstanceConfiguration\": {\n        \"systemsManagerAgent\": {\n          \"uninstallAfterBuild\": \"<boolean>\"\n        },\n        \"userDataOverride\": \"1MB0k3L2io/FH/CcpmEqibe0tuprujb9\"\n      }\n    },\n    \"containerRecipe\": {\n      \"arn\": \"arn:aws>Wml:imagebuilder:\\\\rt,+7jP FY:365453673970:image-pipeline/dmfr/x.x.906/48600054\",\n      \"containerType\": \"DOCKER\",\n      \"name\": \"pCpN-GfF0Htyc0Nn10SZ1ISWQlObARoizNkrqYJ1rx53ZZV59RTijcLZ_-wUHnRALtitDF LO5AmnIkrmGLZr94yW0jtq IzVQGFtNp1fBgIN_ryKs\",\n      \"description\": \"<string>\",\n      \"platform\": \"Linux\",\n      \"owner\": \"<string>\",\n      \"version\": \"41.588478.32176\",\n      \"components\": [\n        {\n          \"componentArn\": \"arn:awsV:imagebuilder:T8V8)Y:764245289147:component/6v2p5w86k/640395510.480291677.324844597/4287\",\n          \"parameters\": [\n            {\n              \"name\": \";Z\\\"xr\",\n              \"value\": [\n                \"]g?6jJ>=7\",\n                \"w\\\"D\"\n              ]\n            }\n          ]\n        }\n      ],\n      \"instanceConfiguration\": {\n        \"image\": \"<string>\",\n        \"blockDeviceMappings\": [\n          {\n            \"deviceName\": \"<string>\",\n            \"ebs\": {\n              \"encrypted\": \"<boolean>\",\n              \"deleteOnTermination\": \"<boolean>\",\n              \"iops\": \"<integer>\",\n              \"kmsKeyId\": \"<string>\",\n              \"snapshotId\": \"<string>\",\n              \"volumeSize\": \"<integer>\",\n              \"volumeType\": \"gp2\",\n              \"throughput\": \"<integer>\"\n            },\n            \"virtualName\": \"<string>\",\n            \"noDevice\": \"<string>\"\n          },\n          {\n            \"deviceName\": \"<string>\",\n            \"ebs\": {\n              \"encrypted\": \"<boolean>\",\n              \"deleteOnTermination\": \"<boolean>\",\n              \"iops\": \"<integer>\",\n              \"kmsKeyId\": \"<string>\",\n              \"snapshotId\": \"<string>\",\n              \"volumeSize\": \"<integer>\",\n              \"volumeType\": \"io1\",\n              \"throughput\": \"<integer>\"\n            },\n            \"virtualName\": \"<string>\",\n            \"noDevice\": \"<string>\"\n          }\n        ]\n      },\n      \"dockerfileTemplateData\": \"<string>\",\n      \"kmsKeyId\": \"<string>\",\n      \"encrypted\": \"<boolean>\",\n      \"parentImage\": \"<string>\",\n      \"dateCreated\": \"<string>\",\n      \"tags\": {\n        \"consectetur5\": \"<string>\",\n        \"autecac\": \"<string>\",\n        \"enim_2\": \"<string>\"\n      },\n      \"workingDirectory\": \"<string>\",\n      \"targetRepository\": {\n        \"service\": \"ECR\",\n        \"repositoryName\": \"<string>\"\n      }\n    },\n    \"sourcePipelineName\": \"NaGuCEWoIvn9E_uolyexQRGZ XRu96HG69UvBokgnokpVaQAC0X7ZSDK2ljtyQD6\",\n    \"sourcePipelineArn\": \"<string>\",\n    \"infrastructureConfiguration\": {\n      \"arn\": \"arn:aws7E3B^5y`:imagebuilder:'.2!tRPJ!V/:190285651841:image/d8\",\n      \"name\": \"-P5oVw V4iwkaaYN5j9pHuO7F74YT\",\n      \"description\": \"<string>\",\n      \"instanceTypes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"instanceProfileName\": \"RaQ99UB\",\n      \"securityGroupIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"subnetId\": \"<string>\",\n      \"logging\": {\n        \"s3Logs\": {\n          \"s3BucketName\": \"<string>\",\n          \"s3KeyPrefix\": \"<string>\"\n        }\n      },\n      \"keyPair\": \"<string>\",\n      \"terminateInstanceOnFailure\": \"<boolean>\",\n      \"snsTopicArn\": \"<string>\",\n      \"dateCreated\": \"<string>\",\n      \"dateUpdated\": \"<string>\",\n      \"resourceTags\": {\n        \"commodo_8db\": \"<string>\",\n        \"laboref\": \"<string>\",\n        \"incididunt_f\": \"<string>\",\n        \"consequate92\": \"<string>\",\n        \"occaecat_3\": \"<string>\",\n        \"consequat7\": \"<string>\",\n        \"ullamco_f7\": \"<string>\",\n        \"ea_e\": \"<string>\",\n        \"proident_d10\": \"<string>\",\n        \"irure_7\": \"<string>\",\n        \"cupidatat_a\": \"<string>\",\n        \"amet9\": \"<string>\",\n        \"ut1\": \"<string>\",\n        \"adipisicingc4\": \"<string>\",\n        \"Duise5\": \"<string>\"\n      },\n      \"instanceMetadataOptions\": {\n        \"httpTokens\": \"optional\",\n        \"httpPutResponseHopLimit\": \"<integer>\"\n      },\n      \"tags\": {\n        \"commodo_\": \"<string>\",\n        \"nulla_e0\": \"<string>\",\n        \"enima5\": \"<string>\",\n        \"et_\": \"<string>\",\n        \"consectetura\": \"<string>\",\n        \"consequat606\": \"<string>\",\n        \"pariatur1\": \"<string>\",\n        \"irure_3f\": \"<string>\",\n        \"do2ec\": \"<string>\",\n        \"reprehenderitb94\": \"<string>\",\n        \"aliquip_10\": \"<string>\"\n      }\n    },\n    \"distributionConfiguration\": {\n      \"timeoutMinutes\": \"<integer>\",\n      \"arn\": \"arn:awsybQ.X<~-e:imagebuilder:6c^7:aws:container-recipe/vptlaeca7/x.7.9282651933\",\n      \"name\": \"n3IShBORfaOr5Qq8p0-72Rodn1cM o1lIuUVn9gDKsqpRtd95zEjOq1_ttP-D5Pqkup1QUCLVYkSUMqrhP2T\",\n      \"description\": \"<string>\",\n      \"distributions\": [\n        {\n          \"region\": \"<string>\",\n          \"amiDistributionConfiguration\": {\n            \"name\": \"Ed8\u20022M\",\n            \"description\": \"<string>\",\n            \"targetAccountIds\": [\n              \"289550186136\"\n            ],\n            \"amiTags\": {\n              \"consequat_c0\": \"<string>\",\n              \"ea3\": \"<string>\",\n              \"minimf\": \"<string>\",\n              \"Duiscc5\": \"<string>\",\n              \"incididunt99\": \"<string>\",\n              \"aliquipf7\": \"<string>\",\n              \"consecteturb_\": \"<string>\",\n              \"voluptated8\": \"<string>\",\n              \"pariatur_1\": \"<string>\",\n              \"laborum_4c2\": \"<string>\",\n              \"in8ee\": \"<string>\",\n              \"Duisd\": \"<string>\",\n              \"inf\": \"<string>\",\n              \"do4\": \"<string>\",\n              \"Lorem_ba\": \"<string>\",\n              \"proident__63\": \"<string>\",\n              \"ullamco_1\": \"<string>\",\n              \"ut_2e\": \"<string>\",\n              \"tempor_7\": \"<string>\",\n              \"quis_e\": \"<string>\",\n              \"in_f4\": \"<string>\",\n              \"esse_833\": \"<string>\",\n              \"aliquip2\": \"<string>\",\n              \"id9df\": \"<string>\",\n              \"Duis_80b\": \"<string>\",\n              \"dolore3f\": \"<string>\",\n              \"qui_e\": \"<string>\",\n              \"et_73\": \"<string>\",\n              \"veniam2b3\": \"<string>\",\n              \"Ut_c\": \"<string>\",\n              \"proident_a4d\": \"<string>\",\n              \"velitf53\": \"<string>\",\n              \"cillum_f\": \"<string>\",\n              \"irure2_\": \"<string>\",\n              \"tempor_01b\": \"<string>\"\n            },\n            \"kmsKeyId\": \"<string>\",\n            \"launchPermission\": {\n              \"userIds\": [\n                \"100051648441\"\n              ],\n              \"userGroups\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"organizationArns\": [\n                \"arn:aws\\\\|SUJ*:organizations::979067629834:organization/o-x8c5wwonx0qpq4\"\n              ],\n              \"organizationalUnitArns\": [\n                \"arn:awsI@]+s)-C<:organizations::475891002099:ou/o-dr6r7w4q7q1/ou-brk8-6ne5tt1e539ib9e4\"\n              ]\n            }\n          },\n          \"containerDistributionConfiguration\": {\n            \"targetRepository\": {\n              \"service\": \"ECR\",\n              \"repositoryName\": \"<string>\"\n            },\n            \"description\": \"<string>\",\n            \"containerTags\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          \"licenseConfigurationArns\": [\n            \"arn:aws=8p:license-manager:qtT\\\"zZ:502058759122:license-configuration:lic-2tq1i7_d-wtiifteep9t_njtaq_obbdr\"\n          ],\n          \"launchTemplateConfigurations\": [\n            {\n              \"launchTemplateId\": \"lt-ow7scvt37kkgxnfct\",\n              \"accountId\": \"709539846309\",\n              \"setDefaultVersion\": \"<boolean>\"\n            }\n          ],\n          \"s3ExportConfiguration\": {\n            \"roleName\": \"<string>\",\n            \"diskImageFormat\": \"RAW\",\n            \"s3Bucket\": \"<string>\",\n            \"s3Prefix\": \"<string>\"\n          },\n          \"fastLaunchConfigurations\": [\n            {\n              \"enabled\": \"<boolean>\",\n              \"snapshotConfiguration\": {\n                \"targetResourceCount\": \"<integer>\"\n              },\n              \"maxParallelLaunches\": \"<integer>\",\n              \"launchTemplate\": {\n                \"launchTemplateId\": \"lt-7b48ti0c6cohiq5jd\",\n                \"launchTemplateName\": \"<string>\",\n                \"launchTemplateVersion\": \"<string>\"\n              },\n              \"accountId\": \"944895263725\"\n            }\n          ]\n        },\n        {\n          \"region\": \"<string>\",\n          \"amiDistributionConfiguration\": {\n            \"name\": \"MZa\u2000f\u202f\u2003\\fqX\u2004c\",\n            \"description\": \"<string>\",\n            \"targetAccountIds\": [\n              \"875472125918\"\n            ],\n            \"amiTags\": {\n              \"irure_1\": \"<string>\",\n              \"proident_32\": \"<string>\",\n              \"sint2\": \"<string>\",\n              \"ex2\": \"<string>\",\n              \"exe19\": \"<string>\",\n              \"voluptate_d7\": \"<string>\",\n              \"anim_a1\": \"<string>\",\n              \"ullamco_36\": \"<string>\",\n              \"cupidatat6f\": \"<string>\",\n              \"ade6\": \"<string>\",\n              \"proident_708\": \"<string>\",\n              \"ea_cc\": \"<string>\",\n              \"laboris0\": \"<string>\",\n              \"eaff\": \"<string>\",\n              \"quia\": \"<string>\",\n              \"eiusmod_ce9\": \"<string>\",\n              \"commodo_24\": \"<string>\",\n              \"minim_9\": \"<string>\",\n              \"Lorem9\": \"<string>\",\n              \"velit_78\": \"<string>\",\n              \"fugiat_7d7\": \"<string>\",\n              \"tempord06\": \"<string>\",\n              \"sit_d_3\": \"<string>\",\n              \"sit_306\": \"<string>\"\n            },\n            \"kmsKeyId\": \"<string>\",\n            \"launchPermission\": {\n              \"userIds\": [\n                \"073346594761\"\n              ],\n              \"userGroups\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"organizationArns\": [\n                \"arn:awsp93r\\\"w:organizations::489362607713:organization/o-tlf69odwr55fqy8m0c5jihzll0d3q\"\n              ],\n              \"organizationalUnitArns\": [\n                \"arn:awsZf 7:organizations::960210198215:ou/o-tqjsuhcxh8adrd7wwxe6x3t9melo1y/ou-wf81bb6ghys9-fz6v421rxbx52c8\"\n              ]\n            }\n          },\n          \"containerDistributionConfiguration\": {\n            \"targetRepository\": {\n              \"service\": \"ECR\",\n              \"repositoryName\": \"<string>\"\n            },\n            \"description\": \"<string>\",\n            \"containerTags\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          \"licenseConfigurationArns\": [\n            \"arn:aws=;]:license-manager:OQH\\\"Y:750409556750:license-configuration:lic-skl0oie0m9kzgvi9sykdgj5l8byibb01\"\n          ],\n          \"launchTemplateConfigurations\": [\n            {\n              \"launchTemplateId\": \"lt-vlw6lc79oofbnwpl6\",\n              \"accountId\": \"558272004498\",\n              \"setDefaultVersion\": \"<boolean>\"\n            }\n          ],\n          \"s3ExportConfiguration\": {\n            \"roleName\": \"<string>\",\n            \"diskImageFormat\": \"RAW\",\n            \"s3Bucket\": \"<string>\",\n            \"s3Prefix\": \"<string>\"\n          },\n          \"fastLaunchConfigurations\": [\n            {\n              \"enabled\": \"<boolean>\",\n              \"snapshotConfiguration\": {\n                \"targetResourceCount\": \"<integer>\"\n              },\n              \"maxParallelLaunches\": \"<integer>\",\n              \"launchTemplate\": {\n                \"launchTemplateId\": \"lt-9zzmsrlb77gtst8k9\",\n                \"launchTemplateName\": \"<string>\",\n                \"launchTemplateVersion\": \"<string>\"\n              },\n              \"accountId\": \"089403999883\"\n            }\n          ]\n        }\n      ],\n      \"dateCreated\": \"<string>\",\n      \"dateUpdated\": \"<string>\",\n      \"tags\": {\n        \"ea37\": \"<string>\",\n        \"irureacd\": \"<string>\",\n        \"irure5\": \"<string>\",\n        \"officiac5\": \"<string>\",\n        \"exercitation_6\": \"<string>\",\n        \"esse_07\": \"<string>\",\n        \"officia6e1\": \"<string>\",\n        \"labore41b\": \"<string>\",\n        \"quis_f\": \"<string>\",\n        \"ad_61b\": \"<string>\",\n        \"Ut_342\": \"<string>\",\n        \"Duiscc\": \"<string>\",\n        \"ullamco_c\": \"<string>\",\n        \"aliquip_0\": \"<string>\",\n        \"laboris_af\": \"<string>\",\n        \"veniam_65\": \"<string>\",\n        \"et062\": \"<string>\",\n        \"nostrud_c\": \"<string>\",\n        \"tempor_79c\": \"<string>\",\n        \"quis_e\": \"<string>\"\n      }\n    },\n    \"imageTestsConfiguration\": {\n      \"imageTestsEnabled\": \"<boolean>\",\n      \"timeoutMinutes\": \"<integer>\"\n    },\n    \"dateCreated\": \"<string>\",\n    \"outputResources\": {\n      \"amis\": [\n        {\n          \"region\": \"<string>\",\n          \"image\": \"<string>\",\n          \"name\": \"<string>\",\n          \"description\": \"<string>\",\n          \"state\": {\n            \"status\": \"BUILDING\",\n            \"reason\": \"<string>\"\n          },\n          \"accountId\": \"<string>\"\n        },\n        {\n          \"region\": \"<string>\",\n          \"image\": \"<string>\",\n          \"name\": \"<string>\",\n          \"description\": \"<string>\",\n          \"state\": {\n            \"status\": \"INTEGRATING\",\n            \"reason\": \"<string>\"\n          },\n          \"accountId\": \"<string>\"\n        }\n      ],\n      \"containers\": [\n        {\n          \"region\": \"<string>\",\n          \"imageUris\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        {\n          \"region\": \"<string>\",\n          \"imageUris\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        }\n      ]\n    },\n    \"tags\": {\n      \"dolor88\": \"<string>\",\n      \"sintd01\": \"<string>\",\n      \"non7_f\": \"<string>\",\n      \"deserunt4d\": \"<string>\",\n      \"ipsum_d\": \"<string>\",\n      \"proident__\": \"<string>\",\n      \"non3b5\": \"<string>\",\n      \"cillum_e3d\": \"<string>\",\n      \"ullamco85\": \"<string>\",\n      \"sit_25\": \"<string>\",\n      \"elit_f9\": \"<string>\",\n      \"quiab5\": \"<string>\",\n      \"elit94\": \"<string>\",\n      \"adipisicing_518\": \"<string>\",\n      \"consequat_8c\": \"<string>\",\n      \"ullamco_cba\": \"<string>\",\n      \"eiusmod_4\": \"<string>\",\n      \"ipsum_1\": \"<string>\",\n      \"nisi_500\": \"<string>\",\n      \"proident_e7\": \"<string>\"\n    },\n    \"buildType\": \"USER_INITIATED\",\n    \"imageSource\": \"AWS_MARKETPLACE\",\n    \"scanState\": {\n      \"status\": \"SCANNING\",\n      \"reason\": \"<string>\"\n    },\n    \"imageScanningConfiguration\": {\n      \"imageScanningEnabled\": \"<boolean>\",\n      \"ecrConfiguration\": {\n        \"repositoryName\": \"<string>\",\n        \"containerTags\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    }\n  }\n}",
+              "createdAt": "2026-07-28T10:20:34.000Z",
+              "updatedAt": "2026-07-28T10:20:34.000Z",
+              "uid": "35240-8a5de759-56c5-4f4f-932b-de7227102cdb"
+            },
+            {
+              "id": "566c135a-c494-41c2-9a4d-5b6e076f2846",
+              "name": "ServiceException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/GetImage?imageBuildVersionArn=arn:aws9\\j%23q|:imagebuilder:W'GDYy1PS:246058992613:image/_hil5/x.2770592475.82662#imageBuildVersionArn",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "GetImage"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The Amazon Resource Name (ARN) of the image that you want to get.",
+                      "key": "imageBuildVersionArn",
+                      "value": "arn:aws9\\j#q|:imagebuilder:W'GDYy1PS:246058992613:image/_hil5/x.2770592475.82662"
+                    }
+                  ],
+                  "hash": "imageBuildVersionArn"
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:20:34.000Z",
+              "updatedAt": "2026-07-28T10:20:34.000Z",
+              "uid": "35240-566c135a-c494-41c2-9a4d-5b6e076f2846"
+            },
+            {
+              "id": "7d717995-40db-4859-8421-2a3e972668ed",
+              "name": "ClientException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/GetImage?imageBuildVersionArn=arn:aws9\\j%23q|:imagebuilder:W'GDYy1PS:246058992613:image/_hil5/x.2770592475.82662#imageBuildVersionArn",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "GetImage"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The Amazon Resource Name (ARN) of the image that you want to get.",
+                      "key": "imageBuildVersionArn",
+                      "value": "arn:aws9\\j#q|:imagebuilder:W'GDYy1PS:246058992613:image/_hil5/x.2770592475.82662"
+                    }
+                  ],
+                  "hash": "imageBuildVersionArn"
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:20:34.000Z",
+              "updatedAt": "2026-07-28T10:20:34.000Z",
+              "uid": "35240-7d717995-40db-4859-8421-2a3e972668ed"
+            },
+            {
+              "id": "2b69a40d-777a-4cd5-8beb-0c8caf68cea1",
+              "name": "ServiceUnavailableException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/GetImage?imageBuildVersionArn=arn:aws9\\j%23q|:imagebuilder:W'GDYy1PS:246058992613:image/_hil5/x.2770592475.82662#imageBuildVersionArn",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "GetImage"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The Amazon Resource Name (ARN) of the image that you want to get.",
+                      "key": "imageBuildVersionArn",
+                      "value": "arn:aws9\\j#q|:imagebuilder:W'GDYy1PS:246058992613:image/_hil5/x.2770592475.82662"
+                    }
+                  ],
+                  "hash": "imageBuildVersionArn"
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:20:34.000Z",
+              "updatedAt": "2026-07-28T10:20:34.000Z",
+              "uid": "35240-2b69a40d-777a-4cd5-8beb-0c8caf68cea1"
+            },
+            {
+              "id": "42b82a10-0542-417b-a96e-3781a62930bb",
+              "name": "InvalidRequestException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/GetImage?imageBuildVersionArn=arn:aws9\\j%23q|:imagebuilder:W'GDYy1PS:246058992613:image/_hil5/x.2770592475.82662#imageBuildVersionArn",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "GetImage"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The Amazon Resource Name (ARN) of the image that you want to get.",
+                      "key": "imageBuildVersionArn",
+                      "value": "arn:aws9\\j#q|:imagebuilder:W'GDYy1PS:246058992613:image/_hil5/x.2770592475.82662"
+                    }
+                  ],
+                  "hash": "imageBuildVersionArn"
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:20:34.000Z",
+              "updatedAt": "2026-07-28T10:20:34.000Z",
+              "uid": "35240-42b82a10-0542-417b-a96e-3781a62930bb"
+            },
+            {
+              "id": "9a3e4485-2a07-4ab9-a2ae-db040183fd64",
+              "name": "ForbiddenException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/GetImage?imageBuildVersionArn=arn:aws9\\j%23q|:imagebuilder:W'GDYy1PS:246058992613:image/_hil5/x.2770592475.82662#imageBuildVersionArn",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "GetImage"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The Amazon Resource Name (ARN) of the image that you want to get.",
+                      "key": "imageBuildVersionArn",
+                      "value": "arn:aws9\\j#q|:imagebuilder:W'GDYy1PS:246058992613:image/_hil5/x.2770592475.82662"
+                    }
+                  ],
+                  "hash": "imageBuildVersionArn"
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:20:34.000Z",
+              "updatedAt": "2026-07-28T10:20:34.000Z",
+              "uid": "35240-9a3e4485-2a07-4ab9-a2ae-db040183fd64"
+            },
+            {
+              "id": "df92033c-c580-4872-a1af-5b6d71480b04",
+              "name": "CallRateLimitExceededException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/GetImage?imageBuildVersionArn=arn:aws9\\j%23q|:imagebuilder:W'GDYy1PS:246058992613:image/_hil5/x.2770592475.82662#imageBuildVersionArn",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "GetImage"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The Amazon Resource Name (ARN) of the image that you want to get.",
+                      "key": "imageBuildVersionArn",
+                      "value": "arn:aws9\\j#q|:imagebuilder:W'GDYy1PS:246058992613:image/_hil5/x.2770592475.82662"
+                    }
+                  ],
+                  "hash": "imageBuildVersionArn"
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:20:34.000Z",
+              "updatedAt": "2026-07-28T10:20:34.000Z",
+              "uid": "35240-df92033c-c580-4872-a1af-5b6d71480b04"
+            }
+          ],
+          "createdAt": "2026-07-28T10:20:34.000Z",
+          "updatedAt": "2026-07-28T10:20:34.000Z",
+          "uid": "35240-c3db7cbd-bf29-4733-a218-2f519e0b6eb1"
+        }
+      ],
+      "id": "d6a88a54-a0cb-45a5-9bb3-6c4714cbe91e",
+      "createdAt": "2026-07-28T10:20:34.000Z",
+      "updatedAt": "2026-07-28T10:20:34.000Z",
+      "uid": "35240-d6a88a54-a0cb-45a5-9bb3-6c4714cbe91e"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "us-east-1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "http://imagebuilder.{{region}}.amazonaws.com"
+    }
+  ]
+}

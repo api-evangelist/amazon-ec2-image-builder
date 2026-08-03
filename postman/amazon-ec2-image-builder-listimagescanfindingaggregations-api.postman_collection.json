@@ -1,0 +1,847 @@
+{
+  "info": {
+    "_postman_id": "71f74d04-3c32-47ec-ab39-695f30ccac42",
+    "name": "EC2 Image Builder CancelImageCreation ListImageScanFindingAggregations API",
+    "description": "EC2 Image Builder is a fully managed Amazon Web Services service that makes it easier to automate the creation, management, and deployment of customized, secure, and up-to-date \"golden\" server images that are pre-installed and pre-configured with software and settings to meet specific IT standards.\n\nContact Support:\n Name: Mike Ralphson\n Email: mike.ralphson@gmail.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T10:20:58.000Z",
+    "updatedAt": "2026-07-28T10:20:59.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-71f74d04-3c32-47ec-ab39-695f30ccac42"
+  },
+  "item": [
+    {
+      "name": "ListImageScanFindingAggregations",
+      "item": [
+        {
+          "name": "Amazon EC2 Image Builder List Image Scan Finding Aggregations",
+          "id": "050ee8c1-05de-415e-8bab-5305aa8b5c69",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Amz-Content-Sha256",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Date",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Algorithm",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Credential",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Security-Token",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Signature",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-SignedHeaders",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"filter\": {\n    \"name\": \"wixSlViofSnvPWvuuNgomHvhGxRafEkdpOrrXiRfsAXGpBHnxuPdEQQJARizAsPaLKuMFTDCzUXInxLiiDjzQiziLbjMyiBCRQfbWFyCKuKyHNzPTQzzqOntcbnVKKfbPtIFpBzwlWRHeLbkhByMwoytuyfWDFWsFrWxyNuDrNCpsgsoWBjJYNknugVoCIpDkeXtwGoYgXBTFZnqYWPdcQsUunOmhXJwbpVGOjwVNjvRToxKqRYIDIerYHEQAVRDxfTgTkwqQCncExOGKKgsKoiFBThsNWDRrWSkBkwyxGQPgWocmgxFxIhNwoxwhrSsoTVqMiZroQNzQTcWqN\",\n    \"values\": [\n      \"DYTmtnHTli:aVc4PcXORgr_WWH7S2DnjHi XsU1lGQw03UP7sBbGy9iCxOouOHHBCh0pVWgghGhy Q:_KjXIt8vKaEnm6JBOwi0i3icY2n4On8vS-xniQH_h5.up_llh0u0qOXJNt9nOQ UhNiz7 PJaQlPXEkWcroqCCnxDGCUU6T72LXQI5P0k4_sGmgEUh/ct3D4YSjDMDda8xmB0u92Vi-jUkm3DfOsxrA5QH3nV/8EC.H8oBw:-4cjlUT9vPZNKlDFXZU0rb:vhAYDxk/- CL:ncmes:C-H6UysCtJl-LHTpvoXldT.YYif_YE\"\n    ]\n  },\n  \"nextToken\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/ListImageScanFindingAggregations?nextToken=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ListImageScanFindingAggregations"
+              ],
+              "query": [
+                {
+                  "description": "Pagination token",
+                  "key": "nextToken",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "<p>Returns a list of image scan aggregations for your account. You can filter by the type of key that Image Builder uses to group results. For example, if you want to get a list of findings by severity level for one of your pipelines, you might specify your pipeline with the <code>imagePipelineArn</code> filter. If you don't specify a filter, Image Builder returns an aggregation for your account.</p> <p>To streamline results, you can use the following filters in your request:</p> <ul> <li> <p> <code>accountId</code> </p> </li> <li> <p> <code>imageBuildVersionArn</code> </p> </li> <li> <p> <code>imagePipelineArn</code> </p> </li> <li> <p> <code>vulnerabilityId</code> </p> </li> </ul>"
+          },
+          "response": [
+            {
+              "id": "ebcedc00-98fa-4528-9cdd-8db937edb730",
+              "name": "Success",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"filter\": {\n    \"name\": \"wixSlViofSnvPWvuuNgomHvhGxRafEkdpOrrXiRfsAXGpBHnxuPdEQQJARizAsPaLKuMFTDCzUXInxLiiDjzQiziLbjMyiBCRQfbWFyCKuKyHNzPTQzzqOntcbnVKKfbPtIFpBzwlWRHeLbkhByMwoytuyfWDFWsFrWxyNuDrNCpsgsoWBjJYNknugVoCIpDkeXtwGoYgXBTFZnqYWPdcQsUunOmhXJwbpVGOjwVNjvRToxKqRYIDIerYHEQAVRDxfTgTkwqQCncExOGKKgsKoiFBThsNWDRrWSkBkwyxGQPgWocmgxFxIhNwoxwhrSsoTVqMiZroQNzQTcWqN\",\n    \"values\": [\n      \"DYTmtnHTli:aVc4PcXORgr_WWH7S2DnjHi XsU1lGQw03UP7sBbGy9iCxOouOHHBCh0pVWgghGhy Q:_KjXIt8vKaEnm6JBOwi0i3icY2n4On8vS-xniQH_h5.up_llh0u0qOXJNt9nOQ UhNiz7 PJaQlPXEkWcroqCCnxDGCUU6T72LXQI5P0k4_sGmgEUh/ct3D4YSjDMDda8xmB0u92Vi-jUkm3DfOsxrA5QH3nV/8EC.H8oBw:-4cjlUT9vPZNKlDFXZU0rb:vhAYDxk/- CL:ncmes:C-H6UysCtJl-LHTpvoXldT.YYif_YE\"\n    ]\n  },\n  \"nextToken\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/ListImageScanFindingAggregations?nextToken=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ListImageScanFindingAggregations"
+                  ],
+                  "query": [
+                    {
+                      "description": "Pagination token",
+                      "key": "nextToken",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"requestId\": \"<string>\",\n  \"aggregationType\": \"<string>\",\n  \"responses\": [\n    {\n      \"accountAggregation\": {\n        \"accountId\": \"<string>\",\n        \"severityCounts\": {\n          \"all\": \"<integer>\",\n          \"critical\": \"<integer>\",\n          \"high\": \"<integer>\",\n          \"medium\": \"<integer>\"\n        }\n      },\n      \"imageAggregation\": {\n        \"imageBuildVersionArn\": \"arn:awsNm:imagebuilder:~_MP^V:aws:image/-wvg28tpete/46.575150051.5565473555/7709398\",\n        \"severityCounts\": {\n          \"all\": \"<integer>\",\n          \"critical\": \"<integer>\",\n          \"high\": \"<integer>\",\n          \"medium\": \"<integer>\"\n        }\n      },\n      \"imagePipelineAggregation\": {\n        \"imagePipelineArn\": \"arn:aws%:imagebuilder:u0t}]>ew:aws:image-pipeline/gxv3ttc1161\",\n        \"severityCounts\": {\n          \"all\": \"<integer>\",\n          \"critical\": \"<integer>\",\n          \"high\": \"<integer>\",\n          \"medium\": \"<integer>\"\n        }\n      },\n      \"vulnerabilityIdAggregation\": {\n        \"vulnerabilityId\": \"<string>\",\n        \"severityCounts\": {\n          \"all\": \"<integer>\",\n          \"critical\": \"<integer>\",\n          \"high\": \"<integer>\",\n          \"medium\": \"<integer>\"\n        }\n      }\n    },\n    {\n      \"accountAggregation\": {\n        \"accountId\": \"<string>\",\n        \"severityCounts\": {\n          \"all\": \"<integer>\",\n          \"critical\": \"<integer>\",\n          \"high\": \"<integer>\",\n          \"medium\": \"<integer>\"\n        }\n      },\n      \"imageAggregation\": {\n        \"imageBuildVersionArn\": \"arn:awsp:imagebuilder:s0yve:aws:image/ei-lp_2/4484207043.42730037899.598708/4428725\",\n        \"severityCounts\": {\n          \"all\": \"<integer>\",\n          \"critical\": \"<integer>\",\n          \"high\": \"<integer>\",\n          \"medium\": \"<integer>\"\n        }\n      },\n      \"imagePipelineAggregation\": {\n        \"imagePipelineArn\": \"arn:aws:imagebuilder:Wy:aws:image-pipeline/3fo\",\n        \"severityCounts\": {\n          \"all\": \"<integer>\",\n          \"critical\": \"<integer>\",\n          \"high\": \"<integer>\",\n          \"medium\": \"<integer>\"\n        }\n      },\n      \"vulnerabilityIdAggregation\": {\n        \"vulnerabilityId\": \"<string>\",\n        \"severityCounts\": {\n          \"all\": \"<integer>\",\n          \"critical\": \"<integer>\",\n          \"high\": \"<integer>\",\n          \"medium\": \"<integer>\"\n        }\n      }\n    }\n  ],\n  \"nextToken\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T10:20:59.000Z",
+              "updatedAt": "2026-07-28T10:20:59.000Z",
+              "uid": "35240-ebcedc00-98fa-4528-9cdd-8db937edb730"
+            },
+            {
+              "id": "eec2b02e-0191-4ca1-9f37-c66d7b653f0f",
+              "name": "ServiceException",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"filter\": {\n    \"name\": \"wixSlViofSnvPWvuuNgomHvhGxRafEkdpOrrXiRfsAXGpBHnxuPdEQQJARizAsPaLKuMFTDCzUXInxLiiDjzQiziLbjMyiBCRQfbWFyCKuKyHNzPTQzzqOntcbnVKKfbPtIFpBzwlWRHeLbkhByMwoytuyfWDFWsFrWxyNuDrNCpsgsoWBjJYNknugVoCIpDkeXtwGoYgXBTFZnqYWPdcQsUunOmhXJwbpVGOjwVNjvRToxKqRYIDIerYHEQAVRDxfTgTkwqQCncExOGKKgsKoiFBThsNWDRrWSkBkwyxGQPgWocmgxFxIhNwoxwhrSsoTVqMiZroQNzQTcWqN\",\n    \"values\": [\n      \"DYTmtnHTli:aVc4PcXORgr_WWH7S2DnjHi XsU1lGQw03UP7sBbGy9iCxOouOHHBCh0pVWgghGhy Q:_KjXIt8vKaEnm6JBOwi0i3icY2n4On8vS-xniQH_h5.up_llh0u0qOXJNt9nOQ UhNiz7 PJaQlPXEkWcroqCCnxDGCUU6T72LXQI5P0k4_sGmgEUh/ct3D4YSjDMDda8xmB0u92Vi-jUkm3DfOsxrA5QH3nV/8EC.H8oBw:-4cjlUT9vPZNKlDFXZU0rb:vhAYDxk/- CL:ncmes:C-H6UysCtJl-LHTpvoXldT.YYif_YE\"\n    ]\n  },\n  \"nextToken\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/ListImageScanFindingAggregations?nextToken=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ListImageScanFindingAggregations"
+                  ],
+                  "query": [
+                    {
+                      "description": "Pagination token",
+                      "key": "nextToken",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:20:59.000Z",
+              "updatedAt": "2026-07-28T10:20:59.000Z",
+              "uid": "35240-eec2b02e-0191-4ca1-9f37-c66d7b653f0f"
+            },
+            {
+              "id": "8f802da9-549a-4297-924b-eb59eb60655f",
+              "name": "ClientException",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"filter\": {\n    \"name\": \"wixSlViofSnvPWvuuNgomHvhGxRafEkdpOrrXiRfsAXGpBHnxuPdEQQJARizAsPaLKuMFTDCzUXInxLiiDjzQiziLbjMyiBCRQfbWFyCKuKyHNzPTQzzqOntcbnVKKfbPtIFpBzwlWRHeLbkhByMwoytuyfWDFWsFrWxyNuDrNCpsgsoWBjJYNknugVoCIpDkeXtwGoYgXBTFZnqYWPdcQsUunOmhXJwbpVGOjwVNjvRToxKqRYIDIerYHEQAVRDxfTgTkwqQCncExOGKKgsKoiFBThsNWDRrWSkBkwyxGQPgWocmgxFxIhNwoxwhrSsoTVqMiZroQNzQTcWqN\",\n    \"values\": [\n      \"DYTmtnHTli:aVc4PcXORgr_WWH7S2DnjHi XsU1lGQw03UP7sBbGy9iCxOouOHHBCh0pVWgghGhy Q:_KjXIt8vKaEnm6JBOwi0i3icY2n4On8vS-xniQH_h5.up_llh0u0qOXJNt9nOQ UhNiz7 PJaQlPXEkWcroqCCnxDGCUU6T72LXQI5P0k4_sGmgEUh/ct3D4YSjDMDda8xmB0u92Vi-jUkm3DfOsxrA5QH3nV/8EC.H8oBw:-4cjlUT9vPZNKlDFXZU0rb:vhAYDxk/- CL:ncmes:C-H6UysCtJl-LHTpvoXldT.YYif_YE\"\n    ]\n  },\n  \"nextToken\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/ListImageScanFindingAggregations?nextToken=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ListImageScanFindingAggregations"
+                  ],
+                  "query": [
+                    {
+                      "description": "Pagination token",
+                      "key": "nextToken",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:20:59.000Z",
+              "updatedAt": "2026-07-28T10:20:59.000Z",
+              "uid": "35240-8f802da9-549a-4297-924b-eb59eb60655f"
+            },
+            {
+              "id": "00a54525-1c73-45db-ac45-22ce2a8201fa",
+              "name": "ServiceUnavailableException",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"filter\": {\n    \"name\": \"wixSlViofSnvPWvuuNgomHvhGxRafEkdpOrrXiRfsAXGpBHnxuPdEQQJARizAsPaLKuMFTDCzUXInxLiiDjzQiziLbjMyiBCRQfbWFyCKuKyHNzPTQzzqOntcbnVKKfbPtIFpBzwlWRHeLbkhByMwoytuyfWDFWsFrWxyNuDrNCpsgsoWBjJYNknugVoCIpDkeXtwGoYgXBTFZnqYWPdcQsUunOmhXJwbpVGOjwVNjvRToxKqRYIDIerYHEQAVRDxfTgTkwqQCncExOGKKgsKoiFBThsNWDRrWSkBkwyxGQPgWocmgxFxIhNwoxwhrSsoTVqMiZroQNzQTcWqN\",\n    \"values\": [\n      \"DYTmtnHTli:aVc4PcXORgr_WWH7S2DnjHi XsU1lGQw03UP7sBbGy9iCxOouOHHBCh0pVWgghGhy Q:_KjXIt8vKaEnm6JBOwi0i3icY2n4On8vS-xniQH_h5.up_llh0u0qOXJNt9nOQ UhNiz7 PJaQlPXEkWcroqCCnxDGCUU6T72LXQI5P0k4_sGmgEUh/ct3D4YSjDMDda8xmB0u92Vi-jUkm3DfOsxrA5QH3nV/8EC.H8oBw:-4cjlUT9vPZNKlDFXZU0rb:vhAYDxk/- CL:ncmes:C-H6UysCtJl-LHTpvoXldT.YYif_YE\"\n    ]\n  },\n  \"nextToken\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/ListImageScanFindingAggregations?nextToken=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ListImageScanFindingAggregations"
+                  ],
+                  "query": [
+                    {
+                      "description": "Pagination token",
+                      "key": "nextToken",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:20:59.000Z",
+              "updatedAt": "2026-07-28T10:20:59.000Z",
+              "uid": "35240-00a54525-1c73-45db-ac45-22ce2a8201fa"
+            },
+            {
+              "id": "b6e219fb-76c1-409a-95cc-19050d12f0bf",
+              "name": "InvalidRequestException",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"filter\": {\n    \"name\": \"wixSlViofSnvPWvuuNgomHvhGxRafEkdpOrrXiRfsAXGpBHnxuPdEQQJARizAsPaLKuMFTDCzUXInxLiiDjzQiziLbjMyiBCRQfbWFyCKuKyHNzPTQzzqOntcbnVKKfbPtIFpBzwlWRHeLbkhByMwoytuyfWDFWsFrWxyNuDrNCpsgsoWBjJYNknugVoCIpDkeXtwGoYgXBTFZnqYWPdcQsUunOmhXJwbpVGOjwVNjvRToxKqRYIDIerYHEQAVRDxfTgTkwqQCncExOGKKgsKoiFBThsNWDRrWSkBkwyxGQPgWocmgxFxIhNwoxwhrSsoTVqMiZroQNzQTcWqN\",\n    \"values\": [\n      \"DYTmtnHTli:aVc4PcXORgr_WWH7S2DnjHi XsU1lGQw03UP7sBbGy9iCxOouOHHBCh0pVWgghGhy Q:_KjXIt8vKaEnm6JBOwi0i3icY2n4On8vS-xniQH_h5.up_llh0u0qOXJNt9nOQ UhNiz7 PJaQlPXEkWcroqCCnxDGCUU6T72LXQI5P0k4_sGmgEUh/ct3D4YSjDMDda8xmB0u92Vi-jUkm3DfOsxrA5QH3nV/8EC.H8oBw:-4cjlUT9vPZNKlDFXZU0rb:vhAYDxk/- CL:ncmes:C-H6UysCtJl-LHTpvoXldT.YYif_YE\"\n    ]\n  },\n  \"nextToken\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/ListImageScanFindingAggregations?nextToken=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ListImageScanFindingAggregations"
+                  ],
+                  "query": [
+                    {
+                      "description": "Pagination token",
+                      "key": "nextToken",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:20:59.000Z",
+              "updatedAt": "2026-07-28T10:20:59.000Z",
+              "uid": "35240-b6e219fb-76c1-409a-95cc-19050d12f0bf"
+            },
+            {
+              "id": "a7944876-a173-437d-afc6-57ce3a33b1ea",
+              "name": "InvalidPaginationTokenException",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"filter\": {\n    \"name\": \"wixSlViofSnvPWvuuNgomHvhGxRafEkdpOrrXiRfsAXGpBHnxuPdEQQJARizAsPaLKuMFTDCzUXInxLiiDjzQiziLbjMyiBCRQfbWFyCKuKyHNzPTQzzqOntcbnVKKfbPtIFpBzwlWRHeLbkhByMwoytuyfWDFWsFrWxyNuDrNCpsgsoWBjJYNknugVoCIpDkeXtwGoYgXBTFZnqYWPdcQsUunOmhXJwbpVGOjwVNjvRToxKqRYIDIerYHEQAVRDxfTgTkwqQCncExOGKKgsKoiFBThsNWDRrWSkBkwyxGQPgWocmgxFxIhNwoxwhrSsoTVqMiZroQNzQTcWqN\",\n    \"values\": [\n      \"DYTmtnHTli:aVc4PcXORgr_WWH7S2DnjHi XsU1lGQw03UP7sBbGy9iCxOouOHHBCh0pVWgghGhy Q:_KjXIt8vKaEnm6JBOwi0i3icY2n4On8vS-xniQH_h5.up_llh0u0qOXJNt9nOQ UhNiz7 PJaQlPXEkWcroqCCnxDGCUU6T72LXQI5P0k4_sGmgEUh/ct3D4YSjDMDda8xmB0u92Vi-jUkm3DfOsxrA5QH3nV/8EC.H8oBw:-4cjlUT9vPZNKlDFXZU0rb:vhAYDxk/- CL:ncmes:C-H6UysCtJl-LHTpvoXldT.YYif_YE\"\n    ]\n  },\n  \"nextToken\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/ListImageScanFindingAggregations?nextToken=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ListImageScanFindingAggregations"
+                  ],
+                  "query": [
+                    {
+                      "description": "Pagination token",
+                      "key": "nextToken",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:20:59.000Z",
+              "updatedAt": "2026-07-28T10:20:59.000Z",
+              "uid": "35240-a7944876-a173-437d-afc6-57ce3a33b1ea"
+            },
+            {
+              "id": "38595b4b-70d7-497a-ab8c-2bef0a7449f4",
+              "name": "ForbiddenException",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"filter\": {\n    \"name\": \"wixSlViofSnvPWvuuNgomHvhGxRafEkdpOrrXiRfsAXGpBHnxuPdEQQJARizAsPaLKuMFTDCzUXInxLiiDjzQiziLbjMyiBCRQfbWFyCKuKyHNzPTQzzqOntcbnVKKfbPtIFpBzwlWRHeLbkhByMwoytuyfWDFWsFrWxyNuDrNCpsgsoWBjJYNknugVoCIpDkeXtwGoYgXBTFZnqYWPdcQsUunOmhXJwbpVGOjwVNjvRToxKqRYIDIerYHEQAVRDxfTgTkwqQCncExOGKKgsKoiFBThsNWDRrWSkBkwyxGQPgWocmgxFxIhNwoxwhrSsoTVqMiZroQNzQTcWqN\",\n    \"values\": [\n      \"DYTmtnHTli:aVc4PcXORgr_WWH7S2DnjHi XsU1lGQw03UP7sBbGy9iCxOouOHHBCh0pVWgghGhy Q:_KjXIt8vKaEnm6JBOwi0i3icY2n4On8vS-xniQH_h5.up_llh0u0qOXJNt9nOQ UhNiz7 PJaQlPXEkWcroqCCnxDGCUU6T72LXQI5P0k4_sGmgEUh/ct3D4YSjDMDda8xmB0u92Vi-jUkm3DfOsxrA5QH3nV/8EC.H8oBw:-4cjlUT9vPZNKlDFXZU0rb:vhAYDxk/- CL:ncmes:C-H6UysCtJl-LHTpvoXldT.YYif_YE\"\n    ]\n  },\n  \"nextToken\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/ListImageScanFindingAggregations?nextToken=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ListImageScanFindingAggregations"
+                  ],
+                  "query": [
+                    {
+                      "description": "Pagination token",
+                      "key": "nextToken",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:20:59.000Z",
+              "updatedAt": "2026-07-28T10:20:59.000Z",
+              "uid": "35240-38595b4b-70d7-497a-ab8c-2bef0a7449f4"
+            },
+            {
+              "id": "d042b437-0ebb-48e0-b3ee-1578a371fbbf",
+              "name": "CallRateLimitExceededException",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"filter\": {\n    \"name\": \"wixSlViofSnvPWvuuNgomHvhGxRafEkdpOrrXiRfsAXGpBHnxuPdEQQJARizAsPaLKuMFTDCzUXInxLiiDjzQiziLbjMyiBCRQfbWFyCKuKyHNzPTQzzqOntcbnVKKfbPtIFpBzwlWRHeLbkhByMwoytuyfWDFWsFrWxyNuDrNCpsgsoWBjJYNknugVoCIpDkeXtwGoYgXBTFZnqYWPdcQsUunOmhXJwbpVGOjwVNjvRToxKqRYIDIerYHEQAVRDxfTgTkwqQCncExOGKKgsKoiFBThsNWDRrWSkBkwyxGQPgWocmgxFxIhNwoxwhrSsoTVqMiZroQNzQTcWqN\",\n    \"values\": [\n      \"DYTmtnHTli:aVc4PcXORgr_WWH7S2DnjHi XsU1lGQw03UP7sBbGy9iCxOouOHHBCh0pVWgghGhy Q:_KjXIt8vKaEnm6JBOwi0i3icY2n4On8vS-xniQH_h5.up_llh0u0qOXJNt9nOQ UhNiz7 PJaQlPXEkWcroqCCnxDGCUU6T72LXQI5P0k4_sGmgEUh/ct3D4YSjDMDda8xmB0u92Vi-jUkm3DfOsxrA5QH3nV/8EC.H8oBw:-4cjlUT9vPZNKlDFXZU0rb:vhAYDxk/- CL:ncmes:C-H6UysCtJl-LHTpvoXldT.YYif_YE\"\n    ]\n  },\n  \"nextToken\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/ListImageScanFindingAggregations?nextToken=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ListImageScanFindingAggregations"
+                  ],
+                  "query": [
+                    {
+                      "description": "Pagination token",
+                      "key": "nextToken",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:20:59.000Z",
+              "updatedAt": "2026-07-28T10:20:59.000Z",
+              "uid": "35240-d042b437-0ebb-48e0-b3ee-1578a371fbbf"
+            }
+          ],
+          "createdAt": "2026-07-28T10:20:59.000Z",
+          "updatedAt": "2026-07-28T10:20:59.000Z",
+          "uid": "35240-050ee8c1-05de-415e-8bab-5305aa8b5c69"
+        }
+      ],
+      "id": "5276bc5b-b02d-4502-83df-877663769b62",
+      "createdAt": "2026-07-28T10:20:59.000Z",
+      "updatedAt": "2026-07-28T10:20:59.000Z",
+      "uid": "35240-5276bc5b-b02d-4502-83df-877663769b62"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "us-east-1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "http://imagebuilder.{{region}}.amazonaws.com"
+    }
+  ]
+}

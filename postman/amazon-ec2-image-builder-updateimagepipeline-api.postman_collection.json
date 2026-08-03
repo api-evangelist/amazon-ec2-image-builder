@@ -1,0 +1,866 @@
+{
+  "info": {
+    "_postman_id": "a8a66836-38d8-46ae-9f49-ff3280a5073e",
+    "name": "EC2 Image Builder CancelImageCreation UpdateImagePipeline API",
+    "description": "EC2 Image Builder is a fully managed Amazon Web Services service that makes it easier to automate the creation, management, and deployment of customized, secure, and up-to-date \"golden\" server images that are pre-installed and pre-configured with software and settings to meet specific IT standards.\n\nContact Support:\n Name: Mike Ralphson\n Email: mike.ralphson@gmail.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T10:21:53.000Z",
+    "updatedAt": "2026-07-28T10:21:53.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-a8a66836-38d8-46ae-9f49-ff3280a5073e"
+  },
+  "item": [
+    {
+      "name": "UpdateImagePipeline",
+      "item": [
+        {
+          "name": "Amazon EC2 Image Builder Update Image Pipeline",
+          "id": "8f2fbf9d-f479-4ebd-9294-1b9f682518f1",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Amz-Content-Sha256",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Date",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Algorithm",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Credential",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Security-Token",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Signature",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-SignedHeaders",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"imagePipelineArn\": \"arn:aws<lJ:imagebuilder:sYA{m?vqR:aws:image-pipeline/c\",\n  \"infrastructureConfigurationArn\": \"arn:aws:imagebuilder:]WP@A@F0E:890714378635:infrastructure-configuration/if4m0xg\",\n  \"clientToken\": \"<string>\",\n  \"description\": \"<string>\",\n  \"imageRecipeArn\": \"arn:awsJ:imagebuilder:V}`_:955015243127:image-recipe/s8/6271479.9799.48639377849\",\n  \"containerRecipeArn\": \"arn:aws:imagebuilder:\\\"Qm:351801780304:container-recipe/je/0481815103.064614765.3\",\n  \"distributionConfigurationArn\": \"arn:aws?:imagebuilder:=N1:aws:distribution-configuration/q\",\n  \"imageTestsConfiguration\": {\n    \"imageTestsEnabled\": \"<boolean>\",\n    \"timeoutMinutes\": \"<integer>\"\n  },\n  \"enhancedImageMetadataEnabled\": \"<boolean>\",\n  \"schedule\": {\n    \"scheduleExpression\": \"<string>\",\n    \"timezone\": \"8OSaoDaw/^ENR1krZtk\",\n    \"pipelineExecutionStartCondition\": \"EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE\"\n  },\n  \"status\": \"DISABLED\",\n  \"imageScanningConfiguration\": {\n    \"imageScanningEnabled\": \"<boolean>\",\n    \"ecrConfiguration\": {\n      \"repositoryName\": \"<string>\",\n      \"containerTags\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/UpdateImagePipeline",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "UpdateImagePipeline"
+              ]
+            },
+            "description": "<p>Updates an image pipeline. Image pipelines enable you to automate the creation and distribution of images.</p> <note> <p>UpdateImagePipeline does not support selective updates for the pipeline. You must specify all of the required properties in the update request, not just the properties that have changed.</p> </note>"
+          },
+          "response": [
+            {
+              "id": "17730ad5-4f4a-48bc-87d1-d74f1995776a",
+              "name": "Success",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"imagePipelineArn\": \"arn:aws<lJ:imagebuilder:sYA{m?vqR:aws:image-pipeline/c\",\n  \"infrastructureConfigurationArn\": \"arn:aws:imagebuilder:]WP@A@F0E:890714378635:infrastructure-configuration/if4m0xg\",\n  \"clientToken\": \"<string>\",\n  \"description\": \"<string>\",\n  \"imageRecipeArn\": \"arn:awsJ:imagebuilder:V}`_:955015243127:image-recipe/s8/6271479.9799.48639377849\",\n  \"containerRecipeArn\": \"arn:aws:imagebuilder:\\\"Qm:351801780304:container-recipe/je/0481815103.064614765.3\",\n  \"distributionConfigurationArn\": \"arn:aws?:imagebuilder:=N1:aws:distribution-configuration/q\",\n  \"imageTestsConfiguration\": {\n    \"imageTestsEnabled\": \"<boolean>\",\n    \"timeoutMinutes\": \"<integer>\"\n  },\n  \"enhancedImageMetadataEnabled\": \"<boolean>\",\n  \"schedule\": {\n    \"scheduleExpression\": \"<string>\",\n    \"timezone\": \"8OSaoDaw/^ENR1krZtk\",\n    \"pipelineExecutionStartCondition\": \"EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE\"\n  },\n  \"status\": \"DISABLED\",\n  \"imageScanningConfiguration\": {\n    \"imageScanningEnabled\": \"<boolean>\",\n    \"ecrConfiguration\": {\n      \"repositoryName\": \"<string>\",\n      \"containerTags\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/UpdateImagePipeline",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "UpdateImagePipeline"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"requestId\": \"<string>\",\n  \"clientToken\": \"<string>\",\n  \"imagePipelineArn\": \"arn:awsD#9eZ|vU:imagebuilder:tRL:433200862316:image-pipeline/jqhgb\"\n}",
+              "createdAt": "2026-07-28T10:21:54.000Z",
+              "updatedAt": "2026-07-28T10:21:54.000Z",
+              "uid": "35240-17730ad5-4f4a-48bc-87d1-d74f1995776a"
+            },
+            {
+              "id": "f81fb89b-c536-4e47-84cb-4a93dadceacc",
+              "name": "ServiceException",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"imagePipelineArn\": \"arn:aws<lJ:imagebuilder:sYA{m?vqR:aws:image-pipeline/c\",\n  \"infrastructureConfigurationArn\": \"arn:aws:imagebuilder:]WP@A@F0E:890714378635:infrastructure-configuration/if4m0xg\",\n  \"clientToken\": \"<string>\",\n  \"description\": \"<string>\",\n  \"imageRecipeArn\": \"arn:awsJ:imagebuilder:V}`_:955015243127:image-recipe/s8/6271479.9799.48639377849\",\n  \"containerRecipeArn\": \"arn:aws:imagebuilder:\\\"Qm:351801780304:container-recipe/je/0481815103.064614765.3\",\n  \"distributionConfigurationArn\": \"arn:aws?:imagebuilder:=N1:aws:distribution-configuration/q\",\n  \"imageTestsConfiguration\": {\n    \"imageTestsEnabled\": \"<boolean>\",\n    \"timeoutMinutes\": \"<integer>\"\n  },\n  \"enhancedImageMetadataEnabled\": \"<boolean>\",\n  \"schedule\": {\n    \"scheduleExpression\": \"<string>\",\n    \"timezone\": \"8OSaoDaw/^ENR1krZtk\",\n    \"pipelineExecutionStartCondition\": \"EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE\"\n  },\n  \"status\": \"DISABLED\",\n  \"imageScanningConfiguration\": {\n    \"imageScanningEnabled\": \"<boolean>\",\n    \"ecrConfiguration\": {\n      \"repositoryName\": \"<string>\",\n      \"containerTags\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/UpdateImagePipeline",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "UpdateImagePipeline"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:21:54.000Z",
+              "updatedAt": "2026-07-28T10:21:54.000Z",
+              "uid": "35240-f81fb89b-c536-4e47-84cb-4a93dadceacc"
+            },
+            {
+              "id": "150651f2-15d7-4225-b8d0-5f23da33eef0",
+              "name": "ClientException",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"imagePipelineArn\": \"arn:aws<lJ:imagebuilder:sYA{m?vqR:aws:image-pipeline/c\",\n  \"infrastructureConfigurationArn\": \"arn:aws:imagebuilder:]WP@A@F0E:890714378635:infrastructure-configuration/if4m0xg\",\n  \"clientToken\": \"<string>\",\n  \"description\": \"<string>\",\n  \"imageRecipeArn\": \"arn:awsJ:imagebuilder:V}`_:955015243127:image-recipe/s8/6271479.9799.48639377849\",\n  \"containerRecipeArn\": \"arn:aws:imagebuilder:\\\"Qm:351801780304:container-recipe/je/0481815103.064614765.3\",\n  \"distributionConfigurationArn\": \"arn:aws?:imagebuilder:=N1:aws:distribution-configuration/q\",\n  \"imageTestsConfiguration\": {\n    \"imageTestsEnabled\": \"<boolean>\",\n    \"timeoutMinutes\": \"<integer>\"\n  },\n  \"enhancedImageMetadataEnabled\": \"<boolean>\",\n  \"schedule\": {\n    \"scheduleExpression\": \"<string>\",\n    \"timezone\": \"8OSaoDaw/^ENR1krZtk\",\n    \"pipelineExecutionStartCondition\": \"EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE\"\n  },\n  \"status\": \"DISABLED\",\n  \"imageScanningConfiguration\": {\n    \"imageScanningEnabled\": \"<boolean>\",\n    \"ecrConfiguration\": {\n      \"repositoryName\": \"<string>\",\n      \"containerTags\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/UpdateImagePipeline",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "UpdateImagePipeline"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:21:54.000Z",
+              "updatedAt": "2026-07-28T10:21:54.000Z",
+              "uid": "35240-150651f2-15d7-4225-b8d0-5f23da33eef0"
+            },
+            {
+              "id": "eedfc3d9-2876-4fb7-b45f-e71b8632aa11",
+              "name": "ServiceUnavailableException",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"imagePipelineArn\": \"arn:aws<lJ:imagebuilder:sYA{m?vqR:aws:image-pipeline/c\",\n  \"infrastructureConfigurationArn\": \"arn:aws:imagebuilder:]WP@A@F0E:890714378635:infrastructure-configuration/if4m0xg\",\n  \"clientToken\": \"<string>\",\n  \"description\": \"<string>\",\n  \"imageRecipeArn\": \"arn:awsJ:imagebuilder:V}`_:955015243127:image-recipe/s8/6271479.9799.48639377849\",\n  \"containerRecipeArn\": \"arn:aws:imagebuilder:\\\"Qm:351801780304:container-recipe/je/0481815103.064614765.3\",\n  \"distributionConfigurationArn\": \"arn:aws?:imagebuilder:=N1:aws:distribution-configuration/q\",\n  \"imageTestsConfiguration\": {\n    \"imageTestsEnabled\": \"<boolean>\",\n    \"timeoutMinutes\": \"<integer>\"\n  },\n  \"enhancedImageMetadataEnabled\": \"<boolean>\",\n  \"schedule\": {\n    \"scheduleExpression\": \"<string>\",\n    \"timezone\": \"8OSaoDaw/^ENR1krZtk\",\n    \"pipelineExecutionStartCondition\": \"EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE\"\n  },\n  \"status\": \"DISABLED\",\n  \"imageScanningConfiguration\": {\n    \"imageScanningEnabled\": \"<boolean>\",\n    \"ecrConfiguration\": {\n      \"repositoryName\": \"<string>\",\n      \"containerTags\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/UpdateImagePipeline",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "UpdateImagePipeline"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:21:54.000Z",
+              "updatedAt": "2026-07-28T10:21:54.000Z",
+              "uid": "35240-eedfc3d9-2876-4fb7-b45f-e71b8632aa11"
+            },
+            {
+              "id": "9cb7a3db-4fa5-4004-bdc3-bc53bf9162d2",
+              "name": "InvalidRequestException",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"imagePipelineArn\": \"arn:aws<lJ:imagebuilder:sYA{m?vqR:aws:image-pipeline/c\",\n  \"infrastructureConfigurationArn\": \"arn:aws:imagebuilder:]WP@A@F0E:890714378635:infrastructure-configuration/if4m0xg\",\n  \"clientToken\": \"<string>\",\n  \"description\": \"<string>\",\n  \"imageRecipeArn\": \"arn:awsJ:imagebuilder:V}`_:955015243127:image-recipe/s8/6271479.9799.48639377849\",\n  \"containerRecipeArn\": \"arn:aws:imagebuilder:\\\"Qm:351801780304:container-recipe/je/0481815103.064614765.3\",\n  \"distributionConfigurationArn\": \"arn:aws?:imagebuilder:=N1:aws:distribution-configuration/q\",\n  \"imageTestsConfiguration\": {\n    \"imageTestsEnabled\": \"<boolean>\",\n    \"timeoutMinutes\": \"<integer>\"\n  },\n  \"enhancedImageMetadataEnabled\": \"<boolean>\",\n  \"schedule\": {\n    \"scheduleExpression\": \"<string>\",\n    \"timezone\": \"8OSaoDaw/^ENR1krZtk\",\n    \"pipelineExecutionStartCondition\": \"EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE\"\n  },\n  \"status\": \"DISABLED\",\n  \"imageScanningConfiguration\": {\n    \"imageScanningEnabled\": \"<boolean>\",\n    \"ecrConfiguration\": {\n      \"repositoryName\": \"<string>\",\n      \"containerTags\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/UpdateImagePipeline",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "UpdateImagePipeline"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:21:54.000Z",
+              "updatedAt": "2026-07-28T10:21:54.000Z",
+              "uid": "35240-9cb7a3db-4fa5-4004-bdc3-bc53bf9162d2"
+            },
+            {
+              "id": "91b907d9-413a-400c-b616-c7a6f0500aa6",
+              "name": "IdempotentParameterMismatchException",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"imagePipelineArn\": \"arn:aws<lJ:imagebuilder:sYA{m?vqR:aws:image-pipeline/c\",\n  \"infrastructureConfigurationArn\": \"arn:aws:imagebuilder:]WP@A@F0E:890714378635:infrastructure-configuration/if4m0xg\",\n  \"clientToken\": \"<string>\",\n  \"description\": \"<string>\",\n  \"imageRecipeArn\": \"arn:awsJ:imagebuilder:V}`_:955015243127:image-recipe/s8/6271479.9799.48639377849\",\n  \"containerRecipeArn\": \"arn:aws:imagebuilder:\\\"Qm:351801780304:container-recipe/je/0481815103.064614765.3\",\n  \"distributionConfigurationArn\": \"arn:aws?:imagebuilder:=N1:aws:distribution-configuration/q\",\n  \"imageTestsConfiguration\": {\n    \"imageTestsEnabled\": \"<boolean>\",\n    \"timeoutMinutes\": \"<integer>\"\n  },\n  \"enhancedImageMetadataEnabled\": \"<boolean>\",\n  \"schedule\": {\n    \"scheduleExpression\": \"<string>\",\n    \"timezone\": \"8OSaoDaw/^ENR1krZtk\",\n    \"pipelineExecutionStartCondition\": \"EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE\"\n  },\n  \"status\": \"DISABLED\",\n  \"imageScanningConfiguration\": {\n    \"imageScanningEnabled\": \"<boolean>\",\n    \"ecrConfiguration\": {\n      \"repositoryName\": \"<string>\",\n      \"containerTags\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/UpdateImagePipeline",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "UpdateImagePipeline"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:21:54.000Z",
+              "updatedAt": "2026-07-28T10:21:54.000Z",
+              "uid": "35240-91b907d9-413a-400c-b616-c7a6f0500aa6"
+            },
+            {
+              "id": "b7db5df9-76fd-4ee4-acc6-aa8a554210bd",
+              "name": "ForbiddenException",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"imagePipelineArn\": \"arn:aws<lJ:imagebuilder:sYA{m?vqR:aws:image-pipeline/c\",\n  \"infrastructureConfigurationArn\": \"arn:aws:imagebuilder:]WP@A@F0E:890714378635:infrastructure-configuration/if4m0xg\",\n  \"clientToken\": \"<string>\",\n  \"description\": \"<string>\",\n  \"imageRecipeArn\": \"arn:awsJ:imagebuilder:V}`_:955015243127:image-recipe/s8/6271479.9799.48639377849\",\n  \"containerRecipeArn\": \"arn:aws:imagebuilder:\\\"Qm:351801780304:container-recipe/je/0481815103.064614765.3\",\n  \"distributionConfigurationArn\": \"arn:aws?:imagebuilder:=N1:aws:distribution-configuration/q\",\n  \"imageTestsConfiguration\": {\n    \"imageTestsEnabled\": \"<boolean>\",\n    \"timeoutMinutes\": \"<integer>\"\n  },\n  \"enhancedImageMetadataEnabled\": \"<boolean>\",\n  \"schedule\": {\n    \"scheduleExpression\": \"<string>\",\n    \"timezone\": \"8OSaoDaw/^ENR1krZtk\",\n    \"pipelineExecutionStartCondition\": \"EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE\"\n  },\n  \"status\": \"DISABLED\",\n  \"imageScanningConfiguration\": {\n    \"imageScanningEnabled\": \"<boolean>\",\n    \"ecrConfiguration\": {\n      \"repositoryName\": \"<string>\",\n      \"containerTags\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/UpdateImagePipeline",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "UpdateImagePipeline"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:21:54.000Z",
+              "updatedAt": "2026-07-28T10:21:54.000Z",
+              "uid": "35240-b7db5df9-76fd-4ee4-acc6-aa8a554210bd"
+            },
+            {
+              "id": "aaca97d1-f449-49da-8f3c-4917236b0b15",
+              "name": "CallRateLimitExceededException",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"imagePipelineArn\": \"arn:aws<lJ:imagebuilder:sYA{m?vqR:aws:image-pipeline/c\",\n  \"infrastructureConfigurationArn\": \"arn:aws:imagebuilder:]WP@A@F0E:890714378635:infrastructure-configuration/if4m0xg\",\n  \"clientToken\": \"<string>\",\n  \"description\": \"<string>\",\n  \"imageRecipeArn\": \"arn:awsJ:imagebuilder:V}`_:955015243127:image-recipe/s8/6271479.9799.48639377849\",\n  \"containerRecipeArn\": \"arn:aws:imagebuilder:\\\"Qm:351801780304:container-recipe/je/0481815103.064614765.3\",\n  \"distributionConfigurationArn\": \"arn:aws?:imagebuilder:=N1:aws:distribution-configuration/q\",\n  \"imageTestsConfiguration\": {\n    \"imageTestsEnabled\": \"<boolean>\",\n    \"timeoutMinutes\": \"<integer>\"\n  },\n  \"enhancedImageMetadataEnabled\": \"<boolean>\",\n  \"schedule\": {\n    \"scheduleExpression\": \"<string>\",\n    \"timezone\": \"8OSaoDaw/^ENR1krZtk\",\n    \"pipelineExecutionStartCondition\": \"EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE\"\n  },\n  \"status\": \"DISABLED\",\n  \"imageScanningConfiguration\": {\n    \"imageScanningEnabled\": \"<boolean>\",\n    \"ecrConfiguration\": {\n      \"repositoryName\": \"<string>\",\n      \"containerTags\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/UpdateImagePipeline",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "UpdateImagePipeline"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:21:54.000Z",
+              "updatedAt": "2026-07-28T10:21:54.000Z",
+              "uid": "35240-aaca97d1-f449-49da-8f3c-4917236b0b15"
+            },
+            {
+              "id": "39a87d2d-7992-4abe-b6fa-552a4fdd11b0",
+              "name": "ResourceInUseException",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"imagePipelineArn\": \"arn:aws<lJ:imagebuilder:sYA{m?vqR:aws:image-pipeline/c\",\n  \"infrastructureConfigurationArn\": \"arn:aws:imagebuilder:]WP@A@F0E:890714378635:infrastructure-configuration/if4m0xg\",\n  \"clientToken\": \"<string>\",\n  \"description\": \"<string>\",\n  \"imageRecipeArn\": \"arn:awsJ:imagebuilder:V}`_:955015243127:image-recipe/s8/6271479.9799.48639377849\",\n  \"containerRecipeArn\": \"arn:aws:imagebuilder:\\\"Qm:351801780304:container-recipe/je/0481815103.064614765.3\",\n  \"distributionConfigurationArn\": \"arn:aws?:imagebuilder:=N1:aws:distribution-configuration/q\",\n  \"imageTestsConfiguration\": {\n    \"imageTestsEnabled\": \"<boolean>\",\n    \"timeoutMinutes\": \"<integer>\"\n  },\n  \"enhancedImageMetadataEnabled\": \"<boolean>\",\n  \"schedule\": {\n    \"scheduleExpression\": \"<string>\",\n    \"timezone\": \"8OSaoDaw/^ENR1krZtk\",\n    \"pipelineExecutionStartCondition\": \"EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE\"\n  },\n  \"status\": \"DISABLED\",\n  \"imageScanningConfiguration\": {\n    \"imageScanningEnabled\": \"<boolean>\",\n    \"ecrConfiguration\": {\n      \"repositoryName\": \"<string>\",\n      \"containerTags\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/UpdateImagePipeline",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "UpdateImagePipeline"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:21:54.000Z",
+              "updatedAt": "2026-07-28T10:21:54.000Z",
+              "uid": "35240-39a87d2d-7992-4abe-b6fa-552a4fdd11b0"
+            }
+          ],
+          "createdAt": "2026-07-28T10:21:54.000Z",
+          "updatedAt": "2026-07-28T10:21:54.000Z",
+          "uid": "35240-8f2fbf9d-f479-4ebd-9294-1b9f682518f1"
+        }
+      ],
+      "id": "cdf7c545-7eb2-4030-947e-c62de570eb06",
+      "createdAt": "2026-07-28T10:21:54.000Z",
+      "updatedAt": "2026-07-28T10:21:54.000Z",
+      "uid": "35240-cdf7c545-7eb2-4030-947e-c62de570eb06"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "us-east-1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "http://imagebuilder.{{region}}.amazonaws.com"
+    }
+  ]
+}

@@ -1,0 +1,654 @@
+{
+  "info": {
+    "_postman_id": "668c61f3-4ada-4afc-83fb-497140031adf",
+    "name": "EC2 Image Builder CancelImageCreation GetDistributionConfiguration#distributionConfigurationArn API",
+    "description": "EC2 Image Builder is a fully managed Amazon Web Services service that makes it easier to automate the creation, management, and deployment of customized, secure, and up-to-date \"golden\" server images that are pre-installed and pre-configured with software and settings to meet specific IT standards.\n\nContact Support:\n Name: Mike Ralphson\n Email: mike.ralphson@gmail.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T10:20:32.000Z",
+    "updatedAt": "2026-07-28T10:20:33.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-668c61f3-4ada-4afc-83fb-497140031adf"
+  },
+  "item": [
+    {
+      "name": "GetDistributionConfiguration#distributionConfigurationArn",
+      "item": [
+        {
+          "name": "Amazon EC2 Image Builder Get Distribution Configuration",
+          "id": "1cefba7c-a19e-4612-b4d5-c68b57a16ea5",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Amz-Content-Sha256",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Date",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Algorithm",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Credential",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Security-Token",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Signature",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-SignedHeaders",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/GetDistributionConfiguration?distributionConfigurationArn=arn:aws=={U6,h\\:imagebuilder:N5=ZX~J;:480288754103:distribution-configuration/hhfv9d2wh#distributionConfigurationArn",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "GetDistributionConfiguration"
+              ],
+              "query": [
+                {
+                  "description": "(Required) The Amazon Resource Name (ARN) of the distribution configuration that you want to retrieve.",
+                  "key": "distributionConfigurationArn",
+                  "value": "arn:aws=={U6,h\\:imagebuilder:N5=ZX~J;:480288754103:distribution-configuration/hhfv9d2wh"
+                }
+              ],
+              "hash": "distributionConfigurationArn"
+            },
+            "description": "Gets a distribution configuration."
+          },
+          "response": [
+            {
+              "id": "1d6ad2e5-6f63-4ef7-99ba-c025704abd36",
+              "name": "Success",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/GetDistributionConfiguration?distributionConfigurationArn=arn:aws=={U6,h\\:imagebuilder:N5=ZX~J;:480288754103:distribution-configuration/hhfv9d2wh#distributionConfigurationArn",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "GetDistributionConfiguration"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The Amazon Resource Name (ARN) of the distribution configuration that you want to retrieve.",
+                      "key": "distributionConfigurationArn",
+                      "value": "arn:aws=={U6,h\\:imagebuilder:N5=ZX~J;:480288754103:distribution-configuration/hhfv9d2wh"
+                    }
+                  ],
+                  "hash": "distributionConfigurationArn"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"requestId\": \"<string>\",\n  \"distributionConfiguration\": {\n    \"timeoutMinutes\": \"<integer>\",\n    \"arn\": \"arn:awsw|@:imagebuilder:+:aws:image-recipe/mczqqv/x.x.x\",\n    \"name\": \"1nyf06yYRXJc1vLkNEKA PV6JbnQSf1mVi0pXUT8Yd jppJ jRMQBP626xNgkhX\",\n    \"description\": \"<string>\",\n    \"distributions\": [\n      {\n        \"region\": \"<string>\",\n        \"amiDistributionConfiguration\": {\n          \"name\": \"8J1xMkrBI9\",\n          \"description\": \"<string>\",\n          \"targetAccountIds\": [\n            \"608266107241\"\n          ],\n          \"amiTags\": {\n            \"eiusmod81_\": \"<string>\",\n            \"in397\": \"<string>\",\n            \"officia_213\": \"<string>\",\n            \"est19\": \"<string>\",\n            \"commodo0\": \"<string>\",\n            \"eu8\": \"<string>\",\n            \"cupidatat8\": \"<string>\",\n            \"ad20c\": \"<string>\",\n            \"ina56\": \"<string>\",\n            \"nisi_6\": \"<string>\",\n            \"nulla64a\": \"<string>\",\n            \"nulla5eb\": \"<string>\",\n            \"deserunt_1\": \"<string>\",\n            \"culpa_5f\": \"<string>\",\n            \"non64_\": \"<string>\",\n            \"mollit_ec\": \"<string>\",\n            \"dolore1d\": \"<string>\",\n            \"Duis9\": \"<string>\",\n            \"sint_679\": \"<string>\",\n            \"quicc1\": \"<string>\",\n            \"velit3\": \"<string>\",\n            \"cupidatat_64\": \"<string>\",\n            \"magna_15\": \"<string>\",\n            \"enim_f1\": \"<string>\",\n            \"aliquip_ed_\": \"<string>\",\n            \"ex_\": \"<string>\",\n            \"ea_45a\": \"<string>\",\n            \"ut_a6\": \"<string>\"\n          },\n          \"kmsKeyId\": \"<string>\",\n          \"launchPermission\": {\n            \"userIds\": [\n              \"453301139351\"\n            ],\n            \"userGroups\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"organizationArns\": [\n              \"arn:awsGrGL[e<R:organizations::847424372989:organization/o-k7mcvr6euj\"\n            ],\n            \"organizationalUnitArns\": [\n              \"arn:awsz:organizations::627601969211:ou/o-o0v76nnmu379pkyiymjxprzky/ou-575pv0-0f9cqcqn9dy0myeow6q9v45x7y\"\n            ]\n          }\n        },\n        \"containerDistributionConfiguration\": {\n          \"targetRepository\": {\n            \"service\": \"ECR\",\n            \"repositoryName\": \"<string>\"\n          },\n          \"description\": \"<string>\",\n          \"containerTags\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        \"licenseConfigurationArns\": [\n          \"arn:aws|mD5^&e%n:license-manager:oo*{Ko3A%L1:684342973612:license-configuration:lic-pei79h7wh-kedor8t0j-ky-rkegbrvp7\"\n        ],\n        \"launchTemplateConfigurations\": [\n          {\n            \"launchTemplateId\": \"lt-zrf-zi6_kyamny_mr\",\n            \"accountId\": \"027183343454\",\n            \"setDefaultVersion\": \"<boolean>\"\n          }\n        ],\n        \"s3ExportConfiguration\": {\n          \"roleName\": \"<string>\",\n          \"diskImageFormat\": \"RAW\",\n          \"s3Bucket\": \"<string>\",\n          \"s3Prefix\": \"<string>\"\n        },\n        \"fastLaunchConfigurations\": [\n          {\n            \"enabled\": \"<boolean>\",\n            \"snapshotConfiguration\": {\n              \"targetResourceCount\": \"<integer>\"\n            },\n            \"maxParallelLaunches\": \"<integer>\",\n            \"launchTemplate\": {\n              \"launchTemplateId\": \"lt-2e1-0i14rf071dkb5\",\n              \"launchTemplateName\": \"<string>\",\n              \"launchTemplateVersion\": \"<string>\"\n            },\n            \"accountId\": \"790156385825\"\n          }\n        ]\n      },\n      {\n        \"region\": \"<string>\",\n        \"amiDistributionConfiguration\": {\n          \"name\": \"i\u2005\u2000tyG29\u200aDXt\",\n          \"description\": \"<string>\",\n          \"targetAccountIds\": [\n            \"189344580486\"\n          ],\n          \"amiTags\": {\n            \"dolor_f\": \"<string>\",\n            \"deserunt1f\": \"<string>\",\n            \"inf\": \"<string>\",\n            \"ullamco_53\": \"<string>\",\n            \"aliquip0\": \"<string>\",\n            \"fugiat_c\": \"<string>\",\n            \"dolor_c\": \"<string>\",\n            \"laborisc5\": \"<string>\",\n            \"ipsum4\": \"<string>\",\n            \"animd4b\": \"<string>\",\n            \"irure_81\": \"<string>\",\n            \"sunt09\": \"<string>\",\n            \"aliquipfeb\": \"<string>\",\n            \"commodo_ea\": \"<string>\",\n            \"Uta04\": \"<string>\",\n            \"et__\": \"<string>\",\n            \"Excepteur_99e\": \"<string>\",\n            \"in__9\": \"<string>\",\n            \"magna_877\": \"<string>\",\n            \"est_2\": \"<string>\",\n            \"est65\": \"<string>\",\n            \"estd7\": \"<string>\",\n            \"laboris_e_\": \"<string>\",\n            \"in_3a\": \"<string>\",\n            \"Loremd8\": \"<string>\",\n            \"Lorem_6\": \"<string>\",\n            \"ipsum_e6e\": \"<string>\",\n            \"pariaturd0\": \"<string>\"\n          },\n          \"kmsKeyId\": \"<string>\",\n          \"launchPermission\": {\n            \"userIds\": [\n              \"581220145284\"\n            ],\n            \"userGroups\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"organizationArns\": [\n              \"arn:aws^v4uWy:organizations::014488904891:organization/o-fisl79y6i168vsmm5xpur\"\n            ],\n            \"organizationalUnitArns\": [\n              \"arn:awsbYC[l@:organizations::189169833390:ou/o-74b2tjbl5jlv3zt87bwvkpq15x/ou-h8ztauxp6-b0vsyixa942n89f5wz866dz\"\n            ]\n          }\n        },\n        \"containerDistributionConfiguration\": {\n          \"targetRepository\": {\n            \"service\": \"ECR\",\n            \"repositoryName\": \"<string>\"\n          },\n          \"description\": \"<string>\",\n          \"containerTags\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        \"licenseConfigurationArns\": [\n          \"arn:awsBE0\\\\HT\\\"~-x:license-manager:N;;+Nx:028875061164:license-configuration:lic-auey0u72ohr3eope4kroz8by-jkvrfx6\"\n        ],\n        \"launchTemplateConfigurations\": [\n          {\n            \"launchTemplateId\": \"lt-acys8yd3zyk-b7e47\",\n            \"accountId\": \"874307923610\",\n            \"setDefaultVersion\": \"<boolean>\"\n          }\n        ],\n        \"s3ExportConfiguration\": {\n          \"roleName\": \"<string>\",\n          \"diskImageFormat\": \"RAW\",\n          \"s3Bucket\": \"<string>\",\n          \"s3Prefix\": \"<string>\"\n        },\n        \"fastLaunchConfigurations\": [\n          {\n            \"enabled\": \"<boolean>\",\n            \"snapshotConfiguration\": {\n              \"targetResourceCount\": \"<integer>\"\n            },\n            \"maxParallelLaunches\": \"<integer>\",\n            \"launchTemplate\": {\n              \"launchTemplateId\": \"lt-xgbow0_98ensgw4r7\",\n              \"launchTemplateName\": \"<string>\",\n              \"launchTemplateVersion\": \"<string>\"\n            },\n            \"accountId\": \"231907309574\"\n          }\n        ]\n      }\n    ],\n    \"dateCreated\": \"<string>\",\n    \"dateUpdated\": \"<string>\",\n    \"tags\": {\n      \"elit68d\": \"<string>\",\n      \"in_c_\": \"<string>\",\n      \"sunt3\": \"<string>\",\n      \"minim_18b\": \"<string>\",\n      \"irure767\": \"<string>\",\n      \"non_44_\": \"<string>\",\n      \"in2\": \"<string>\",\n      \"laboris_59\": \"<string>\",\n      \"elit0\": \"<string>\",\n      \"inc\": \"<string>\",\n      \"est_6d5\": \"<string>\",\n      \"voluptate_72\": \"<string>\",\n      \"commodoc96\": \"<string>\",\n      \"nisi41c\": \"<string>\",\n      \"eu_c7_\": \"<string>\",\n      \"utf\": \"<string>\",\n      \"magna_1\": \"<string>\",\n      \"ut_25\": \"<string>\",\n      \"in32\": \"<string>\",\n      \"officia__\": \"<string>\",\n      \"in639\": \"<string>\",\n      \"tempor_9\": \"<string>\",\n      \"enim_a1\": \"<string>\",\n      \"exercitationf\": \"<string>\",\n      \"Excepteur75\": \"<string>\",\n      \"proidenta2\": \"<string>\",\n      \"aliquipe3d\": \"<string>\",\n      \"dolor52e\": \"<string>\",\n      \"cillum_cd4\": \"<string>\",\n      \"sed_18b\": \"<string>\",\n      \"ea__\": \"<string>\",\n      \"culpa_a1\": \"<string>\",\n      \"nisi_8\": \"<string>\",\n      \"nulla_59\": \"<string>\",\n      \"eu_222\": \"<string>\",\n      \"proident59\": \"<string>\",\n      \"sint209\": \"<string>\",\n      \"cupidatat_29\": \"<string>\",\n      \"exercitation_5_\": \"<string>\",\n      \"do_b\": \"<string>\"\n    }\n  }\n}",
+              "createdAt": "2026-07-28T10:20:33.000Z",
+              "updatedAt": "2026-07-28T10:20:33.000Z",
+              "uid": "35240-1d6ad2e5-6f63-4ef7-99ba-c025704abd36"
+            },
+            {
+              "id": "72a75063-ee9f-4a10-a229-b4db2eaa6f6d",
+              "name": "ServiceException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/GetDistributionConfiguration?distributionConfigurationArn=arn:aws=={U6,h\\:imagebuilder:N5=ZX~J;:480288754103:distribution-configuration/hhfv9d2wh#distributionConfigurationArn",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "GetDistributionConfiguration"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The Amazon Resource Name (ARN) of the distribution configuration that you want to retrieve.",
+                      "key": "distributionConfigurationArn",
+                      "value": "arn:aws=={U6,h\\:imagebuilder:N5=ZX~J;:480288754103:distribution-configuration/hhfv9d2wh"
+                    }
+                  ],
+                  "hash": "distributionConfigurationArn"
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:20:33.000Z",
+              "updatedAt": "2026-07-28T10:20:33.000Z",
+              "uid": "35240-72a75063-ee9f-4a10-a229-b4db2eaa6f6d"
+            },
+            {
+              "id": "466b609e-3c52-41f7-a757-9a7b01b891a7",
+              "name": "ClientException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/GetDistributionConfiguration?distributionConfigurationArn=arn:aws=={U6,h\\:imagebuilder:N5=ZX~J;:480288754103:distribution-configuration/hhfv9d2wh#distributionConfigurationArn",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "GetDistributionConfiguration"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The Amazon Resource Name (ARN) of the distribution configuration that you want to retrieve.",
+                      "key": "distributionConfigurationArn",
+                      "value": "arn:aws=={U6,h\\:imagebuilder:N5=ZX~J;:480288754103:distribution-configuration/hhfv9d2wh"
+                    }
+                  ],
+                  "hash": "distributionConfigurationArn"
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:20:33.000Z",
+              "updatedAt": "2026-07-28T10:20:33.000Z",
+              "uid": "35240-466b609e-3c52-41f7-a757-9a7b01b891a7"
+            },
+            {
+              "id": "d01b4de9-1955-4a55-b3b3-56d0115e4c45",
+              "name": "ServiceUnavailableException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/GetDistributionConfiguration?distributionConfigurationArn=arn:aws=={U6,h\\:imagebuilder:N5=ZX~J;:480288754103:distribution-configuration/hhfv9d2wh#distributionConfigurationArn",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "GetDistributionConfiguration"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The Amazon Resource Name (ARN) of the distribution configuration that you want to retrieve.",
+                      "key": "distributionConfigurationArn",
+                      "value": "arn:aws=={U6,h\\:imagebuilder:N5=ZX~J;:480288754103:distribution-configuration/hhfv9d2wh"
+                    }
+                  ],
+                  "hash": "distributionConfigurationArn"
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:20:33.000Z",
+              "updatedAt": "2026-07-28T10:20:33.000Z",
+              "uid": "35240-d01b4de9-1955-4a55-b3b3-56d0115e4c45"
+            },
+            {
+              "id": "29d4ed79-e926-4a6f-a57e-a626ae6e3929",
+              "name": "InvalidRequestException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/GetDistributionConfiguration?distributionConfigurationArn=arn:aws=={U6,h\\:imagebuilder:N5=ZX~J;:480288754103:distribution-configuration/hhfv9d2wh#distributionConfigurationArn",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "GetDistributionConfiguration"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The Amazon Resource Name (ARN) of the distribution configuration that you want to retrieve.",
+                      "key": "distributionConfigurationArn",
+                      "value": "arn:aws=={U6,h\\:imagebuilder:N5=ZX~J;:480288754103:distribution-configuration/hhfv9d2wh"
+                    }
+                  ],
+                  "hash": "distributionConfigurationArn"
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:20:33.000Z",
+              "updatedAt": "2026-07-28T10:20:33.000Z",
+              "uid": "35240-29d4ed79-e926-4a6f-a57e-a626ae6e3929"
+            },
+            {
+              "id": "de49391d-0729-4c91-9b62-62673248a893",
+              "name": "ForbiddenException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/GetDistributionConfiguration?distributionConfigurationArn=arn:aws=={U6,h\\:imagebuilder:N5=ZX~J;:480288754103:distribution-configuration/hhfv9d2wh#distributionConfigurationArn",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "GetDistributionConfiguration"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The Amazon Resource Name (ARN) of the distribution configuration that you want to retrieve.",
+                      "key": "distributionConfigurationArn",
+                      "value": "arn:aws=={U6,h\\:imagebuilder:N5=ZX~J;:480288754103:distribution-configuration/hhfv9d2wh"
+                    }
+                  ],
+                  "hash": "distributionConfigurationArn"
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:20:33.000Z",
+              "updatedAt": "2026-07-28T10:20:33.000Z",
+              "uid": "35240-de49391d-0729-4c91-9b62-62673248a893"
+            },
+            {
+              "id": "8f339af9-bad3-49c6-a204-1e3cea99e849",
+              "name": "CallRateLimitExceededException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/GetDistributionConfiguration?distributionConfigurationArn=arn:aws=={U6,h\\:imagebuilder:N5=ZX~J;:480288754103:distribution-configuration/hhfv9d2wh#distributionConfigurationArn",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "GetDistributionConfiguration"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The Amazon Resource Name (ARN) of the distribution configuration that you want to retrieve.",
+                      "key": "distributionConfigurationArn",
+                      "value": "arn:aws=={U6,h\\:imagebuilder:N5=ZX~J;:480288754103:distribution-configuration/hhfv9d2wh"
+                    }
+                  ],
+                  "hash": "distributionConfigurationArn"
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:20:33.000Z",
+              "updatedAt": "2026-07-28T10:20:33.000Z",
+              "uid": "35240-8f339af9-bad3-49c6-a204-1e3cea99e849"
+            }
+          ],
+          "createdAt": "2026-07-28T10:20:33.000Z",
+          "updatedAt": "2026-07-28T10:20:33.000Z",
+          "uid": "35240-1cefba7c-a19e-4612-b4d5-c68b57a16ea5"
+        }
+      ],
+      "id": "0be2e936-ca6c-4a99-8321-f23cc0b9dc27",
+      "createdAt": "2026-07-28T10:20:33.000Z",
+      "updatedAt": "2026-07-28T10:20:33.000Z",
+      "uid": "35240-0be2e936-ca6c-4a99-8321-f23cc0b9dc27"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "us-east-1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "http://imagebuilder.{{region}}.amazonaws.com"
+    }
+  ]
+}
