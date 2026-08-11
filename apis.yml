@@ -64,8 +64,6 @@ apis:
     url: json-structure/ec2-image-builder-account-aggregation-structure.json
   - type: Examples
     url: examples/ec2-image-builder-account-aggregation-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-image-builder.yaml
 - aid: amazon-ec2-image-builder:amazon-ec2-image-builder-createcomponent-api
   name: Amazon EC2 Image Builder CreateComponent API
   description: >-
@@ -102,8 +100,6 @@ apis:
     url: json-structure/ec2-image-builder-account-aggregation-structure.json
   - type: Examples
     url: examples/ec2-image-builder-account-aggregation-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-image-builder.yaml
 - aid: amazon-ec2-image-builder:amazon-ec2-image-builder-createcontainerrecipe-api
   name: Amazon EC2 Image Builder CreateContainerRecipe API
   description: >-
@@ -140,8 +136,6 @@ apis:
     url: json-structure/ec2-image-builder-account-aggregation-structure.json
   - type: Examples
     url: examples/ec2-image-builder-account-aggregation-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-image-builder.yaml
 - aid: amazon-ec2-image-builder:amazon-ec2-image-builder-createdistributionconfiguration-api
   name: Amazon EC2 Image Builder CreateDistributionConfiguration API
   description: >-
@@ -178,8 +172,6 @@ apis:
     url: json-structure/ec2-image-builder-account-aggregation-structure.json
   - type: Examples
     url: examples/ec2-image-builder-account-aggregation-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-image-builder.yaml
 - aid: amazon-ec2-image-builder:amazon-ec2-image-builder-createimage-api
   name: Amazon EC2 Image Builder CreateImage API
   description: The CreateImage API from Amazon EC2 Image Builder — 1 operation(s) for createimage.
@@ -215,8 +207,6 @@ apis:
     url: json-structure/ec2-image-builder-account-aggregation-structure.json
   - type: Examples
     url: examples/ec2-image-builder-account-aggregation-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-image-builder.yaml
 - aid: amazon-ec2-image-builder:amazon-ec2-image-builder-createimagepipeline-api
   name: Amazon EC2 Image Builder CreateImagePipeline API
   description: >-
@@ -253,8 +243,6 @@ apis:
     url: json-structure/ec2-image-builder-account-aggregation-structure.json
   - type: Examples
     url: examples/ec2-image-builder-account-aggregation-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-image-builder.yaml
 - aid: amazon-ec2-image-builder:amazon-ec2-image-builder-createimagerecipe-api
   name: Amazon EC2 Image Builder CreateImageRecipe API
   description: >-
@@ -291,8 +279,6 @@ apis:
     url: json-structure/ec2-image-builder-account-aggregation-structure.json
   - type: Examples
     url: examples/ec2-image-builder-account-aggregation-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-image-builder.yaml
 - aid: amazon-ec2-image-builder:amazon-ec2-image-builder-createinfrastructureconfiguration-api
   name: Amazon EC2 Image Builder CreateInfrastructureConfiguration API
   description: >-
@@ -329,8 +315,6 @@ apis:
     url: json-structure/ec2-image-builder-account-aggregation-structure.json
   - type: Examples
     url: examples/ec2-image-builder-account-aggregation-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-image-builder.yaml
 - aid: >-
     amazon-ec2-image-builder:amazon-ec2-image-builder-deletecomponent-componentbuildversionarn-api
   name: Amazon EC2 Image Builder DeleteComponent#componentBuildVersionArn API
@@ -370,8 +354,6 @@ apis:
     url: json-structure/ec2-image-builder-account-aggregation-structure.json
   - type: Examples
     url: examples/ec2-image-builder-account-aggregation-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-image-builder.yaml
 - aid: >-
     amazon-ec2-image-builder:amazon-ec2-image-builder-deletecontainerrecipe-containerrecipearn-api
   name: Amazon EC2 Image Builder DeleteContainerRecipe#containerRecipeArn API
@@ -411,8 +393,6 @@ apis:
     url: json-structure/ec2-image-builder-account-aggregation-structure.json
   - type: Examples
     url: examples/ec2-image-builder-account-aggregation-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-image-builder.yaml
 - aid: >-
     amazon-ec2-image-builder:amazon-ec2-image-builder-deletedistributionconfiguration-distributionconfigurationarn-api
   name: >-
@@ -453,8 +433,6 @@ apis:
     url: json-structure/ec2-image-builder-account-aggregation-structure.json
   - type: Examples
     url: examples/ec2-image-builder-account-aggregation-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-image-builder.yaml
 - aid: amazon-ec2-image-builder:amazon-ec2-image-builder-deleteimage-imagebuildversionarn-api
   name: Amazon EC2 Image Builder DeleteImage#imageBuildVersionArn API
   description: >-
@@ -491,8 +469,6 @@ apis:
     url: json-structure/ec2-image-builder-account-aggregation-structure.json
   - type: Examples
     url: examples/ec2-image-builder-account-aggregation-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-image-builder.yaml
 - aid: >-
     amazon-ec2-image-builder:amazon-ec2-image-builder-deleteimagepipeline-imagepipelinearn-api
   name: Amazon EC2 Image Builder DeleteImagePipeline#imagePipelineArn API
@@ -530,8 +506,6 @@ apis:
     url: json-structure/ec2-image-builder-account-aggregation-structure.json
   - type: Examples
     url: examples/ec2-image-builder-account-aggregation-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-image-builder.yaml
 - aid: amazon-ec2-image-builder:amazon-ec2-image-builder-deleteimagerecipe-imagerecipearn-api
   name: Amazon EC2 Image Builder DeleteImageRecipe#imageRecipeArn API
   description: >-
@@ -568,8 +542,6 @@ apis:
     url: json-structure/ec2-image-builder-account-aggregation-structure.json
   - type: Examples
     url: examples/ec2-image-builder-account-aggregation-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-image-builder.yaml
 - aid: >-
     amazon-ec2-image-builder:amazon-ec2-image-builder-deleteinfrastructureconfiguration-infrastructureconfigurationarn-api
   name: >-
@@ -610,8 +582,6 @@ apis:
     url: json-structure/ec2-image-builder-account-aggregation-structure.json
   - type: Examples
     url: examples/ec2-image-builder-account-aggregation-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-image-builder.yaml
 - aid: >-
     amazon-ec2-image-builder:amazon-ec2-image-builder-getcomponent-componentbuildversionarn-api
   name: Amazon EC2 Image Builder GetComponent#componentBuildVersionArn API
@@ -649,8 +619,6 @@ apis:
     url: json-structure/ec2-image-builder-account-aggregation-structure.json
   - type: Examples
     url: examples/ec2-image-builder-account-aggregation-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-image-builder.yaml
 - aid: amazon-ec2-image-builder:amazon-ec2-image-builder-getcomponentpolicy-componentarn-api
   name: Amazon EC2 Image Builder GetComponentPolicy#componentArn API
   description: >-
@@ -687,8 +655,6 @@ apis:
     url: json-structure/ec2-image-builder-account-aggregation-structure.json
   - type: Examples
     url: examples/ec2-image-builder-account-aggregation-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-image-builder.yaml
 - aid: >-
     amazon-ec2-image-builder:amazon-ec2-image-builder-getcontainerrecipe-containerrecipearn-api
   name: Amazon EC2 Image Builder GetContainerRecipe#containerRecipeArn API
@@ -726,8 +692,6 @@ apis:
     url: json-structure/ec2-image-builder-account-aggregation-structure.json
   - type: Examples
     url: examples/ec2-image-builder-account-aggregation-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-image-builder.yaml
 - aid: >-
     amazon-ec2-image-builder:amazon-ec2-image-builder-getcontainerrecipepolicy-containerrecipearn-api
   name: Amazon EC2 Image Builder GetContainerRecipePolicy#containerRecipeArn API
@@ -767,8 +731,6 @@ apis:
     url: json-structure/ec2-image-builder-account-aggregation-structure.json
   - type: Examples
     url: examples/ec2-image-builder-account-aggregation-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-image-builder.yaml
 - aid: >-
     amazon-ec2-image-builder:amazon-ec2-image-builder-getdistributionconfiguration-distributionconfigurationarn-api
   name: Amazon EC2 Image Builder GetDistributionConfiguration#distributionConfigurationArn API
@@ -808,8 +770,6 @@ apis:
     url: json-structure/ec2-image-builder-account-aggregation-structure.json
   - type: Examples
     url: examples/ec2-image-builder-account-aggregation-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-image-builder.yaml
 - aid: amazon-ec2-image-builder:amazon-ec2-image-builder-getimage-imagebuildversionarn-api
   name: Amazon EC2 Image Builder GetImage#imageBuildVersionArn API
   description: >-
@@ -846,8 +806,6 @@ apis:
     url: json-structure/ec2-image-builder-account-aggregation-structure.json
   - type: Examples
     url: examples/ec2-image-builder-account-aggregation-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-image-builder.yaml
 - aid: amazon-ec2-image-builder:amazon-ec2-image-builder-getimagepipeline-imagepipelinearn-api
   name: Amazon EC2 Image Builder GetImagePipeline#imagePipelineArn API
   description: >-
@@ -884,8 +842,6 @@ apis:
     url: json-structure/ec2-image-builder-account-aggregation-structure.json
   - type: Examples
     url: examples/ec2-image-builder-account-aggregation-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-image-builder.yaml
 - aid: amazon-ec2-image-builder:amazon-ec2-image-builder-getimagepolicy-imagearn-api
   name: Amazon EC2 Image Builder GetImagePolicy#imageArn API
   description: >-
@@ -922,8 +878,6 @@ apis:
     url: json-structure/ec2-image-builder-account-aggregation-structure.json
   - type: Examples
     url: examples/ec2-image-builder-account-aggregation-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-image-builder.yaml
 - aid: amazon-ec2-image-builder:amazon-ec2-image-builder-getimagerecipe-imagerecipearn-api
   name: Amazon EC2 Image Builder GetImageRecipe#imageRecipeArn API
   description: >-
@@ -960,8 +914,6 @@ apis:
     url: json-structure/ec2-image-builder-account-aggregation-structure.json
   - type: Examples
     url: examples/ec2-image-builder-account-aggregation-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-image-builder.yaml
 - aid: >-
     amazon-ec2-image-builder:amazon-ec2-image-builder-getimagerecipepolicy-imagerecipearn-api
   name: Amazon EC2 Image Builder GetImageRecipePolicy#imageRecipeArn API
@@ -999,8 +951,6 @@ apis:
     url: json-structure/ec2-image-builder-account-aggregation-structure.json
   - type: Examples
     url: examples/ec2-image-builder-account-aggregation-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-image-builder.yaml
 - aid: >-
     amazon-ec2-image-builder:amazon-ec2-image-builder-getinfrastructureconfiguration-infrastructureconfigurationarn-api
   name: >-
@@ -1041,8 +991,6 @@ apis:
     url: json-structure/ec2-image-builder-account-aggregation-structure.json
   - type: Examples
     url: examples/ec2-image-builder-account-aggregation-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-image-builder.yaml
 - aid: >-
     amazon-ec2-image-builder:amazon-ec2-image-builder-getworkflowexecution-workflowexecutionid-api
   name: Amazon EC2 Image Builder GetWorkflowExecution#workflowExecutionId API
@@ -1082,8 +1030,6 @@ apis:
     url: json-structure/ec2-image-builder-account-aggregation-structure.json
   - type: Examples
     url: examples/ec2-image-builder-account-aggregation-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-image-builder.yaml
 - aid: >-
     amazon-ec2-image-builder:amazon-ec2-image-builder-getworkflowstepexecution-stepexecutionid-api
   name: Amazon EC2 Image Builder GetWorkflowStepExecution#stepExecutionId API
@@ -1123,8 +1069,6 @@ apis:
     url: json-structure/ec2-image-builder-account-aggregation-structure.json
   - type: Examples
     url: examples/ec2-image-builder-account-aggregation-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-image-builder.yaml
 - aid: amazon-ec2-image-builder:amazon-ec2-image-builder-importcomponent-api
   name: Amazon EC2 Image Builder ImportComponent API
   description: >-
@@ -1161,8 +1105,6 @@ apis:
     url: json-structure/ec2-image-builder-account-aggregation-structure.json
   - type: Examples
     url: examples/ec2-image-builder-account-aggregation-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-image-builder.yaml
 - aid: amazon-ec2-image-builder:amazon-ec2-image-builder-importvmimage-api
   name: Amazon EC2 Image Builder ImportVmImage API
   description: The ImportVmImage API from Amazon EC2 Image Builder — 1 operation(s) for importvmimage.
@@ -1198,8 +1140,6 @@ apis:
     url: json-structure/ec2-image-builder-account-aggregation-structure.json
   - type: Examples
     url: examples/ec2-image-builder-account-aggregation-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-image-builder.yaml
 - aid: amazon-ec2-image-builder:amazon-ec2-image-builder-listcomponentbuildversions-api
   name: Amazon EC2 Image Builder ListComponentBuildVersions API
   description: >-
@@ -1236,8 +1176,6 @@ apis:
     url: json-structure/ec2-image-builder-account-aggregation-structure.json
   - type: Examples
     url: examples/ec2-image-builder-account-aggregation-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-image-builder.yaml
 - aid: amazon-ec2-image-builder:amazon-ec2-image-builder-listcomponents-api
   name: Amazon EC2 Image Builder ListComponents API
   description: >-
@@ -1274,8 +1212,6 @@ apis:
     url: json-structure/ec2-image-builder-account-aggregation-structure.json
   - type: Examples
     url: examples/ec2-image-builder-account-aggregation-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-image-builder.yaml
 - aid: amazon-ec2-image-builder:amazon-ec2-image-builder-listcontainerrecipes-api
   name: Amazon EC2 Image Builder ListContainerRecipes API
   description: >-
@@ -1312,8 +1248,6 @@ apis:
     url: json-structure/ec2-image-builder-account-aggregation-structure.json
   - type: Examples
     url: examples/ec2-image-builder-account-aggregation-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-image-builder.yaml
 - aid: amazon-ec2-image-builder:amazon-ec2-image-builder-listdistributionconfigurations-api
   name: Amazon EC2 Image Builder ListDistributionConfigurations API
   description: >-
@@ -1350,8 +1284,6 @@ apis:
     url: json-structure/ec2-image-builder-account-aggregation-structure.json
   - type: Examples
     url: examples/ec2-image-builder-account-aggregation-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-image-builder.yaml
 - aid: amazon-ec2-image-builder:amazon-ec2-image-builder-listimagebuildversions-api
   name: Amazon EC2 Image Builder ListImageBuildVersions API
   description: >-
@@ -1388,8 +1320,6 @@ apis:
     url: json-structure/ec2-image-builder-account-aggregation-structure.json
   - type: Examples
     url: examples/ec2-image-builder-account-aggregation-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-image-builder.yaml
 - aid: amazon-ec2-image-builder:amazon-ec2-image-builder-listimagepackages-api
   name: Amazon EC2 Image Builder ListImagePackages API
   description: >-
@@ -1426,8 +1356,6 @@ apis:
     url: json-structure/ec2-image-builder-account-aggregation-structure.json
   - type: Examples
     url: examples/ec2-image-builder-account-aggregation-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-image-builder.yaml
 - aid: amazon-ec2-image-builder:amazon-ec2-image-builder-listimagepipelineimages-api
   name: Amazon EC2 Image Builder ListImagePipelineImages API
   description: >-
@@ -1464,8 +1392,6 @@ apis:
     url: json-structure/ec2-image-builder-account-aggregation-structure.json
   - type: Examples
     url: examples/ec2-image-builder-account-aggregation-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-image-builder.yaml
 - aid: amazon-ec2-image-builder:amazon-ec2-image-builder-listimagepipelines-api
   name: Amazon EC2 Image Builder ListImagePipelines API
   description: >-
@@ -1502,8 +1428,6 @@ apis:
     url: json-structure/ec2-image-builder-account-aggregation-structure.json
   - type: Examples
     url: examples/ec2-image-builder-account-aggregation-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-image-builder.yaml
 - aid: amazon-ec2-image-builder:amazon-ec2-image-builder-listimagerecipes-api
   name: Amazon EC2 Image Builder ListImageRecipes API
   description: >-
@@ -1540,8 +1464,6 @@ apis:
     url: json-structure/ec2-image-builder-account-aggregation-structure.json
   - type: Examples
     url: examples/ec2-image-builder-account-aggregation-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-image-builder.yaml
 - aid: amazon-ec2-image-builder:amazon-ec2-image-builder-listimages-api
   name: Amazon EC2 Image Builder ListImages API
   description: The ListImages API from Amazon EC2 Image Builder — 1 operation(s) for listimages.
@@ -1577,8 +1499,6 @@ apis:
     url: json-structure/ec2-image-builder-account-aggregation-structure.json
   - type: Examples
     url: examples/ec2-image-builder-account-aggregation-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-image-builder.yaml
 - aid: amazon-ec2-image-builder:amazon-ec2-image-builder-listimagescanfindingaggregations-api
   name: Amazon EC2 Image Builder ListImageScanFindingAggregations API
   description: >-
@@ -1615,8 +1535,6 @@ apis:
     url: json-structure/ec2-image-builder-account-aggregation-structure.json
   - type: Examples
     url: examples/ec2-image-builder-account-aggregation-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-image-builder.yaml
 - aid: amazon-ec2-image-builder:amazon-ec2-image-builder-listimagescanfindings-api
   name: Amazon EC2 Image Builder ListImageScanFindings API
   description: >-
@@ -1653,8 +1571,6 @@ apis:
     url: json-structure/ec2-image-builder-account-aggregation-structure.json
   - type: Examples
     url: examples/ec2-image-builder-account-aggregation-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-image-builder.yaml
 - aid: amazon-ec2-image-builder:amazon-ec2-image-builder-listinfrastructureconfigurations-api
   name: Amazon EC2 Image Builder ListInfrastructureConfigurations API
   description: >-
@@ -1691,8 +1607,6 @@ apis:
     url: json-structure/ec2-image-builder-account-aggregation-structure.json
   - type: Examples
     url: examples/ec2-image-builder-account-aggregation-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-image-builder.yaml
 - aid: amazon-ec2-image-builder:amazon-ec2-image-builder-listworkflowexecutions-api
   name: Amazon EC2 Image Builder ListWorkflowExecutions API
   description: >-
@@ -1729,8 +1643,6 @@ apis:
     url: json-structure/ec2-image-builder-account-aggregation-structure.json
   - type: Examples
     url: examples/ec2-image-builder-account-aggregation-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-image-builder.yaml
 - aid: amazon-ec2-image-builder:amazon-ec2-image-builder-listworkflowstepexecutions-api
   name: Amazon EC2 Image Builder ListWorkflowStepExecutions API
   description: >-
@@ -1767,8 +1679,6 @@ apis:
     url: json-structure/ec2-image-builder-account-aggregation-structure.json
   - type: Examples
     url: examples/ec2-image-builder-account-aggregation-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-image-builder.yaml
 - aid: amazon-ec2-image-builder:amazon-ec2-image-builder-putcomponentpolicy-api
   name: Amazon EC2 Image Builder PutComponentPolicy API
   description: >-
@@ -1805,8 +1715,6 @@ apis:
     url: json-structure/ec2-image-builder-account-aggregation-structure.json
   - type: Examples
     url: examples/ec2-image-builder-account-aggregation-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-image-builder.yaml
 - aid: amazon-ec2-image-builder:amazon-ec2-image-builder-putcontainerrecipepolicy-api
   name: Amazon EC2 Image Builder PutContainerRecipePolicy API
   description: >-
@@ -1843,8 +1751,6 @@ apis:
     url: json-structure/ec2-image-builder-account-aggregation-structure.json
   - type: Examples
     url: examples/ec2-image-builder-account-aggregation-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-image-builder.yaml
 - aid: amazon-ec2-image-builder:amazon-ec2-image-builder-putimagepolicy-api
   name: Amazon EC2 Image Builder PutImagePolicy API
   description: >-
@@ -1881,8 +1787,6 @@ apis:
     url: json-structure/ec2-image-builder-account-aggregation-structure.json
   - type: Examples
     url: examples/ec2-image-builder-account-aggregation-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-image-builder.yaml
 - aid: amazon-ec2-image-builder:amazon-ec2-image-builder-putimagerecipepolicy-api
   name: Amazon EC2 Image Builder PutImageRecipePolicy API
   description: >-
@@ -1919,8 +1823,6 @@ apis:
     url: json-structure/ec2-image-builder-account-aggregation-structure.json
   - type: Examples
     url: examples/ec2-image-builder-account-aggregation-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-image-builder.yaml
 - aid: amazon-ec2-image-builder:amazon-ec2-image-builder-startimagepipelineexecution-api
   name: Amazon EC2 Image Builder StartImagePipelineExecution API
   description: >-
@@ -1957,8 +1859,6 @@ apis:
     url: json-structure/ec2-image-builder-account-aggregation-structure.json
   - type: Examples
     url: examples/ec2-image-builder-account-aggregation-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-image-builder.yaml
 - aid: amazon-ec2-image-builder:amazon-ec2-image-builder-tags-api
   name: Amazon EC2 Image Builder Tags API
   description: The Tags API from Amazon EC2 Image Builder — 2 operation(s) for tags.
@@ -1994,8 +1894,6 @@ apis:
     url: json-structure/ec2-image-builder-account-aggregation-structure.json
   - type: Examples
     url: examples/ec2-image-builder-account-aggregation-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-image-builder.yaml
 - aid: amazon-ec2-image-builder:amazon-ec2-image-builder-updatedistributionconfiguration-api
   name: Amazon EC2 Image Builder UpdateDistributionConfiguration API
   description: >-
@@ -2032,8 +1930,6 @@ apis:
     url: json-structure/ec2-image-builder-account-aggregation-structure.json
   - type: Examples
     url: examples/ec2-image-builder-account-aggregation-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-image-builder.yaml
 - aid: amazon-ec2-image-builder:amazon-ec2-image-builder-updateimagepipeline-api
   name: Amazon EC2 Image Builder UpdateImagePipeline API
   description: >-
@@ -2070,8 +1966,6 @@ apis:
     url: json-structure/ec2-image-builder-account-aggregation-structure.json
   - type: Examples
     url: examples/ec2-image-builder-account-aggregation-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-image-builder.yaml
 - aid: amazon-ec2-image-builder:amazon-ec2-image-builder-updateinfrastructureconfiguration-api
   name: Amazon EC2 Image Builder UpdateInfrastructureConfiguration API
   description: >-
@@ -2108,8 +2002,6 @@ apis:
     url: json-structure/ec2-image-builder-account-aggregation-structure.json
   - type: Examples
     url: examples/ec2-image-builder-account-aggregation-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-ec2-image-builder.yaml
 common:
   - type: AgenticAccess
     url: agentic-access/amazon-ec2-image-builder-agentic-access.yml
