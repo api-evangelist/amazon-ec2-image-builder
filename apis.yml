@@ -2,6 +2,7 @@ name: Amazon EC2 Image Builder
 description: EC2 Image Builder simplifies the building, testing, and deployment of Virtual Machine and container images for
   use on AWS or on-premises. It provides an automated pipeline to create and maintain secure, up-to-date server images without
   requiring scripting expertise.
+specificationVersion: '0.23'
 accessModel:
   pricing: freemium
   onboarding: self-serve
