@@ -1,0 +1,75 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "EC2 Image Builder CancelImageCreation GetImageRecipePolicy#imageRecipeArn API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "GetImageRecipePolicy#imageRecipeArn",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon EC2 Image Builder Get Image Recipe Policy",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://imagebuilder.{region}.amazonaws.com/GetImageRecipePolicy#imageRecipeArn",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "imageRecipeArn",
+                "value": "",
+                "type": "query",
+                "description": "The Amazon Resource Name (ARN) of the image recipe whose policy you want to retrieve."
+              }
+            ]
+          },
+          "docs": "Gets an image recipe policy."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

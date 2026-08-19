@@ -1,0 +1,75 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "EC2 Image Builder CancelImageCreation DeleteInfrastructureConfiguration#infrastructureConfigurationArn API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "DeleteInfrastructureConfiguration#infrastructureConfigurationArn",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon EC2 Image Builder Delete Infrastructure Configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://imagebuilder.{region}.amazonaws.com/DeleteInfrastructureConfiguration#infrastructureConfigurationArn",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "infrastructureConfigurationArn",
+                "value": "",
+                "type": "query",
+                "description": "The Amazon Resource Name (ARN) of the infrastructure configuration to delete."
+              }
+            ]
+          },
+          "docs": "Deletes an infrastructure configuration."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

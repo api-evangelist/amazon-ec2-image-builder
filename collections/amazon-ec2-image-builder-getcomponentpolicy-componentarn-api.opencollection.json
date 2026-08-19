@@ -1,0 +1,75 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "EC2 Image Builder CancelImageCreation GetComponentPolicy#componentArn API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "GetComponentPolicy#componentArn",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon EC2 Image Builder Get Component Policy",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://imagebuilder.{region}.amazonaws.com/GetComponentPolicy#componentArn",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "componentArn",
+                "value": "",
+                "type": "query",
+                "description": "The Amazon Resource Name (ARN) of the component whose policy you want to retrieve."
+              }
+            ]
+          },
+          "docs": "Gets a component policy."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

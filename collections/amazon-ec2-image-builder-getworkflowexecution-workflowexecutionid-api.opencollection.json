@@ -1,0 +1,75 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "EC2 Image Builder CancelImageCreation GetWorkflowExecution#workflowExecutionId API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "GetWorkflowExecution#workflowExecutionId",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon EC2 Image Builder Get Workflow Execution",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://imagebuilder.{region}.amazonaws.com/GetWorkflowExecution#workflowExecutionId",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "workflowExecutionId",
+                "value": "",
+                "type": "query",
+                "description": "Use the unique identifier for a runtime instance of the workflow to get runtime details."
+              }
+            ]
+          },
+          "docs": "Get the runtime information that was logged for a specific runtime instance of the workflow."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,75 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "EC2 Image Builder CancelImageCreation GetWorkflowStepExecution#stepExecutionId API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "GetWorkflowStepExecution#stepExecutionId",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon EC2 Image Builder Get Workflow Step Execution",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://imagebuilder.{region}.amazonaws.com/GetWorkflowStepExecution#stepExecutionId",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "stepExecutionId",
+                "value": "",
+                "type": "query",
+                "description": "Use the unique identifier for a specific runtime instance of the workflow step to get runtime details for that step."
+              }
+            ]
+          },
+          "docs": "Get the runtime information that was logged for a specific runtime instance of the workflow step."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

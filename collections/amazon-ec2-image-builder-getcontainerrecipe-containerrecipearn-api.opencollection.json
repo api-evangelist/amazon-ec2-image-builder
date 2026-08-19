@@ -1,0 +1,75 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "EC2 Image Builder CancelImageCreation GetContainerRecipe#containerRecipeArn API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "GetContainerRecipe#containerRecipeArn",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon EC2 Image Builder Get Container Recipe",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://imagebuilder.{region}.amazonaws.com/GetContainerRecipe#containerRecipeArn",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "containerRecipeArn",
+                "value": "",
+                "type": "query",
+                "description": "The Amazon Resource Name (ARN) of the container recipe to retrieve."
+              }
+            ]
+          },
+          "docs": "Retrieves a container recipe."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
