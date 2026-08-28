@@ -12,8 +12,11 @@ info:
     OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: imageBuilderApi
-  url: ../openapi/amazon-ec2-image-builder-openapi.yaml
+- name: getimageImagebuildversionarnApi
+  url: ../openapi/amazon-ec2-image-builder-getimage-imagebuildversionarn-api-openapi.yml
+  type: openapi
+- name: startimagepipelineexecutionApi
+  url: ../openapi/amazon-ec2-image-builder-startimagepipelineexecution-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: run-pipeline-and-poll

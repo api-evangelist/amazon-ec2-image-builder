@@ -13,8 +13,17 @@ info:
     read and executed without opening the underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: imageBuilderApi
-  url: ../openapi/amazon-ec2-image-builder-openapi.yaml
+- name: createcomponentApi
+  url: ../openapi/amazon-ec2-image-builder-createcomponent-api-openapi.yml
+  type: openapi
+- name: createimagepipelineApi
+  url: ../openapi/amazon-ec2-image-builder-createimagepipeline-api-openapi.yml
+  type: openapi
+- name: createimagerecipeApi
+  url: ../openapi/amazon-ec2-image-builder-createimagerecipe-api-openapi.yml
+  type: openapi
+- name: createinfrastructureconfigurationApi
+  url: ../openapi/amazon-ec2-image-builder-createinfrastructureconfiguration-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: assemble-image-pipeline

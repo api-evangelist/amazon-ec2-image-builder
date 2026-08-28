@@ -12,8 +12,14 @@ info:
     the underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: imageBuilderApi
-  url: ../openapi/amazon-ec2-image-builder-openapi.yaml
+- name: createimageApi
+  url: ../openapi/amazon-ec2-image-builder-createimage-api-openapi.yml
+  type: openapi
+- name: deleteimageImagebuildversionarnApi
+  url: ../openapi/amazon-ec2-image-builder-deleteimage-imagebuildversionarn-api-openapi.yml
+  type: openapi
+- name: getimageImagebuildversionarnApi
+  url: ../openapi/amazon-ec2-image-builder-getimage-imagebuildversionarn-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: build-image-with-failure-cleanup

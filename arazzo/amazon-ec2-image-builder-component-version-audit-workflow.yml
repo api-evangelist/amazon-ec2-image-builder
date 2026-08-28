@@ -11,8 +11,14 @@ info:
     opening the underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: imageBuilderApi
-  url: ../openapi/amazon-ec2-image-builder-openapi.yaml
+- name: createcomponentApi
+  url: ../openapi/amazon-ec2-image-builder-createcomponent-api-openapi.yml
+  type: openapi
+- name: getcomponentComponentbuildversionarnApi
+  url: ../openapi/amazon-ec2-image-builder-getcomponent-componentbuildversionarn-api-openapi.yml
+  type: openapi
+- name: listcomponentbuildversionsApi
+  url: ../openapi/amazon-ec2-image-builder-listcomponentbuildversions-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: component-version-audit

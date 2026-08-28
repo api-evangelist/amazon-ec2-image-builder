@@ -12,8 +12,17 @@ info:
     description.
   version: 1.0.0
 sourceDescriptions:
-- name: imageBuilderApi
-  url: ../openapi/amazon-ec2-image-builder-openapi.yaml
+- name: deleteimagepipelineImagepipelinearnApi
+  url: ../openapi/amazon-ec2-image-builder-deleteimagepipeline-imagepipelinearn-api-openapi.yml
+  type: openapi
+- name: deleteimagerecipeImagerecipearnApi
+  url: ../openapi/amazon-ec2-image-builder-deleteimagerecipe-imagerecipearn-api-openapi.yml
+  type: openapi
+- name: deleteinfrastructureconfigurationInfrastructureconfigurationarnApi
+  url: ../openapi/amazon-ec2-image-builder-deleteinfrastructureconfiguration-infrastructureconfigurationarn-api-openapi.yml
+  type: openapi
+- name: getimagepipelineImagepipelinearnApi
+  url: ../openapi/amazon-ec2-image-builder-getimagepipeline-imagepipelinearn-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: decommission-pipeline-stack
