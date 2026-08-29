@@ -2018,6 +2018,9 @@ apis:
   - type: Examples
     url: examples/ec2-image-builder-account-aggregation-example.json
 common:
+  - type: CapabilityMap
+    url: capabilities/amazon-ec2-image-builder-capability-edges.yml
+    name: Amazon EC2 Image Builder Business Capability Map
   - type: AgenticAccess
     url: agentic-access/amazon-ec2-image-builder-agentic-access.yml
   - type: TrustCenter

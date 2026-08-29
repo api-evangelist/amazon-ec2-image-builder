@@ -1,0 +1,64 @@
+slug: amazon-ec2-image-builder
+provider: Amazon EC2 Image Builder
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 5
+edges:
+- tag: ListImageScanFindings
+  spec_file: amazon-ec2-image-builder-listimagescanfindings-api-openapi.yml
+  capability_id: BC-620.40
+  capability_id_l1: BC-620
+  capability_name: Vulnerability Management
+  confidence: 0.85
+  evidence: POST /ListImageScanFindings ... schemas ImageScanFinding, CvssScoreDetails, InspectorScoreDetails,
+    Remediation, PackageArchitecture
+  reason: Returns CVE/vulnerability findings with CVSS scores and remediation guidance for built images
+    — plainly vulnerability scanning and remediation, not any other reading.
+- tag: ListImageScanFindingAggregations
+  spec_file: amazon-ec2-image-builder-listimagescanfindingaggregations-api-openapi.yml
+  capability_id: BC-620.40
+  capability_id_l1: BC-620
+  capability_name: Vulnerability Management
+  confidence: 0.8
+  evidence: POST /ListImageScanFindingAggregations ... schemas ImageScanFindingAggregation, SeverityCounts,
+    SeverityCountNumber
+  reason: Aggregated security scan findings by severity across accounts, images and pipelines — vulnerability
+    scanning and remediation reporting, i.e. cybersecurity vulnerability management.
+- tag: CreateInfrastructureConfiguration
+  spec_file: amazon-ec2-image-builder-createinfrastructureconfiguration-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.7
+  evidence: '"Amazon EC2 Image Builder Create Infrastructure Configuration"; schemas InstanceType, S3Logs,
+    HttpTokens, InfrastructureConfigurationArn'
+  reason: Configures the EC2 instance type, logging and metadata options of the build infrastructure —
+    explicitly compute/cloud infrastructure configuration.
+- tag: DeleteInfrastructureConfiguration#infrastructureConfigurationArn
+  spec_file: amazon-ec2-image-builder-deleteinfrastructureconfiguration-infrastructureconfigurationarn-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.7
+  evidence: DELETE /DeleteInfrastructureConfiguration#infrastructureConfigurationArn  DeleteInfrastructureConfiguration  ...
+    schema InfrastructureConfigurationArn
+  reason: Explicitly manages the infrastructure configuration (instance types, subnets, roles) used to
+    build images — squarely compute/cloud infrastructure management.
+- tag: UpdateInfrastructureConfiguration
+  spec_file: amazon-ec2-image-builder-updateinfrastructureconfiguration-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.7
+  evidence: UpdateInfrastructureConfiguration; schemas 'InstanceType', 'S3Logs', 'HttpTokens', 'InfrastructureConfigurationArn'
+  reason: Directly configures the compute infrastructure (instance types, logging, metadata options) used
+    to build images — compute/cloud infrastructure management.
