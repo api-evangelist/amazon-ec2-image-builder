@@ -1,8 +1,8 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  version: "1.0.0"
+  version: 1.0.0
   x-release: v4
-  title: EC2 Image Builder CancelImageCreation GetComponent#componentBuildVersionArn API
+  title: EC2 Image Builder CancelImageCreation Get Component#component Build Version Arn API
   description: EC2 Image Builder is a fully managed Amazon Web Services service that makes it easier to automate the creation, management, and deployment of customized, secure, and up-to-date "golden" server images that are pre-installed and pre-configured with software and settings to meet specific IT standards.
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
@@ -201,49 +201,124 @@ paths:
       tags:
       - GetComponent#componentBuildVersionArn
 components:
+  parameters:
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
   schemas:
-    ComponentData:
-      type: string
-    OsVersion:
-      type: string
-      minLength: 1
-    Platform:
-      type: string
-      enum:
-      - Windows
-      - Linux
-    VersionNumber:
-      type: string
-      pattern: ^[0-9]+\.[0-9]+\.[0-9]+$
-    NonEmptyString:
-      type: string
-      minLength: 1
-      maxLength: 1024
-    DateTime:
-      type: string
-    ServiceException: {}
-    ForbiddenException: {}
-    ServiceUnavailableException: {}
+    ComponentParameterDetailList:
+      type: array
+      items:
+        $ref: '#/components/schemas/ComponentParameterDetail'
+    NullableBoolean:
+      type: boolean
+    ComponentParameterDetail:
+      type: object
+      required:
+      - name
+      - type
+      properties:
+        name:
+          allOf:
+          - $ref: '#/components/schemas/ComponentParameterName'
+          - description: The name of this input parameter.
+        type:
+          allOf:
+          - $ref: '#/components/schemas/ComponentParameterType'
+          - description: The type of input this parameter provides. The currently supported value is "string".
+        defaultValue:
+          allOf:
+          - $ref: '#/components/schemas/ComponentParameterValueList'
+          - description: The default value of this parameter if no input is provided.
+        description:
+          allOf:
+          - $ref: '#/components/schemas/ComponentParameterDescription'
+          - description: Describes this parameter.
+      description: Defines a parameter that is used to provide configuration details for the component.
     ComponentType:
       type: string
       enum:
       - BUILD
       - TEST
-    ComponentParameterValue:
+    NonEmptyString:
       type: string
-      pattern: '[^\x00]*'
-      minLength: 0
-    ComponentParameterName:
-      type: string
-      pattern: '[^\x00]+'
       minLength: 1
-      maxLength: 256
+      maxLength: 1024
+    ServiceUnavailableException: {}
+    ComponentParameterType:
+      type: string
+      pattern: ^String|Integer|Boolean|StringList$
+      minLength: 1
+      maxLength: 20
+    ClientException: {}
+    ComponentStatus:
+      type: string
+      enum:
+      - DEPRECATED
+    InvalidRequestException: {}
+    ServiceException: {}
+    Boolean:
+      type: boolean
     OsVersionList:
       type: array
       items:
         $ref: '#/components/schemas/OsVersion'
       minItems: 1
       maxItems: 25
+    ComponentParameterValueList:
+      type: array
+      items:
+        $ref: '#/components/schemas/ComponentParameterValue'
+    ResourceName:
+      type: string
+      pattern: ^[-_A-Za-z-0-9][-_A-Za-z0-9 ]{1,126}[-_A-Za-z-0-9]$
+    DateTime:
+      type: string
+    ComponentParameterDescription:
+      type: string
+      pattern: '[^\x00]+'
+      minLength: 1
+      maxLength: 1024
+    ForbiddenException: {}
     Component:
       type: object
       properties:
@@ -320,66 +395,35 @@ components:
           - $ref: '#/components/schemas/Boolean'
           - description: Indicates whether component source is hidden from view in the console, and from component detail results for API, CLI, or SDK operations.
       description: A detailed view of a component.
-    ResourceName:
-      type: string
-      pattern: ^[-_A-Za-z-0-9][-_A-Za-z0-9 ]{1,126}[-_A-Za-z-0-9]$
-    Boolean:
-      type: boolean
-    ComponentParameterDetail:
+    ComponentState:
       type: object
-      required:
-      - name
-      - type
       properties:
-        name:
+        status:
           allOf:
-          - $ref: '#/components/schemas/ComponentParameterName'
-          - description: The name of this input parameter.
-        type:
+          - $ref: '#/components/schemas/ComponentStatus'
+          - description: The current state of the component.
+        reason:
           allOf:
-          - $ref: '#/components/schemas/ComponentParameterType'
-          - description: The type of input this parameter provides. The currently supported value is "string".
-        defaultValue:
-          allOf:
-          - $ref: '#/components/schemas/ComponentParameterValueList'
-          - description: The default value of this parameter if no input is provided.
-        description:
-          allOf:
-          - $ref: '#/components/schemas/ComponentParameterDescription'
-          - description: Describes this parameter.
-      description: Defines a parameter that is used to provide configuration details for the component.
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: Describes how or why the component changed state.
+      description: A group of fields that describe the current status of components that are no longer active.
     TagMap:
       type: object
       minProperties: 1
       maxProperties: 50
       additionalProperties:
         $ref: '#/components/schemas/TagValue'
+    CallRateLimitExceededException: {}
+    ComponentParameterValue:
+      type: string
+      pattern: '[^\x00]*'
+      minLength: 0
+    ImageBuilderArn:
+      type: string
+      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):(?:image-recipe|container-recipe|infrastructure-configuration|distribution-configuration|component|image|image-pipeline|workflow\/(?:build|test|distribution))/[a-z0-9-_]+(?:/(?:(?:x|[0-9]+)\.(?:x|[0-9]+)\.(?:x|[0-9]+))(?:/[0-9]+)?)?$
     TagValue:
       type: string
       maxLength: 256
-    CallRateLimitExceededException: {}
-    ComponentStatus:
-      type: string
-      enum:
-      - DEPRECATED
-    ClientException: {}
-    ComponentParameterType:
-      type: string
-      pattern: ^String|Integer|Boolean|StringList$
-      minLength: 1
-      maxLength: 20
-    InvalidRequestException: {}
-    NullableBoolean:
-      type: boolean
-    ComponentParameterValueList:
-      type: array
-      items:
-        $ref: '#/components/schemas/ComponentParameterValue'
-    ComponentParameterDescription:
-      type: string
-      pattern: '[^\x00]+'
-      minLength: 1
-      maxLength: 1024
     GetComponentResponse:
       type: object
       properties:
@@ -393,68 +437,24 @@ components:
           - $ref: '#/components/schemas/Component'
           - description: The component object associated with the specified ARN.
           example: example-string
-    ComponentParameterDetailList:
-      type: array
-      items:
-        $ref: '#/components/schemas/ComponentParameterDetail'
-    ComponentState:
-      type: object
-      properties:
-        status:
-          allOf:
-          - $ref: '#/components/schemas/ComponentStatus'
-          - description: The current state of the component.
-        reason:
-          allOf:
-          - $ref: '#/components/schemas/NonEmptyString'
-          - description: Describes how or why the component changed state.
-      description: A group of fields that describe the current status of components that are no longer active.
-    ImageBuilderArn:
+    OsVersion:
       type: string
-      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):(?:image-recipe|container-recipe|infrastructure-configuration|distribution-configuration|component|image|image-pipeline|workflow\/(?:build|test|distribution))/[a-z0-9-_]+(?:/(?:(?:x|[0-9]+)\.(?:x|[0-9]+)\.(?:x|[0-9]+))(?:/[0-9]+)?)?$
-  parameters:
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
+      minLength: 1
+    Platform:
+      type: string
+      enum:
+      - Windows
+      - Linux
+    VersionNumber:
+      type: string
+      pattern: ^[0-9]+\.[0-9]+\.[0-9]+$
+    ComponentData:
+      type: string
+    ComponentParameterName:
+      type: string
+      pattern: '[^\x00]+'
+      minLength: 1
+      maxLength: 256
   securitySchemes:
     hmac:
       type: apiKey

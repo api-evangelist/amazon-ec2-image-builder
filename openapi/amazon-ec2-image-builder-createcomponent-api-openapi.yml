@@ -1,8 +1,8 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  version: "1.0.0"
+  version: 1.0.0
   x-release: v4
-  title: EC2 Image Builder CancelImageCreation CreateComponent API
+  title: EC2 Image Builder CancelImageCreation Create Component API
   description: EC2 Image Builder is a fully managed Amazon Web Services service that makes it easier to automate the creation, management, and deployment of customized, secure, and up-to-date "golden" server images that are pre-installed and pre-configured with software and settings to meet specific IT standards.
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
@@ -295,38 +295,8 @@ paths:
       - CreateComponent
 components:
   parameters:
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Security-Token:
       name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
       in: header
       schema:
         type: string
@@ -337,33 +307,48 @@ components:
       schema:
         type: string
       required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
   schemas:
-    OsVersion:
-      type: string
-      minLength: 1
+    ServiceQuotaExceededException: {}
+    IdempotentParameterMismatchException: {}
     NonEmptyString:
       type: string
       minLength: 1
       maxLength: 1024
-    InvalidVersionNumberException: {}
-    ServiceException: {}
-    ForbiddenException: {}
     ServiceUnavailableException: {}
-    IdempotentParameterMismatchException: {}
-    CallRateLimitExceededException: {}
-    TagValue:
-      type: string
-      maxLength: 256
-    ClientToken:
-      type: string
-      minLength: 1
-      maxLength: 36
     ClientException: {}
+    ResourceInUseException: {}
     InvalidRequestException: {}
-    ComponentBuildVersionArn:
-      type: string
-      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):component/[a-z0-9-_]+/[0-9]+\.[0-9]+\.[0-9]+/[0-9]+$
-    InvalidParameterCombinationException: {}
+    ServiceException: {}
     CreateComponentResponse:
       type: object
       properties:
@@ -382,8 +367,23 @@ components:
           - $ref: '#/components/schemas/ComponentBuildVersionArn'
           - description: The Amazon Resource Name (ARN) of the component that this request created.
           example: arn:aws:service:us-east-1:123456789012:resource/example
-    ResourceInUseException: {}
-    ServiceQuotaExceededException: {}
+    ForbiddenException: {}
+    ClientToken:
+      type: string
+      minLength: 1
+      maxLength: 36
+    InvalidVersionNumberException: {}
+    CallRateLimitExceededException: {}
+    TagValue:
+      type: string
+      maxLength: 256
+    OsVersion:
+      type: string
+      minLength: 1
+    InvalidParameterCombinationException: {}
+    ComponentBuildVersionArn:
+      type: string
+      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):component/[a-z0-9-_]+/[0-9]+\.[0-9]+\.[0-9]+/[0-9]+$
   securitySchemes:
     hmac:
       type: apiKey

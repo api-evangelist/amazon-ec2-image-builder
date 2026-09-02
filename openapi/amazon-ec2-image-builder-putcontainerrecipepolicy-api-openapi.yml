@@ -1,8 +1,8 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  version: "1.0.0"
+  version: 1.0.0
   x-release: v4
-  title: EC2 Image Builder CancelImageCreation PutContainerRecipePolicy API
+  title: EC2 Image Builder CancelImageCreation Put Container Recipe Policy API
   description: EC2 Image Builder is a fully managed Amazon Web Services service that makes it easier to automate the creation, management, and deployment of customized, secure, and up-to-date "golden" server images that are pre-installed and pre-configured with software and settings to meet specific IT standards.
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
@@ -225,40 +225,7 @@ paths:
       tags:
       - PutContainerRecipePolicy
 components:
-  schemas:
-    PutContainerRecipePolicyResponse:
-      type: object
-      properties:
-        requestId:
-          allOf:
-          - $ref: '#/components/schemas/NonEmptyString'
-          - description: The request ID that uniquely identifies this request.
-        containerRecipeArn:
-          allOf:
-          - $ref: '#/components/schemas/ContainerRecipeArn'
-          - description: The Amazon Resource Name (ARN) of the container recipe that this policy was applied to.
-    ResourceNotFoundException: {}
-    CallRateLimitExceededException: {}
-    ClientException: {}
-    NonEmptyString:
-      type: string
-      minLength: 1
-      maxLength: 1024
-    InvalidRequestException: {}
-    ServiceException: {}
-    ForbiddenException: {}
-    InvalidParameterValueException: {}
-    ContainerRecipeArn:
-      type: string
-      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):container-recipe/[a-z0-9-_]+/[0-9]+\.[0-9]+\.[0-9]+$
-    ServiceUnavailableException: {}
   parameters:
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Security-Token:
       name: X-Amz-Security-Token
       in: header
@@ -271,8 +238,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
+    X-Amz-Date:
+      name: X-Amz-Date
       in: header
       schema:
         type: string
@@ -283,18 +250,51 @@ components:
       schema:
         type: string
       required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Credential:
       name: X-Amz-Credential
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
+  schemas:
+    InvalidParameterValueException: {}
+    InvalidRequestException: {}
+    ServiceException: {}
+    ContainerRecipeArn:
+      type: string
+      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):container-recipe/[a-z0-9-_]+/[0-9]+\.[0-9]+\.[0-9]+$
+    CallRateLimitExceededException: {}
+    PutContainerRecipePolicyResponse:
+      type: object
+      properties:
+        requestId:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The request ID that uniquely identifies this request.
+        containerRecipeArn:
+          allOf:
+          - $ref: '#/components/schemas/ContainerRecipeArn'
+          - description: The Amazon Resource Name (ARN) of the container recipe that this policy was applied to.
+    NonEmptyString:
+      type: string
+      minLength: 1
+      maxLength: 1024
+    ResourceNotFoundException: {}
+    ServiceUnavailableException: {}
+    ClientException: {}
+    ForbiddenException: {}
   securitySchemes:
     hmac:
       type: apiKey
