@@ -44,7 +44,8 @@ tags:
 apis:
 - aid: amazon-ec2-image-builder:amazon-ec2-image-builder-cancelimagecreation-api
   name: Amazon EC2 Image Builder CancelImageCreation API
-  description: The CancelImageCreation API from Amazon EC2 Image Builder — 1 operation(s) for cancelimagecreation.
+  description: >-
+    The CancelImageCreation API from Amazon EC2 Image Builder — 1 operation(s) for cancelimagecreation.
   humanURL: https://aws.amazon.com/image-builder/
   baseURL: https://imagebuilder.amazonaws.com
   tags:
@@ -59,7 +60,8 @@ apis:
   - type: JSONLD
     url: json-ld/amazon-ec2-image-builder-context.jsonld
   - type: GettingStarted
-    url: https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
+    url: >-
+      https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
   - type: Pricing
     url: https://aws.amazon.com/image-builder/pricing/
   - type: FAQ
@@ -78,7 +80,8 @@ apis:
     url: examples/ec2-image-builder-account-aggregation-example.json
 - aid: amazon-ec2-image-builder:amazon-ec2-image-builder-createcomponent-api
   name: Amazon EC2 Image Builder CreateComponent API
-  description: The CreateComponent API from Amazon EC2 Image Builder — 1 operation(s) for createcomponent.
+  description: >-
+    The CreateComponent API from Amazon EC2 Image Builder — 1 operation(s) for createcomponent.
   humanURL: https://aws.amazon.com/image-builder/
   baseURL: https://imagebuilder.amazonaws.com
   tags:
@@ -93,7 +96,8 @@ apis:
   - type: JSONLD
     url: json-ld/amazon-ec2-image-builder-context.jsonld
   - type: GettingStarted
-    url: https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
+    url: >-
+      https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
   - type: Pricing
     url: https://aws.amazon.com/image-builder/pricing/
   - type: FAQ
@@ -112,7 +116,8 @@ apis:
     url: examples/ec2-image-builder-account-aggregation-example.json
 - aid: amazon-ec2-image-builder:amazon-ec2-image-builder-createcontainerrecipe-api
   name: Amazon EC2 Image Builder CreateContainerRecipe API
-  description: The CreateContainerRecipe API from Amazon EC2 Image Builder — 1 operation(s) for createcontainerrecipe.
+  description: >-
+    The CreateContainerRecipe API from Amazon EC2 Image Builder — 1 operation(s) for createcontainerrecipe.
   humanURL: https://aws.amazon.com/image-builder/
   baseURL: https://imagebuilder.amazonaws.com
   tags:
@@ -127,7 +132,8 @@ apis:
   - type: JSONLD
     url: json-ld/amazon-ec2-image-builder-context.jsonld
   - type: GettingStarted
-    url: https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
+    url: >-
+      https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
   - type: Pricing
     url: https://aws.amazon.com/image-builder/pricing/
   - type: FAQ
@@ -146,8 +152,8 @@ apis:
     url: examples/ec2-image-builder-account-aggregation-example.json
 - aid: amazon-ec2-image-builder:amazon-ec2-image-builder-createdistributionconfiguration-api
   name: Amazon EC2 Image Builder CreateDistributionConfiguration API
-  description: The CreateDistributionConfiguration API from Amazon EC2 Image Builder — 1 operation(s)
-    for createdistributionconfiguration.
+  description: >-
+    The CreateDistributionConfiguration API from Amazon EC2 Image Builder — 1 operation(s) for createdistributionconfiguration.
   humanURL: https://aws.amazon.com/image-builder/
   baseURL: https://imagebuilder.amazonaws.com
   tags:
@@ -162,41 +168,8 @@ apis:
   - type: JSONLD
     url: json-ld/amazon-ec2-image-builder-context.jsonld
   - type: GettingStarted
-    url: https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
-  - type: Pricing
-    url: https://aws.amazon.com/image-builder/pricing/
-  - type: FAQ
-    url: https://aws.amazon.com/image-builder/faqs/
-  - type: APIReference
-    url: https://docs.aws.amazon.com/imagebuilder/latest/APIReference/
-  - type: Authentication
-    url: https://docs.aws.amazon.com/imagebuilder/latest/APIReference/CommonParameters.html
-  - type: RateLimits
-    url: https://docs.aws.amazon.com/imagebuilder/latest/userguide/limits.html
-  - type: JSONSchema
-    url: json-schema/ec2-image-builder-account-aggregation-schema.json
-  - type: JSONStructure
-    url: json-structure/ec2-image-builder-account-aggregation-structure.json
-  - type: Examples
-    url: examples/ec2-image-builder-account-aggregation-example.json
-- aid: amazon-ec2-image-builder:amazon-ec2-image-builder-createimage-api
-  name: Amazon EC2 Image Builder CreateImage API
-  description: The CreateImage API from Amazon EC2 Image Builder — 1 operation(s) for createimage.
-  humanURL: https://aws.amazon.com/image-builder/
-  baseURL: https://imagebuilder.amazonaws.com
-  tags:
-  - CreateImage
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-ec2-image-builder-createimage-api-openapi.yml
-  - type: Documentation
-    url: https://docs.aws.amazon.com/imagebuilder/latest/APIReference/Welcome.html
-  - type: JSONSchema
-    url: json-schema/ec2-image-builder-image-pipeline-schema.json
-  - type: JSONLD
-    url: json-ld/amazon-ec2-image-builder-context.jsonld
-  - type: GettingStarted
-    url: https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
+    url: >-
+      https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
   - type: Pricing
     url: https://aws.amazon.com/image-builder/pricing/
   - type: FAQ
@@ -215,7 +188,8 @@ apis:
     url: examples/ec2-image-builder-account-aggregation-example.json
 - aid: amazon-ec2-image-builder:amazon-ec2-image-builder-createimagepipeline-api
   name: Amazon EC2 Image Builder CreateImagePipeline API
-  description: The CreateImagePipeline API from Amazon EC2 Image Builder — 1 operation(s) for createimagepipeline.
+  description: >-
+    The CreateImagePipeline API from Amazon EC2 Image Builder — 1 operation(s) for createimagepipeline.
   humanURL: https://aws.amazon.com/image-builder/
   baseURL: https://imagebuilder.amazonaws.com
   tags:
@@ -230,7 +204,8 @@ apis:
   - type: JSONLD
     url: json-ld/amazon-ec2-image-builder-context.jsonld
   - type: GettingStarted
-    url: https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
+    url: >-
+      https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
   - type: Pricing
     url: https://aws.amazon.com/image-builder/pricing/
   - type: FAQ
@@ -249,7 +224,8 @@ apis:
     url: examples/ec2-image-builder-account-aggregation-example.json
 - aid: amazon-ec2-image-builder:amazon-ec2-image-builder-createimagerecipe-api
   name: Amazon EC2 Image Builder CreateImageRecipe API
-  description: The CreateImageRecipe API from Amazon EC2 Image Builder — 1 operation(s) for createimagerecipe.
+  description: >-
+    The CreateImageRecipe API from Amazon EC2 Image Builder — 1 operation(s) for createimagerecipe.
   humanURL: https://aws.amazon.com/image-builder/
   baseURL: https://imagebuilder.amazonaws.com
   tags:
@@ -264,7 +240,8 @@ apis:
   - type: JSONLD
     url: json-ld/amazon-ec2-image-builder-context.jsonld
   - type: GettingStarted
-    url: https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
+    url: >-
+      https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
   - type: Pricing
     url: https://aws.amazon.com/image-builder/pricing/
   - type: FAQ
@@ -283,8 +260,8 @@ apis:
     url: examples/ec2-image-builder-account-aggregation-example.json
 - aid: amazon-ec2-image-builder:amazon-ec2-image-builder-createinfrastructureconfiguration-api
   name: Amazon EC2 Image Builder CreateInfrastructureConfiguration API
-  description: The CreateInfrastructureConfiguration API from Amazon EC2 Image Builder — 1 operation(s)
-    for createinfrastructureconfiguration.
+  description: >-
+    The CreateInfrastructureConfiguration API from Amazon EC2 Image Builder — 1 operation(s) for createinfrastructureconfiguration.
   humanURL: https://aws.amazon.com/image-builder/
   baseURL: https://imagebuilder.amazonaws.com
   tags:
@@ -299,7 +276,8 @@ apis:
   - type: JSONLD
     url: json-ld/amazon-ec2-image-builder-context.jsonld
   - type: GettingStarted
-    url: https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
+    url: >-
+      https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
   - type: Pricing
     url: https://aws.amazon.com/image-builder/pricing/
   - type: FAQ
@@ -316,17 +294,20 @@ apis:
     url: json-structure/ec2-image-builder-account-aggregation-structure.json
   - type: Examples
     url: examples/ec2-image-builder-account-aggregation-example.json
-- aid: amazon-ec2-image-builder:amazon-ec2-image-builder-deletecomponent-componentbuildversionarn-api
+- aid: >-
+    amazon-ec2-image-builder:amazon-ec2-image-builder-deletecomponent-componentbuildversionarn-api
   name: Amazon EC2 Image Builder DeleteComponent#componentBuildVersionArn API
-  description: The DeleteComponent#componentBuildVersionArn API from Amazon EC2 Image Builder — 1 operation(s)
-    for deletecomponent#componentbuildversionarn.
+  description: >-
+    The DeleteComponent#componentBuildVersionArn API from Amazon EC2 Image Builder — 1 operation(s) for
+    deletecomponent#componentbuildversionarn.
   humanURL: https://aws.amazon.com/image-builder/
   baseURL: https://imagebuilder.amazonaws.com
   tags:
   - DeleteComponent#componentBuildVersionArn
   properties:
   - type: OpenAPI
-    url: openapi/amazon-ec2-image-builder-deletecomponent-componentbuildversionarn-api-openapi.yml
+    url: >-
+      openapi/amazon-ec2-image-builder-deletecomponent-componentbuildversionarn-api-openapi.yml
   - type: Documentation
     url: https://docs.aws.amazon.com/imagebuilder/latest/APIReference/Welcome.html
   - type: JSONSchema
@@ -334,7 +315,8 @@ apis:
   - type: JSONLD
     url: json-ld/amazon-ec2-image-builder-context.jsonld
   - type: GettingStarted
-    url: https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
+    url: >-
+      https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
   - type: Pricing
     url: https://aws.amazon.com/image-builder/pricing/
   - type: FAQ
@@ -351,17 +333,20 @@ apis:
     url: json-structure/ec2-image-builder-account-aggregation-structure.json
   - type: Examples
     url: examples/ec2-image-builder-account-aggregation-example.json
-- aid: amazon-ec2-image-builder:amazon-ec2-image-builder-deletecontainerrecipe-containerrecipearn-api
+- aid: >-
+    amazon-ec2-image-builder:amazon-ec2-image-builder-deletecontainerrecipe-containerrecipearn-api
   name: Amazon EC2 Image Builder DeleteContainerRecipe#containerRecipeArn API
-  description: The DeleteContainerRecipe#containerRecipeArn API from Amazon EC2 Image Builder — 1 operation(s)
-    for deletecontainerrecipe#containerrecipearn.
+  description: >-
+    The DeleteContainerRecipe#containerRecipeArn API from Amazon EC2 Image Builder — 1 operation(s) for
+    deletecontainerrecipe#containerrecipearn.
   humanURL: https://aws.amazon.com/image-builder/
   baseURL: https://imagebuilder.amazonaws.com
   tags:
   - DeleteContainerRecipe#containerRecipeArn
   properties:
   - type: OpenAPI
-    url: openapi/amazon-ec2-image-builder-deletecontainerrecipe-containerrecipearn-api-openapi.yml
+    url: >-
+      openapi/amazon-ec2-image-builder-deletecontainerrecipe-containerrecipearn-api-openapi.yml
   - type: Documentation
     url: https://docs.aws.amazon.com/imagebuilder/latest/APIReference/Welcome.html
   - type: JSONSchema
@@ -369,7 +354,8 @@ apis:
   - type: JSONLD
     url: json-ld/amazon-ec2-image-builder-context.jsonld
   - type: GettingStarted
-    url: https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
+    url: >-
+      https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
   - type: Pricing
     url: https://aws.amazon.com/image-builder/pricing/
   - type: FAQ
@@ -386,17 +372,21 @@ apis:
     url: json-structure/ec2-image-builder-account-aggregation-structure.json
   - type: Examples
     url: examples/ec2-image-builder-account-aggregation-example.json
-- aid: amazon-ec2-image-builder:amazon-ec2-image-builder-deletedistributionconfiguration-distributionconfigurationarn-api
-  name: Amazon EC2 Image Builder DeleteDistributionConfiguration#distributionConfigurationArn API
-  description: The DeleteDistributionConfiguration#distributionConfigurationArn API from Amazon EC2 Image
-    Builder — 1 operation(s) for deletedistributionconfiguration#distributionconfigurationarn.
+- aid: >-
+    amazon-ec2-image-builder:amazon-ec2-image-builder-deletedistributionconfiguration-distributionconfigurationarn-api
+  name: >-
+    Amazon EC2 Image Builder DeleteDistributionConfiguration#distributionConfigurationArn API
+  description: >-
+    The DeleteDistributionConfiguration#distributionConfigurationArn API from Amazon EC2 Image Builder
+    — 1 operation(s) for deletedistributionconfiguration#distributionconfigurationarn.
   humanURL: https://aws.amazon.com/image-builder/
   baseURL: https://imagebuilder.amazonaws.com
   tags:
   - DeleteDistributionConfiguration#distributionConfigurationArn
   properties:
   - type: OpenAPI
-    url: openapi/amazon-ec2-image-builder-deletedistributionconfiguration-distributionconfigurationarn-api-openapi.yml
+    url: >-
+      openapi/amazon-ec2-image-builder-deletedistributionconfiguration-distributionconfigurationarn-api-openapi.yml
   - type: Documentation
     url: https://docs.aws.amazon.com/imagebuilder/latest/APIReference/Welcome.html
   - type: JSONSchema
@@ -404,7 +394,8 @@ apis:
   - type: JSONLD
     url: json-ld/amazon-ec2-image-builder-context.jsonld
   - type: GettingStarted
-    url: https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
+    url: >-
+      https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
   - type: Pricing
     url: https://aws.amazon.com/image-builder/pricing/
   - type: FAQ
@@ -423,8 +414,8 @@ apis:
     url: examples/ec2-image-builder-account-aggregation-example.json
 - aid: amazon-ec2-image-builder:amazon-ec2-image-builder-deleteimage-imagebuildversionarn-api
   name: Amazon EC2 Image Builder DeleteImage#imageBuildVersionArn API
-  description: The DeleteImage#imageBuildVersionArn API from Amazon EC2 Image Builder — 1 operation(s)
-    for deleteimage#imagebuildversionarn.
+  description: >-
+    The DeleteImage#imageBuildVersionArn API from Amazon EC2 Image Builder — 1 operation(s) for deleteimage#imagebuildversionarn.
   humanURL: https://aws.amazon.com/image-builder/
   baseURL: https://imagebuilder.amazonaws.com
   tags:
@@ -439,7 +430,8 @@ apis:
   - type: JSONLD
     url: json-ld/amazon-ec2-image-builder-context.jsonld
   - type: GettingStarted
-    url: https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
+    url: >-
+      https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
   - type: Pricing
     url: https://aws.amazon.com/image-builder/pricing/
   - type: FAQ
@@ -456,10 +448,11 @@ apis:
     url: json-structure/ec2-image-builder-account-aggregation-structure.json
   - type: Examples
     url: examples/ec2-image-builder-account-aggregation-example.json
-- aid: amazon-ec2-image-builder:amazon-ec2-image-builder-deleteimagepipeline-imagepipelinearn-api
+- aid: >-
+    amazon-ec2-image-builder:amazon-ec2-image-builder-deleteimagepipeline-imagepipelinearn-api
   name: Amazon EC2 Image Builder DeleteImagePipeline#imagePipelineArn API
-  description: The DeleteImagePipeline#imagePipelineArn API from Amazon EC2 Image Builder — 1 operation(s)
-    for deleteimagepipeline#imagepipelinearn.
+  description: >-
+    The DeleteImagePipeline#imagePipelineArn API from Amazon EC2 Image Builder — 1 operation(s) for deleteimagepipeline#imagepipelinearn.
   humanURL: https://aws.amazon.com/image-builder/
   baseURL: https://imagebuilder.amazonaws.com
   tags:
@@ -474,7 +467,8 @@ apis:
   - type: JSONLD
     url: json-ld/amazon-ec2-image-builder-context.jsonld
   - type: GettingStarted
-    url: https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
+    url: >-
+      https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
   - type: Pricing
     url: https://aws.amazon.com/image-builder/pricing/
   - type: FAQ
@@ -493,8 +487,8 @@ apis:
     url: examples/ec2-image-builder-account-aggregation-example.json
 - aid: amazon-ec2-image-builder:amazon-ec2-image-builder-deleteimagerecipe-imagerecipearn-api
   name: Amazon EC2 Image Builder DeleteImageRecipe#imageRecipeArn API
-  description: The DeleteImageRecipe#imageRecipeArn API from Amazon EC2 Image Builder — 1 operation(s)
-    for deleteimagerecipe#imagerecipearn.
+  description: >-
+    The DeleteImageRecipe#imageRecipeArn API from Amazon EC2 Image Builder — 1 operation(s) for deleteimagerecipe#imagerecipearn.
   humanURL: https://aws.amazon.com/image-builder/
   baseURL: https://imagebuilder.amazonaws.com
   tags:
@@ -509,7 +503,8 @@ apis:
   - type: JSONLD
     url: json-ld/amazon-ec2-image-builder-context.jsonld
   - type: GettingStarted
-    url: https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
+    url: >-
+      https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
   - type: Pricing
     url: https://aws.amazon.com/image-builder/pricing/
   - type: FAQ
@@ -526,10 +521,13 @@ apis:
     url: json-structure/ec2-image-builder-account-aggregation-structure.json
   - type: Examples
     url: examples/ec2-image-builder-account-aggregation-example.json
-- aid: amazon-ec2-image-builder:amazon-ec2-image-builder-deleteinfrastructureconfiguration-infrastructureconfigurationarn-api
-  name: Amazon EC2 Image Builder DeleteInfrastructureConfiguration#infrastructureConfigurationArn API
-  description: The DeleteInfrastructureConfiguration#infrastructureConfigurationArn API from Amazon EC2
-    Image Builder — 1 operation(s) for deleteinfrastructureconfiguration#infrastructureconfigurationarn.
+- aid: >-
+    amazon-ec2-image-builder:amazon-ec2-image-builder-deleteinfrastructureconfiguration-infrastructureconfigurationarn-api
+  name: >-
+    Amazon EC2 Image Builder DeleteInfrastructureConfiguration#infrastructureConfigurationArn API
+  description: >-
+    The DeleteInfrastructureConfiguration#infrastructureConfigurationArn API from Amazon EC2 Image Builder
+    — 1 operation(s) for deleteinfrastructureconfiguration#infrastructureconfigurationarn.
   humanURL: https://aws.amazon.com/image-builder/
   baseURL: https://imagebuilder.amazonaws.com
   tags: []
@@ -537,7 +535,8 @@ apis:
   - DeleteInfrastructureConfiguration#infrastructureConfigurationArn
   properties:
   - type: OpenAPI
-    url: openapi/amazon-ec2-image-builder-deleteinfrastructureconfiguration-infrastructureconfigurationarn-api-openapi.yml
+    url: >-
+      openapi/amazon-ec2-image-builder-deleteinfrastructureconfiguration-infrastructureconfigurationarn-api-openapi.yml
   - type: Documentation
     url: https://docs.aws.amazon.com/imagebuilder/latest/APIReference/Welcome.html
   - type: JSONSchema
@@ -545,7 +544,8 @@ apis:
   - type: JSONLD
     url: json-ld/amazon-ec2-image-builder-context.jsonld
   - type: GettingStarted
-    url: https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
+    url: >-
+      https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
   - type: Pricing
     url: https://aws.amazon.com/image-builder/pricing/
   - type: FAQ
@@ -562,10 +562,11 @@ apis:
     url: json-structure/ec2-image-builder-account-aggregation-structure.json
   - type: Examples
     url: examples/ec2-image-builder-account-aggregation-example.json
-- aid: amazon-ec2-image-builder:amazon-ec2-image-builder-getcomponent-componentbuildversionarn-api
+- aid: >-
+    amazon-ec2-image-builder:amazon-ec2-image-builder-getcomponent-componentbuildversionarn-api
   name: Amazon EC2 Image Builder GetComponent#componentBuildVersionArn API
-  description: The GetComponent#componentBuildVersionArn API from Amazon EC2 Image Builder — 1 operation(s)
-    for getcomponent#componentbuildversionarn.
+  description: >-
+    The GetComponent#componentBuildVersionArn API from Amazon EC2 Image Builder — 1 operation(s) for getcomponent#componentbuildversionarn.
   humanURL: https://aws.amazon.com/image-builder/
   baseURL: https://imagebuilder.amazonaws.com
   tags:
@@ -580,7 +581,8 @@ apis:
   - type: JSONLD
     url: json-ld/amazon-ec2-image-builder-context.jsonld
   - type: GettingStarted
-    url: https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
+    url: >-
+      https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
   - type: Pricing
     url: https://aws.amazon.com/image-builder/pricing/
   - type: FAQ
@@ -599,8 +601,8 @@ apis:
     url: examples/ec2-image-builder-account-aggregation-example.json
 - aid: amazon-ec2-image-builder:amazon-ec2-image-builder-getcomponentpolicy-componentarn-api
   name: Amazon EC2 Image Builder GetComponentPolicy#componentArn API
-  description: The GetComponentPolicy#componentArn API from Amazon EC2 Image Builder — 1 operation(s)
-    for getcomponentpolicy#componentarn.
+  description: >-
+    The GetComponentPolicy#componentArn API from Amazon EC2 Image Builder — 1 operation(s) for getcomponentpolicy#componentarn.
   humanURL: https://aws.amazon.com/image-builder/
   baseURL: https://imagebuilder.amazonaws.com
   tags:
@@ -615,7 +617,8 @@ apis:
   - type: JSONLD
     url: json-ld/amazon-ec2-image-builder-context.jsonld
   - type: GettingStarted
-    url: https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
+    url: >-
+      https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
   - type: Pricing
     url: https://aws.amazon.com/image-builder/pricing/
   - type: FAQ
@@ -632,10 +635,11 @@ apis:
     url: json-structure/ec2-image-builder-account-aggregation-structure.json
   - type: Examples
     url: examples/ec2-image-builder-account-aggregation-example.json
-- aid: amazon-ec2-image-builder:amazon-ec2-image-builder-getcontainerrecipe-containerrecipearn-api
+- aid: >-
+    amazon-ec2-image-builder:amazon-ec2-image-builder-getcontainerrecipe-containerrecipearn-api
   name: Amazon EC2 Image Builder GetContainerRecipe#containerRecipeArn API
-  description: The GetContainerRecipe#containerRecipeArn API from Amazon EC2 Image Builder — 1 operation(s)
-    for getcontainerrecipe#containerrecipearn.
+  description: >-
+    The GetContainerRecipe#containerRecipeArn API from Amazon EC2 Image Builder — 1 operation(s) for getcontainerrecipe#containerrecipearn.
   humanURL: https://aws.amazon.com/image-builder/
   baseURL: https://imagebuilder.amazonaws.com
   tags:
@@ -650,7 +654,8 @@ apis:
   - type: JSONLD
     url: json-ld/amazon-ec2-image-builder-context.jsonld
   - type: GettingStarted
-    url: https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
+    url: >-
+      https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
   - type: Pricing
     url: https://aws.amazon.com/image-builder/pricing/
   - type: FAQ
@@ -667,9 +672,11 @@ apis:
     url: json-structure/ec2-image-builder-account-aggregation-structure.json
   - type: Examples
     url: examples/ec2-image-builder-account-aggregation-example.json
-- aid: amazon-ec2-image-builder:amazon-ec2-image-builder-getcontainerrecipepolicy-containerrecipearn-api
+- aid: >-
+    amazon-ec2-image-builder:amazon-ec2-image-builder-getcontainerrecipepolicy-containerrecipearn-api
   name: Amazon EC2 Image Builder GetContainerRecipePolicy#containerRecipeArn API
-  description: The GetContainerRecipePolicy#containerRecipeArn API from Amazon EC2 Image Builder — 1 operation(s)
+  description: >-
+    The GetContainerRecipePolicy#containerRecipeArn API from Amazon EC2 Image Builder — 1 operation(s)
     for getcontainerrecipepolicy#containerrecipearn.
   humanURL: https://aws.amazon.com/image-builder/
   baseURL: https://imagebuilder.amazonaws.com
@@ -677,7 +684,8 @@ apis:
   - GetContainerRecipePolicy#containerRecipeArn
   properties:
   - type: OpenAPI
-    url: openapi/amazon-ec2-image-builder-getcontainerrecipepolicy-containerrecipearn-api-openapi.yml
+    url: >-
+      openapi/amazon-ec2-image-builder-getcontainerrecipepolicy-containerrecipearn-api-openapi.yml
   - type: Documentation
     url: https://docs.aws.amazon.com/imagebuilder/latest/APIReference/Welcome.html
   - type: JSONSchema
@@ -685,7 +693,8 @@ apis:
   - type: JSONLD
     url: json-ld/amazon-ec2-image-builder-context.jsonld
   - type: GettingStarted
-    url: https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
+    url: >-
+      https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
   - type: Pricing
     url: https://aws.amazon.com/image-builder/pricing/
   - type: FAQ
@@ -702,17 +711,20 @@ apis:
     url: json-structure/ec2-image-builder-account-aggregation-structure.json
   - type: Examples
     url: examples/ec2-image-builder-account-aggregation-example.json
-- aid: amazon-ec2-image-builder:amazon-ec2-image-builder-getdistributionconfiguration-distributionconfigurationarn-api
+- aid: >-
+    amazon-ec2-image-builder:amazon-ec2-image-builder-getdistributionconfiguration-distributionconfigurationarn-api
   name: Amazon EC2 Image Builder GetDistributionConfiguration#distributionConfigurationArn API
-  description: The GetDistributionConfiguration#distributionConfigurationArn API from Amazon EC2 Image
-    Builder — 1 operation(s) for getdistributionconfiguration#distributionconfigurationarn.
+  description: >-
+    The GetDistributionConfiguration#distributionConfigurationArn API from Amazon EC2 Image Builder —
+    1 operation(s) for getdistributionconfiguration#distributionconfigurationarn.
   humanURL: https://aws.amazon.com/image-builder/
   baseURL: https://imagebuilder.amazonaws.com
   tags:
   - GetDistributionConfiguration#distributionConfigurationArn
   properties:
   - type: OpenAPI
-    url: openapi/amazon-ec2-image-builder-getdistributionconfiguration-distributionconfigurationarn-api-openapi.yml
+    url: >-
+      openapi/amazon-ec2-image-builder-getdistributionconfiguration-distributionconfigurationarn-api-openapi.yml
   - type: Documentation
     url: https://docs.aws.amazon.com/imagebuilder/latest/APIReference/Welcome.html
   - type: JSONSchema
@@ -720,7 +732,8 @@ apis:
   - type: JSONLD
     url: json-ld/amazon-ec2-image-builder-context.jsonld
   - type: GettingStarted
-    url: https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
+    url: >-
+      https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
   - type: Pricing
     url: https://aws.amazon.com/image-builder/pricing/
   - type: FAQ
@@ -739,8 +752,8 @@ apis:
     url: examples/ec2-image-builder-account-aggregation-example.json
 - aid: amazon-ec2-image-builder:amazon-ec2-image-builder-getimage-imagebuildversionarn-api
   name: Amazon EC2 Image Builder GetImage#imageBuildVersionArn API
-  description: The GetImage#imageBuildVersionArn API from Amazon EC2 Image Builder — 1 operation(s) for
-    getimage#imagebuildversionarn.
+  description: >-
+    The GetImage#imageBuildVersionArn API from Amazon EC2 Image Builder — 1 operation(s) for getimage#imagebuildversionarn.
   humanURL: https://aws.amazon.com/image-builder/
   baseURL: https://imagebuilder.amazonaws.com
   tags:
@@ -755,7 +768,8 @@ apis:
   - type: JSONLD
     url: json-ld/amazon-ec2-image-builder-context.jsonld
   - type: GettingStarted
-    url: https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
+    url: >-
+      https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
   - type: Pricing
     url: https://aws.amazon.com/image-builder/pricing/
   - type: FAQ
@@ -774,8 +788,8 @@ apis:
     url: examples/ec2-image-builder-account-aggregation-example.json
 - aid: amazon-ec2-image-builder:amazon-ec2-image-builder-getimagepipeline-imagepipelinearn-api
   name: Amazon EC2 Image Builder GetImagePipeline#imagePipelineArn API
-  description: The GetImagePipeline#imagePipelineArn API from Amazon EC2 Image Builder — 1 operation(s)
-    for getimagepipeline#imagepipelinearn.
+  description: >-
+    The GetImagePipeline#imagePipelineArn API from Amazon EC2 Image Builder — 1 operation(s) for getimagepipeline#imagepipelinearn.
   humanURL: https://aws.amazon.com/image-builder/
   baseURL: https://imagebuilder.amazonaws.com
   tags:
@@ -790,7 +804,8 @@ apis:
   - type: JSONLD
     url: json-ld/amazon-ec2-image-builder-context.jsonld
   - type: GettingStarted
-    url: https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
+    url: >-
+      https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
   - type: Pricing
     url: https://aws.amazon.com/image-builder/pricing/
   - type: FAQ
@@ -809,7 +824,8 @@ apis:
     url: examples/ec2-image-builder-account-aggregation-example.json
 - aid: amazon-ec2-image-builder:amazon-ec2-image-builder-getimagepolicy-imagearn-api
   name: Amazon EC2 Image Builder GetImagePolicy#imageArn API
-  description: The GetImagePolicy#imageArn API from Amazon EC2 Image Builder — 1 operation(s) for getimagepolicy#imagearn.
+  description: >-
+    The GetImagePolicy#imageArn API from Amazon EC2 Image Builder — 1 operation(s) for getimagepolicy#imagearn.
   humanURL: https://aws.amazon.com/image-builder/
   baseURL: https://imagebuilder.amazonaws.com
   tags:
@@ -824,7 +840,8 @@ apis:
   - type: JSONLD
     url: json-ld/amazon-ec2-image-builder-context.jsonld
   - type: GettingStarted
-    url: https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
+    url: >-
+      https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
   - type: Pricing
     url: https://aws.amazon.com/image-builder/pricing/
   - type: FAQ
@@ -843,8 +860,8 @@ apis:
     url: examples/ec2-image-builder-account-aggregation-example.json
 - aid: amazon-ec2-image-builder:amazon-ec2-image-builder-getimagerecipe-imagerecipearn-api
   name: Amazon EC2 Image Builder GetImageRecipe#imageRecipeArn API
-  description: The GetImageRecipe#imageRecipeArn API from Amazon EC2 Image Builder — 1 operation(s) for
-    getimagerecipe#imagerecipearn.
+  description: >-
+    The GetImageRecipe#imageRecipeArn API from Amazon EC2 Image Builder — 1 operation(s) for getimagerecipe#imagerecipearn.
   humanURL: https://aws.amazon.com/image-builder/
   baseURL: https://imagebuilder.amazonaws.com
   tags:
@@ -859,7 +876,8 @@ apis:
   - type: JSONLD
     url: json-ld/amazon-ec2-image-builder-context.jsonld
   - type: GettingStarted
-    url: https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
+    url: >-
+      https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
   - type: Pricing
     url: https://aws.amazon.com/image-builder/pricing/
   - type: FAQ
@@ -876,10 +894,11 @@ apis:
     url: json-structure/ec2-image-builder-account-aggregation-structure.json
   - type: Examples
     url: examples/ec2-image-builder-account-aggregation-example.json
-- aid: amazon-ec2-image-builder:amazon-ec2-image-builder-getimagerecipepolicy-imagerecipearn-api
+- aid: >-
+    amazon-ec2-image-builder:amazon-ec2-image-builder-getimagerecipepolicy-imagerecipearn-api
   name: Amazon EC2 Image Builder GetImageRecipePolicy#imageRecipeArn API
-  description: The GetImageRecipePolicy#imageRecipeArn API from Amazon EC2 Image Builder — 1 operation(s)
-    for getimagerecipepolicy#imagerecipearn.
+  description: >-
+    The GetImageRecipePolicy#imageRecipeArn API from Amazon EC2 Image Builder — 1 operation(s) for getimagerecipepolicy#imagerecipearn.
   humanURL: https://aws.amazon.com/image-builder/
   baseURL: https://imagebuilder.amazonaws.com
   tags:
@@ -894,7 +913,8 @@ apis:
   - type: JSONLD
     url: json-ld/amazon-ec2-image-builder-context.jsonld
   - type: GettingStarted
-    url: https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
+    url: >-
+      https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
   - type: Pricing
     url: https://aws.amazon.com/image-builder/pricing/
   - type: FAQ
@@ -911,10 +931,13 @@ apis:
     url: json-structure/ec2-image-builder-account-aggregation-structure.json
   - type: Examples
     url: examples/ec2-image-builder-account-aggregation-example.json
-- aid: amazon-ec2-image-builder:amazon-ec2-image-builder-getinfrastructureconfiguration-infrastructureconfigurationarn-api
-  name: Amazon EC2 Image Builder GetInfrastructureConfiguration#infrastructureConfigurationArn API
-  description: The GetInfrastructureConfiguration#infrastructureConfigurationArn API from Amazon EC2 Image
-    Builder — 1 operation(s) for getinfrastructureconfiguration#infrastructureconfigurationarn.
+- aid: >-
+    amazon-ec2-image-builder:amazon-ec2-image-builder-getinfrastructureconfiguration-infrastructureconfigurationarn-api
+  name: >-
+    Amazon EC2 Image Builder GetInfrastructureConfiguration#infrastructureConfigurationArn API
+  description: >-
+    The GetInfrastructureConfiguration#infrastructureConfigurationArn API from Amazon EC2 Image Builder
+    — 1 operation(s) for getinfrastructureconfiguration#infrastructureconfigurationarn.
   humanURL: https://aws.amazon.com/image-builder/
   baseURL: https://imagebuilder.amazonaws.com
   tags: []
@@ -922,7 +945,8 @@ apis:
   - GetInfrastructureConfiguration#infrastructureConfigurationArn
   properties:
   - type: OpenAPI
-    url: openapi/amazon-ec2-image-builder-getinfrastructureconfiguration-infrastructureconfigurationarn-api-openapi.yml
+    url: >-
+      openapi/amazon-ec2-image-builder-getinfrastructureconfiguration-infrastructureconfigurationarn-api-openapi.yml
   - type: Documentation
     url: https://docs.aws.amazon.com/imagebuilder/latest/APIReference/Welcome.html
   - type: JSONSchema
@@ -930,7 +954,8 @@ apis:
   - type: JSONLD
     url: json-ld/amazon-ec2-image-builder-context.jsonld
   - type: GettingStarted
-    url: https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
+    url: >-
+      https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
   - type: Pricing
     url: https://aws.amazon.com/image-builder/pricing/
   - type: FAQ
@@ -947,17 +972,20 @@ apis:
     url: json-structure/ec2-image-builder-account-aggregation-structure.json
   - type: Examples
     url: examples/ec2-image-builder-account-aggregation-example.json
-- aid: amazon-ec2-image-builder:amazon-ec2-image-builder-getworkflowexecution-workflowexecutionid-api
+- aid: >-
+    amazon-ec2-image-builder:amazon-ec2-image-builder-getworkflowexecution-workflowexecutionid-api
   name: Amazon EC2 Image Builder GetWorkflowExecution#workflowExecutionId API
-  description: The GetWorkflowExecution#workflowExecutionId API from Amazon EC2 Image Builder — 1 operation(s)
-    for getworkflowexecution#workflowexecutionid.
+  description: >-
+    The GetWorkflowExecution#workflowExecutionId API from Amazon EC2 Image Builder — 1 operation(s) for
+    getworkflowexecution#workflowexecutionid.
   humanURL: https://aws.amazon.com/image-builder/
   baseURL: https://imagebuilder.amazonaws.com
   tags:
   - GetWorkflowExecution#workflowExecutionId
   properties:
   - type: OpenAPI
-    url: openapi/amazon-ec2-image-builder-getworkflowexecution-workflowexecutionid-api-openapi.yml
+    url: >-
+      openapi/amazon-ec2-image-builder-getworkflowexecution-workflowexecutionid-api-openapi.yml
   - type: Documentation
     url: https://docs.aws.amazon.com/imagebuilder/latest/APIReference/Welcome.html
   - type: JSONSchema
@@ -965,7 +993,8 @@ apis:
   - type: JSONLD
     url: json-ld/amazon-ec2-image-builder-context.jsonld
   - type: GettingStarted
-    url: https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
+    url: >-
+      https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
   - type: Pricing
     url: https://aws.amazon.com/image-builder/pricing/
   - type: FAQ
@@ -982,17 +1011,20 @@ apis:
     url: json-structure/ec2-image-builder-account-aggregation-structure.json
   - type: Examples
     url: examples/ec2-image-builder-account-aggregation-example.json
-- aid: amazon-ec2-image-builder:amazon-ec2-image-builder-getworkflowstepexecution-stepexecutionid-api
+- aid: >-
+    amazon-ec2-image-builder:amazon-ec2-image-builder-getworkflowstepexecution-stepexecutionid-api
   name: Amazon EC2 Image Builder GetWorkflowStepExecution#stepExecutionId API
-  description: The GetWorkflowStepExecution#stepExecutionId API from Amazon EC2 Image Builder — 1 operation(s)
-    for getworkflowstepexecution#stepexecutionid.
+  description: >-
+    The GetWorkflowStepExecution#stepExecutionId API from Amazon EC2 Image Builder — 1 operation(s) for
+    getworkflowstepexecution#stepexecutionid.
   humanURL: https://aws.amazon.com/image-builder/
   baseURL: https://imagebuilder.amazonaws.com
   tags:
   - GetWorkflowStepExecution#stepExecutionId
   properties:
   - type: OpenAPI
-    url: openapi/amazon-ec2-image-builder-getworkflowstepexecution-stepexecutionid-api-openapi.yml
+    url: >-
+      openapi/amazon-ec2-image-builder-getworkflowstepexecution-stepexecutionid-api-openapi.yml
   - type: Documentation
     url: https://docs.aws.amazon.com/imagebuilder/latest/APIReference/Welcome.html
   - type: JSONSchema
@@ -1000,7 +1032,8 @@ apis:
   - type: JSONLD
     url: json-ld/amazon-ec2-image-builder-context.jsonld
   - type: GettingStarted
-    url: https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
+    url: >-
+      https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
   - type: Pricing
     url: https://aws.amazon.com/image-builder/pricing/
   - type: FAQ
@@ -1019,7 +1052,8 @@ apis:
     url: examples/ec2-image-builder-account-aggregation-example.json
 - aid: amazon-ec2-image-builder:amazon-ec2-image-builder-importcomponent-api
   name: Amazon EC2 Image Builder ImportComponent API
-  description: The ImportComponent API from Amazon EC2 Image Builder — 1 operation(s) for importcomponent.
+  description: >-
+    The ImportComponent API from Amazon EC2 Image Builder — 1 operation(s) for importcomponent.
   humanURL: https://aws.amazon.com/image-builder/
   baseURL: https://imagebuilder.amazonaws.com
   tags:
@@ -1034,7 +1068,8 @@ apis:
   - type: JSONLD
     url: json-ld/amazon-ec2-image-builder-context.jsonld
   - type: GettingStarted
-    url: https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
+    url: >-
+      https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
   - type: Pricing
     url: https://aws.amazon.com/image-builder/pricing/
   - type: FAQ
@@ -1068,7 +1103,8 @@ apis:
   - type: JSONLD
     url: json-ld/amazon-ec2-image-builder-context.jsonld
   - type: GettingStarted
-    url: https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
+    url: >-
+      https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
   - type: Pricing
     url: https://aws.amazon.com/image-builder/pricing/
   - type: FAQ
@@ -1087,7 +1123,8 @@ apis:
     url: examples/ec2-image-builder-account-aggregation-example.json
 - aid: amazon-ec2-image-builder:amazon-ec2-image-builder-listcomponentbuildversions-api
   name: Amazon EC2 Image Builder ListComponentBuildVersions API
-  description: The ListComponentBuildVersions API from Amazon EC2 Image Builder — 1 operation(s) for listcomponentbuildversions.
+  description: >-
+    The ListComponentBuildVersions API from Amazon EC2 Image Builder — 1 operation(s) for listcomponentbuildversions.
   humanURL: https://aws.amazon.com/image-builder/
   baseURL: https://imagebuilder.amazonaws.com
   tags:
@@ -1102,41 +1139,8 @@ apis:
   - type: JSONLD
     url: json-ld/amazon-ec2-image-builder-context.jsonld
   - type: GettingStarted
-    url: https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
-  - type: Pricing
-    url: https://aws.amazon.com/image-builder/pricing/
-  - type: FAQ
-    url: https://aws.amazon.com/image-builder/faqs/
-  - type: APIReference
-    url: https://docs.aws.amazon.com/imagebuilder/latest/APIReference/
-  - type: Authentication
-    url: https://docs.aws.amazon.com/imagebuilder/latest/APIReference/CommonParameters.html
-  - type: RateLimits
-    url: https://docs.aws.amazon.com/imagebuilder/latest/userguide/limits.html
-  - type: JSONSchema
-    url: json-schema/ec2-image-builder-account-aggregation-schema.json
-  - type: JSONStructure
-    url: json-structure/ec2-image-builder-account-aggregation-structure.json
-  - type: Examples
-    url: examples/ec2-image-builder-account-aggregation-example.json
-- aid: amazon-ec2-image-builder:amazon-ec2-image-builder-listcomponents-api
-  name: Amazon EC2 Image Builder ListComponents API
-  description: The ListComponents API from Amazon EC2 Image Builder — 1 operation(s) for listcomponents.
-  humanURL: https://aws.amazon.com/image-builder/
-  baseURL: https://imagebuilder.amazonaws.com
-  tags:
-  - ListComponents
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-ec2-image-builder-listcomponents-api-openapi.yml
-  - type: Documentation
-    url: https://docs.aws.amazon.com/imagebuilder/latest/APIReference/Welcome.html
-  - type: JSONSchema
-    url: json-schema/ec2-image-builder-image-pipeline-schema.json
-  - type: JSONLD
-    url: json-ld/amazon-ec2-image-builder-context.jsonld
-  - type: GettingStarted
-    url: https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
+    url: >-
+      https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
   - type: Pricing
     url: https://aws.amazon.com/image-builder/pricing/
   - type: FAQ
@@ -1155,7 +1159,8 @@ apis:
     url: examples/ec2-image-builder-account-aggregation-example.json
 - aid: amazon-ec2-image-builder:amazon-ec2-image-builder-listcontainerrecipes-api
   name: Amazon EC2 Image Builder ListContainerRecipes API
-  description: The ListContainerRecipes API from Amazon EC2 Image Builder — 1 operation(s) for listcontainerrecipes.
+  description: >-
+    The ListContainerRecipes API from Amazon EC2 Image Builder — 1 operation(s) for listcontainerrecipes.
   humanURL: https://aws.amazon.com/image-builder/
   baseURL: https://imagebuilder.amazonaws.com
   tags:
@@ -1170,7 +1175,8 @@ apis:
   - type: JSONLD
     url: json-ld/amazon-ec2-image-builder-context.jsonld
   - type: GettingStarted
-    url: https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
+    url: >-
+      https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
   - type: Pricing
     url: https://aws.amazon.com/image-builder/pricing/
   - type: FAQ
@@ -1189,8 +1195,8 @@ apis:
     url: examples/ec2-image-builder-account-aggregation-example.json
 - aid: amazon-ec2-image-builder:amazon-ec2-image-builder-listdistributionconfigurations-api
   name: Amazon EC2 Image Builder ListDistributionConfigurations API
-  description: The ListDistributionConfigurations API from Amazon EC2 Image Builder — 1 operation(s) for
-    listdistributionconfigurations.
+  description: >-
+    The ListDistributionConfigurations API from Amazon EC2 Image Builder — 1 operation(s) for listdistributionconfigurations.
   humanURL: https://aws.amazon.com/image-builder/
   baseURL: https://imagebuilder.amazonaws.com
   tags:
@@ -1205,7 +1211,8 @@ apis:
   - type: JSONLD
     url: json-ld/amazon-ec2-image-builder-context.jsonld
   - type: GettingStarted
-    url: https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
+    url: >-
+      https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
   - type: Pricing
     url: https://aws.amazon.com/image-builder/pricing/
   - type: FAQ
@@ -1224,7 +1231,8 @@ apis:
     url: examples/ec2-image-builder-account-aggregation-example.json
 - aid: amazon-ec2-image-builder:amazon-ec2-image-builder-listimagebuildversions-api
   name: Amazon EC2 Image Builder ListImageBuildVersions API
-  description: The ListImageBuildVersions API from Amazon EC2 Image Builder — 1 operation(s) for listimagebuildversions.
+  description: >-
+    The ListImageBuildVersions API from Amazon EC2 Image Builder — 1 operation(s) for listimagebuildversions.
   humanURL: https://aws.amazon.com/image-builder/
   baseURL: https://imagebuilder.amazonaws.com
   tags:
@@ -1239,7 +1247,8 @@ apis:
   - type: JSONLD
     url: json-ld/amazon-ec2-image-builder-context.jsonld
   - type: GettingStarted
-    url: https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
+    url: >-
+      https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
   - type: Pricing
     url: https://aws.amazon.com/image-builder/pricing/
   - type: FAQ
@@ -1258,7 +1267,8 @@ apis:
     url: examples/ec2-image-builder-account-aggregation-example.json
 - aid: amazon-ec2-image-builder:amazon-ec2-image-builder-listimagepackages-api
   name: Amazon EC2 Image Builder ListImagePackages API
-  description: The ListImagePackages API from Amazon EC2 Image Builder — 1 operation(s) for listimagepackages.
+  description: >-
+    The ListImagePackages API from Amazon EC2 Image Builder — 1 operation(s) for listimagepackages.
   humanURL: https://aws.amazon.com/image-builder/
   baseURL: https://imagebuilder.amazonaws.com
   tags:
@@ -1273,7 +1283,8 @@ apis:
   - type: JSONLD
     url: json-ld/amazon-ec2-image-builder-context.jsonld
   - type: GettingStarted
-    url: https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
+    url: >-
+      https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
   - type: Pricing
     url: https://aws.amazon.com/image-builder/pricing/
   - type: FAQ
@@ -1292,7 +1303,8 @@ apis:
     url: examples/ec2-image-builder-account-aggregation-example.json
 - aid: amazon-ec2-image-builder:amazon-ec2-image-builder-listimagepipelineimages-api
   name: Amazon EC2 Image Builder ListImagePipelineImages API
-  description: The ListImagePipelineImages API from Amazon EC2 Image Builder — 1 operation(s) for listimagepipelineimages.
+  description: >-
+    The ListImagePipelineImages API from Amazon EC2 Image Builder — 1 operation(s) for listimagepipelineimages.
   humanURL: https://aws.amazon.com/image-builder/
   baseURL: https://imagebuilder.amazonaws.com
   tags:
@@ -1307,7 +1319,8 @@ apis:
   - type: JSONLD
     url: json-ld/amazon-ec2-image-builder-context.jsonld
   - type: GettingStarted
-    url: https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
+    url: >-
+      https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
   - type: Pricing
     url: https://aws.amazon.com/image-builder/pricing/
   - type: FAQ
@@ -1326,7 +1339,8 @@ apis:
     url: examples/ec2-image-builder-account-aggregation-example.json
 - aid: amazon-ec2-image-builder:amazon-ec2-image-builder-listimagepipelines-api
   name: Amazon EC2 Image Builder ListImagePipelines API
-  description: The ListImagePipelines API from Amazon EC2 Image Builder — 1 operation(s) for listimagepipelines.
+  description: >-
+    The ListImagePipelines API from Amazon EC2 Image Builder — 1 operation(s) for listimagepipelines.
   humanURL: https://aws.amazon.com/image-builder/
   baseURL: https://imagebuilder.amazonaws.com
   tags:
@@ -1341,7 +1355,8 @@ apis:
   - type: JSONLD
     url: json-ld/amazon-ec2-image-builder-context.jsonld
   - type: GettingStarted
-    url: https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
+    url: >-
+      https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
   - type: Pricing
     url: https://aws.amazon.com/image-builder/pricing/
   - type: FAQ
@@ -1360,7 +1375,8 @@ apis:
     url: examples/ec2-image-builder-account-aggregation-example.json
 - aid: amazon-ec2-image-builder:amazon-ec2-image-builder-listimagerecipes-api
   name: Amazon EC2 Image Builder ListImageRecipes API
-  description: The ListImageRecipes API from Amazon EC2 Image Builder — 1 operation(s) for listimagerecipes.
+  description: >-
+    The ListImageRecipes API from Amazon EC2 Image Builder — 1 operation(s) for listimagerecipes.
   humanURL: https://aws.amazon.com/image-builder/
   baseURL: https://imagebuilder.amazonaws.com
   tags:
@@ -1375,41 +1391,8 @@ apis:
   - type: JSONLD
     url: json-ld/amazon-ec2-image-builder-context.jsonld
   - type: GettingStarted
-    url: https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
-  - type: Pricing
-    url: https://aws.amazon.com/image-builder/pricing/
-  - type: FAQ
-    url: https://aws.amazon.com/image-builder/faqs/
-  - type: APIReference
-    url: https://docs.aws.amazon.com/imagebuilder/latest/APIReference/
-  - type: Authentication
-    url: https://docs.aws.amazon.com/imagebuilder/latest/APIReference/CommonParameters.html
-  - type: RateLimits
-    url: https://docs.aws.amazon.com/imagebuilder/latest/userguide/limits.html
-  - type: JSONSchema
-    url: json-schema/ec2-image-builder-account-aggregation-schema.json
-  - type: JSONStructure
-    url: json-structure/ec2-image-builder-account-aggregation-structure.json
-  - type: Examples
-    url: examples/ec2-image-builder-account-aggregation-example.json
-- aid: amazon-ec2-image-builder:amazon-ec2-image-builder-listimages-api
-  name: Amazon EC2 Image Builder ListImages API
-  description: The ListImages API from Amazon EC2 Image Builder — 1 operation(s) for listimages.
-  humanURL: https://aws.amazon.com/image-builder/
-  baseURL: https://imagebuilder.amazonaws.com
-  tags:
-  - ListImages
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-ec2-image-builder-listimages-api-openapi.yml
-  - type: Documentation
-    url: https://docs.aws.amazon.com/imagebuilder/latest/APIReference/Welcome.html
-  - type: JSONSchema
-    url: json-schema/ec2-image-builder-image-pipeline-schema.json
-  - type: JSONLD
-    url: json-ld/amazon-ec2-image-builder-context.jsonld
-  - type: GettingStarted
-    url: https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
+    url: >-
+      https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
   - type: Pricing
     url: https://aws.amazon.com/image-builder/pricing/
   - type: FAQ
@@ -1428,8 +1411,8 @@ apis:
     url: examples/ec2-image-builder-account-aggregation-example.json
 - aid: amazon-ec2-image-builder:amazon-ec2-image-builder-listimagescanfindingaggregations-api
   name: Amazon EC2 Image Builder ListImageScanFindingAggregations API
-  description: The ListImageScanFindingAggregations API from Amazon EC2 Image Builder — 1 operation(s)
-    for listimagescanfindingaggregations.
+  description: >-
+    The ListImageScanFindingAggregations API from Amazon EC2 Image Builder — 1 operation(s) for listimagescanfindingaggregations.
   humanURL: https://aws.amazon.com/image-builder/
   baseURL: https://imagebuilder.amazonaws.com
   tags:
@@ -1444,7 +1427,8 @@ apis:
   - type: JSONLD
     url: json-ld/amazon-ec2-image-builder-context.jsonld
   - type: GettingStarted
-    url: https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
+    url: >-
+      https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
   - type: Pricing
     url: https://aws.amazon.com/image-builder/pricing/
   - type: FAQ
@@ -1463,7 +1447,8 @@ apis:
     url: examples/ec2-image-builder-account-aggregation-example.json
 - aid: amazon-ec2-image-builder:amazon-ec2-image-builder-listimagescanfindings-api
   name: Amazon EC2 Image Builder ListImageScanFindings API
-  description: The ListImageScanFindings API from Amazon EC2 Image Builder — 1 operation(s) for listimagescanfindings.
+  description: >-
+    The ListImageScanFindings API from Amazon EC2 Image Builder — 1 operation(s) for listimagescanfindings.
   humanURL: https://aws.amazon.com/image-builder/
   baseURL: https://imagebuilder.amazonaws.com
   tags:
@@ -1478,7 +1463,8 @@ apis:
   - type: JSONLD
     url: json-ld/amazon-ec2-image-builder-context.jsonld
   - type: GettingStarted
-    url: https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
+    url: >-
+      https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
   - type: Pricing
     url: https://aws.amazon.com/image-builder/pricing/
   - type: FAQ
@@ -1497,8 +1483,8 @@ apis:
     url: examples/ec2-image-builder-account-aggregation-example.json
 - aid: amazon-ec2-image-builder:amazon-ec2-image-builder-listinfrastructureconfigurations-api
   name: Amazon EC2 Image Builder ListInfrastructureConfigurations API
-  description: The ListInfrastructureConfigurations API from Amazon EC2 Image Builder — 1 operation(s)
-    for listinfrastructureconfigurations.
+  description: >-
+    The ListInfrastructureConfigurations API from Amazon EC2 Image Builder — 1 operation(s) for listinfrastructureconfigurations.
   humanURL: https://aws.amazon.com/image-builder/
   baseURL: https://imagebuilder.amazonaws.com
   tags:
@@ -1513,7 +1499,8 @@ apis:
   - type: JSONLD
     url: json-ld/amazon-ec2-image-builder-context.jsonld
   - type: GettingStarted
-    url: https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
+    url: >-
+      https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
   - type: Pricing
     url: https://aws.amazon.com/image-builder/pricing/
   - type: FAQ
@@ -1532,7 +1519,8 @@ apis:
     url: examples/ec2-image-builder-account-aggregation-example.json
 - aid: amazon-ec2-image-builder:amazon-ec2-image-builder-listworkflowexecutions-api
   name: Amazon EC2 Image Builder ListWorkflowExecutions API
-  description: The ListWorkflowExecutions API from Amazon EC2 Image Builder — 1 operation(s) for listworkflowexecutions.
+  description: >-
+    The ListWorkflowExecutions API from Amazon EC2 Image Builder — 1 operation(s) for listworkflowexecutions.
   humanURL: https://aws.amazon.com/image-builder/
   baseURL: https://imagebuilder.amazonaws.com
   tags:
@@ -1547,7 +1535,8 @@ apis:
   - type: JSONLD
     url: json-ld/amazon-ec2-image-builder-context.jsonld
   - type: GettingStarted
-    url: https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
+    url: >-
+      https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
   - type: Pricing
     url: https://aws.amazon.com/image-builder/pricing/
   - type: FAQ
@@ -1566,7 +1555,8 @@ apis:
     url: examples/ec2-image-builder-account-aggregation-example.json
 - aid: amazon-ec2-image-builder:amazon-ec2-image-builder-listworkflowstepexecutions-api
   name: Amazon EC2 Image Builder ListWorkflowStepExecutions API
-  description: The ListWorkflowStepExecutions API from Amazon EC2 Image Builder — 1 operation(s) for listworkflowstepexecutions.
+  description: >-
+    The ListWorkflowStepExecutions API from Amazon EC2 Image Builder — 1 operation(s) for listworkflowstepexecutions.
   humanURL: https://aws.amazon.com/image-builder/
   baseURL: https://imagebuilder.amazonaws.com
   tags:
@@ -1581,7 +1571,8 @@ apis:
   - type: JSONLD
     url: json-ld/amazon-ec2-image-builder-context.jsonld
   - type: GettingStarted
-    url: https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
+    url: >-
+      https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
   - type: Pricing
     url: https://aws.amazon.com/image-builder/pricing/
   - type: FAQ
@@ -1600,7 +1591,8 @@ apis:
     url: examples/ec2-image-builder-account-aggregation-example.json
 - aid: amazon-ec2-image-builder:amazon-ec2-image-builder-putcomponentpolicy-api
   name: Amazon EC2 Image Builder PutComponentPolicy API
-  description: The PutComponentPolicy API from Amazon EC2 Image Builder — 1 operation(s) for putcomponentpolicy.
+  description: >-
+    The PutComponentPolicy API from Amazon EC2 Image Builder — 1 operation(s) for putcomponentpolicy.
   humanURL: https://aws.amazon.com/image-builder/
   baseURL: https://imagebuilder.amazonaws.com
   tags:
@@ -1615,7 +1607,8 @@ apis:
   - type: JSONLD
     url: json-ld/amazon-ec2-image-builder-context.jsonld
   - type: GettingStarted
-    url: https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
+    url: >-
+      https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
   - type: Pricing
     url: https://aws.amazon.com/image-builder/pricing/
   - type: FAQ
@@ -1634,7 +1627,8 @@ apis:
     url: examples/ec2-image-builder-account-aggregation-example.json
 - aid: amazon-ec2-image-builder:amazon-ec2-image-builder-putcontainerrecipepolicy-api
   name: Amazon EC2 Image Builder PutContainerRecipePolicy API
-  description: The PutContainerRecipePolicy API from Amazon EC2 Image Builder — 1 operation(s) for putcontainerrecipepolicy.
+  description: >-
+    The PutContainerRecipePolicy API from Amazon EC2 Image Builder — 1 operation(s) for putcontainerrecipepolicy.
   humanURL: https://aws.amazon.com/image-builder/
   baseURL: https://imagebuilder.amazonaws.com
   tags:
@@ -1649,7 +1643,8 @@ apis:
   - type: JSONLD
     url: json-ld/amazon-ec2-image-builder-context.jsonld
   - type: GettingStarted
-    url: https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
+    url: >-
+      https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
   - type: Pricing
     url: https://aws.amazon.com/image-builder/pricing/
   - type: FAQ
@@ -1668,7 +1663,8 @@ apis:
     url: examples/ec2-image-builder-account-aggregation-example.json
 - aid: amazon-ec2-image-builder:amazon-ec2-image-builder-putimagepolicy-api
   name: Amazon EC2 Image Builder PutImagePolicy API
-  description: The PutImagePolicy API from Amazon EC2 Image Builder — 1 operation(s) for putimagepolicy.
+  description: >-
+    The PutImagePolicy API from Amazon EC2 Image Builder — 1 operation(s) for putimagepolicy.
   humanURL: https://aws.amazon.com/image-builder/
   baseURL: https://imagebuilder.amazonaws.com
   tags:
@@ -1683,7 +1679,8 @@ apis:
   - type: JSONLD
     url: json-ld/amazon-ec2-image-builder-context.jsonld
   - type: GettingStarted
-    url: https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
+    url: >-
+      https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
   - type: Pricing
     url: https://aws.amazon.com/image-builder/pricing/
   - type: FAQ
@@ -1702,7 +1699,8 @@ apis:
     url: examples/ec2-image-builder-account-aggregation-example.json
 - aid: amazon-ec2-image-builder:amazon-ec2-image-builder-putimagerecipepolicy-api
   name: Amazon EC2 Image Builder PutImageRecipePolicy API
-  description: The PutImageRecipePolicy API from Amazon EC2 Image Builder — 1 operation(s) for putimagerecipepolicy.
+  description: >-
+    The PutImageRecipePolicy API from Amazon EC2 Image Builder — 1 operation(s) for putimagerecipepolicy.
   humanURL: https://aws.amazon.com/image-builder/
   baseURL: https://imagebuilder.amazonaws.com
   tags:
@@ -1717,7 +1715,8 @@ apis:
   - type: JSONLD
     url: json-ld/amazon-ec2-image-builder-context.jsonld
   - type: GettingStarted
-    url: https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
+    url: >-
+      https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
   - type: Pricing
     url: https://aws.amazon.com/image-builder/pricing/
   - type: FAQ
@@ -1736,8 +1735,8 @@ apis:
     url: examples/ec2-image-builder-account-aggregation-example.json
 - aid: amazon-ec2-image-builder:amazon-ec2-image-builder-startimagepipelineexecution-api
   name: Amazon EC2 Image Builder StartImagePipelineExecution API
-  description: The StartImagePipelineExecution API from Amazon EC2 Image Builder — 1 operation(s) for
-    startimagepipelineexecution.
+  description: >-
+    The StartImagePipelineExecution API from Amazon EC2 Image Builder — 1 operation(s) for startimagepipelineexecution.
   humanURL: https://aws.amazon.com/image-builder/
   baseURL: https://imagebuilder.amazonaws.com
   tags:
@@ -1752,7 +1751,8 @@ apis:
   - type: JSONLD
     url: json-ld/amazon-ec2-image-builder-context.jsonld
   - type: GettingStarted
-    url: https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
+    url: >-
+      https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
   - type: Pricing
     url: https://aws.amazon.com/image-builder/pricing/
   - type: FAQ
@@ -1786,7 +1786,8 @@ apis:
   - type: JSONLD
     url: json-ld/amazon-ec2-image-builder-context.jsonld
   - type: GettingStarted
-    url: https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
+    url: >-
+      https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
   - type: Pricing
     url: https://aws.amazon.com/image-builder/pricing/
   - type: FAQ
@@ -1805,8 +1806,8 @@ apis:
     url: examples/ec2-image-builder-account-aggregation-example.json
 - aid: amazon-ec2-image-builder:amazon-ec2-image-builder-updatedistributionconfiguration-api
   name: Amazon EC2 Image Builder UpdateDistributionConfiguration API
-  description: The UpdateDistributionConfiguration API from Amazon EC2 Image Builder — 1 operation(s)
-    for updatedistributionconfiguration.
+  description: >-
+    The UpdateDistributionConfiguration API from Amazon EC2 Image Builder — 1 operation(s) for updatedistributionconfiguration.
   humanURL: https://aws.amazon.com/image-builder/
   baseURL: https://imagebuilder.amazonaws.com
   tags:
@@ -1821,7 +1822,8 @@ apis:
   - type: JSONLD
     url: json-ld/amazon-ec2-image-builder-context.jsonld
   - type: GettingStarted
-    url: https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
+    url: >-
+      https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
   - type: Pricing
     url: https://aws.amazon.com/image-builder/pricing/
   - type: FAQ
@@ -1840,7 +1842,8 @@ apis:
     url: examples/ec2-image-builder-account-aggregation-example.json
 - aid: amazon-ec2-image-builder:amazon-ec2-image-builder-updateimagepipeline-api
   name: Amazon EC2 Image Builder UpdateImagePipeline API
-  description: The UpdateImagePipeline API from Amazon EC2 Image Builder — 1 operation(s) for updateimagepipeline.
+  description: >-
+    The UpdateImagePipeline API from Amazon EC2 Image Builder — 1 operation(s) for updateimagepipeline.
   humanURL: https://aws.amazon.com/image-builder/
   baseURL: https://imagebuilder.amazonaws.com
   tags:
@@ -1855,7 +1858,8 @@ apis:
   - type: JSONLD
     url: json-ld/amazon-ec2-image-builder-context.jsonld
   - type: GettingStarted
-    url: https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
+    url: >-
+      https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
   - type: Pricing
     url: https://aws.amazon.com/image-builder/pricing/
   - type: FAQ
@@ -1874,8 +1878,8 @@ apis:
     url: examples/ec2-image-builder-account-aggregation-example.json
 - aid: amazon-ec2-image-builder:amazon-ec2-image-builder-updateinfrastructureconfiguration-api
   name: Amazon EC2 Image Builder UpdateInfrastructureConfiguration API
-  description: The UpdateInfrastructureConfiguration API from Amazon EC2 Image Builder — 1 operation(s)
-    for updateinfrastructureconfiguration.
+  description: >-
+    The UpdateInfrastructureConfiguration API from Amazon EC2 Image Builder — 1 operation(s) for updateinfrastructureconfiguration.
   humanURL: https://aws.amazon.com/image-builder/
   baseURL: https://imagebuilder.amazonaws.com
   tags:
@@ -1890,7 +1894,114 @@ apis:
   - type: JSONLD
     url: json-ld/amazon-ec2-image-builder-context.jsonld
   - type: GettingStarted
-    url: https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
+    url: >-
+      https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
+  - type: Pricing
+    url: https://aws.amazon.com/image-builder/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/image-builder/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/imagebuilder/latest/APIReference/
+  - type: Authentication
+    url: https://docs.aws.amazon.com/imagebuilder/latest/APIReference/CommonParameters.html
+  - type: RateLimits
+    url: https://docs.aws.amazon.com/imagebuilder/latest/userguide/limits.html
+  - type: JSONSchema
+    url: json-schema/ec2-image-builder-account-aggregation-schema.json
+  - type: JSONStructure
+    url: json-structure/ec2-image-builder-account-aggregation-structure.json
+  - type: Examples
+    url: examples/ec2-image-builder-account-aggregation-example.json
+- aid: amazon-ec2-image-builder:amazon-ec2-image-builder-create-image-api
+  name: Amazon EC2 Image Builder Create Image API
+  description: The Create Image API from Amazon EC2 Image Builder — 1 operation(s) for create image.
+  humanURL: https://aws.amazon.com/image-builder/
+  baseURL: https://imagebuilder.amazonaws.com
+  tags:
+  - Create Image
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-ec2-image-builder-create-image-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/imagebuilder/latest/APIReference/Welcome.html
+  - type: JSONSchema
+    url: json-schema/ec2-image-builder-image-pipeline-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-ec2-image-builder-context.jsonld
+  - type: GettingStarted
+    url: >-
+      https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
+  - type: Pricing
+    url: https://aws.amazon.com/image-builder/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/image-builder/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/imagebuilder/latest/APIReference/
+  - type: Authentication
+    url: https://docs.aws.amazon.com/imagebuilder/latest/APIReference/CommonParameters.html
+  - type: RateLimits
+    url: https://docs.aws.amazon.com/imagebuilder/latest/userguide/limits.html
+  - type: JSONSchema
+    url: json-schema/ec2-image-builder-account-aggregation-schema.json
+  - type: JSONStructure
+    url: json-structure/ec2-image-builder-account-aggregation-structure.json
+  - type: Examples
+    url: examples/ec2-image-builder-account-aggregation-example.json
+- aid: amazon-ec2-image-builder:amazon-ec2-image-builder-list-components-api
+  name: Amazon EC2 Image Builder List Components API
+  description: >-
+    The List Components API from Amazon EC2 Image Builder — 1 operation(s) for list components.
+  humanURL: https://aws.amazon.com/image-builder/
+  baseURL: https://imagebuilder.amazonaws.com
+  tags:
+  - List Components
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-ec2-image-builder-list-components-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/imagebuilder/latest/APIReference/Welcome.html
+  - type: JSONSchema
+    url: json-schema/ec2-image-builder-image-pipeline-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-ec2-image-builder-context.jsonld
+  - type: GettingStarted
+    url: >-
+      https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
+  - type: Pricing
+    url: https://aws.amazon.com/image-builder/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/image-builder/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/imagebuilder/latest/APIReference/
+  - type: Authentication
+    url: https://docs.aws.amazon.com/imagebuilder/latest/APIReference/CommonParameters.html
+  - type: RateLimits
+    url: https://docs.aws.amazon.com/imagebuilder/latest/userguide/limits.html
+  - type: JSONSchema
+    url: json-schema/ec2-image-builder-account-aggregation-schema.json
+  - type: JSONStructure
+    url: json-structure/ec2-image-builder-account-aggregation-structure.json
+  - type: Examples
+    url: examples/ec2-image-builder-account-aggregation-example.json
+- aid: amazon-ec2-image-builder:amazon-ec2-image-builder-list-images-api
+  name: Amazon EC2 Image Builder List Images API
+  description: The List Images API from Amazon EC2 Image Builder — 1 operation(s) for list images.
+  humanURL: https://aws.amazon.com/image-builder/
+  baseURL: https://imagebuilder.amazonaws.com
+  tags:
+  - List Images
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-ec2-image-builder-list-images-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/imagebuilder/latest/APIReference/Welcome.html
+  - type: JSONSchema
+    url: json-schema/ec2-image-builder-image-pipeline-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-ec2-image-builder-context.jsonld
+  - type: GettingStarted
+    url: >-
+      https://docs.aws.amazon.com/imagebuilder/latest/userguide/getting-started-image-builder.html
   - type: Pricing
     url: https://aws.amazon.com/image-builder/pricing/
   - type: FAQ
