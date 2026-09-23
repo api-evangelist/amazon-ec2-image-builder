@@ -1,8 +1,8 @@
 openapi: 3.2.0
 info:
-  version: 1.0.0
+  version: 2019-12-02
   x-release: v4
-  title: EC2 Image Builder CancelImageCreation Create Image API
+  title: EC2 Image Builder Create Image API
   description: EC2 Image Builder is a fully managed Amazon Web Services service that makes it easier to automate the creation, management, and deployment of customized, secure, and up-to-date "golden" server images that are pre-installed and pre-configured with software and settings to meet specific IT standards.
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
@@ -24,6 +24,7 @@ info:
     url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/imagebuilder-2019-12-02.normal.json
     converter:
       url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
     x-apisguru-driver: external
   x-apiClientRegistration:
     url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
@@ -112,7 +113,7 @@ servers:
 security:
 - hmac: []
 tags:
-- name: CreateImage
+- name: Create Image
 paths:
   /CreateImage:
     parameters:
@@ -276,74 +277,12 @@ paths:
         delay: 0
         dispatcher: FALLBACK
       tags:
-      - CreateImage
+      - Create Image
 components:
-  parameters:
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
   schemas:
-    ServiceQuotaExceededException: {}
-    IdempotentParameterMismatchException: {}
     NullableBoolean:
       type: boolean
-    EcrConfiguration:
-      type: object
-      properties:
-        repositoryName:
-          allOf:
-          - $ref: '#/components/schemas/NonEmptyString'
-          - description: The name of the container repository that Amazon Inspector scans to identify findings for your container images. The name includes the path for the repository location. If you don’t provide this information, Image Builder creates a repository in your account named <code>image-builder-image-scanning-repository</code> for vulnerability scans of your output container images.
-          example: example-resource-name
-        containerTags:
-          allOf:
-          - $ref: '#/components/schemas/StringList'
-          - description: Tags for Image Builder to apply to the output container image that &amp;INS; scans. Tags can help you identify and manage your scanned images.
-          example: example-string
-      description: Settings that Image Builder uses to configure the ECR repository and the output container images that Amazon Inspector scans.
-    NonEmptyString:
-      type: string
-      minLength: 1
-      maxLength: 1024
+    IdempotentParameterMismatchException: {}
     CreateImageResponse:
       type: object
       properties:
@@ -362,24 +301,18 @@ components:
           - $ref: '#/components/schemas/ImageBuildVersionArn'
           - description: The Amazon Resource Name (ARN) of the image that this request created.
           example: arn:aws:service:us-east-1:123456789012:resource/example
-    ServiceUnavailableException: {}
-    ClientException: {}
     ImageBuildVersionArn:
       type: string
       pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):image/[a-z0-9-_]+/[0-9]+\.[0-9]+\.[0-9]+/[0-9]+$
+    ServiceQuotaExceededException: {}
     ImageTestsTimeoutMinutes:
       type: integer
       minimum: 60
       maximum: 1440
-    ResourceInUseException: {}
     InvalidRequestException: {}
-    ServiceException: {}
-    ForbiddenException: {}
-    ClientToken:
-      type: string
-      minLength: 1
-      maxLength: 36
     CallRateLimitExceededException: {}
+    ClientException: {}
+    ServiceUnavailableException: {}
     TagValue:
       type: string
       maxLength: 256
@@ -387,6 +320,74 @@ components:
       type: array
       items:
         $ref: '#/components/schemas/NonEmptyString'
+    ResourceInUseException: {}
+    ServiceException: {}
+    ForbiddenException: {}
+    ClientToken:
+      type: string
+      minLength: 1
+      maxLength: 36
+    EcrConfiguration:
+      type: object
+      properties:
+        repositoryName:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The name of the container repository that Amazon Inspector scans to identify findings for your container images. The name includes the path for the repository location. If you don’t provide this information, Image Builder creates a repository in your account named <code>image-builder-image-scanning-repository</code> for vulnerability scans of your output container images.
+          example: example-resource-name
+        containerTags:
+          allOf:
+          - $ref: '#/components/schemas/StringList'
+          - description: Tags for Image Builder to apply to the output container image that &amp;INS; scans. Tags can help you identify and manage your scanned images.
+          example: example-string
+      description: Settings that Image Builder uses to configure the ECR repository and the output container images that Amazon Inspector scans.
+    NonEmptyString:
+      type: string
+      minLength: 1
+      maxLength: 1024
+  parameters:
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
   securitySchemes:
     hmac:
       type: apiKey

@@ -1,8 +1,8 @@
 openapi: 3.2.0
 info:
-  version: 1.0.0
+  version: 2019-12-02
   x-release: v4
-  title: EC2 Image Builder CancelImageCreation Create Container Recipe API
+  title: EC2 Image Builder Create Container Recipe API
   description: EC2 Image Builder is a fully managed Amazon Web Services service that makes it easier to automate the creation, management, and deployment of customized, secure, and up-to-date "golden" server images that are pre-installed and pre-configured with software and settings to meet specific IT standards.
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
@@ -24,6 +24,7 @@ info:
     url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/imagebuilder-2019-12-02.normal.json
     converter:
       url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
     x-apisguru-driver: external
   x-apiClientRegistration:
     url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
@@ -335,200 +336,15 @@ paths:
       tags:
       - CreateContainerRecipe
 components:
-  parameters:
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
   schemas:
-    InstanceBlockDeviceMapping:
-      type: object
-      properties:
-        deviceName:
-          allOf:
-          - $ref: '#/components/schemas/NonEmptyString'
-          - description: The device to which these mappings apply.
-          example: example-resource-name
-        ebs:
-          allOf:
-          - $ref: '#/components/schemas/EbsInstanceBlockDeviceSpecification'
-          - description: Use to manage Amazon EBS-specific configuration for this mapping.
-          example: example-string
-        virtualName:
-          allOf:
-          - $ref: '#/components/schemas/NonEmptyString'
-          - description: Use to manage instance ephemeral devices.
-          example: example-resource-name
-        noDevice:
-          allOf:
-          - $ref: '#/components/schemas/EmptyString'
-          - description: Use to remove a mapping from the base image.
-          example: example-string
-      description: Defines block device mappings for the instance used to configure your image.
-    ServiceQuotaExceededException: {}
-    EbsVolumeType:
-      type: string
-      enum:
-      - standard
-      - io1
-      - io2
-      - gp2
-      - gp3
-      - sc1
-      - st1
-    NullableBoolean:
-      type: boolean
-    IdempotentParameterMismatchException: {}
-    ComponentParameter:
-      type: object
-      required:
-      - name
-      - value
-      properties:
-        name:
-          allOf:
-          - $ref: '#/components/schemas/ComponentParameterName'
-          - description: The name of the component parameter to set.
-        value:
-          allOf:
-          - $ref: '#/components/schemas/ComponentParameterValueList'
-          - description: Sets the value for the named component parameter.
-      description: Contains a key/value pair that sets the named component parameter.
-    NonEmptyString:
-      type: string
-      minLength: 1
-      maxLength: 1024
-    ServiceUnavailableException: {}
-    ClientException: {}
-    ComponentConfiguration:
-      type: object
-      required:
-      - componentArn
-      properties:
-        componentArn:
-          allOf:
-          - $ref: '#/components/schemas/ComponentVersionArnOrBuildVersionArn'
-          - description: The Amazon Resource Name (ARN) of the component.
-          example: arn:aws:service:us-east-1:123456789012:resource/example
-        parameters:
-          allOf:
-          - $ref: '#/components/schemas/ComponentParameterList'
-          - description: A group of parameter settings that Image Builder uses to configure the component for a specific recipe.
-          example: example-string
-      description: Configuration details of the component.
-    CreateContainerRecipeResponse:
-      type: object
-      properties:
-        requestId:
-          allOf:
-          - $ref: '#/components/schemas/NonEmptyString'
-          - description: The request ID that uniquely identifies this request.
-          example: example-id-1234
-        clientToken:
-          allOf:
-          - $ref: '#/components/schemas/ClientToken'
-          - description: The client token used to make this request idempotent.
-          example: example-string
-        containerRecipeArn:
-          allOf:
-          - $ref: '#/components/schemas/ContainerRecipeArn'
-          - description: Returns the Amazon Resource Name (ARN) of the container recipe that the request created.
-          example: arn:aws:service:us-east-1:123456789012:resource/example
-    ResourceInUseException: {}
-    InvalidRequestException: {}
-    ServiceException: {}
-    EbsVolumeThroughput:
-      type: integer
-      minimum: 125
-      maximum: 1000
-    ComponentParameterValueList:
-      type: array
-      items:
-        $ref: '#/components/schemas/ComponentParameterValue'
-    EbsVolumeSizeInteger:
-      type: integer
-      minimum: 1
-      maximum: 16000
-    InstanceBlockDeviceMappings:
-      type: array
-      items:
-        $ref: '#/components/schemas/InstanceBlockDeviceMapping'
-    ForbiddenException: {}
-    ClientToken:
-      type: string
-      minLength: 1
-      maxLength: 36
-    ContainerRecipeArn:
-      type: string
-      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):container-recipe/[a-z0-9-_]+/[0-9]+\.[0-9]+\.[0-9]+$
-    EbsIopsInteger:
-      type: integer
-      minimum: 100
-      maximum: 64000
-    InvalidVersionNumberException: {}
-    ResourceAlreadyExistsException: {}
-    CallRateLimitExceededException: {}
-    ComponentParameterValue:
-      type: string
-      pattern: '[^\x00]*'
-      minLength: 0
-    ContainerRepositoryService:
-      type: string
-      enum:
-      - ECR
-    EmptyString:
-      type: string
-      minLength: 0
-      maxLength: 0
-    TagValue:
-      type: string
-      maxLength: 256
-    ComponentVersionArnOrBuildVersionArn:
-      type: string
-      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):component/[a-z0-9-_]+/(?:(?:([0-9]+|x)\.([0-9]+|x)\.([0-9]+|x))|(?:[0-9]+\.[0-9]+\.[0-9]+/[0-9]+))$
     ComponentParameterList:
       type: array
       items:
         $ref: '#/components/schemas/ComponentParameter'
       minItems: 1
+    NullableBoolean:
+      type: boolean
+    IdempotentParameterMismatchException: {}
     EbsInstanceBlockDeviceSpecification:
       type: object
       properties:
@@ -565,11 +381,196 @@ components:
           - $ref: '#/components/schemas/EbsVolumeThroughput'
           - description: ' <b>For GP3 volumes only</b> – The throughput in MiB/s that the volume supports.'
       description: Amazon EBS-specific block device mapping specifications.
+    ServiceQuotaExceededException: {}
+    ComponentParameter:
+      type: object
+      required:
+      - name
+      - value
+      properties:
+        name:
+          allOf:
+          - $ref: '#/components/schemas/ComponentParameterName'
+          - description: The name of the component parameter to set.
+        value:
+          allOf:
+          - $ref: '#/components/schemas/ComponentParameterValueList'
+          - description: Sets the value for the named component parameter.
+      description: Contains a key/value pair that sets the named component parameter.
+    ResourceAlreadyExistsException: {}
+    InvalidRequestException: {}
+    ComponentParameterValue:
+      type: string
+      pattern: '[^\x00]*'
+      minLength: 0
+    CallRateLimitExceededException: {}
+    EmptyString:
+      type: string
+      minLength: 0
+      maxLength: 0
+    ClientException: {}
+    ServiceUnavailableException: {}
+    ContainerRepositoryService:
+      type: string
+      enum:
+      - ECR
     ComponentParameterName:
       type: string
       pattern: '[^\x00]+'
       minLength: 1
       maxLength: 256
+    EbsVolumeSizeInteger:
+      type: integer
+      minimum: 1
+      maximum: 16000
+    EbsVolumeType:
+      type: string
+      enum:
+      - standard
+      - io1
+      - io2
+      - gp2
+      - gp3
+      - sc1
+      - st1
+    EbsVolumeThroughput:
+      type: integer
+      minimum: 125
+      maximum: 1000
+    TagValue:
+      type: string
+      maxLength: 256
+    CreateContainerRecipeResponse:
+      type: object
+      properties:
+        requestId:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The request ID that uniquely identifies this request.
+          example: example-id-1234
+        clientToken:
+          allOf:
+          - $ref: '#/components/schemas/ClientToken'
+          - description: The client token used to make this request idempotent.
+          example: example-string
+        containerRecipeArn:
+          allOf:
+          - $ref: '#/components/schemas/ContainerRecipeArn'
+          - description: Returns the Amazon Resource Name (ARN) of the container recipe that the request created.
+          example: arn:aws:service:us-east-1:123456789012:resource/example
+    ContainerRecipeArn:
+      type: string
+      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):container-recipe/[a-z0-9-_]+/[0-9]+\.[0-9]+\.[0-9]+$
+    EbsIopsInteger:
+      type: integer
+      minimum: 100
+      maximum: 64000
+    ComponentParameterValueList:
+      type: array
+      items:
+        $ref: '#/components/schemas/ComponentParameterValue'
+    ComponentVersionArnOrBuildVersionArn:
+      type: string
+      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):component/[a-z0-9-_]+/(?:(?:([0-9]+|x)\.([0-9]+|x)\.([0-9]+|x))|(?:[0-9]+\.[0-9]+\.[0-9]+/[0-9]+))$
+    InvalidVersionNumberException: {}
+    ResourceInUseException: {}
+    InstanceBlockDeviceMapping:
+      type: object
+      properties:
+        deviceName:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The device to which these mappings apply.
+          example: example-resource-name
+        ebs:
+          allOf:
+          - $ref: '#/components/schemas/EbsInstanceBlockDeviceSpecification'
+          - description: Use to manage Amazon EBS-specific configuration for this mapping.
+          example: example-string
+        virtualName:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: Use to manage instance ephemeral devices.
+          example: example-resource-name
+        noDevice:
+          allOf:
+          - $ref: '#/components/schemas/EmptyString'
+          - description: Use to remove a mapping from the base image.
+          example: example-string
+      description: Defines block device mappings for the instance used to configure your image.
+    ServiceException: {}
+    ComponentConfiguration:
+      type: object
+      required:
+      - componentArn
+      properties:
+        componentArn:
+          allOf:
+          - $ref: '#/components/schemas/ComponentVersionArnOrBuildVersionArn'
+          - description: The Amazon Resource Name (ARN) of the component.
+          example: arn:aws:service:us-east-1:123456789012:resource/example
+        parameters:
+          allOf:
+          - $ref: '#/components/schemas/ComponentParameterList'
+          - description: A group of parameter settings that Image Builder uses to configure the component for a specific recipe.
+          example: example-string
+      description: Configuration details of the component.
+    InstanceBlockDeviceMappings:
+      type: array
+      items:
+        $ref: '#/components/schemas/InstanceBlockDeviceMapping'
+    ForbiddenException: {}
+    ClientToken:
+      type: string
+      minLength: 1
+      maxLength: 36
+    NonEmptyString:
+      type: string
+      minLength: 1
+      maxLength: 1024
+  parameters:
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
   securitySchemes:
     hmac:
       type: apiKey

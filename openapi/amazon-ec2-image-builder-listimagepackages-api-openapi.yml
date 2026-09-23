@@ -1,8 +1,8 @@
 openapi: 3.2.0
 info:
-  version: 1.0.0
+  version: 2019-12-02
   x-release: v4
-  title: EC2 Image Builder CancelImageCreation List Image Packages API
+  title: EC2 Image Builder List Image Packages API
   description: EC2 Image Builder is a fully managed Amazon Web Services service that makes it easier to automate the creation, management, and deployment of customized, secure, and up-to-date "golden" server images that are pre-installed and pre-configured with software and settings to meet specific IT standards.
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
@@ -24,6 +24,7 @@ info:
     url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/imagebuilder-2019-12-02.normal.json
     converter:
       url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
     x-apisguru-driver: external
   x-apiClientRegistration:
     url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
@@ -243,14 +244,14 @@ paths:
       - ListImagePackages
 components:
   parameters:
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
+    X-Amz-Signature:
+      name: X-Amz-Signature
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
       in: header
       schema:
         type: string
@@ -267,8 +268,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
@@ -279,30 +280,40 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-Credential:
+      name: X-Amz-Credential
       in: header
       schema:
         type: string
       required: false
   schemas:
-    NonEmptyString:
-      type: string
-      minLength: 1
-      maxLength: 1024
-    ServiceUnavailableException: {}
+    InvalidPaginationTokenException: {}
+    InvalidRequestException: {}
+    CallRateLimitExceededException: {}
     ClientException: {}
+    ServiceUnavailableException: {}
     PaginationToken:
       type: string
       minLength: 1
       maxLength: 65535
-    InvalidPaginationTokenException: {}
-    InvalidRequestException: {}
-    ServiceException: {}
     ImagePackageList:
       type: array
       items:
         $ref: '#/components/schemas/ImagePackage'
+    ResourceNotFoundException: {}
+    ImagePackage:
+      type: object
+      properties:
+        packageName:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The name of the package as reported to the operating system package manager.
+        packageVersion:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The version of the package as reported to the operating system package manager.
+      description: Represents a package installed on an Image Builder image.
+    ServiceException: {}
     ForbiddenException: {}
     ListImagePackagesResponse:
       type: object
@@ -319,20 +330,10 @@ components:
           allOf:
           - $ref: '#/components/schemas/PaginationToken'
           - description: The next token used for paginated responses. When this field isn't empty, there are additional elements that the service has'ot included in this request. Use this token with the next request to retrieve additional objects.
-    CallRateLimitExceededException: {}
-    ImagePackage:
-      type: object
-      properties:
-        packageName:
-          allOf:
-          - $ref: '#/components/schemas/NonEmptyString'
-          - description: The name of the package as reported to the operating system package manager.
-        packageVersion:
-          allOf:
-          - $ref: '#/components/schemas/NonEmptyString'
-          - description: The version of the package as reported to the operating system package manager.
-      description: Represents a package installed on an Image Builder image.
-    ResourceNotFoundException: {}
+    NonEmptyString:
+      type: string
+      minLength: 1
+      maxLength: 1024
   securitySchemes:
     hmac:
       type: apiKey

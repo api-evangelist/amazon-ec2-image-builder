@@ -1,8 +1,8 @@
 openapi: 3.2.0
 info:
-  version: 1.0.0
+  version: 2019-12-02
   x-release: v4
-  title: EC2 Image Builder CancelImageCreation Get Image Policy#image Arn API
+  title: EC2 Image Builder Get Image Policy#image Arn API
   description: EC2 Image Builder is a fully managed Amazon Web Services service that makes it easier to automate the creation, management, and deployment of customized, secure, and up-to-date "golden" server images that are pre-installed and pre-configured with software and settings to meet specific IT standards.
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
@@ -24,6 +24,7 @@ info:
     url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/imagebuilder-2019-12-02.normal.json
     converter:
       url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
     x-apisguru-driver: external
   x-apiClientRegistration:
     url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
@@ -201,9 +202,47 @@ paths:
       tags:
       - GetImagePolicy#imageArn
 components:
+  schemas:
+    ServiceException: {}
+    CallRateLimitExceededException: {}
+    GetImagePolicyResponse:
+      type: object
+      properties:
+        requestId:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The request ID that uniquely identifies this request.
+        policy:
+          allOf:
+          - $ref: '#/components/schemas/ResourcePolicyDocument'
+          - description: The image policy object.
+    ForbiddenException: {}
+    ServiceUnavailableException: {}
+    ResourcePolicyDocument:
+      type: string
+      minLength: 1
+      maxLength: 30000
+    InvalidRequestException: {}
+    ResourceNotFoundException: {}
+    NonEmptyString:
+      type: string
+      minLength: 1
+      maxLength: 1024
   parameters:
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Security-Token:
       name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
       in: header
       schema:
         type: string
@@ -232,44 +271,6 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-  schemas:
-    InvalidRequestException: {}
-    ServiceException: {}
-    CallRateLimitExceededException: {}
-    GetImagePolicyResponse:
-      type: object
-      properties:
-        requestId:
-          allOf:
-          - $ref: '#/components/schemas/NonEmptyString'
-          - description: The request ID that uniquely identifies this request.
-        policy:
-          allOf:
-          - $ref: '#/components/schemas/ResourcePolicyDocument'
-          - description: The image policy object.
-    NonEmptyString:
-      type: string
-      minLength: 1
-      maxLength: 1024
-    ResourceNotFoundException: {}
-    ServiceUnavailableException: {}
-    ResourcePolicyDocument:
-      type: string
-      minLength: 1
-      maxLength: 30000
-    ForbiddenException: {}
   securitySchemes:
     hmac:
       type: apiKey

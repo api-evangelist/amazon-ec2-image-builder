@@ -1,8 +1,8 @@
 openapi: 3.2.0
 info:
-  version: 1.0.0
+  version: 2019-12-02
   x-release: v4
-  title: EC2 Image Builder CancelImageCreation List Image Build Versions API
+  title: EC2 Image Builder List Image Build Versions API
   description: EC2 Image Builder is a fully managed Amazon Web Services service that makes it easier to automate the creation, management, and deployment of customized, secure, and up-to-date "golden" server images that are pre-installed and pre-configured with software and settings to meet specific IT standards.
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
@@ -24,6 +24,7 @@ info:
     url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/imagebuilder-2019-12-02.normal.json
     converter:
       url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
     x-apisguru-driver: external
   x-apiClientRegistration:
     url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
@@ -243,118 +244,39 @@ paths:
       tags:
       - ListImageBuildVersions
 components:
-  parameters:
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
   schemas:
-    ImageStatus:
-      type: string
-      enum:
-      - PENDING
-      - CREATING
-      - BUILDING
-      - TESTING
-      - DISTRIBUTING
-      - INTEGRATING
-      - AVAILABLE
-      - CANCELLED
-      - FAILED
-      - DEPRECATED
-      - DELETED
-    ListImageBuildVersionsResponse:
-      type: object
-      properties:
-        requestId:
-          allOf:
-          - $ref: '#/components/schemas/NonEmptyString'
-          - description: The request ID that uniquely identifies this request.
-        imageSummaryList:
-          allOf:
-          - $ref: '#/components/schemas/ImageSummaryList'
-          - description: The list of image build versions.
-        nextToken:
-          allOf:
-          - $ref: '#/components/schemas/PaginationToken'
-          - description: The next token used for paginated responses. When this field isn't empty, there are additional elements that the service has'ot included in this request. Use this token with the next request to retrieve additional objects.
-    Filter:
-      type: object
-      properties:
-        name:
-          allOf:
-          - $ref: '#/components/schemas/FilterName'
-          - description: The name of the filter. Filter names are case-sensitive.
-        values:
-          allOf:
-          - $ref: '#/components/schemas/FilterValues'
-          - description: The filter values. Filter values are case-sensitive.
-      description: A filter name and value pair that is used to return a more specific list of results from a list operation. Filters can be used to match a set of resources by specific criteria, such as tags, attributes, or IDs.
-    ImageSummaryList:
-      type: array
-      items:
-        $ref: '#/components/schemas/ImageSummary'
-    NonEmptyString:
-      type: string
-      minLength: 1
-      maxLength: 1024
     BuildType:
       type: string
       enum:
       - USER_INITIATED
       - SCHEDULED
       - IMPORT
-    ImageSource:
+    InvalidPaginationTokenException: {}
+    InvalidRequestException: {}
+    ResourceName:
+      type: string
+      pattern: ^[-_A-Za-z-0-9][-_A-Za-z0-9 ]{1,126}[-_A-Za-z-0-9]$
+    FilterValue:
+      type: string
+      pattern: ^[0-9a-zA-Z./_ :-]{1,1024}$
+    CallRateLimitExceededException: {}
+    ImageType:
       type: string
       enum:
-      - AMAZON_MANAGED
-      - AWS_MARKETPLACE
-      - IMPORTED
-      - CUSTOM
-    ServiceUnavailableException: {}
-    ClientException: {}
-    PaginationToken:
-      type: string
-      minLength: 1
-      maxLength: 65535
+      - AMI
+      - DOCKER
+    OutputResources:
+      type: object
+      properties:
+        amis:
+          allOf:
+          - $ref: '#/components/schemas/AmiList'
+          - description: The Amazon EC2 AMIs created by this image.
+        containers:
+          allOf:
+          - $ref: '#/components/schemas/ContainerList'
+          - description: Container images that the pipeline has generated and stored in the output repository.
+      description: The resources produced by this image.
     Ami:
       type: object
       properties:
@@ -381,9 +303,36 @@ components:
           - $ref: '#/components/schemas/NonEmptyString'
           - description: The account ID of the owner of the AMI.
       description: Details of an Amazon EC2 AMI.
-    InvalidPaginationTokenException: {}
-    InvalidRequestException: {}
-    ServiceException: {}
+    ClientException: {}
+    DateTime:
+      type: string
+    ServiceUnavailableException: {}
+    ImageStatus:
+      type: string
+      enum:
+      - PENDING
+      - CREATING
+      - BUILDING
+      - TESTING
+      - DISTRIBUTING
+      - INTEGRATING
+      - AVAILABLE
+      - CANCELLED
+      - FAILED
+      - DEPRECATED
+      - DELETED
+    PaginationToken:
+      type: string
+      minLength: 1
+      maxLength: 65535
+    Platform:
+      type: string
+      enum:
+      - Windows
+      - Linux
+    OsVersion:
+      type: string
+      minLength: 1
     ImageState:
       type: object
       properties:
@@ -396,59 +345,36 @@ components:
           - $ref: '#/components/schemas/NonEmptyString'
           - description: The reason for the status of the image.
       description: Image status and the reason for that status.
-    OutputResources:
-      type: object
-      properties:
-        amis:
-          allOf:
-          - $ref: '#/components/schemas/AmiList'
-          - description: The Amazon EC2 AMIs created by this image.
-        containers:
-          allOf:
-          - $ref: '#/components/schemas/ContainerList'
-          - description: Container images that the pipeline has generated and stored in the output repository.
-      description: The resources produced by this image.
-    DateTime:
-      type: string
-    ResourceName:
-      type: string
-      pattern: ^[-_A-Za-z-0-9][-_A-Za-z0-9 ]{1,126}[-_A-Za-z-0-9]$
     FilterName:
       type: string
       pattern: ^[a-zA-Z]{1,1024}$
-    ForbiddenException: {}
-    Container:
-      type: object
-      properties:
-        region:
-          allOf:
-          - $ref: '#/components/schemas/NonEmptyString'
-          - description: Containers and container images are Region-specific. This is the Region context for the container.
-        imageUris:
-          allOf:
-          - $ref: '#/components/schemas/StringList'
-          - description: A list of URIs for containers created in the context Region.
-      description: A container encapsulates the runtime environment for an application.
-    TagMap:
-      type: object
-      minProperties: 1
-      maxProperties: 50
-      additionalProperties:
-        $ref: '#/components/schemas/TagValue'
-    CallRateLimitExceededException: {}
     ImageBuilderArn:
       type: string
       pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):(?:image-recipe|container-recipe|infrastructure-configuration|distribution-configuration|component|image|image-pipeline|workflow\/(?:build|test|distribution))/[a-z0-9-_]+(?:/(?:(?:x|[0-9]+)\.(?:x|[0-9]+)\.(?:x|[0-9]+))(?:/[0-9]+)?)?$
     TagValue:
       type: string
       maxLength: 256
+    FilterValues:
+      type: array
+      items:
+        $ref: '#/components/schemas/FilterValue'
+      minItems: 1
+      maxItems: 10
+    VersionNumber:
+      type: string
+      pattern: ^[0-9]+\.[0-9]+\.[0-9]+$
+    StringList:
+      type: array
+      items:
+        $ref: '#/components/schemas/NonEmptyString'
     ContainerList:
       type: array
       items:
         $ref: '#/components/schemas/Container'
-    OsVersion:
-      type: string
-      minLength: 1
+    ImageSummaryList:
+      type: array
+      items:
+        $ref: '#/components/schemas/ImageSummary'
     ImageSummary:
       type: object
       properties:
@@ -505,36 +431,111 @@ components:
           - $ref: '#/components/schemas/ImageSource'
           - description: The origin of the base image that Image Builder used to build this image.
       description: An image summary.
-    Platform:
-      type: string
-      enum:
-      - Windows
-      - Linux
-    VersionNumber:
-      type: string
-      pattern: ^[0-9]+\.[0-9]+\.[0-9]+$
-    FilterValue:
-      type: string
-      pattern: ^[0-9a-zA-Z./_ :-]{1,1024}$
-    FilterValues:
-      type: array
-      items:
-        $ref: '#/components/schemas/FilterValue'
-      minItems: 1
-      maxItems: 10
+    ListImageBuildVersionsResponse:
+      type: object
+      properties:
+        requestId:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The request ID that uniquely identifies this request.
+        imageSummaryList:
+          allOf:
+          - $ref: '#/components/schemas/ImageSummaryList'
+          - description: The list of image build versions.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/PaginationToken'
+          - description: The next token used for paginated responses. When this field isn't empty, there are additional elements that the service has'ot included in this request. Use this token with the next request to retrieve additional objects.
+    Filter:
+      type: object
+      properties:
+        name:
+          allOf:
+          - $ref: '#/components/schemas/FilterName'
+          - description: The name of the filter. Filter names are case-sensitive.
+        values:
+          allOf:
+          - $ref: '#/components/schemas/FilterValues'
+          - description: The filter values. Filter values are case-sensitive.
+      description: A filter name and value pair that is used to return a more specific list of results from a list operation. Filters can be used to match a set of resources by specific criteria, such as tags, attributes, or IDs.
     AmiList:
       type: array
       items:
         $ref: '#/components/schemas/Ami'
-    ImageType:
+    ServiceException: {}
+    ForbiddenException: {}
+    Container:
+      type: object
+      properties:
+        region:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: Containers and container images are Region-specific. This is the Region context for the container.
+        imageUris:
+          allOf:
+          - $ref: '#/components/schemas/StringList'
+          - description: A list of URIs for containers created in the context Region.
+      description: A container encapsulates the runtime environment for an application.
+    TagMap:
+      type: object
+      minProperties: 1
+      maxProperties: 50
+      additionalProperties:
+        $ref: '#/components/schemas/TagValue'
+    ImageSource:
       type: string
       enum:
-      - AMI
-      - DOCKER
-    StringList:
-      type: array
-      items:
-        $ref: '#/components/schemas/NonEmptyString'
+      - AMAZON_MANAGED
+      - AWS_MARKETPLACE
+      - IMPORTED
+      - CUSTOM
+    NonEmptyString:
+      type: string
+      minLength: 1
+      maxLength: 1024
+  parameters:
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
   securitySchemes:
     hmac:
       type: apiKey
