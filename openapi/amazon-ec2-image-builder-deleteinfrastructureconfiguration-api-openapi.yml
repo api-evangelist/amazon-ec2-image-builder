@@ -2,7 +2,7 @@ openapi: 3.2.0
 info:
   version: 2019-12-02
   x-release: v4
-  title: EC2 Image Builder Get Component Policy#component Arn API
+  title: EC2 Image Builder Delete Infrastructure Configuration API
   description: EC2 Image Builder is a fully managed Amazon Web Services service that makes it easier to automate the creation, management, and deployment of customized, secure, and up-to-date "golden" server images that are pre-installed and pre-configured with software and settings to meet specific IT standards.
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
@@ -113,9 +113,9 @@ servers:
 security:
 - hmac: []
 tags:
-- name: GetComponentPolicy#componentArn
+- name: DeleteInfrastructureConfiguration
 paths:
-  /GetComponentPolicy#componentArn:
+  /DeleteInfrastructureConfiguration#infrastructureConfigurationArn:
     parameters:
     - $ref: '#/components/parameters/X-Amz-Content-Sha256'
     - $ref: '#/components/parameters/X-Amz-Date'
@@ -124,23 +124,23 @@ paths:
     - $ref: '#/components/parameters/X-Amz-Security-Token'
     - $ref: '#/components/parameters/X-Amz-Signature'
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
-    get:
-      operationId: GetComponentPolicy
-      description: Gets a component policy.
+    delete:
+      operationId: DeleteInfrastructureConfiguration
+      description: Deletes an infrastructure configuration.
       responses:
         '200':
           description: Success
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetComponentPolicyResponse'
+                $ref: '#/components/schemas/DeleteInfrastructureConfigurationResponse'
               examples:
-                GetComponentPolicy200Example:
-                  summary: Default GetComponentPolicy 200 response
+                DeleteInfrastructureConfiguration200Example:
+                  summary: Default DeleteInfrastructureConfiguration 200 response
                   x-microcks-default: true
                   value:
                     requestId: example-id-1234
-                    policy: example-string
+                    infrastructureConfigurationArn: arn:aws:service:us-east-1:123456789012:resource/example
         '480':
           description: ServiceException
           content:
@@ -148,27 +148,27 @@ paths:
               schema:
                 $ref: '#/components/schemas/ServiceException'
               examples:
-                GetComponentPolicy480Example:
-                  summary: Default GetComponentPolicy 480 response
+                DeleteInfrastructureConfiguration480Example:
+                  summary: Default DeleteInfrastructureConfiguration 480 response
                   x-microcks-default: true
                   value: {}
         '481':
+          description: ClientException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientException'
+              examples:
+                DeleteInfrastructureConfiguration481Example:
+                  summary: Default DeleteInfrastructureConfiguration 481 response
+                  x-microcks-default: true
+                  value: {}
+        '482':
           description: ServiceUnavailableException
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ServiceUnavailableException'
-              examples:
-                GetComponentPolicy481Example:
-                  summary: Default GetComponentPolicy 481 response
-                  x-microcks-default: true
-                  value: {}
-        '482':
-          description: ResourceNotFoundException
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ResourceNotFoundException'
         '483':
           description: InvalidRequestException
           content:
@@ -187,27 +187,34 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/CallRateLimitExceededException'
+        '486':
+          description: ResourceDependencyException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceDependencyException'
       parameters:
-      - name: componentArn
+      - name: infrastructureConfigurationArn
         in: query
         required: true
-        description: The Amazon Resource Name (ARN) of the component whose policy you want to retrieve.
+        description: The Amazon Resource Name (ARN) of the infrastructure configuration to delete.
         schema:
           type: string
-          pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):component/[a-z0-9-_]+/[0-9]+\.[0-9]+\.[0-9]+/[0-9]+$
-      summary: Amazon EC2 Image Builder Get Component Policy
+          pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):infrastructure-configuration/[a-z0-9-_]+$
+      summary: Amazon EC2 Image Builder Delete Infrastructure Configuration
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
       tags:
-      - GetComponentPolicy#componentArn
+      - DeleteInfrastructureConfiguration
 components:
   schemas:
-    ServiceException: {}
     CallRateLimitExceededException: {}
-    ForbiddenException: {}
-    ServiceUnavailableException: {}
-    GetComponentPolicyResponse:
+    ServiceException: {}
+    InfrastructureConfigurationArn:
+      type: string
+      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):infrastructure-configuration/[a-z0-9-_]+$
+    DeleteInfrastructureConfigurationResponse:
       type: object
       properties:
         requestId:
@@ -215,36 +222,23 @@ components:
           - $ref: '#/components/schemas/NonEmptyString'
           - description: The request ID that uniquely identifies this request.
           example: example-id-1234
-        policy:
+        infrastructureConfigurationArn:
           allOf:
-          - $ref: '#/components/schemas/ResourcePolicyDocument'
-          - description: The component policy.
-          example: example-string
-    ResourcePolicyDocument:
-      type: string
-      minLength: 1
-      maxLength: 30000
-    InvalidRequestException: {}
-    ResourceNotFoundException: {}
+          - $ref: '#/components/schemas/InfrastructureConfigurationArn'
+          - description: The Amazon Resource Name (ARN) of the infrastructure configuration that was deleted.
+          example: arn:aws:service:us-east-1:123456789012:resource/example
+    ResourceDependencyException: {}
     NonEmptyString:
       type: string
       minLength: 1
       maxLength: 1024
+    InvalidRequestException: {}
+    ServiceUnavailableException: {}
+    ForbiddenException: {}
+    ClientException: {}
   parameters:
     X-Amz-Signature:
       name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
       in: header
       schema:
         type: string
@@ -255,20 +249,32 @@ components:
       schema:
         type: string
       required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-SignedHeaders:
       name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Date:
-      name: X-Amz-Date
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-Date:
+      name: X-Amz-Date
       in: header
       schema:
         type: string

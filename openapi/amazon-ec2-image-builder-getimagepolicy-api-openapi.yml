@@ -2,7 +2,7 @@ openapi: 3.2.0
 info:
   version: 2019-12-02
   x-release: v4
-  title: EC2 Image Builder Delete Image Pipeline#image Pipeline Arn…
+  title: EC2 Image Builder Get Image Policy API
   description: EC2 Image Builder is a fully managed Amazon Web Services service that makes it easier to automate the creation, management, and deployment of customized, secure, and up-to-date "golden" server images that are pre-installed and pre-configured with software and settings to meet specific IT standards.
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
@@ -113,9 +113,9 @@ servers:
 security:
 - hmac: []
 tags:
-- name: DeleteImagePipeline#imagePipelineArn
+- name: GetImagePolicy
 paths:
-  /DeleteImagePipeline#imagePipelineArn:
+  /GetImagePolicy#imageArn:
     parameters:
     - $ref: '#/components/parameters/X-Amz-Content-Sha256'
     - $ref: '#/components/parameters/X-Amz-Date'
@@ -124,23 +124,23 @@ paths:
     - $ref: '#/components/parameters/X-Amz-Security-Token'
     - $ref: '#/components/parameters/X-Amz-Signature'
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
-    delete:
-      operationId: DeleteImagePipeline
-      description: Deletes an image pipeline.
+    get:
+      operationId: GetImagePolicy
+      description: Gets an image policy.
       responses:
         '200':
           description: Success
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DeleteImagePipelineResponse'
+                $ref: '#/components/schemas/GetImagePolicyResponse'
               examples:
-                DeleteImagePipeline200Example:
-                  summary: Default DeleteImagePipeline 200 response
+                GetImagePolicy200Example:
+                  summary: Default GetImagePolicy 200 response
                   x-microcks-default: true
                   value:
                     requestId: example-id-1234
-                    imagePipelineArn: arn:aws:service:us-east-1:123456789012:resource/example
+                    policy: example-string
         '480':
           description: ServiceException
           content:
@@ -148,27 +148,27 @@ paths:
               schema:
                 $ref: '#/components/schemas/ServiceException'
               examples:
-                DeleteImagePipeline480Example:
-                  summary: Default DeleteImagePipeline 480 response
+                GetImagePolicy480Example:
+                  summary: Default GetImagePolicy 480 response
                   x-microcks-default: true
                   value: {}
         '481':
-          description: ClientException
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ClientException'
-              examples:
-                DeleteImagePipeline481Example:
-                  summary: Default DeleteImagePipeline 481 response
-                  x-microcks-default: true
-                  value: {}
-        '482':
           description: ServiceUnavailableException
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ServiceUnavailableException'
+              examples:
+                GetImagePolicy481Example:
+                  summary: Default GetImagePolicy 481 response
+                  x-microcks-default: true
+                  value: {}
+        '482':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
         '483':
           description: InvalidRequestException
           content:
@@ -187,56 +187,60 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/CallRateLimitExceededException'
-        '486':
-          description: ResourceDependencyException
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ResourceDependencyException'
       parameters:
-      - name: imagePipelineArn
+      - name: imageArn
         in: query
         required: true
-        description: The Amazon Resource Name (ARN) of the image pipeline to delete.
+        description: The Amazon Resource Name (ARN) of the image whose policy you want to retrieve.
         schema:
           type: string
-          pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):image-pipeline/[a-z0-9-_]+$
-      summary: Amazon EC2 Image Builder Delete Image Pipeline
+          pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):image/[a-z0-9-_]+/[0-9]+\.[0-9]+\.[0-9]+/[0-9]+$
+      summary: Amazon EC2 Image Builder Get Image Policy
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
       tags:
-      - DeleteImagePipeline#imagePipelineArn
+      - GetImagePolicy
 components:
   schemas:
     ServiceException: {}
-    CallRateLimitExceededException: {}
-    DeleteImagePipelineResponse:
+    ResourcePolicyDocument:
+      type: string
+      minLength: 1
+      maxLength: 30000
+    NonEmptyString:
+      type: string
+      minLength: 1
+      maxLength: 1024
+    InvalidRequestException: {}
+    ResourceNotFoundException: {}
+    GetImagePolicyResponse:
       type: object
       properties:
         requestId:
           allOf:
           - $ref: '#/components/schemas/NonEmptyString'
           - description: The request ID that uniquely identifies this request.
-          example: example-id-1234
-        imagePipelineArn:
+        policy:
           allOf:
-          - $ref: '#/components/schemas/ImagePipelineArn'
-          - description: The Amazon Resource Name (ARN) of the image pipeline that was deleted.
-          example: arn:aws:service:us-east-1:123456789012:resource/example
-    ClientException: {}
-    ForbiddenException: {}
+          - $ref: '#/components/schemas/ResourcePolicyDocument'
+          - description: The image policy object.
     ServiceUnavailableException: {}
-    ImagePipelineArn:
-      type: string
-      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):image-pipeline/[a-z0-9-_]+$
-    InvalidRequestException: {}
-    NonEmptyString:
-      type: string
-      minLength: 1
-      maxLength: 1024
-    ResourceDependencyException: {}
+    ForbiddenException: {}
+    CallRateLimitExceededException: {}
   parameters:
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Security-Token:
       name: X-Amz-Security-Token
       in: header
@@ -249,24 +253,6 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-SignedHeaders:
       name: X-Amz-SignedHeaders
       in: header
@@ -275,6 +261,12 @@ components:
       required: false
     X-Amz-Content-Sha256:
       name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
       in: header
       schema:
         type: string

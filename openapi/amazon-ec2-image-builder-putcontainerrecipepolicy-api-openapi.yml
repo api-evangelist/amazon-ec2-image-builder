@@ -227,16 +227,8 @@ paths:
       - PutContainerRecipePolicy
 components:
   schemas:
-    ServiceException: {}
     CallRateLimitExceededException: {}
-    ContainerRecipeArn:
-      type: string
-      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):container-recipe/[a-z0-9-_]+/[0-9]+\.[0-9]+\.[0-9]+$
-    ClientException: {}
-    ForbiddenException: {}
-    ServiceUnavailableException: {}
-    InvalidRequestException: {}
-    ResourceNotFoundException: {}
+    ServiceException: {}
     PutContainerRecipePolicyResponse:
       type: object
       properties:
@@ -248,14 +240,28 @@ components:
           allOf:
           - $ref: '#/components/schemas/ContainerRecipeArn'
           - description: The Amazon Resource Name (ARN) of the container recipe that this policy was applied to.
+    InvalidParameterValueException: {}
+    ContainerRecipeArn:
+      type: string
+      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):container-recipe/[a-z0-9-_]+/[0-9]+\.[0-9]+\.[0-9]+$
     NonEmptyString:
       type: string
       minLength: 1
       maxLength: 1024
-    InvalidParameterValueException: {}
+    InvalidRequestException: {}
+    ResourceNotFoundException: {}
+    ServiceUnavailableException: {}
+    ForbiddenException: {}
+    ClientException: {}
   parameters:
     X-Amz-Signature:
       name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
       in: header
       schema:
         type: string
@@ -272,26 +278,20 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-SignedHeaders:
       name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Date:
-      name: X-Amz-Date
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-Date:
+      name: X-Amz-Date
       in: header
       schema:
         type: string

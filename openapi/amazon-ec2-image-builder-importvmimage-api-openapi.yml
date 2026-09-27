@@ -237,14 +237,19 @@ paths:
 components:
   schemas:
     ServiceException: {}
+    TagValue:
+      type: string
+      maxLength: 256
     Arn:
       type: string
-    ClientException: {}
     ClientToken:
       type: string
       minLength: 1
       maxLength: 36
-    ServiceUnavailableException: {}
+    NonEmptyString:
+      type: string
+      minLength: 1
+      maxLength: 1024
     ImportVmImageResponse:
       type: object
       properties:
@@ -260,16 +265,17 @@ components:
           allOf:
           - $ref: '#/components/schemas/ClientToken'
           - description: The idempotency token that was used for this request.
-    NonEmptyString:
-      type: string
-      minLength: 1
-      maxLength: 1024
-    TagValue:
-      type: string
-      maxLength: 256
+    ServiceUnavailableException: {}
+    ClientException: {}
   parameters:
     X-Amz-Signature:
       name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
       in: header
       schema:
         type: string
@@ -286,26 +292,20 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-SignedHeaders:
       name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Date:
-      name: X-Amz-Date
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-Date:
+      name: X-Amz-Date
       in: header
       schema:
         type: string

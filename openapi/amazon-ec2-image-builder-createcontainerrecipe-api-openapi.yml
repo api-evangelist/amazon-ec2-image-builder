@@ -337,14 +337,53 @@ paths:
       - CreateContainerRecipe
 components:
   schemas:
+    ServiceException: {}
+    ResourceAlreadyExistsException: {}
+    CreateContainerRecipeResponse:
+      type: object
+      properties:
+        requestId:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The request ID that uniquely identifies this request.
+          example: example-id-1234
+        clientToken:
+          allOf:
+          - $ref: '#/components/schemas/ClientToken'
+          - description: The client token used to make this request idempotent.
+          example: example-string
+        containerRecipeArn:
+          allOf:
+          - $ref: '#/components/schemas/ContainerRecipeArn'
+          - description: Returns the Amazon Resource Name (ARN) of the container recipe that the request created.
+          example: arn:aws:service:us-east-1:123456789012:resource/example
+    ServiceQuotaExceededException: {}
+    ComponentParameterValue:
+      type: string
+      pattern: '[^\x00]*'
+      minLength: 0
+    EbsIopsInteger:
+      type: integer
+      minimum: 100
+      maximum: 64000
+    CallRateLimitExceededException: {}
+    ServiceUnavailableException: {}
+    NullableBoolean:
+      type: boolean
+    EbsVolumeSizeInteger:
+      type: integer
+      minimum: 1
+      maximum: 16000
     ComponentParameterList:
       type: array
       items:
         $ref: '#/components/schemas/ComponentParameter'
       minItems: 1
-    NullableBoolean:
-      type: boolean
-    IdempotentParameterMismatchException: {}
+    InvalidRequestException: {}
+    InstanceBlockDeviceMappings:
+      type: array
+      items:
+        $ref: '#/components/schemas/InstanceBlockDeviceMapping'
     EbsInstanceBlockDeviceSpecification:
       type: object
       properties:
@@ -381,99 +420,33 @@ components:
           - $ref: '#/components/schemas/EbsVolumeThroughput'
           - description: ' <b>For GP3 volumes only</b> – The throughput in MiB/s that the volume supports.'
       description: Amazon EBS-specific block device mapping specifications.
-    ServiceQuotaExceededException: {}
-    ComponentParameter:
-      type: object
-      required:
-      - name
-      - value
-      properties:
-        name:
-          allOf:
-          - $ref: '#/components/schemas/ComponentParameterName'
-          - description: The name of the component parameter to set.
-        value:
-          allOf:
-          - $ref: '#/components/schemas/ComponentParameterValueList'
-          - description: Sets the value for the named component parameter.
-      description: Contains a key/value pair that sets the named component parameter.
-    ResourceAlreadyExistsException: {}
-    InvalidRequestException: {}
-    ComponentParameterValue:
-      type: string
-      pattern: '[^\x00]*'
-      minLength: 0
-    CallRateLimitExceededException: {}
     EmptyString:
       type: string
       minLength: 0
       maxLength: 0
-    ClientException: {}
-    ServiceUnavailableException: {}
-    ContainerRepositoryService:
-      type: string
-      enum:
-      - ECR
-    ComponentParameterName:
-      type: string
-      pattern: '[^\x00]+'
-      minLength: 1
-      maxLength: 256
-    EbsVolumeSizeInteger:
-      type: integer
-      minimum: 1
-      maximum: 16000
-    EbsVolumeType:
-      type: string
-      enum:
-      - standard
-      - io1
-      - io2
-      - gp2
-      - gp3
-      - sc1
-      - st1
-    EbsVolumeThroughput:
-      type: integer
-      minimum: 125
-      maximum: 1000
-    TagValue:
-      type: string
-      maxLength: 256
-    CreateContainerRecipeResponse:
+    ComponentConfiguration:
       type: object
+      required:
+      - componentArn
       properties:
-        requestId:
+        componentArn:
           allOf:
-          - $ref: '#/components/schemas/NonEmptyString'
-          - description: The request ID that uniquely identifies this request.
-          example: example-id-1234
-        clientToken:
-          allOf:
-          - $ref: '#/components/schemas/ClientToken'
-          - description: The client token used to make this request idempotent.
-          example: example-string
-        containerRecipeArn:
-          allOf:
-          - $ref: '#/components/schemas/ContainerRecipeArn'
-          - description: Returns the Amazon Resource Name (ARN) of the container recipe that the request created.
+          - $ref: '#/components/schemas/ComponentVersionArnOrBuildVersionArn'
+          - description: The Amazon Resource Name (ARN) of the component.
           example: arn:aws:service:us-east-1:123456789012:resource/example
-    ContainerRecipeArn:
-      type: string
-      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):container-recipe/[a-z0-9-_]+/[0-9]+\.[0-9]+\.[0-9]+$
-    EbsIopsInteger:
-      type: integer
-      minimum: 100
-      maximum: 64000
+        parameters:
+          allOf:
+          - $ref: '#/components/schemas/ComponentParameterList'
+          - description: A group of parameter settings that Image Builder uses to configure the component for a specific recipe.
+          example: example-string
+      description: Configuration details of the component.
     ComponentParameterValueList:
       type: array
       items:
         $ref: '#/components/schemas/ComponentParameterValue'
-    ComponentVersionArnOrBuildVersionArn:
+    TagValue:
       type: string
-      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):component/[a-z0-9-_]+/(?:(?:([0-9]+|x)\.([0-9]+|x)\.([0-9]+|x))|(?:[0-9]+\.[0-9]+\.[0-9]+/[0-9]+))$
-    InvalidVersionNumberException: {}
-    ResourceInUseException: {}
+      maxLength: 256
     InstanceBlockDeviceMapping:
       type: object
       properties:
@@ -498,28 +471,46 @@ components:
           - description: Use to remove a mapping from the base image.
           example: example-string
       description: Defines block device mappings for the instance used to configure your image.
-    ServiceException: {}
-    ComponentConfiguration:
+    ComponentVersionArnOrBuildVersionArn:
+      type: string
+      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):component/[a-z0-9-_]+/(?:(?:([0-9]+|x)\.([0-9]+|x)\.([0-9]+|x))|(?:[0-9]+\.[0-9]+\.[0-9]+/[0-9]+))$
+    ContainerRecipeArn:
+      type: string
+      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):container-recipe/[a-z0-9-_]+/[0-9]+\.[0-9]+\.[0-9]+$
+    ContainerRepositoryService:
+      type: string
+      enum:
+      - ECR
+    IdempotentParameterMismatchException: {}
+    ForbiddenException: {}
+    ClientException: {}
+    InvalidVersionNumberException: {}
+    EbsVolumeType:
+      type: string
+      enum:
+      - standard
+      - io1
+      - io2
+      - gp2
+      - gp3
+      - sc1
+      - st1
+    ComponentParameter:
       type: object
       required:
-      - componentArn
+      - name
+      - value
       properties:
-        componentArn:
+        name:
           allOf:
-          - $ref: '#/components/schemas/ComponentVersionArnOrBuildVersionArn'
-          - description: The Amazon Resource Name (ARN) of the component.
-          example: arn:aws:service:us-east-1:123456789012:resource/example
-        parameters:
+          - $ref: '#/components/schemas/ComponentParameterName'
+          - description: The name of the component parameter to set.
+        value:
           allOf:
-          - $ref: '#/components/schemas/ComponentParameterList'
-          - description: A group of parameter settings that Image Builder uses to configure the component for a specific recipe.
-          example: example-string
-      description: Configuration details of the component.
-    InstanceBlockDeviceMappings:
-      type: array
-      items:
-        $ref: '#/components/schemas/InstanceBlockDeviceMapping'
-    ForbiddenException: {}
+          - $ref: '#/components/schemas/ComponentParameterValueList'
+          - description: Sets the value for the named component parameter.
+      description: Contains a key/value pair that sets the named component parameter.
+    ResourceInUseException: {}
     ClientToken:
       type: string
       minLength: 1
@@ -528,27 +519,18 @@ components:
       type: string
       minLength: 1
       maxLength: 1024
+    ComponentParameterName:
+      type: string
+      pattern: '[^\x00]+'
+      minLength: 1
+      maxLength: 256
+    EbsVolumeThroughput:
+      type: integer
+      minimum: 125
+      maximum: 1000
   parameters:
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Signature:
       name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
@@ -559,14 +541,32 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Date:
-      name: X-Amz-Date
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
       in: header
       schema:
         type: string
       required: false
     X-Amz-Credential:
       name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
       in: header
       schema:
         type: string

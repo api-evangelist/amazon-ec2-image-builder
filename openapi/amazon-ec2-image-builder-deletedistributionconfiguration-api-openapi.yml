@@ -2,7 +2,7 @@ openapi: 3.2.0
 info:
   version: 2019-12-02
   x-release: v4
-  title: EC2 Image Builder Get Image Policy#image Arn API
+  title: EC2 Image Builder Delete Distribution Configuration API
   description: EC2 Image Builder is a fully managed Amazon Web Services service that makes it easier to automate the creation, management, and deployment of customized, secure, and up-to-date "golden" server images that are pre-installed and pre-configured with software and settings to meet specific IT standards.
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
@@ -113,9 +113,9 @@ servers:
 security:
 - hmac: []
 tags:
-- name: GetImagePolicy#imageArn
+- name: DeleteDistributionConfiguration
 paths:
-  /GetImagePolicy#imageArn:
+  /DeleteDistributionConfiguration#distributionConfigurationArn:
     parameters:
     - $ref: '#/components/parameters/X-Amz-Content-Sha256'
     - $ref: '#/components/parameters/X-Amz-Date'
@@ -124,23 +124,23 @@ paths:
     - $ref: '#/components/parameters/X-Amz-Security-Token'
     - $ref: '#/components/parameters/X-Amz-Signature'
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
-    get:
-      operationId: GetImagePolicy
-      description: Gets an image policy.
+    delete:
+      operationId: DeleteDistributionConfiguration
+      description: Deletes a distribution configuration.
       responses:
         '200':
           description: Success
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetImagePolicyResponse'
+                $ref: '#/components/schemas/DeleteDistributionConfigurationResponse'
               examples:
-                GetImagePolicy200Example:
-                  summary: Default GetImagePolicy 200 response
+                DeleteDistributionConfiguration200Example:
+                  summary: Default DeleteDistributionConfiguration 200 response
                   x-microcks-default: true
                   value:
                     requestId: example-id-1234
-                    policy: example-string
+                    distributionConfigurationArn: arn:aws:service:us-east-1:123456789012:resource/example
         '480':
           description: ServiceException
           content:
@@ -148,33 +148,33 @@ paths:
               schema:
                 $ref: '#/components/schemas/ServiceException'
               examples:
-                GetImagePolicy480Example:
-                  summary: Default GetImagePolicy 480 response
+                DeleteDistributionConfiguration480Example:
+                  summary: Default DeleteDistributionConfiguration 480 response
                   x-microcks-default: true
                   value: {}
         '481':
-          description: ServiceUnavailableException
+          description: ClientException
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ServiceUnavailableException'
+                $ref: '#/components/schemas/ClientException'
               examples:
-                GetImagePolicy481Example:
-                  summary: Default GetImagePolicy 481 response
+                DeleteDistributionConfiguration481Example:
+                  summary: Default DeleteDistributionConfiguration 481 response
                   x-microcks-default: true
                   value: {}
         '482':
-          description: ResourceNotFoundException
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ResourceNotFoundException'
-        '483':
           description: InvalidRequestException
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/InvalidRequestException'
+        '483':
+          description: ServiceUnavailableException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceUnavailableException'
         '484':
           description: ForbiddenException
           content:
@@ -187,50 +187,64 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/CallRateLimitExceededException'
+        '486':
+          description: ResourceDependencyException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceDependencyException'
       parameters:
-      - name: imageArn
+      - name: distributionConfigurationArn
         in: query
         required: true
-        description: The Amazon Resource Name (ARN) of the image whose policy you want to retrieve.
+        description: The Amazon Resource Name (ARN) of the distribution configuration to delete.
         schema:
           type: string
-          pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):image/[a-z0-9-_]+/[0-9]+\.[0-9]+\.[0-9]+/[0-9]+$
-      summary: Amazon EC2 Image Builder Get Image Policy
+          pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):distribution-configuration/[a-z0-9-_]+$
+      summary: Amazon EC2 Image Builder Delete Distribution Configuration
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
       tags:
-      - GetImagePolicy#imageArn
+      - DeleteDistributionConfiguration
 components:
   schemas:
-    ServiceException: {}
     CallRateLimitExceededException: {}
-    GetImagePolicyResponse:
+    ServiceException: {}
+    DistributionConfigurationArn:
+      type: string
+      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):distribution-configuration/[a-z0-9-_]+$
+    ResourceDependencyException: {}
+    NonEmptyString:
+      type: string
+      minLength: 1
+      maxLength: 1024
+    InvalidRequestException: {}
+    DeleteDistributionConfigurationResponse:
       type: object
       properties:
         requestId:
           allOf:
           - $ref: '#/components/schemas/NonEmptyString'
           - description: The request ID that uniquely identifies this request.
-        policy:
+          example: example-id-1234
+        distributionConfigurationArn:
           allOf:
-          - $ref: '#/components/schemas/ResourcePolicyDocument'
-          - description: The image policy object.
-    ForbiddenException: {}
+          - $ref: '#/components/schemas/DistributionConfigurationArn'
+          - description: The Amazon Resource Name (ARN) of the distribution configuration that was deleted.
+          example: arn:aws:service:us-east-1:123456789012:resource/example
     ServiceUnavailableException: {}
-    ResourcePolicyDocument:
-      type: string
-      minLength: 1
-      maxLength: 30000
-    InvalidRequestException: {}
-    ResourceNotFoundException: {}
-    NonEmptyString:
-      type: string
-      minLength: 1
-      maxLength: 1024
+    ForbiddenException: {}
+    ClientException: {}
   parameters:
     X-Amz-Signature:
       name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
       in: header
       schema:
         type: string
@@ -247,18 +261,6 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-SignedHeaders:
       name: X-Amz-SignedHeaders
       in: header
@@ -267,6 +269,12 @@ components:
       required: false
     X-Amz-Content-Sha256:
       name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
       in: header
       schema:
         type: string

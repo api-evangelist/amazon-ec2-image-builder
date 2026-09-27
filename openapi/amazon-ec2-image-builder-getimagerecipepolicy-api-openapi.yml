@@ -2,7 +2,7 @@ openapi: 3.2.0
 info:
   version: 2019-12-02
   x-release: v4
-  title: EC2 Image Builder Delete Component#component Build Version…
+  title: EC2 Image Builder Get Image Recipe Policy API
   description: EC2 Image Builder is a fully managed Amazon Web Services service that makes it easier to automate the creation, management, and deployment of customized, secure, and up-to-date "golden" server images that are pre-installed and pre-configured with software and settings to meet specific IT standards.
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
@@ -113,9 +113,9 @@ servers:
 security:
 - hmac: []
 tags:
-- name: DeleteComponent#componentBuildVersionArn
+- name: GetImageRecipePolicy
 paths:
-  /DeleteComponent#componentBuildVersionArn:
+  /GetImageRecipePolicy#imageRecipeArn:
     parameters:
     - $ref: '#/components/parameters/X-Amz-Content-Sha256'
     - $ref: '#/components/parameters/X-Amz-Date'
@@ -124,23 +124,23 @@ paths:
     - $ref: '#/components/parameters/X-Amz-Security-Token'
     - $ref: '#/components/parameters/X-Amz-Signature'
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
-    delete:
-      operationId: DeleteComponent
-      description: Deletes a component build version.
+    get:
+      operationId: GetImageRecipePolicy
+      description: Gets an image recipe policy.
       responses:
         '200':
           description: Success
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DeleteComponentResponse'
+                $ref: '#/components/schemas/GetImageRecipePolicyResponse'
               examples:
-                DeleteComponent200Example:
-                  summary: Default DeleteComponent 200 response
+                GetImageRecipePolicy200Example:
+                  summary: Default GetImageRecipePolicy 200 response
                   x-microcks-default: true
                   value:
                     requestId: example-id-1234
-                    componentBuildVersionArn: arn:aws:service:us-east-1:123456789012:resource/example
+                    policy: example-string
         '480':
           description: ServiceException
           content:
@@ -148,33 +148,33 @@ paths:
               schema:
                 $ref: '#/components/schemas/ServiceException'
               examples:
-                DeleteComponent480Example:
-                  summary: Default DeleteComponent 480 response
+                GetImageRecipePolicy480Example:
+                  summary: Default GetImageRecipePolicy 480 response
                   x-microcks-default: true
                   value: {}
         '481':
-          description: ClientException
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ClientException'
-              examples:
-                DeleteComponent481Example:
-                  summary: Default DeleteComponent 481 response
-                  x-microcks-default: true
-                  value: {}
-        '482':
           description: ServiceUnavailableException
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ServiceUnavailableException'
-        '483':
+              examples:
+                GetImageRecipePolicy481Example:
+                  summary: Default GetImageRecipePolicy 481 response
+                  x-microcks-default: true
+                  value: {}
+        '482':
           description: InvalidRequestException
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/InvalidRequestException'
+        '483':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
         '484':
           description: ForbiddenException
           content:
@@ -187,58 +187,56 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/CallRateLimitExceededException'
-        '486':
-          description: ResourceDependencyException
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ResourceDependencyException'
       parameters:
-      - name: componentBuildVersionArn
+      - name: imageRecipeArn
         in: query
         required: true
-        description: The Amazon Resource Name (ARN) of the component build version to delete.
+        description: The Amazon Resource Name (ARN) of the image recipe whose policy you want to retrieve.
         schema:
           type: string
-          pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):component/[a-z0-9-_]+/[0-9]+\.[0-9]+\.[0-9]+/[0-9]+$
-      summary: Amazon EC2 Image Builder Delete Component
+          pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):image-recipe/[a-z0-9-_]+/[0-9]+\.[0-9]+\.[0-9]+$
+      summary: Amazon EC2 Image Builder Get Image Recipe Policy
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
       tags:
-      - DeleteComponent#componentBuildVersionArn
+      - GetImageRecipePolicy
 components:
   schemas:
     ServiceException: {}
-    CallRateLimitExceededException: {}
-    ClientException: {}
-    ForbiddenException: {}
-    ComponentBuildVersionArn:
+    ResourcePolicyDocument:
       type: string
-      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):component/[a-z0-9-_]+/[0-9]+\.[0-9]+\.[0-9]+/[0-9]+$
-    ServiceUnavailableException: {}
-    DeleteComponentResponse:
+      minLength: 1
+      maxLength: 30000
+    GetImageRecipePolicyResponse:
       type: object
       properties:
         requestId:
           allOf:
           - $ref: '#/components/schemas/NonEmptyString'
           - description: The request ID that uniquely identifies this request.
-          example: example-id-1234
-        componentBuildVersionArn:
+        policy:
           allOf:
-          - $ref: '#/components/schemas/ComponentBuildVersionArn'
-          - description: The ARN of the component build version that this request deleted.
-          example: arn:aws:service:us-east-1:123456789012:resource/example
-    InvalidRequestException: {}
+          - $ref: '#/components/schemas/ResourcePolicyDocument'
+          - description: The image recipe policy object.
     NonEmptyString:
       type: string
       minLength: 1
       maxLength: 1024
-    ResourceDependencyException: {}
+    InvalidRequestException: {}
+    ResourceNotFoundException: {}
+    ServiceUnavailableException: {}
+    ForbiddenException: {}
+    CallRateLimitExceededException: {}
   parameters:
     X-Amz-Signature:
       name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
       in: header
       schema:
         type: string
@@ -255,26 +253,20 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-SignedHeaders:
       name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Date:
-      name: X-Amz-Date
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-Date:
+      name: X-Amz-Date
       in: header
       schema:
         type: string

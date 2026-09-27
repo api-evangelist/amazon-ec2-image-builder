@@ -298,14 +298,57 @@ paths:
       - CreateImageRecipe
 components:
   schemas:
+    ServiceException: {}
+    ResourceAlreadyExistsException: {}
+    CreateImageRecipeResponse:
+      type: object
+      properties:
+        requestId:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The request ID that uniquely identifies this request.
+          example: example-id-1234
+        clientToken:
+          allOf:
+          - $ref: '#/components/schemas/ClientToken'
+          - description: The idempotency token used to make this request idempotent.
+          example: example-string
+        imageRecipeArn:
+          allOf:
+          - $ref: '#/components/schemas/ImageRecipeArn'
+          - description: The Amazon Resource Name (ARN) of the image recipe that was created by this request.
+          example: arn:aws:service:us-east-1:123456789012:resource/example
+    ImageRecipeArn:
+      type: string
+      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):image-recipe/[a-z0-9-_]+/[0-9]+\.[0-9]+\.[0-9]+$
+    ServiceQuotaExceededException: {}
+    ComponentParameterValue:
+      type: string
+      pattern: '[^\x00]*'
+      minLength: 0
+    EbsIopsInteger:
+      type: integer
+      minimum: 100
+      maximum: 64000
+    CallRateLimitExceededException: {}
+    ServiceUnavailableException: {}
+    NullableBoolean:
+      type: boolean
+    UserDataOverride:
+      type: string
+      pattern: ^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$
+      minLength: 1
+      maxLength: 21847
+    EbsVolumeSizeInteger:
+      type: integer
+      minimum: 1
+      maximum: 16000
     ComponentParameterList:
       type: array
       items:
         $ref: '#/components/schemas/ComponentParameter'
       minItems: 1
-    NullableBoolean:
-      type: boolean
-    IdempotentParameterMismatchException: {}
+    InvalidRequestException: {}
     EbsInstanceBlockDeviceSpecification:
       type: object
       properties:
@@ -342,109 +385,33 @@ components:
           - $ref: '#/components/schemas/EbsVolumeThroughput'
           - description: ' <b>For GP3 volumes only</b> – The throughput in MiB/s that the volume supports.'
       description: Amazon EBS-specific block device mapping specifications.
-    ServiceQuotaExceededException: {}
-    ComponentParameter:
-      type: object
-      required:
-      - name
-      - value
-      properties:
-        name:
-          allOf:
-          - $ref: '#/components/schemas/ComponentParameterName'
-          - description: The name of the component parameter to set.
-        value:
-          allOf:
-          - $ref: '#/components/schemas/ComponentParameterValueList'
-          - description: Sets the value for the named component parameter.
-      description: Contains a key/value pair that sets the named component parameter.
-    ResourceAlreadyExistsException: {}
-    InvalidRequestException: {}
-    ComponentParameterValue:
-      type: string
-      pattern: '[^\x00]*'
-      minLength: 0
-    ImageRecipeArn:
-      type: string
-      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):image-recipe/[a-z0-9-_]+/[0-9]+\.[0-9]+\.[0-9]+$
-    CallRateLimitExceededException: {}
     EmptyString:
       type: string
       minLength: 0
       maxLength: 0
-    ClientException: {}
-    ServiceUnavailableException: {}
-    ComponentParameterName:
-      type: string
-      pattern: '[^\x00]+'
-      minLength: 1
-      maxLength: 256
-    EbsVolumeSizeInteger:
-      type: integer
-      minimum: 1
-      maximum: 16000
-    EbsVolumeType:
-      type: string
-      enum:
-      - standard
-      - io1
-      - io2
-      - gp2
-      - gp3
-      - sc1
-      - st1
-    EbsVolumeThroughput:
-      type: integer
-      minimum: 125
-      maximum: 1000
-    TagValue:
-      type: string
-      maxLength: 256
-    EbsIopsInteger:
-      type: integer
-      minimum: 100
-      maximum: 64000
-    UserDataOverride:
-      type: string
-      pattern: ^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$
-      minLength: 1
-      maxLength: 21847
-    CreateImageRecipeResponse:
+    ComponentConfiguration:
       type: object
+      required:
+      - componentArn
       properties:
-        requestId:
+        componentArn:
           allOf:
-          - $ref: '#/components/schemas/NonEmptyString'
-          - description: The request ID that uniquely identifies this request.
-          example: example-id-1234
-        clientToken:
-          allOf:
-          - $ref: '#/components/schemas/ClientToken'
-          - description: The idempotency token used to make this request idempotent.
-          example: example-string
-        imageRecipeArn:
-          allOf:
-          - $ref: '#/components/schemas/ImageRecipeArn'
-          - description: The Amazon Resource Name (ARN) of the image recipe that was created by this request.
+          - $ref: '#/components/schemas/ComponentVersionArnOrBuildVersionArn'
+          - description: The Amazon Resource Name (ARN) of the component.
           example: arn:aws:service:us-east-1:123456789012:resource/example
+        parameters:
+          allOf:
+          - $ref: '#/components/schemas/ComponentParameterList'
+          - description: A group of parameter settings that Image Builder uses to configure the component for a specific recipe.
+          example: example-string
+      description: Configuration details of the component.
     ComponentParameterValueList:
       type: array
       items:
         $ref: '#/components/schemas/ComponentParameterValue'
-    ComponentVersionArnOrBuildVersionArn:
+    TagValue:
       type: string
-      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):component/[a-z0-9-_]+/(?:(?:([0-9]+|x)\.([0-9]+|x)\.([0-9]+|x))|(?:[0-9]+\.[0-9]+\.[0-9]+/[0-9]+))$
-    SystemsManagerAgent:
-      type: object
-      properties:
-        uninstallAfterBuild:
-          allOf:
-          - $ref: '#/components/schemas/NullableBoolean'
-          - description: Controls whether the Systems Manager agent is removed from your final build image, prior to creating the new AMI. If this is set to true, then the agent is removed from the final image. If it's set to false, then the agent is left in, so that it is included in the new AMI. The default value is false.
-          example: example-string
-      description: Contains settings for the Systems Manager agent on your build instance.
-    InvalidVersionNumberException: {}
-    ResourceInUseException: {}
+      maxLength: 256
     InstanceBlockDeviceMapping:
       type: object
       properties:
@@ -469,24 +436,48 @@ components:
           - description: Use to remove a mapping from the base image.
           example: example-string
       description: Defines block device mappings for the instance used to configure your image.
-    ServiceException: {}
-    ComponentConfiguration:
+    ComponentVersionArnOrBuildVersionArn:
+      type: string
+      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):component/[a-z0-9-_]+/(?:(?:([0-9]+|x)\.([0-9]+|x)\.([0-9]+|x))|(?:[0-9]+\.[0-9]+\.[0-9]+/[0-9]+))$
+    IdempotentParameterMismatchException: {}
+    ForbiddenException: {}
+    ClientException: {}
+    SystemsManagerAgent:
+      type: object
+      properties:
+        uninstallAfterBuild:
+          allOf:
+          - $ref: '#/components/schemas/NullableBoolean'
+          - description: Controls whether the Systems Manager agent is removed from your final build image, prior to creating the new AMI. If this is set to true, then the agent is removed from the final image. If it's set to false, then the agent is left in, so that it is included in the new AMI. The default value is false.
+          example: example-string
+      description: Contains settings for the Systems Manager agent on your build instance.
+    InvalidVersionNumberException: {}
+    EbsVolumeType:
+      type: string
+      enum:
+      - standard
+      - io1
+      - io2
+      - gp2
+      - gp3
+      - sc1
+      - st1
+    ComponentParameter:
       type: object
       required:
-      - componentArn
+      - name
+      - value
       properties:
-        componentArn:
+        name:
           allOf:
-          - $ref: '#/components/schemas/ComponentVersionArnOrBuildVersionArn'
-          - description: The Amazon Resource Name (ARN) of the component.
-          example: arn:aws:service:us-east-1:123456789012:resource/example
-        parameters:
+          - $ref: '#/components/schemas/ComponentParameterName'
+          - description: The name of the component parameter to set.
+        value:
           allOf:
-          - $ref: '#/components/schemas/ComponentParameterList'
-          - description: A group of parameter settings that Image Builder uses to configure the component for a specific recipe.
-          example: example-string
-      description: Configuration details of the component.
-    ForbiddenException: {}
+          - $ref: '#/components/schemas/ComponentParameterValueList'
+          - description: Sets the value for the named component parameter.
+      description: Contains a key/value pair that sets the named component parameter.
+    ResourceInUseException: {}
     ClientToken:
       type: string
       minLength: 1
@@ -495,27 +486,18 @@ components:
       type: string
       minLength: 1
       maxLength: 1024
+    ComponentParameterName:
+      type: string
+      pattern: '[^\x00]+'
+      minLength: 1
+      maxLength: 256
+    EbsVolumeThroughput:
+      type: integer
+      minimum: 125
+      maximum: 1000
   parameters:
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Signature:
       name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
@@ -526,14 +508,32 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Date:
-      name: X-Amz-Date
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
       in: header
       schema:
         type: string
       required: false
     X-Amz-Credential:
       name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
       in: header
       schema:
         type: string

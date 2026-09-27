@@ -243,64 +243,9 @@ paths:
       tags:
       - ListImagePackages
 components:
-  parameters:
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
   schemas:
-    InvalidPaginationTokenException: {}
-    InvalidRequestException: {}
+    ServiceException: {}
     CallRateLimitExceededException: {}
-    ClientException: {}
-    ServiceUnavailableException: {}
-    PaginationToken:
-      type: string
-      minLength: 1
-      maxLength: 65535
-    ImagePackageList:
-      type: array
-      items:
-        $ref: '#/components/schemas/ImagePackage'
-    ResourceNotFoundException: {}
     ImagePackage:
       type: object
       properties:
@@ -313,8 +258,17 @@ components:
           - $ref: '#/components/schemas/NonEmptyString'
           - description: The version of the package as reported to the operating system package manager.
       description: Represents a package installed on an Image Builder image.
-    ServiceException: {}
-    ForbiddenException: {}
+    ServiceUnavailableException: {}
+    InvalidRequestException: {}
+    PaginationToken:
+      type: string
+      minLength: 1
+      maxLength: 65535
+    ResourceNotFoundException: {}
+    ImagePackageList:
+      type: array
+      items:
+        $ref: '#/components/schemas/ImagePackage'
     ListImagePackagesResponse:
       type: object
       properties:
@@ -330,10 +284,56 @@ components:
           allOf:
           - $ref: '#/components/schemas/PaginationToken'
           - description: The next token used for paginated responses. When this field isn't empty, there are additional elements that the service has'ot included in this request. Use this token with the next request to retrieve additional objects.
+    ForbiddenException: {}
+    ClientException: {}
     NonEmptyString:
       type: string
       minLength: 1
       maxLength: 1024
+    InvalidPaginationTokenException: {}
+  parameters:
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
   securitySchemes:
     hmac:
       type: apiKey

@@ -294,51 +294,12 @@ paths:
       - UpdateInfrastructureConfiguration
 components:
   schemas:
-    IdempotentParameterMismatchException: {}
-    InstanceType:
-      type: string
-    InvalidRequestException: {}
-    NonEmptyString:
-      type: string
-      minLength: 1
-      maxLength: 1024
-    CallRateLimitExceededException: {}
-    ClientException: {}
-    S3Logs:
-      type: object
-      properties:
-        s3BucketName:
-          allOf:
-          - $ref: '#/components/schemas/NonEmptyString'
-          - description: The S3 bucket in which to store the logs.
-          example: example-resource-name
-        s3KeyPrefix:
-          allOf:
-          - $ref: '#/components/schemas/NonEmptyString'
-          - description: The Amazon S3 path to the bucket where the logs are stored.
-          example: example-string
-      description: Amazon S3 logging configuration.
-    ServiceUnavailableException: {}
+    ServiceException: {}
     HttpPutResponseHopLimit:
       type: integer
       minimum: 1
       maximum: 64
-    TagValue:
-      type: string
-      maxLength: 256
-    ResourceInUseException: {}
-    ServiceException: {}
-    HttpTokens:
-      type: string
-      pattern: optional|required
-    ForbiddenException: {}
-    ClientToken:
-      type: string
-      minLength: 1
-      maxLength: 36
-    InfrastructureConfigurationArn:
-      type: string
-      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):infrastructure-configuration/[a-z0-9-_]+$
+    CallRateLimitExceededException: {}
     UpdateInfrastructureConfigurationResponse:
       type: object
       properties:
@@ -354,27 +315,48 @@ components:
           allOf:
           - $ref: '#/components/schemas/InfrastructureConfigurationArn'
           - description: The Amazon Resource Name (ARN) of the infrastructure configuration that was updated by this request.
+    ServiceUnavailableException: {}
+    InvalidRequestException: {}
+    InstanceType:
+      type: string
+    TagValue:
+      type: string
+      maxLength: 256
+    IdempotentParameterMismatchException: {}
+    ForbiddenException: {}
+    ClientException: {}
+    InfrastructureConfigurationArn:
+      type: string
+      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):infrastructure-configuration/[a-z0-9-_]+$
+    ResourceInUseException: {}
+    ClientToken:
+      type: string
+      minLength: 1
+      maxLength: 36
+    NonEmptyString:
+      type: string
+      minLength: 1
+      maxLength: 1024
+    HttpTokens:
+      type: string
+      pattern: optional|required
+    S3Logs:
+      type: object
+      properties:
+        s3BucketName:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The S3 bucket in which to store the logs.
+          example: example-resource-name
+        s3KeyPrefix:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The Amazon S3 path to the bucket where the logs are stored.
+          example: example-string
+      description: Amazon S3 logging configuration.
   parameters:
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Signature:
       name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
@@ -385,14 +367,32 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Date:
-      name: X-Amz-Date
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
       in: header
       schema:
         type: string
       required: false
     X-Amz-Credential:
       name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
       in: header
       schema:
         type: string

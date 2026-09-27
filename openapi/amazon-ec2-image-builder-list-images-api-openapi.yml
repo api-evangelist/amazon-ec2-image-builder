@@ -253,61 +253,12 @@ paths:
       - List Images
 components:
   schemas:
-    BuildType:
-      type: string
-      enum:
-      - USER_INITIATED
-      - SCHEDULED
-      - IMPORT
-    InvalidPaginationTokenException: {}
-    InvalidRequestException: {}
-    ResourceName:
-      type: string
-      pattern: ^[-_A-Za-z-0-9][-_A-Za-z0-9 ]{1,126}[-_A-Za-z-0-9]$
-    FilterValue:
-      type: string
-      pattern: ^[0-9a-zA-Z./_ :-]{1,1024}$
-    CallRateLimitExceededException: {}
-    ImageType:
-      type: string
-      enum:
-      - AMI
-      - DOCKER
-    ClientException: {}
-    DateTime:
-      type: string
-    ServiceUnavailableException: {}
-    PaginationToken:
-      type: string
-      minLength: 1
-      maxLength: 65535
     Platform:
       type: string
       enum:
       - Windows
       - Linux
-    OsVersion:
-      type: string
-      minLength: 1
-    FilterName:
-      type: string
-      pattern: ^[a-zA-Z]{1,1024}$
-    ImageBuilderArn:
-      type: string
-      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):(?:image-recipe|container-recipe|infrastructure-configuration|distribution-configuration|component|image|image-pipeline|workflow\/(?:build|test|distribution))/[a-z0-9-_]+(?:/(?:(?:x|[0-9]+)\.(?:x|[0-9]+)\.(?:x|[0-9]+))(?:/[0-9]+)?)?$
-    ImageVersionList:
-      type: array
-      items:
-        $ref: '#/components/schemas/ImageVersion'
-    FilterValues:
-      type: array
-      items:
-        $ref: '#/components/schemas/FilterValue'
-      minItems: 1
-      maxItems: 10
-    VersionNumber:
-      type: string
-      pattern: ^[0-9]+\.[0-9]+\.[0-9]+$
+    ServiceException: {}
     ListImagesResponse:
       type: object
       properties:
@@ -367,6 +318,35 @@ components:
           - $ref: '#/components/schemas/ImageSource'
           - description: The origin of the base image that Image Builder used to build this image.
       description: The defining characteristics of a specific version of an Image Builder image.
+    OsVersion:
+      type: string
+      minLength: 1
+    ImageBuilderArn:
+      type: string
+      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):(?:image-recipe|container-recipe|infrastructure-configuration|distribution-configuration|component|image|image-pipeline|workflow\/(?:build|test|distribution))/[a-z0-9-_]+(?:/(?:(?:x|[0-9]+)\.(?:x|[0-9]+)\.(?:x|[0-9]+))(?:/[0-9]+)?)?$
+    VersionNumber:
+      type: string
+      pattern: ^[0-9]+\.[0-9]+\.[0-9]+$
+    CallRateLimitExceededException: {}
+    ServiceUnavailableException: {}
+    InvalidRequestException: {}
+    ImageSource:
+      type: string
+      enum:
+      - AMAZON_MANAGED
+      - AWS_MARKETPLACE
+      - IMPORTED
+      - CUSTOM
+    PaginationToken:
+      type: string
+      minLength: 1
+      maxLength: 65535
+    BuildType:
+      type: string
+      enum:
+      - USER_INITIATED
+      - SCHEDULED
+      - IMPORT
     Filter:
       type: object
       properties:
@@ -379,40 +359,42 @@ components:
           - $ref: '#/components/schemas/FilterValues'
           - description: The filter values. Filter values are case-sensitive.
       description: A filter name and value pair that is used to return a more specific list of results from a list operation. Filters can be used to match a set of resources by specific criteria, such as tags, attributes, or IDs.
-    ServiceException: {}
-    ForbiddenException: {}
-    ImageSource:
+    FilterValue:
+      type: string
+      pattern: ^[0-9a-zA-Z./_ :-]{1,1024}$
+    ImageType:
       type: string
       enum:
-      - AMAZON_MANAGED
-      - AWS_MARKETPLACE
-      - IMPORTED
-      - CUSTOM
+      - AMI
+      - DOCKER
+    ResourceName:
+      type: string
+      pattern: ^[-_A-Za-z-0-9][-_A-Za-z0-9 ]{1,126}[-_A-Za-z-0-9]$
+    ImageVersionList:
+      type: array
+      items:
+        $ref: '#/components/schemas/ImageVersion'
+    DateTime:
+      type: string
+    ForbiddenException: {}
+    ClientException: {}
+    FilterValues:
+      type: array
+      items:
+        $ref: '#/components/schemas/FilterValue'
+      minItems: 1
+      maxItems: 10
     NonEmptyString:
       type: string
       minLength: 1
       maxLength: 1024
+    InvalidPaginationTokenException: {}
+    FilterName:
+      type: string
+      pattern: ^[a-zA-Z]{1,1024}$
   parameters:
     X-Amz-Signature:
       name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
@@ -423,14 +405,32 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Date:
-      name: X-Amz-Date
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
       in: header
       schema:
         type: string
       required: false
     X-Amz-Credential:
       name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
       in: header
       schema:
         type: string

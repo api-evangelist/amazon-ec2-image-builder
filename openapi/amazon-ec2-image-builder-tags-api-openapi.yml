@@ -334,10 +334,15 @@ paths:
 components:
   schemas:
     ServiceException: {}
+    TagKey:
+      type: string
+      pattern: ^(?!aws:)[a-zA-Z+-=._:/]+$
+      minLength: 1
+      maxLength: 128
+    TagValue:
+      type: string
+      maxLength: 256
     UntagResourceResponse:
-      type: object
-      properties: {}
-    TagResourceResponse:
       type: object
       properties: {}
     ListTagsForResourceResponse:
@@ -347,25 +352,26 @@ components:
           allOf:
           - $ref: '#/components/schemas/TagMap'
           - description: The tags for the specified resource.
+    ResourceNotFoundException: {}
+    TagResourceResponse:
+      type: object
+      properties: {}
+    InvalidParameterException: {}
     TagMap:
       type: object
       minProperties: 1
       maxProperties: 50
       additionalProperties:
         $ref: '#/components/schemas/TagValue'
-    InvalidParameterException: {}
-    ResourceNotFoundException: {}
-    TagKey:
-      type: string
-      pattern: ^(?!aws:)[a-zA-Z+-=._:/]+$
-      minLength: 1
-      maxLength: 128
-    TagValue:
-      type: string
-      maxLength: 256
   parameters:
     X-Amz-Signature:
       name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
       in: header
       schema:
         type: string
@@ -382,26 +388,20 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-SignedHeaders:
       name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Date:
-      name: X-Amz-Date
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-Date:
+      name: X-Amz-Date
       in: header
       schema:
         type: string

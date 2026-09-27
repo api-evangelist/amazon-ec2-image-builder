@@ -2,7 +2,7 @@ openapi: 3.2.0
 info:
   version: 2019-12-02
   x-release: v4
-  title: EC2 Image Builder Delete Infrastructure…
+  title: EC2 Image Builder Get Workflow Execution API
   description: EC2 Image Builder is a fully managed Amazon Web Services service that makes it easier to automate the creation, management, and deployment of customized, secure, and up-to-date "golden" server images that are pre-installed and pre-configured with software and settings to meet specific IT standards.
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
@@ -113,9 +113,9 @@ servers:
 security:
 - hmac: []
 tags:
-- name: DeleteInfrastructureConfiguration#infrastructureConfigurationArn
+- name: GetWorkflowExecution
 paths:
-  /DeleteInfrastructureConfiguration#infrastructureConfigurationArn:
+  /GetWorkflowExecution#workflowExecutionId:
     parameters:
     - $ref: '#/components/parameters/X-Amz-Content-Sha256'
     - $ref: '#/components/parameters/X-Amz-Date'
@@ -124,23 +124,24 @@ paths:
     - $ref: '#/components/parameters/X-Amz-Security-Token'
     - $ref: '#/components/parameters/X-Amz-Signature'
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
-    delete:
-      operationId: DeleteInfrastructureConfiguration
-      description: Deletes an infrastructure configuration.
+    get:
+      operationId: GetWorkflowExecution
+      description: Get the runtime information that was logged for a specific runtime instance of the workflow.
       responses:
         '200':
           description: Success
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DeleteInfrastructureConfigurationResponse'
+                $ref: '#/components/schemas/GetWorkflowExecutionResponse'
               examples:
-                DeleteInfrastructureConfiguration200Example:
-                  summary: Default DeleteInfrastructureConfiguration 200 response
+                GetWorkflowExecution200Example:
+                  summary: Default GetWorkflowExecution 200 response
                   x-microcks-default: true
                   value:
                     requestId: example-id-1234
-                    infrastructureConfigurationArn: arn:aws:service:us-east-1:123456789012:resource/example
+                    workflowBuildVersionArn: arn:aws:service:us-east-1:123456789012:resource/example
+                    workflowExecutionId: example-id-1234
         '480':
           description: ServiceException
           content:
@@ -148,8 +149,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/ServiceException'
               examples:
-                DeleteInfrastructureConfiguration480Example:
-                  summary: Default DeleteInfrastructureConfiguration 480 response
+                GetWorkflowExecution480Example:
+                  summary: Default GetWorkflowExecution 480 response
                   x-microcks-default: true
                   value: {}
         '481':
@@ -159,8 +160,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/ClientException'
               examples:
-                DeleteInfrastructureConfiguration481Example:
-                  summary: Default DeleteInfrastructureConfiguration 481 response
+                GetWorkflowExecution481Example:
+                  summary: Default GetWorkflowExecution 481 response
                   x-microcks-default: true
                   value: {}
         '482':
@@ -187,58 +188,130 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/CallRateLimitExceededException'
-        '486':
-          description: ResourceDependencyException
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ResourceDependencyException'
       parameters:
-      - name: infrastructureConfigurationArn
+      - name: workflowExecutionId
         in: query
         required: true
-        description: The Amazon Resource Name (ARN) of the infrastructure configuration to delete.
+        description: Use the unique identifier for a runtime instance of the workflow to get runtime details.
         schema:
           type: string
-          pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):infrastructure-configuration/[a-z0-9-_]+$
-      summary: Amazon EC2 Image Builder Delete Infrastructure Configuration
+          pattern: ^wf-[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$
+      summary: Amazon EC2 Image Builder Get Workflow Execution
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
       tags:
-      - DeleteInfrastructureConfiguration#infrastructureConfigurationArn
+      - GetWorkflowExecution
 components:
   schemas:
     ServiceException: {}
+    WorkflowExecutionMessage:
+      type: string
+      minLength: 0
+      maxLength: 500
+    WorkflowType:
+      type: string
+      enum:
+      - BUILD
+      - TEST
+      - DISTRIBUTION
+    ImageBuildVersionArn:
+      type: string
+      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):image/[a-z0-9-_]+/[0-9]+\.[0-9]+\.[0-9]+/[0-9]+$
     CallRateLimitExceededException: {}
-    DeleteInfrastructureConfigurationResponse:
+    ServiceUnavailableException: {}
+    InvalidRequestException: {}
+    WorkflowExecutionStatus:
+      type: string
+      enum:
+      - PENDING
+      - SKIPPED
+      - RUNNING
+      - COMPLETED
+      - FAILED
+      - ROLLBACK_IN_PROGRESS
+      - ROLLBACK_COMPLETED
+    WorkflowStepCount:
+      type: integer
+    GetWorkflowExecutionResponse:
       type: object
       properties:
         requestId:
           allOf:
           - $ref: '#/components/schemas/NonEmptyString'
           - description: The request ID that uniquely identifies this request.
-          example: example-id-1234
-        infrastructureConfigurationArn:
+        workflowBuildVersionArn:
           allOf:
-          - $ref: '#/components/schemas/InfrastructureConfigurationArn'
-          - description: The Amazon Resource Name (ARN) of the infrastructure configuration that was deleted.
-          example: arn:aws:service:us-east-1:123456789012:resource/example
-    ClientException: {}
-    ForbiddenException: {}
-    ServiceUnavailableException: {}
-    InvalidRequestException: {}
-    InfrastructureConfigurationArn:
+          - $ref: '#/components/schemas/WorkflowBuildVersionArn'
+          - description: The Amazon Resource Name (ARN) of the build version for the Image Builder workflow resource that defines the specified runtime instance of the workflow.
+        workflowExecutionId:
+          allOf:
+          - $ref: '#/components/schemas/WorkflowExecutionId'
+          - description: The unique identifier that Image Builder assigned to keep track of runtime details when it ran the workflow.
+        imageBuildVersionArn:
+          allOf:
+          - $ref: '#/components/schemas/ImageBuildVersionArn'
+          - description: The Amazon Resource Name (ARN) of the image resource build version that the specified runtime instance of the workflow created.
+        type:
+          allOf:
+          - $ref: '#/components/schemas/WorkflowType'
+          - description: The type of workflow that Image Builder ran for the specified runtime instance of the workflow.
+        status:
+          allOf:
+          - $ref: '#/components/schemas/WorkflowExecutionStatus'
+          - description: The current runtime status for the specified runtime instance of the workflow.
+        message:
+          allOf:
+          - $ref: '#/components/schemas/WorkflowExecutionMessage'
+          - description: The output message from the specified runtime instance of the workflow, if applicable.
+        totalStepCount:
+          allOf:
+          - $ref: '#/components/schemas/WorkflowStepCount'
+          - description: The total number of steps in the specified runtime instance of the workflow that ran. This number should equal the sum of the step counts for steps that succeeded, were skipped, and failed.
+        totalStepsSucceeded:
+          allOf:
+          - $ref: '#/components/schemas/WorkflowStepCount'
+          - description: A runtime count for the number of steps that ran successfully in the specified runtime instance of the workflow.
+        totalStepsFailed:
+          allOf:
+          - $ref: '#/components/schemas/WorkflowStepCount'
+          - description: A runtime count for the number of steps that failed in the specified runtime instance of the workflow.
+        totalStepsSkipped:
+          allOf:
+          - $ref: '#/components/schemas/WorkflowStepCount'
+          - description: A runtime count for the number of steps that were skipped in the specified runtime instance of the workflow.
+        startTime:
+          allOf:
+          - $ref: '#/components/schemas/DateTime'
+          - description: The timestamp when the specified runtime instance of the workflow started.
+        endTime:
+          allOf:
+          - $ref: '#/components/schemas/DateTime'
+          - description: The timestamp when the specified runtime instance of the workflow finished.
+    DateTime:
       type: string
-      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):infrastructure-configuration/[a-z0-9-_]+$
+    ForbiddenException: {}
+    ClientException: {}
+    WorkflowBuildVersionArn:
+      type: string
+      pattern: ^arn:aws(?:-[a-z]+)*:imagebuilder:[a-z]{2,}(?:-[a-z]+)+-[0-9]+:(?:[0-9]{12}|aws):workflow/(build|test|distribution)/[a-z0-9-_]+/[0-9]+\.[0-9]+\.[0-9]+/[0-9]+$
+      maxLength: 1024
     NonEmptyString:
       type: string
       minLength: 1
       maxLength: 1024
-    ResourceDependencyException: {}
+    WorkflowExecutionId:
+      type: string
+      pattern: ^wf-[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$
   parameters:
     X-Amz-Signature:
       name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
@@ -255,8 +328,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
@@ -267,14 +340,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
       in: header
       schema:
         type: string

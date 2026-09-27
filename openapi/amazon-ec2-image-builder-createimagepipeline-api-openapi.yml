@@ -318,24 +318,41 @@ paths:
       - CreateImagePipeline
 components:
   schemas:
-    NullableBoolean:
-      type: boolean
-    IdempotentParameterMismatchException: {}
-    ServiceQuotaExceededException: {}
+    ServiceException: {}
     ResourceAlreadyExistsException: {}
-    ImageTestsTimeoutMinutes:
-      type: integer
-      minimum: 60
-      maximum: 1440
-    InvalidRequestException: {}
-    CallRateLimitExceededException: {}
-    ClientException: {}
+    EcrConfiguration:
+      type: object
+      properties:
+        repositoryName:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The name of the container repository that Amazon Inspector scans to identify findings for your container images. The name includes the path for the repository location. If you don’t provide this information, Image Builder creates a repository in your account named <code>image-builder-image-scanning-repository</code> for vulnerability scans of your output container images.
+          example: example-resource-name
+        containerTags:
+          allOf:
+          - $ref: '#/components/schemas/StringList'
+          - description: Tags for Image Builder to apply to the output container image that &amp;INS; scans. Tags can help you identify and manage your scanned images.
+          example: example-string
+      description: Settings that Image Builder uses to configure the ECR repository and the output container images that Amazon Inspector scans.
     PipelineExecutionStartCondition:
       type: string
       enum:
       - EXPRESSION_MATCH_ONLY
       - EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE
+    Timezone:
+      type: string
+      pattern: '[a-zA-Z0-9]{2,}(?:\/[a-zA-z0-9-_+]+)*'
+      minLength: 3
+      maxLength: 100
+    ImageTestsTimeoutMinutes:
+      type: integer
+      minimum: 60
+      maximum: 1440
+    ServiceQuotaExceededException: {}
+    CallRateLimitExceededException: {}
     ServiceUnavailableException: {}
+    NullableBoolean:
+      type: boolean
     CreateImagePipelineResponse:
       type: object
       properties:
@@ -354,67 +371,32 @@ components:
           - $ref: '#/components/schemas/ImagePipelineArn'
           - description: The Amazon Resource Name (ARN) of the image pipeline that was created by this request.
           example: arn:aws:service:us-east-1:123456789012:resource/example
-    Timezone:
+    InvalidRequestException: {}
+    ImagePipelineArn:
       type: string
-      pattern: '[a-zA-Z0-9]{2,}(?:\/[a-zA-z0-9-_+]+)*'
-      minLength: 3
-      maxLength: 100
+      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):image-pipeline/[a-z0-9-_]+$
     TagValue:
       type: string
       maxLength: 256
+    IdempotentParameterMismatchException: {}
+    ForbiddenException: {}
+    ClientException: {}
     StringList:
       type: array
       items:
         $ref: '#/components/schemas/NonEmptyString'
     ResourceInUseException: {}
-    ServiceException: {}
-    ForbiddenException: {}
     ClientToken:
       type: string
       minLength: 1
       maxLength: 36
-    EcrConfiguration:
-      type: object
-      properties:
-        repositoryName:
-          allOf:
-          - $ref: '#/components/schemas/NonEmptyString'
-          - description: The name of the container repository that Amazon Inspector scans to identify findings for your container images. The name includes the path for the repository location. If you don’t provide this information, Image Builder creates a repository in your account named <code>image-builder-image-scanning-repository</code> for vulnerability scans of your output container images.
-          example: example-resource-name
-        containerTags:
-          allOf:
-          - $ref: '#/components/schemas/StringList'
-          - description: Tags for Image Builder to apply to the output container image that &amp;INS; scans. Tags can help you identify and manage your scanned images.
-          example: example-string
-      description: Settings that Image Builder uses to configure the ECR repository and the output container images that Amazon Inspector scans.
-    ImagePipelineArn:
-      type: string
-      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):image-pipeline/[a-z0-9-_]+$
     NonEmptyString:
       type: string
       minLength: 1
       maxLength: 1024
   parameters:
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Signature:
       name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
@@ -425,14 +407,32 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Date:
-      name: X-Amz-Date
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
       in: header
       schema:
         type: string
       required: false
     X-Amz-Credential:
       name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
       in: header
       schema:
         type: string

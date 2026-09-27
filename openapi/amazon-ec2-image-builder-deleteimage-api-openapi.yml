@@ -2,7 +2,7 @@ openapi: 3.2.0
 info:
   version: 2019-12-02
   x-release: v4
-  title: EC2 Image Builder Get Workflow Step Execution#step…
+  title: EC2 Image Builder Delete Image API
   description: EC2 Image Builder is a fully managed Amazon Web Services service that makes it easier to automate the creation, management, and deployment of customized, secure, and up-to-date "golden" server images that are pre-installed and pre-configured with software and settings to meet specific IT standards.
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
@@ -113,9 +113,9 @@ servers:
 security:
 - hmac: []
 tags:
-- name: GetWorkflowStepExecution#stepExecutionId
+- name: DeleteImage
 paths:
-  /GetWorkflowStepExecution#stepExecutionId:
+  /DeleteImage#imageBuildVersionArn:
     parameters:
     - $ref: '#/components/parameters/X-Amz-Content-Sha256'
     - $ref: '#/components/parameters/X-Amz-Date'
@@ -124,24 +124,32 @@ paths:
     - $ref: '#/components/parameters/X-Amz-Security-Token'
     - $ref: '#/components/parameters/X-Amz-Signature'
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
-    get:
-      operationId: GetWorkflowStepExecution
-      description: Get the runtime information that was logged for a specific runtime instance of the workflow step.
+    delete:
+      operationId: DeleteImage
+      description: 'Deletes an Image Builder image resource. This does not delete any EC2 AMIs or ECR container images that are created during the image build process. You must clean those up separately, using the appropriate Amazon EC2 or Amazon ECR console actions, or API or CLI commands.
+
+
+        To deregister an EC2 Linux AMI, see Deregister your Linux AMI in the Amazon EC2 User Guide .
+
+
+        To deregister an EC2 Windows AMI, see Deregister your Windows AMI in the Amazon EC2 Windows Guide .
+
+
+        To delete a container image from Amazon ECR, see Deleting an image in the Amazon ECR User Guide.'
       responses:
         '200':
           description: Success
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetWorkflowStepExecutionResponse'
+                $ref: '#/components/schemas/DeleteImageResponse'
               examples:
-                GetWorkflowStepExecution200Example:
-                  summary: Default GetWorkflowStepExecution 200 response
+                DeleteImage200Example:
+                  summary: Default DeleteImage 200 response
                   x-microcks-default: true
                   value:
                     requestId: example-id-1234
-                    stepExecutionId: example-id-1234
-                    workflowBuildVersionArn: arn:aws:service:us-east-1:123456789012:resource/example
+                    imageBuildVersionArn: arn:aws:service:us-east-1:123456789012:resource/example
         '480':
           description: ServiceException
           content:
@@ -149,8 +157,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/ServiceException'
               examples:
-                GetWorkflowStepExecution480Example:
-                  summary: Default GetWorkflowStepExecution 480 response
+                DeleteImage480Example:
+                  summary: Default DeleteImage 480 response
                   x-microcks-default: true
                   value: {}
         '481':
@@ -160,22 +168,22 @@ paths:
               schema:
                 $ref: '#/components/schemas/ClientException'
               examples:
-                GetWorkflowStepExecution481Example:
-                  summary: Default GetWorkflowStepExecution 481 response
+                DeleteImage481Example:
+                  summary: Default DeleteImage 481 response
                   x-microcks-default: true
                   value: {}
         '482':
-          description: ServiceUnavailableException
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ServiceUnavailableException'
-        '483':
           description: InvalidRequestException
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/InvalidRequestException'
+        '483':
+          description: ServiceUnavailableException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceUnavailableException'
         '484':
           description: ForbiddenException
           content:
@@ -188,158 +196,58 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/CallRateLimitExceededException'
+        '486':
+          description: ResourceDependencyException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceDependencyException'
       parameters:
-      - name: stepExecutionId
+      - name: imageBuildVersionArn
         in: query
         required: true
-        description: Use the unique identifier for a specific runtime instance of the workflow step to get runtime details for that step.
+        description: The Amazon Resource Name (ARN) of the Image Builder image resource to delete.
         schema:
           type: string
-          pattern: ^step-[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$
-      summary: Amazon EC2 Image Builder Get Workflow Step Execution
+          pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):image/[a-z0-9-_]+/[0-9]+\.[0-9]+\.[0-9]+/[0-9]+$
+      summary: Amazon EC2 Image Builder Delete Image
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
       tags:
-      - GetWorkflowStepExecution#stepExecutionId
+      - DeleteImage
 components:
   schemas:
-    WorkflowStepName:
-      type: string
-      pattern: ^[A-Za-z][A-Za-z0-9-_]{1,99}$
-    WorkflowExecutionId:
-      type: string
-      pattern: ^wf-[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$
+    CallRateLimitExceededException: {}
+    ServiceException: {}
+    ResourceDependencyException: {}
     ImageBuildVersionArn:
       type: string
       pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):image/[a-z0-9-_]+/[0-9]+\.[0-9]+\.[0-9]+/[0-9]+$
-    InvalidRequestException: {}
-    WorkflowStepExecutionRollbackStatus:
+    NonEmptyString:
       type: string
-      enum:
-      - RUNNING
-      - COMPLETED
-      - SKIPPED
-      - FAILED
-    WorkflowBuildVersionArn:
-      type: string
-      pattern: ^arn:aws(?:-[a-z]+)*:imagebuilder:[a-z]{2,}(?:-[a-z]+)+-[0-9]+:(?:[0-9]{12}|aws):workflow/(build|test|distribution)/[a-z0-9-_]+/[0-9]+\.[0-9]+\.[0-9]+/[0-9]+$
+      minLength: 1
       maxLength: 1024
-    CallRateLimitExceededException: {}
-    ClientException: {}
-    WorkflowStepTimeoutSecondsInteger:
-      type: integer
-      minimum: 0
-      maximum: 43200
-    DateTime:
-      type: string
-    ServiceUnavailableException: {}
-    WorkflowStepDescription:
-      type: string
-      minLength: 0
-      maxLength: 500
-    WorkflowStepInputs:
-      type: string
-    WorkflowStepExecutionId:
-      type: string
-      pattern: ^step-[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$
-    WorkflowStepOutputs:
-      type: string
-    ServiceException: {}
-    WorkflowStepAction:
-      type: string
-      pattern: ^[A-Za-z][A-Za-z0-9-_]{1,99}$
-    ForbiddenException: {}
-    WorkflowStepExecutionStatus:
-      type: string
-      enum:
-      - PENDING
-      - SKIPPED
-      - RUNNING
-      - COMPLETED
-      - FAILED
-    GetWorkflowStepExecutionResponse:
+    InvalidRequestException: {}
+    DeleteImageResponse:
       type: object
       properties:
         requestId:
           allOf:
           - $ref: '#/components/schemas/NonEmptyString'
           - description: The request ID that uniquely identifies this request.
-        stepExecutionId:
-          allOf:
-          - $ref: '#/components/schemas/WorkflowStepExecutionId'
-          - description: The unique identifier for the runtime version of the workflow step that you specified in the request.
-        workflowBuildVersionArn:
-          allOf:
-          - $ref: '#/components/schemas/WorkflowBuildVersionArn'
-          - description: The Amazon Resource Name (ARN) of the build version for the Image Builder workflow resource that defines this workflow step.
-        workflowExecutionId:
-          allOf:
-          - $ref: '#/components/schemas/WorkflowExecutionId'
-          - description: The unique identifier that Image Builder assigned to keep track of runtime details when it ran the workflow.
+          example: example-id-1234
         imageBuildVersionArn:
           allOf:
           - $ref: '#/components/schemas/ImageBuildVersionArn'
-          - description: The Amazon Resource Name (ARN) of the image resource build version that the specified runtime instance of the workflow step creates.
-        name:
-          allOf:
-          - $ref: '#/components/schemas/WorkflowStepName'
-          - description: The name of the specified runtime instance of the workflow step.
-        description:
-          allOf:
-          - $ref: '#/components/schemas/WorkflowStepDescription'
-          - description: Describes the specified workflow step.
-        action:
-          allOf:
-          - $ref: '#/components/schemas/WorkflowStepAction'
-          - description: The name of the action that the specified step performs.
-        status:
-          allOf:
-          - $ref: '#/components/schemas/WorkflowStepExecutionStatus'
-          - description: The current status for the specified runtime version of the workflow step.
-        rollbackStatus:
-          allOf:
-          - $ref: '#/components/schemas/WorkflowStepExecutionRollbackStatus'
-          - description: Reports on the rollback status of the specified runtime version of the workflow step, if applicable.
-        message:
-          allOf:
-          - $ref: '#/components/schemas/WorkflowStepMessage'
-          - description: The output message from the specified runtime instance of the workflow step, if applicable.
-        inputs:
-          allOf:
-          - $ref: '#/components/schemas/WorkflowStepInputs'
-          - description: Input parameters that Image Builder provided for the specified runtime instance of the workflow step.
-        outputs:
-          allOf:
-          - $ref: '#/components/schemas/WorkflowStepOutputs'
-          - description: The file names that the specified runtime version of the workflow step created as output.
-        startTime:
-          allOf:
-          - $ref: '#/components/schemas/DateTime'
-          - description: The timestamp when the specified runtime version of the workflow step started.
-        endTime:
-          allOf:
-          - $ref: '#/components/schemas/DateTime'
-          - description: The timestamp when the specified runtime instance of the workflow step finished.
-        onFailure:
-          allOf:
-          - $ref: '#/components/schemas/NonEmptyString'
-          - description: The action to perform if the workflow step fails.
-        timeoutSeconds:
-          allOf:
-          - $ref: '#/components/schemas/WorkflowStepTimeoutSecondsInteger'
-          - description: The maximum duration in seconds for this step to complete its action.
-    NonEmptyString:
-      type: string
-      minLength: 1
-      maxLength: 1024
-    WorkflowStepMessage:
-      type: string
-      minLength: 0
-      maxLength: 500
+          - description: The ARN of the Image Builder image resource that this request deleted.
+          example: arn:aws:service:us-east-1:123456789012:resource/example
+    ServiceUnavailableException: {}
+    ForbiddenException: {}
+    ClientException: {}
   parameters:
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
+    X-Amz-Signature:
+      name: X-Amz-Signature
       in: header
       schema:
         type: string
@@ -350,8 +258,14 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
       in: header
       schema:
         type: string
@@ -370,12 +284,6 @@ components:
       required: false
     X-Amz-Date:
       name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
       in: header
       schema:
         type: string

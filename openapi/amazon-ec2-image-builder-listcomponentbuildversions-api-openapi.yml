@@ -243,130 +243,12 @@ paths:
       tags:
       - ListComponentBuildVersions
 components:
-  parameters:
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
   schemas:
-    Boolean:
-      type: boolean
-    InvalidPaginationTokenException: {}
-    InvalidRequestException: {}
-    OsVersionList:
-      type: array
-      items:
-        $ref: '#/components/schemas/OsVersion'
-      minItems: 1
-      maxItems: 25
-    ResourceName:
-      type: string
-      pattern: ^[-_A-Za-z-0-9][-_A-Za-z0-9 ]{1,126}[-_A-Za-z-0-9]$
-    CallRateLimitExceededException: {}
-    ComponentSummaryList:
-      type: array
-      items:
-        $ref: '#/components/schemas/ComponentSummary'
-    ComponentType:
-      type: string
-      enum:
-      - BUILD
-      - TEST
-    ClientException: {}
-    DateTime:
-      type: string
-    ServiceUnavailableException: {}
-    PaginationToken:
-      type: string
-      minLength: 1
-      maxLength: 65535
     Platform:
       type: string
       enum:
       - Windows
       - Linux
-    OsVersion:
-      type: string
-      minLength: 1
-    ImageBuilderArn:
-      type: string
-      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):(?:image-recipe|container-recipe|infrastructure-configuration|distribution-configuration|component|image|image-pipeline|workflow\/(?:build|test|distribution))/[a-z0-9-_]+(?:/(?:(?:x|[0-9]+)\.(?:x|[0-9]+)\.(?:x|[0-9]+))(?:/[0-9]+)?)?$
-    ComponentStatus:
-      type: string
-      enum:
-      - DEPRECATED
-    TagValue:
-      type: string
-      maxLength: 256
-    ListComponentBuildVersionsResponse:
-      type: object
-      properties:
-        requestId:
-          allOf:
-          - $ref: '#/components/schemas/NonEmptyString'
-          - description: The request ID that uniquely identifies this request.
-        componentSummaryList:
-          allOf:
-          - $ref: '#/components/schemas/ComponentSummaryList'
-          - description: The list of component summaries for the specified semantic version.
-        nextToken:
-          allOf:
-          - $ref: '#/components/schemas/PaginationToken'
-          - description: The next token used for paginated responses. When this field isn't empty, there are additional elements that the service has'ot included in this request. Use this token with the next request to retrieve additional objects.
-    VersionNumber:
-      type: string
-      pattern: ^[0-9]+\.[0-9]+\.[0-9]+$
-    ComponentState:
-      type: object
-      properties:
-        status:
-          allOf:
-          - $ref: '#/components/schemas/ComponentStatus'
-          - description: The current state of the component.
-        reason:
-          allOf:
-          - $ref: '#/components/schemas/NonEmptyString'
-          - description: Describes how or why the component changed state.
-      description: A group of fields that describe the current status of components that are no longer active.
-    ServiceException: {}
     ComponentSummary:
       type: object
       properties:
@@ -427,17 +309,135 @@ components:
           - $ref: '#/components/schemas/Boolean'
           - description: Indicates whether component source is hidden from view in the console, and from component detail results for API, CLI, or SDK operations.
       description: A high-level summary of a component.
-    ForbiddenException: {}
+    ServiceException: {}
+    OsVersion:
+      type: string
+      minLength: 1
+    ImageBuilderArn:
+      type: string
+      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):(?:image-recipe|container-recipe|infrastructure-configuration|distribution-configuration|component|image|image-pipeline|workflow\/(?:build|test|distribution))/[a-z0-9-_]+(?:/(?:(?:x|[0-9]+)\.(?:x|[0-9]+)\.(?:x|[0-9]+))(?:/[0-9]+)?)?$
+    VersionNumber:
+      type: string
+      pattern: ^[0-9]+\.[0-9]+\.[0-9]+$
+    CallRateLimitExceededException: {}
+    ServiceUnavailableException: {}
+    ComponentType:
+      type: string
+      enum:
+      - BUILD
+      - TEST
+    InvalidRequestException: {}
+    Boolean:
+      type: boolean
+    TagValue:
+      type: string
+      maxLength: 256
+    PaginationToken:
+      type: string
+      minLength: 1
+      maxLength: 65535
+    OsVersionList:
+      type: array
+      items:
+        $ref: '#/components/schemas/OsVersion'
+      minItems: 1
+      maxItems: 25
+    ComponentStatus:
+      type: string
+      enum:
+      - DEPRECATED
+    ResourceName:
+      type: string
+      pattern: ^[-_A-Za-z-0-9][-_A-Za-z0-9 ]{1,126}[-_A-Za-z-0-9]$
+    ComponentSummaryList:
+      type: array
+      items:
+        $ref: '#/components/schemas/ComponentSummary'
+    DateTime:
+      type: string
     TagMap:
       type: object
       minProperties: 1
       maxProperties: 50
       additionalProperties:
         $ref: '#/components/schemas/TagValue'
+    ForbiddenException: {}
+    ClientException: {}
+    ComponentState:
+      type: object
+      properties:
+        status:
+          allOf:
+          - $ref: '#/components/schemas/ComponentStatus'
+          - description: The current state of the component.
+        reason:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: Describes how or why the component changed state.
+      description: A group of fields that describe the current status of components that are no longer active.
+    ListComponentBuildVersionsResponse:
+      type: object
+      properties:
+        requestId:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The request ID that uniquely identifies this request.
+        componentSummaryList:
+          allOf:
+          - $ref: '#/components/schemas/ComponentSummaryList'
+          - description: The list of component summaries for the specified semantic version.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/PaginationToken'
+          - description: The next token used for paginated responses. When this field isn't empty, there are additional elements that the service has'ot included in this request. Use this token with the next request to retrieve additional objects.
     NonEmptyString:
       type: string
       minLength: 1
       maxLength: 1024
+    InvalidPaginationTokenException: {}
+  parameters:
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
   securitySchemes:
     hmac:
       type: apiKey

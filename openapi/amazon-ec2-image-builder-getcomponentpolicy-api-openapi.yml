@@ -2,7 +2,7 @@ openapi: 3.2.0
 info:
   version: 2019-12-02
   x-release: v4
-  title: EC2 Image Builder Get Workflow Execution#workflow Execution…
+  title: EC2 Image Builder Get Component Policy API
   description: EC2 Image Builder is a fully managed Amazon Web Services service that makes it easier to automate the creation, management, and deployment of customized, secure, and up-to-date "golden" server images that are pre-installed and pre-configured with software and settings to meet specific IT standards.
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
@@ -113,9 +113,9 @@ servers:
 security:
 - hmac: []
 tags:
-- name: GetWorkflowExecution#workflowExecutionId
+- name: GetComponentPolicy
 paths:
-  /GetWorkflowExecution#workflowExecutionId:
+  /GetComponentPolicy#componentArn:
     parameters:
     - $ref: '#/components/parameters/X-Amz-Content-Sha256'
     - $ref: '#/components/parameters/X-Amz-Date'
@@ -125,23 +125,22 @@ paths:
     - $ref: '#/components/parameters/X-Amz-Signature'
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     get:
-      operationId: GetWorkflowExecution
-      description: Get the runtime information that was logged for a specific runtime instance of the workflow.
+      operationId: GetComponentPolicy
+      description: Gets a component policy.
       responses:
         '200':
           description: Success
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetWorkflowExecutionResponse'
+                $ref: '#/components/schemas/GetComponentPolicyResponse'
               examples:
-                GetWorkflowExecution200Example:
-                  summary: Default GetWorkflowExecution 200 response
+                GetComponentPolicy200Example:
+                  summary: Default GetComponentPolicy 200 response
                   x-microcks-default: true
                   value:
                     requestId: example-id-1234
-                    workflowBuildVersionArn: arn:aws:service:us-east-1:123456789012:resource/example
-                    workflowExecutionId: example-id-1234
+                    policy: example-string
         '480':
           description: ServiceException
           content:
@@ -149,27 +148,27 @@ paths:
               schema:
                 $ref: '#/components/schemas/ServiceException'
               examples:
-                GetWorkflowExecution480Example:
-                  summary: Default GetWorkflowExecution 480 response
+                GetComponentPolicy480Example:
+                  summary: Default GetComponentPolicy 480 response
                   x-microcks-default: true
                   value: {}
         '481':
-          description: ClientException
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ClientException'
-              examples:
-                GetWorkflowExecution481Example:
-                  summary: Default GetWorkflowExecution 481 response
-                  x-microcks-default: true
-                  value: {}
-        '482':
           description: ServiceUnavailableException
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ServiceUnavailableException'
+              examples:
+                GetComponentPolicy481Example:
+                  summary: Default GetComponentPolicy 481 response
+                  x-microcks-default: true
+                  value: {}
+        '482':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
         '483':
           description: InvalidRequestException
           content:
@@ -189,123 +188,57 @@ paths:
               schema:
                 $ref: '#/components/schemas/CallRateLimitExceededException'
       parameters:
-      - name: workflowExecutionId
+      - name: componentArn
         in: query
         required: true
-        description: Use the unique identifier for a runtime instance of the workflow to get runtime details.
+        description: The Amazon Resource Name (ARN) of the component whose policy you want to retrieve.
         schema:
           type: string
-          pattern: ^wf-[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$
-      summary: Amazon EC2 Image Builder Get Workflow Execution
+          pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):component/[a-z0-9-_]+/[0-9]+\.[0-9]+\.[0-9]+/[0-9]+$
+      summary: Amazon EC2 Image Builder Get Component Policy
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
       tags:
-      - GetWorkflowExecution#workflowExecutionId
+      - GetComponentPolicy
 components:
   schemas:
-    WorkflowExecutionId:
+    ServiceException: {}
+    ResourcePolicyDocument:
       type: string
-      pattern: ^wf-[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$
-    ImageBuildVersionArn:
+      minLength: 1
+      maxLength: 30000
+    NonEmptyString:
       type: string
-      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):image/[a-z0-9-_]+/[0-9]+\.[0-9]+\.[0-9]+/[0-9]+$
-    WorkflowExecutionStatus:
-      type: string
-      enum:
-      - PENDING
-      - SKIPPED
-      - RUNNING
-      - COMPLETED
-      - FAILED
-      - ROLLBACK_IN_PROGRESS
-      - ROLLBACK_COMPLETED
-    WorkflowType:
-      type: string
-      enum:
-      - BUILD
-      - TEST
-      - DISTRIBUTION
-    InvalidRequestException: {}
-    WorkflowExecutionMessage:
-      type: string
-      minLength: 0
-      maxLength: 500
-    WorkflowBuildVersionArn:
-      type: string
-      pattern: ^arn:aws(?:-[a-z]+)*:imagebuilder:[a-z]{2,}(?:-[a-z]+)+-[0-9]+:(?:[0-9]{12}|aws):workflow/(build|test|distribution)/[a-z0-9-_]+/[0-9]+\.[0-9]+\.[0-9]+/[0-9]+$
+      minLength: 1
       maxLength: 1024
+    InvalidRequestException: {}
+    ResourceNotFoundException: {}
     CallRateLimitExceededException: {}
-    ClientException: {}
-    DateTime:
-      type: string
-    ServiceUnavailableException: {}
-    GetWorkflowExecutionResponse:
+    GetComponentPolicyResponse:
       type: object
       properties:
         requestId:
           allOf:
           - $ref: '#/components/schemas/NonEmptyString'
           - description: The request ID that uniquely identifies this request.
-        workflowBuildVersionArn:
+          example: example-id-1234
+        policy:
           allOf:
-          - $ref: '#/components/schemas/WorkflowBuildVersionArn'
-          - description: The Amazon Resource Name (ARN) of the build version for the Image Builder workflow resource that defines the specified runtime instance of the workflow.
-        workflowExecutionId:
-          allOf:
-          - $ref: '#/components/schemas/WorkflowExecutionId'
-          - description: The unique identifier that Image Builder assigned to keep track of runtime details when it ran the workflow.
-        imageBuildVersionArn:
-          allOf:
-          - $ref: '#/components/schemas/ImageBuildVersionArn'
-          - description: The Amazon Resource Name (ARN) of the image resource build version that the specified runtime instance of the workflow created.
-        type:
-          allOf:
-          - $ref: '#/components/schemas/WorkflowType'
-          - description: The type of workflow that Image Builder ran for the specified runtime instance of the workflow.
-        status:
-          allOf:
-          - $ref: '#/components/schemas/WorkflowExecutionStatus'
-          - description: The current runtime status for the specified runtime instance of the workflow.
-        message:
-          allOf:
-          - $ref: '#/components/schemas/WorkflowExecutionMessage'
-          - description: The output message from the specified runtime instance of the workflow, if applicable.
-        totalStepCount:
-          allOf:
-          - $ref: '#/components/schemas/WorkflowStepCount'
-          - description: The total number of steps in the specified runtime instance of the workflow that ran. This number should equal the sum of the step counts for steps that succeeded, were skipped, and failed.
-        totalStepsSucceeded:
-          allOf:
-          - $ref: '#/components/schemas/WorkflowStepCount'
-          - description: A runtime count for the number of steps that ran successfully in the specified runtime instance of the workflow.
-        totalStepsFailed:
-          allOf:
-          - $ref: '#/components/schemas/WorkflowStepCount'
-          - description: A runtime count for the number of steps that failed in the specified runtime instance of the workflow.
-        totalStepsSkipped:
-          allOf:
-          - $ref: '#/components/schemas/WorkflowStepCount'
-          - description: A runtime count for the number of steps that were skipped in the specified runtime instance of the workflow.
-        startTime:
-          allOf:
-          - $ref: '#/components/schemas/DateTime'
-          - description: The timestamp when the specified runtime instance of the workflow started.
-        endTime:
-          allOf:
-          - $ref: '#/components/schemas/DateTime'
-          - description: The timestamp when the specified runtime instance of the workflow finished.
-    WorkflowStepCount:
-      type: integer
-    ServiceException: {}
+          - $ref: '#/components/schemas/ResourcePolicyDocument'
+          - description: The component policy.
+          example: example-string
+    ServiceUnavailableException: {}
     ForbiddenException: {}
-    NonEmptyString:
-      type: string
-      minLength: 1
-      maxLength: 1024
   parameters:
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
       in: header
       schema:
         type: string
@@ -316,8 +249,14 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
       in: header
       schema:
         type: string
@@ -330,18 +269,6 @@ components:
       required: false
     X-Amz-Content-Sha256:
       name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
       in: header
       schema:
         type: string

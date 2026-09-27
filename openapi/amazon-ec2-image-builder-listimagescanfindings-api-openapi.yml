@@ -239,7 +239,8 @@ paths:
       - ListImageScanFindings
 components:
   schemas:
-    SourceLayerHash:
+    ServiceException: {}
+    PackageArchitecture:
       type: string
     CvssScoreAdjustment:
       type: object
@@ -253,63 +254,198 @@ components:
           - $ref: '#/components/schemas/NonEmptyString'
           - description: The reason for the CVSS score adjustment.
       description: Details about an adjustment that Amazon Inspector made to the CVSS score for a finding.
-    RemediationRecommendation:
-      type: object
-      properties:
-        text:
-          allOf:
-          - $ref: '#/components/schemas/NonEmptyString'
-          - description: The recommended course of action to remediate the finding.
-        url:
-          allOf:
-          - $ref: '#/components/schemas/NonEmptyString'
-          - description: A link to more information about the recommended remediation for this vulnerability.
-      description: Details about the recommended course of action to remediate the finding.
     VulnerablePackageList:
       type: array
       items:
         $ref: '#/components/schemas/VulnerablePackage'
+    ImageScanFindingsFilter:
+      type: object
+      properties:
+        name:
+          allOf:
+          - $ref: '#/components/schemas/FilterName'
+          - description: The name of the image scan finding filter. Filter names are case-sensitive.
+        values:
+          allOf:
+          - $ref: '#/components/schemas/ImageScanFindingsFilterValues'
+          - description: The filter values. Filter values are case-sensitive.
+      description: A name value pair that Image Builder applies to streamline results from the vulnerability scan findings list action.
     ImageBuildVersionArn:
       type: string
       pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):image/[a-z0-9-_]+/[0-9]+\.[0-9]+\.[0-9]+/[0-9]+$
-    PackageArchitecture:
+    VulnerabilityId:
       type: string
-    InvalidPaginationTokenException: {}
-    InvalidRequestException: {}
-    PackageEpoch:
-      type: integer
-    FilterValue:
-      type: string
-      pattern: ^[0-9a-zA-Z./_ :-]{1,1024}$
     CallRateLimitExceededException: {}
-    CvssScoreDetails:
+    DateTimeTimestamp:
+      type: string
+      format: date-time
+    ServiceUnavailableException: {}
+    ListImageScanFindingsResponse:
       type: object
       properties:
-        scoreSource:
+        requestId:
           allOf:
           - $ref: '#/components/schemas/NonEmptyString'
-          - description: The source for the CVSS score.
-        cvssSource:
+          - description: The request ID that uniquely identifies this request.
+        findings:
+          allOf:
+          - $ref: '#/components/schemas/ImageScanFindingsList'
+          - description: The image scan findings for your account that meet your request filter criteria.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/PaginationToken'
+          - description: The next token used for paginated responses. When this field isn't empty, there are additional elements that the service has'ot included in this request. Use this token with the next request to retrieve additional objects.
+    InvalidRequestException: {}
+    VulnerabilityIdList:
+      type: array
+      items:
+        $ref: '#/components/schemas/VulnerabilityId'
+    NonNegativeDouble:
+      type: number
+      format: double
+      minimum: 0
+    Remediation:
+      type: object
+      properties:
+        recommendation:
+          allOf:
+          - $ref: '#/components/schemas/RemediationRecommendation'
+          - description: An object that contains information about the recommended course of action to remediate the finding.
+      description: Information about how to remediate a finding.
+    ImagePipelineArn:
+      type: string
+      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):image-pipeline/[a-z0-9-_]+$
+    ImageScanFindingsList:
+      type: array
+      items:
+        $ref: '#/components/schemas/ImageScanFinding'
+      maxItems: 25
+    VulnerablePackage:
+      type: object
+      properties:
+        name:
           allOf:
           - $ref: '#/components/schemas/NonEmptyString'
-          - description: The source of the finding.
+          - description: The name of the vulnerable package.
+        version:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The version of the vulnerable package.
+        sourceLayerHash:
+          allOf:
+          - $ref: '#/components/schemas/SourceLayerHash'
+          - description: The source layer hash of the vulnerable package.
+        epoch:
+          allOf:
+          - $ref: '#/components/schemas/PackageEpoch'
+          - description: The epoch of the vulnerable package.
+        release:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The release of the vulnerable package.
+        arch:
+          allOf:
+          - $ref: '#/components/schemas/PackageArchitecture'
+          - description: The architecture of the vulnerable package.
+        packageManager:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The package manager of the vulnerable package.
+        filePath:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The file path of the vulnerable package.
+        fixedInVersion:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The version of the package that contains the vulnerability fix.
+        remediation:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The code to run in your environment to update packages with a fix available.
+      description: Information about a vulnerable package that Amazon Inspector identifies in a finding.
+    CvssScore:
+      type: object
+      properties:
+        baseScore:
+          allOf:
+          - $ref: '#/components/schemas/NonNegativeDouble'
+          - description: The CVSS base score.
+        scoringVector:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The vector string of the CVSS score.
         version:
           allOf:
           - $ref: '#/components/schemas/NonEmptyString'
           - description: The CVSS version that generated the score.
-        score:
-          allOf:
-          - $ref: '#/components/schemas/NonNegativeDouble'
-          - description: The CVSS score.
-        scoringVector:
+        source:
           allOf:
           - $ref: '#/components/schemas/NonEmptyString'
-          - description: A vector that measures the severity of the vulnerability.
-        adjustments:
+          - description: The source of the CVSS score.
+      description: Amazon Inspector generates a risk score for each finding. This score helps you to prioritize findings, to focus on the most critical findings and the most vulnerable resources. The score uses the Common Vulnerability Scoring System (CVSS) format. This format is a modification of the base CVSS score that the National Vulnerability Database (NVD) provides. For more information about severity levels, see <a href="https://docs.aws.amazon.com/inspector/latest/user/findings-understanding-severity.html">Severity levels for Amazon Inspector findings</a> in the <i>Amazon Inspector User Guide</i>.
+    FilterName:
+      type: string
+      pattern: ^[a-zA-Z]{1,1024}$
+    PaginationToken:
+      type: string
+      minLength: 1
+      maxLength: 65535
+    PackageVulnerabilityDetails:
+      type: object
+      required:
+      - vulnerabilityId
+      properties:
+        vulnerabilityId:
           allOf:
-          - $ref: '#/components/schemas/CvssScoreAdjustmentList'
-          - description: An object that contains details about an adjustment that Amazon Inspector made to the CVSS score for the finding.
-      description: Details about the source of the score, and the factors that determined the adjustments to create the final score.
+          - $ref: '#/components/schemas/VulnerabilityId'
+          - description: A unique identifier for this vulnerability.
+        vulnerablePackages:
+          allOf:
+          - $ref: '#/components/schemas/VulnerablePackageList'
+          - description: The packages that this vulnerability impacts.
+        source:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The source of the vulnerability information.
+        cvss:
+          allOf:
+          - $ref: '#/components/schemas/CvssScoreList'
+          - description: CVSS scores for one or more vulnerabilities that Amazon Inspector identified for a package.
+        relatedVulnerabilities:
+          allOf:
+          - $ref: '#/components/schemas/VulnerabilityIdList'
+          - description: Vulnerabilities that are often related to the findings for the package.
+        sourceUrl:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: A link to the source of the vulnerability information.
+        vendorSeverity:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The severity that the vendor assigned to this vulnerability type.
+        vendorCreatedAt:
+          allOf:
+          - $ref: '#/components/schemas/DateTimeTimestamp'
+          - description: The date and time when this vulnerability was first added to the vendor's database.
+        vendorUpdatedAt:
+          allOf:
+          - $ref: '#/components/schemas/DateTimeTimestamp'
+          - description: The date and time when the vendor last updated this vulnerability in their database.
+        referenceUrls:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyStringList'
+          - description: Links to web pages that contain details about the vulnerabilities that Amazon Inspector identified for the package.
+      description: Information about package vulnerability findings.
+    FilterValue:
+      type: string
+      pattern: ^[0-9a-zA-Z./_ :-]{1,1024}$
+    ImageScanFindingsFilterValues:
+      type: array
+      items:
+        $ref: '#/components/schemas/FilterValue'
+      minItems: 1
+      maxItems: 1
     ImageScanFinding:
       type: object
       properties:
@@ -370,152 +506,57 @@ components:
           - $ref: '#/components/schemas/NonEmptyString'
           - description: Details about whether a fix is available for any of the packages that are identified in the finding through a version update.
       description: Contains details about a vulnerability scan finding.
+    ForbiddenException: {}
     ClientException: {}
-    ServiceUnavailableException: {}
-    PaginationToken:
-      type: string
-      minLength: 1
-      maxLength: 65535
-    VulnerabilityId:
-      type: string
-    FilterName:
-      type: string
-      pattern: ^[a-zA-Z]{1,1024}$
-    CvssScoreList:
-      type: array
-      items:
-        $ref: '#/components/schemas/CvssScore'
-    DateTimeTimestamp:
-      type: string
-      format: date-time
-    CvssScore:
-      type: object
-      properties:
-        baseScore:
-          allOf:
-          - $ref: '#/components/schemas/NonNegativeDouble'
-          - description: The CVSS base score.
-        scoringVector:
-          allOf:
-          - $ref: '#/components/schemas/NonEmptyString'
-          - description: The vector string of the CVSS score.
-        version:
-          allOf:
-          - $ref: '#/components/schemas/NonEmptyString'
-          - description: The CVSS version that generated the score.
-        source:
-          allOf:
-          - $ref: '#/components/schemas/NonEmptyString'
-          - description: The source of the CVSS score.
-      description: Amazon Inspector generates a risk score for each finding. This score helps you to prioritize findings, to focus on the most critical findings and the most vulnerable resources. The score uses the Common Vulnerability Scoring System (CVSS) format. This format is a modification of the base CVSS score that the National Vulnerability Database (NVD) provides. For more information about severity levels, see <a href="https://docs.aws.amazon.com/inspector/latest/user/findings-understanding-severity.html">Severity levels for Amazon Inspector findings</a> in the <i>Amazon Inspector User Guide</i>.
-    ImageScanFindingsFilter:
-      type: object
-      properties:
-        name:
-          allOf:
-          - $ref: '#/components/schemas/FilterName'
-          - description: The name of the image scan finding filter. Filter names are case-sensitive.
-        values:
-          allOf:
-          - $ref: '#/components/schemas/ImageScanFindingsFilterValues'
-          - description: The filter values. Filter values are case-sensitive.
-      description: A name value pair that Image Builder applies to streamline results from the vulnerability scan findings list action.
-    ImageScanFindingsFilterValues:
-      type: array
-      items:
-        $ref: '#/components/schemas/FilterValue'
-      minItems: 1
-      maxItems: 1
-    ListImageScanFindingsResponse:
-      type: object
-      properties:
-        requestId:
-          allOf:
-          - $ref: '#/components/schemas/NonEmptyString'
-          - description: The request ID that uniquely identifies this request.
-        findings:
-          allOf:
-          - $ref: '#/components/schemas/ImageScanFindingsList'
-          - description: The image scan findings for your account that meet your request filter criteria.
-        nextToken:
-          allOf:
-          - $ref: '#/components/schemas/PaginationToken'
-          - description: The next token used for paginated responses. When this field isn't empty, there are additional elements that the service has'ot included in this request. Use this token with the next request to retrieve additional objects.
-    ServiceException: {}
-    VulnerablePackage:
-      type: object
-      properties:
-        name:
-          allOf:
-          - $ref: '#/components/schemas/NonEmptyString'
-          - description: The name of the vulnerable package.
-        version:
-          allOf:
-          - $ref: '#/components/schemas/NonEmptyString'
-          - description: The version of the vulnerable package.
-        sourceLayerHash:
-          allOf:
-          - $ref: '#/components/schemas/SourceLayerHash'
-          - description: The source layer hash of the vulnerable package.
-        epoch:
-          allOf:
-          - $ref: '#/components/schemas/PackageEpoch'
-          - description: The epoch of the vulnerable package.
-        release:
-          allOf:
-          - $ref: '#/components/schemas/NonEmptyString'
-          - description: The release of the vulnerable package.
-        arch:
-          allOf:
-          - $ref: '#/components/schemas/PackageArchitecture'
-          - description: The architecture of the vulnerable package.
-        packageManager:
-          allOf:
-          - $ref: '#/components/schemas/NonEmptyString'
-          - description: The package manager of the vulnerable package.
-        filePath:
-          allOf:
-          - $ref: '#/components/schemas/NonEmptyString'
-          - description: The file path of the vulnerable package.
-        fixedInVersion:
-          allOf:
-          - $ref: '#/components/schemas/NonEmptyString'
-          - description: The version of the package that contains the vulnerability fix.
-        remediation:
-          allOf:
-          - $ref: '#/components/schemas/NonEmptyString'
-          - description: The code to run in your environment to update packages with a fix available.
-      description: Information about a vulnerable package that Amazon Inspector identifies in a finding.
-    Remediation:
-      type: object
-      properties:
-        recommendation:
-          allOf:
-          - $ref: '#/components/schemas/RemediationRecommendation'
-          - description: An object that contains information about the recommended course of action to remediate the finding.
-      description: Information about how to remediate a finding.
-    VulnerabilityIdList:
-      type: array
-      items:
-        $ref: '#/components/schemas/VulnerabilityId'
-    ImageScanFindingsList:
-      type: array
-      items:
-        $ref: '#/components/schemas/ImageScanFinding'
-      maxItems: 25
     NonEmptyStringList:
       type: array
       items:
         $ref: '#/components/schemas/NonEmptyString'
       minItems: 1
-    ForbiddenException: {}
     CvssScoreAdjustmentList:
       type: array
       items:
         $ref: '#/components/schemas/CvssScoreAdjustment'
-    ImagePipelineArn:
+    CvssScoreDetails:
+      type: object
+      properties:
+        scoreSource:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The source for the CVSS score.
+        cvssSource:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The source of the finding.
+        version:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The CVSS version that generated the score.
+        score:
+          allOf:
+          - $ref: '#/components/schemas/NonNegativeDouble'
+          - description: The CVSS score.
+        scoringVector:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: A vector that measures the severity of the vulnerability.
+        adjustments:
+          allOf:
+          - $ref: '#/components/schemas/CvssScoreAdjustmentList'
+          - description: An object that contains details about an adjustment that Amazon Inspector made to the CVSS score for the finding.
+      description: Details about the source of the score, and the factors that determined the adjustments to create the final score.
+    CvssScoreList:
+      type: array
+      items:
+        $ref: '#/components/schemas/CvssScore'
+    PackageEpoch:
+      type: integer
+    SourceLayerHash:
       type: string
-      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):image-pipeline/[a-z0-9-_]+$
+    NonEmptyString:
+      type: string
+      minLength: 1
+      maxLength: 1024
     InspectorScoreDetails:
       type: object
       properties:
@@ -524,81 +565,22 @@ components:
           - $ref: '#/components/schemas/CvssScoreDetails'
           - description: An object that contains details about an adjustment that Amazon Inspector made to the CVSS score for the finding.
       description: Information about the factors that influenced the score that Amazon Inspector assigned for a finding.
-    NonNegativeDouble:
-      type: number
-      format: double
-      minimum: 0
-    PackageVulnerabilityDetails:
+    InvalidPaginationTokenException: {}
+    RemediationRecommendation:
       type: object
-      required:
-      - vulnerabilityId
       properties:
-        vulnerabilityId:
-          allOf:
-          - $ref: '#/components/schemas/VulnerabilityId'
-          - description: A unique identifier for this vulnerability.
-        vulnerablePackages:
-          allOf:
-          - $ref: '#/components/schemas/VulnerablePackageList'
-          - description: The packages that this vulnerability impacts.
-        source:
+        text:
           allOf:
           - $ref: '#/components/schemas/NonEmptyString'
-          - description: The source of the vulnerability information.
-        cvss:
-          allOf:
-          - $ref: '#/components/schemas/CvssScoreList'
-          - description: CVSS scores for one or more vulnerabilities that Amazon Inspector identified for a package.
-        relatedVulnerabilities:
-          allOf:
-          - $ref: '#/components/schemas/VulnerabilityIdList'
-          - description: Vulnerabilities that are often related to the findings for the package.
-        sourceUrl:
+          - description: The recommended course of action to remediate the finding.
+        url:
           allOf:
           - $ref: '#/components/schemas/NonEmptyString'
-          - description: A link to the source of the vulnerability information.
-        vendorSeverity:
-          allOf:
-          - $ref: '#/components/schemas/NonEmptyString'
-          - description: The severity that the vendor assigned to this vulnerability type.
-        vendorCreatedAt:
-          allOf:
-          - $ref: '#/components/schemas/DateTimeTimestamp'
-          - description: The date and time when this vulnerability was first added to the vendor's database.
-        vendorUpdatedAt:
-          allOf:
-          - $ref: '#/components/schemas/DateTimeTimestamp'
-          - description: The date and time when the vendor last updated this vulnerability in their database.
-        referenceUrls:
-          allOf:
-          - $ref: '#/components/schemas/NonEmptyStringList'
-          - description: Links to web pages that contain details about the vulnerabilities that Amazon Inspector identified for the package.
-      description: Information about package vulnerability findings.
-    NonEmptyString:
-      type: string
-      minLength: 1
-      maxLength: 1024
+          - description: A link to more information about the recommended remediation for this vulnerability.
+      description: Details about the recommended course of action to remediate the finding.
   parameters:
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Signature:
       name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
@@ -609,14 +591,32 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Date:
-      name: X-Amz-Date
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
       in: header
       schema:
         type: string
       required: false
     X-Amz-Credential:
       name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
       in: header
       schema:
         type: string
