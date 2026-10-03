@@ -234,26 +234,26 @@ paths:
       - StartImagePipelineExecution
 components:
   schemas:
-    ServiceException: {}
-    ImageBuildVersionArn:
-      type: string
-      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):image/[a-z0-9-_]+/[0-9]+\.[0-9]+\.[0-9]+/[0-9]+$
-    CallRateLimitExceededException: {}
-    ServiceUnavailableException: {}
-    InvalidRequestException: {}
     ResourceNotFoundException: {}
-    IdempotentParameterMismatchException: {}
-    ForbiddenException: {}
-    ClientException: {}
-    ResourceInUseException: {}
-    ClientToken:
-      type: string
-      minLength: 1
-      maxLength: 36
+    InvalidRequestException: {}
     NonEmptyString:
       type: string
       minLength: 1
       maxLength: 1024
+    ImageBuildVersionArn:
+      type: string
+      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):image/[a-z0-9-_]+/[0-9]+\.[0-9]+\.[0-9]+/[0-9]+$
+    ClientToken:
+      type: string
+      minLength: 1
+      maxLength: 36
+    IdempotentParameterMismatchException: {}
+    CallRateLimitExceededException: {}
+    ServiceException: {}
+    ForbiddenException: {}
+    ServiceUnavailableException: {}
+    ResourceInUseException: {}
+    ClientException: {}
     StartImagePipelineExecutionResponse:
       type: object
       properties:
@@ -276,8 +276,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
@@ -288,26 +288,26 @@ components:
       schema:
         type: string
       required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Credential:
       name: X-Amz-Credential
       in: header
       schema:
         type: string
       required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
       in: header
       schema:
         type: string
       required: false
     X-Amz-Date:
       name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
       in: header
       schema:
         type: string

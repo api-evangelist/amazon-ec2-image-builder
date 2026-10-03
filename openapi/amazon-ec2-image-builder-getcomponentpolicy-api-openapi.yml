@@ -203,18 +203,19 @@ paths:
       - GetComponentPolicy
 components:
   schemas:
-    ServiceException: {}
+    ResourceNotFoundException: {}
+    InvalidRequestException: {}
     ResourcePolicyDocument:
       type: string
       minLength: 1
       maxLength: 30000
+    CallRateLimitExceededException: {}
+    ServiceException: {}
     NonEmptyString:
       type: string
       minLength: 1
       maxLength: 1024
-    InvalidRequestException: {}
-    ResourceNotFoundException: {}
-    CallRateLimitExceededException: {}
+    ServiceUnavailableException: {}
     GetComponentPolicyResponse:
       type: object
       properties:
@@ -228,11 +229,10 @@ components:
           - $ref: '#/components/schemas/ResourcePolicyDocument'
           - description: The component policy.
           example: example-string
-    ServiceUnavailableException: {}
     ForbiddenException: {}
   parameters:
-    X-Amz-Date:
-      name: X-Amz-Date
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
@@ -243,14 +243,14 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
+    X-Amz-Credential:
+      name: X-Amz-Credential
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
+    X-Amz-Date:
+      name: X-Amz-Date
       in: header
       schema:
         type: string
@@ -261,8 +261,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
       in: header
       schema:
         type: string

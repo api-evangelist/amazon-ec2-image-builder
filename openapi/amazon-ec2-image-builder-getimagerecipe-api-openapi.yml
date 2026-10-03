@@ -203,12 +203,175 @@ paths:
       - GetImageRecipe
 components:
   schemas:
+    ComponentConfigurationList:
+      type: array
+      items:
+        $ref: '#/components/schemas/ComponentConfiguration'
+      minItems: 1
+    InvalidRequestException: {}
+    TagValue:
+      type: string
+      maxLength: 256
+    VersionNumber:
+      type: string
+      pattern: ^[0-9]+\.[0-9]+\.[0-9]+$
+    NonEmptyString:
+      type: string
+      minLength: 1
+      maxLength: 1024
+    TagMap:
+      type: object
+      minProperties: 1
+      maxProperties: 50
+      additionalProperties:
+        $ref: '#/components/schemas/TagValue'
+    ComponentParameterValue:
+      type: string
+      pattern: '[^\x00]*'
+      minLength: 0
     Platform:
       type: string
       enum:
       - Windows
       - Linux
+    EmptyString:
+      type: string
+      minLength: 0
+      maxLength: 0
+    EbsIopsInteger:
+      type: integer
+      minimum: 100
+      maximum: 64000
+    CallRateLimitExceededException: {}
     ServiceException: {}
+    ComponentParameterValueList:
+      type: array
+      items:
+        $ref: '#/components/schemas/ComponentParameterValue'
+    ComponentParameterList:
+      type: array
+      items:
+        $ref: '#/components/schemas/ComponentParameter'
+      minItems: 1
+    ImageType:
+      type: string
+      enum:
+      - AMI
+      - DOCKER
+    ForbiddenException: {}
+    InstanceBlockDeviceMapping:
+      type: object
+      properties:
+        deviceName:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The device to which these mappings apply.
+          example: example-resource-name
+        ebs:
+          allOf:
+          - $ref: '#/components/schemas/EbsInstanceBlockDeviceSpecification'
+          - description: Use to manage Amazon EBS-specific configuration for this mapping.
+          example: example-string
+        virtualName:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: Use to manage instance ephemeral devices.
+          example: example-resource-name
+        noDevice:
+          allOf:
+          - $ref: '#/components/schemas/EmptyString'
+          - description: Use to remove a mapping from the base image.
+          example: example-string
+      description: Defines block device mappings for the instance used to configure your image.
+    InstanceBlockDeviceMappings:
+      type: array
+      items:
+        $ref: '#/components/schemas/InstanceBlockDeviceMapping'
+    ServiceUnavailableException: {}
+    EbsVolumeType:
+      type: string
+      enum:
+      - standard
+      - io1
+      - io2
+      - gp2
+      - gp3
+      - sc1
+      - st1
+    EbsVolumeSizeInteger:
+      type: integer
+      minimum: 1
+      maximum: 16000
+    ImageBuilderArn:
+      type: string
+      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):(?:image-recipe|container-recipe|infrastructure-configuration|distribution-configuration|component|image|image-pipeline|workflow\/(?:build|test|distribution))/[a-z0-9-_]+(?:/(?:(?:x|[0-9]+)\.(?:x|[0-9]+)\.(?:x|[0-9]+))(?:/[0-9]+)?)?$
+    UserDataOverride:
+      type: string
+      pattern: ^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$
+      minLength: 1
+      maxLength: 21847
+    ResourceName:
+      type: string
+      pattern: ^[-_A-Za-z-0-9][-_A-Za-z0-9 ]{1,126}[-_A-Za-z-0-9]$
+    SystemsManagerAgent:
+      type: object
+      properties:
+        uninstallAfterBuild:
+          allOf:
+          - $ref: '#/components/schemas/NullableBoolean'
+          - description: Controls whether the Systems Manager agent is removed from your final build image, prior to creating the new AMI. If this is set to true, then the agent is removed from the final image. If it's set to false, then the agent is left in, so that it is included in the new AMI. The default value is false.
+          example: example-string
+      description: Contains settings for the Systems Manager agent on your build instance.
+    ComponentParameterName:
+      type: string
+      pattern: '[^\x00]+'
+      minLength: 1
+      maxLength: 256
+    DateTime:
+      type: string
+    ComponentParameter:
+      type: object
+      required:
+      - name
+      - value
+      properties:
+        name:
+          allOf:
+          - $ref: '#/components/schemas/ComponentParameterName'
+          - description: The name of the component parameter to set.
+        value:
+          allOf:
+          - $ref: '#/components/schemas/ComponentParameterValueList'
+          - description: Sets the value for the named component parameter.
+      description: Contains a key/value pair that sets the named component parameter.
+    GetImageRecipeResponse:
+      type: object
+      properties:
+        requestId:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The request ID that uniquely identifies this request.
+        imageRecipe:
+          allOf:
+          - $ref: '#/components/schemas/ImageRecipe'
+          - description: The image recipe object.
+    ComponentConfiguration:
+      type: object
+      required:
+      - componentArn
+      properties:
+        componentArn:
+          allOf:
+          - $ref: '#/components/schemas/ComponentVersionArnOrBuildVersionArn'
+          - description: The Amazon Resource Name (ARN) of the component.
+          example: arn:aws:service:us-east-1:123456789012:resource/example
+        parameters:
+          allOf:
+          - $ref: '#/components/schemas/ComponentParameterList'
+          - description: A group of parameter settings that Image Builder uses to configure the component for a specific recipe.
+          example: example-string
+      description: Configuration details of the component.
+    ClientException: {}
     AdditionalInstanceConfiguration:
       type: object
       properties:
@@ -221,16 +384,48 @@ components:
           - $ref: '#/components/schemas/UserDataOverride'
           - description: <p>Use this property to provide commands or a command script to run when you launch your build instance.</p> <p>The userDataOverride property replaces any commands that Image Builder might have added to ensure that Systems Manager is installed on your Linux build instance. If you override the user data, make sure that you add commands to install Systems Manager, if it is not pre-installed on your base image.</p> <note> <p>The user data is always base 64 encoded. For example, the following commands are encoded as <code>IyEvYmluL2Jhc2gKbWtkaXIgLXAgL3Zhci9iYi8KdG91Y2ggL3Zhci$</code>:</p> <p> <i>#!/bin/bash</i> </p> <p>mkdir -p /var/bb/</p> <p>touch /var</p> </note>
       description: <p>In addition to your infrastructure configuration, these settings provide an extra layer of control over your build instances. You can also specify commands to run on launch for all of your build instances.</p> <p>Image Builder does not automatically install the Systems Manager agent on Windows instances. If your base image includes the Systems Manager agent, then the AMI that you create will also include the agent. For Linux instances, if the base image does not already include the Systems Manager agent, Image Builder installs it. For Linux instances where Image Builder installs the Systems Manager agent, you can choose whether to keep it for the AMI that you create.</p>
-    ImageBuilderArn:
-      type: string
-      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):(?:image-recipe|container-recipe|infrastructure-configuration|distribution-configuration|component|image|image-pipeline|workflow\/(?:build|test|distribution))/[a-z0-9-_]+(?:/(?:(?:x|[0-9]+)\.(?:x|[0-9]+)\.(?:x|[0-9]+))(?:/[0-9]+)?)?$
-    ComponentParameterValue:
-      type: string
-      pattern: '[^\x00]*'
-      minLength: 0
-    VersionNumber:
-      type: string
-      pattern: ^[0-9]+\.[0-9]+\.[0-9]+$
+    NullableBoolean:
+      type: boolean
+    EbsVolumeThroughput:
+      type: integer
+      minimum: 125
+      maximum: 1000
+    EbsInstanceBlockDeviceSpecification:
+      type: object
+      properties:
+        encrypted:
+          allOf:
+          - $ref: '#/components/schemas/NullableBoolean'
+          - description: Use to configure device encryption.
+        deleteOnTermination:
+          allOf:
+          - $ref: '#/components/schemas/NullableBoolean'
+          - description: Use to configure delete on termination of the associated device.
+        iops:
+          allOf:
+          - $ref: '#/components/schemas/EbsIopsInteger'
+          - description: Use to configure device IOPS.
+        kmsKeyId:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: Use to configure the KMS key to use when encrypting the device.
+        snapshotId:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The snapshot that defines the device contents.
+        volumeSize:
+          allOf:
+          - $ref: '#/components/schemas/EbsVolumeSizeInteger'
+          - description: Use to override the device's volume size.
+        volumeType:
+          allOf:
+          - $ref: '#/components/schemas/EbsVolumeType'
+          - description: Use to override the device's volume type.
+        throughput:
+          allOf:
+          - $ref: '#/components/schemas/EbsVolumeThroughput'
+          - description: ' <b>For GP3 volumes only</b> – The throughput in MiB/s that the volume supports.'
+      description: Amazon EBS-specific block device mapping specifications.
     ImageRecipe:
       type: object
       properties:
@@ -291,225 +486,12 @@ components:
           - $ref: '#/components/schemas/AdditionalInstanceConfiguration'
           - description: Before you create a new AMI, Image Builder launches temporary Amazon EC2 instances to build and test your image configuration. Instance configuration adds a layer of control over those instances. You can define settings and add scripts to run when an instance is launched from your AMI.
       description: An image recipe.
-    CallRateLimitExceededException: {}
-    EbsIopsInteger:
-      type: integer
-      minimum: 100
-      maximum: 64000
-    ServiceUnavailableException: {}
-    GetImageRecipeResponse:
-      type: object
-      properties:
-        requestId:
-          allOf:
-          - $ref: '#/components/schemas/NonEmptyString'
-          - description: The request ID that uniquely identifies this request.
-        imageRecipe:
-          allOf:
-          - $ref: '#/components/schemas/ImageRecipe'
-          - description: The image recipe object.
-    NullableBoolean:
-      type: boolean
-    UserDataOverride:
-      type: string
-      pattern: ^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$
-      minLength: 1
-      maxLength: 21847
-    EbsVolumeSizeInteger:
-      type: integer
-      minimum: 1
-      maximum: 16000
-    InvalidRequestException: {}
-    ComponentParameterList:
-      type: array
-      items:
-        $ref: '#/components/schemas/ComponentParameter'
-      minItems: 1
-    InstanceBlockDeviceMappings:
-      type: array
-      items:
-        $ref: '#/components/schemas/InstanceBlockDeviceMapping'
-    EbsInstanceBlockDeviceSpecification:
-      type: object
-      properties:
-        encrypted:
-          allOf:
-          - $ref: '#/components/schemas/NullableBoolean'
-          - description: Use to configure device encryption.
-        deleteOnTermination:
-          allOf:
-          - $ref: '#/components/schemas/NullableBoolean'
-          - description: Use to configure delete on termination of the associated device.
-        iops:
-          allOf:
-          - $ref: '#/components/schemas/EbsIopsInteger'
-          - description: Use to configure device IOPS.
-        kmsKeyId:
-          allOf:
-          - $ref: '#/components/schemas/NonEmptyString'
-          - description: Use to configure the KMS key to use when encrypting the device.
-        snapshotId:
-          allOf:
-          - $ref: '#/components/schemas/NonEmptyString'
-          - description: The snapshot that defines the device contents.
-        volumeSize:
-          allOf:
-          - $ref: '#/components/schemas/EbsVolumeSizeInteger'
-          - description: Use to override the device's volume size.
-        volumeType:
-          allOf:
-          - $ref: '#/components/schemas/EbsVolumeType'
-          - description: Use to override the device's volume type.
-        throughput:
-          allOf:
-          - $ref: '#/components/schemas/EbsVolumeThroughput'
-          - description: ' <b>For GP3 volumes only</b> – The throughput in MiB/s that the volume supports.'
-      description: Amazon EBS-specific block device mapping specifications.
-    ComponentConfigurationList:
-      type: array
-      items:
-        $ref: '#/components/schemas/ComponentConfiguration'
-      minItems: 1
-    EmptyString:
-      type: string
-      minLength: 0
-      maxLength: 0
-    ComponentConfiguration:
-      type: object
-      required:
-      - componentArn
-      properties:
-        componentArn:
-          allOf:
-          - $ref: '#/components/schemas/ComponentVersionArnOrBuildVersionArn'
-          - description: The Amazon Resource Name (ARN) of the component.
-          example: arn:aws:service:us-east-1:123456789012:resource/example
-        parameters:
-          allOf:
-          - $ref: '#/components/schemas/ComponentParameterList'
-          - description: A group of parameter settings that Image Builder uses to configure the component for a specific recipe.
-          example: example-string
-      description: Configuration details of the component.
-    ComponentParameterValueList:
-      type: array
-      items:
-        $ref: '#/components/schemas/ComponentParameterValue'
-    TagValue:
-      type: string
-      maxLength: 256
-    InstanceBlockDeviceMapping:
-      type: object
-      properties:
-        deviceName:
-          allOf:
-          - $ref: '#/components/schemas/NonEmptyString'
-          - description: The device to which these mappings apply.
-          example: example-resource-name
-        ebs:
-          allOf:
-          - $ref: '#/components/schemas/EbsInstanceBlockDeviceSpecification'
-          - description: Use to manage Amazon EBS-specific configuration for this mapping.
-          example: example-string
-        virtualName:
-          allOf:
-          - $ref: '#/components/schemas/NonEmptyString'
-          - description: Use to manage instance ephemeral devices.
-          example: example-resource-name
-        noDevice:
-          allOf:
-          - $ref: '#/components/schemas/EmptyString'
-          - description: Use to remove a mapping from the base image.
-          example: example-string
-      description: Defines block device mappings for the instance used to configure your image.
     ComponentVersionArnOrBuildVersionArn:
       type: string
       pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):component/[a-z0-9-_]+/(?:(?:([0-9]+|x)\.([0-9]+|x)\.([0-9]+|x))|(?:[0-9]+\.[0-9]+\.[0-9]+/[0-9]+))$
-    ImageType:
-      type: string
-      enum:
-      - AMI
-      - DOCKER
-    ResourceName:
-      type: string
-      pattern: ^[-_A-Za-z-0-9][-_A-Za-z0-9 ]{1,126}[-_A-Za-z-0-9]$
-    DateTime:
-      type: string
-    ForbiddenException: {}
-    TagMap:
-      type: object
-      minProperties: 1
-      maxProperties: 50
-      additionalProperties:
-        $ref: '#/components/schemas/TagValue'
-    ClientException: {}
-    SystemsManagerAgent:
-      type: object
-      properties:
-        uninstallAfterBuild:
-          allOf:
-          - $ref: '#/components/schemas/NullableBoolean'
-          - description: Controls whether the Systems Manager agent is removed from your final build image, prior to creating the new AMI. If this is set to true, then the agent is removed from the final image. If it's set to false, then the agent is left in, so that it is included in the new AMI. The default value is false.
-          example: example-string
-      description: Contains settings for the Systems Manager agent on your build instance.
-    EbsVolumeType:
-      type: string
-      enum:
-      - standard
-      - io1
-      - io2
-      - gp2
-      - gp3
-      - sc1
-      - st1
-    ComponentParameter:
-      type: object
-      required:
-      - name
-      - value
-      properties:
-        name:
-          allOf:
-          - $ref: '#/components/schemas/ComponentParameterName'
-          - description: The name of the component parameter to set.
-        value:
-          allOf:
-          - $ref: '#/components/schemas/ComponentParameterValueList'
-          - description: Sets the value for the named component parameter.
-      description: Contains a key/value pair that sets the named component parameter.
-    NonEmptyString:
-      type: string
-      minLength: 1
-      maxLength: 1024
-    ComponentParameterName:
-      type: string
-      pattern: '[^\x00]+'
-      minLength: 1
-      maxLength: 256
-    EbsVolumeThroughput:
-      type: integer
-      minimum: 125
-      maximum: 1000
   parameters:
     X-Amz-Signature:
       name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
       in: header
       schema:
         type: string
@@ -520,14 +502,32 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Date:
-      name: X-Amz-Date
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
       in: header
       schema:
         type: string
       required: false
     X-Amz-Algorithm:
       name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
       in: header
       schema:
         type: string

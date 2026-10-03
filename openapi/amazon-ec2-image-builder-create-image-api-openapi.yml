@@ -280,37 +280,26 @@ paths:
       - Create Image
 components:
   schemas:
-    ServiceException: {}
-    EcrConfiguration:
-      type: object
-      properties:
-        repositoryName:
-          allOf:
-          - $ref: '#/components/schemas/NonEmptyString'
-          - description: The name of the container repository that Amazon Inspector scans to identify findings for your container images. The name includes the path for the repository location. If you don’t provide this information, Image Builder creates a repository in your account named <code>image-builder-image-scanning-repository</code> for vulnerability scans of your output container images.
-          example: example-resource-name
-        containerTags:
-          allOf:
-          - $ref: '#/components/schemas/StringList'
-          - description: Tags for Image Builder to apply to the output container image that &amp;INS; scans. Tags can help you identify and manage your scanned images.
-          example: example-string
-      description: Settings that Image Builder uses to configure the ECR repository and the output container images that Amazon Inspector scans.
-    ImageTestsTimeoutMinutes:
-      type: integer
-      minimum: 60
-      maximum: 1440
-    ServiceQuotaExceededException: {}
+    InvalidRequestException: {}
+    NonEmptyString:
+      type: string
+      minLength: 1
+      maxLength: 1024
     ImageBuildVersionArn:
       type: string
       pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):image/[a-z0-9-_]+/[0-9]+\.[0-9]+\.[0-9]+/[0-9]+$
-    CallRateLimitExceededException: {}
-    ServiceUnavailableException: {}
-    NullableBoolean:
-      type: boolean
-    InvalidRequestException: {}
-    TagValue:
+    ClientToken:
       type: string
-      maxLength: 256
+      minLength: 1
+      maxLength: 36
+    IdempotentParameterMismatchException: {}
+    CallRateLimitExceededException: {}
+    ServiceException: {}
+    StringList:
+      type: array
+      items:
+        $ref: '#/components/schemas/NonEmptyString'
+    ForbiddenException: {}
     CreateImageResponse:
       type: object
       properties:
@@ -329,43 +318,36 @@ components:
           - $ref: '#/components/schemas/ImageBuildVersionArn'
           - description: The Amazon Resource Name (ARN) of the image that this request created.
           example: arn:aws:service:us-east-1:123456789012:resource/example
-    IdempotentParameterMismatchException: {}
-    ForbiddenException: {}
-    ClientException: {}
-    StringList:
-      type: array
-      items:
-        $ref: '#/components/schemas/NonEmptyString'
+    ServiceUnavailableException: {}
     ResourceInUseException: {}
-    ClientToken:
+    ServiceQuotaExceededException: {}
+    ClientException: {}
+    EcrConfiguration:
+      type: object
+      properties:
+        repositoryName:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The name of the container repository that Amazon Inspector scans to identify findings for your container images. The name includes the path for the repository location. If you don’t provide this information, Image Builder creates a repository in your account named <code>image-builder-image-scanning-repository</code> for vulnerability scans of your output container images.
+          example: example-resource-name
+        containerTags:
+          allOf:
+          - $ref: '#/components/schemas/StringList'
+          - description: Tags for Image Builder to apply to the output container image that &amp;INS; scans. Tags can help you identify and manage your scanned images.
+          example: example-string
+      description: Settings that Image Builder uses to configure the ECR repository and the output container images that Amazon Inspector scans.
+    ImageTestsTimeoutMinutes:
+      type: integer
+      minimum: 60
+      maximum: 1440
+    NullableBoolean:
+      type: boolean
+    TagValue:
       type: string
-      minLength: 1
-      maxLength: 36
-    NonEmptyString:
-      type: string
-      minLength: 1
-      maxLength: 1024
+      maxLength: 256
   parameters:
     X-Amz-Signature:
       name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
       in: header
       schema:
         type: string
@@ -376,14 +358,32 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Date:
-      name: X-Amz-Date
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
       in: header
       schema:
         type: string
       required: false
     X-Amz-Algorithm:
       name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
       in: header
       schema:
         type: string

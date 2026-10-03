@@ -204,10 +204,18 @@ paths:
       - GetWorkflowStepExecution
 components:
   schemas:
-    ServiceException: {}
-    WorkflowStepAction:
+    InvalidRequestException: {}
+    WorkflowBuildVersionArn:
       type: string
-      pattern: ^[A-Za-z][A-Za-z0-9-_]{1,99}$
+      pattern: ^arn:aws(?:-[a-z]+)*:imagebuilder:[a-z]{2,}(?:-[a-z]+)+-[0-9]+:(?:[0-9]{12}|aws):workflow/(build|test|distribution)/[a-z0-9-_]+/[0-9]+\.[0-9]+\.[0-9]+/[0-9]+$
+      maxLength: 1024
+    WorkflowStepExecutionId:
+      type: string
+      pattern: ^step-[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$
+    NonEmptyString:
+      type: string
+      minLength: 1
+      maxLength: 1024
     GetWorkflowStepExecutionResponse:
       type: object
       properties:
@@ -279,14 +287,13 @@ components:
           allOf:
           - $ref: '#/components/schemas/WorkflowStepTimeoutSecondsInteger'
           - description: The maximum duration in seconds for this step to complete its action.
-    WorkflowStepName:
+    WorkflowStepDescription:
       type: string
-      pattern: ^[A-Za-z][A-Za-z0-9-_]{1,99}$
+      minLength: 0
+      maxLength: 500
     ImageBuildVersionArn:
       type: string
       pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):image/[a-z0-9-_]+/[0-9]+\.[0-9]+\.[0-9]+/[0-9]+$
-    CallRateLimitExceededException: {}
-    ServiceUnavailableException: {}
     WorkflowStepExecutionRollbackStatus:
       type: string
       enum:
@@ -294,6 +301,34 @@ components:
       - COMPLETED
       - SKIPPED
       - FAILED
+    CallRateLimitExceededException: {}
+    ServiceException: {}
+    WorkflowStepName:
+      type: string
+      pattern: ^[A-Za-z][A-Za-z0-9-_]{1,99}$
+    WorkflowStepOutputs:
+      type: string
+    WorkflowStepAction:
+      type: string
+      pattern: ^[A-Za-z][A-Za-z0-9-_]{1,99}$
+    ForbiddenException: {}
+    ServiceUnavailableException: {}
+    WorkflowStepTimeoutSecondsInteger:
+      type: integer
+      minimum: 0
+      maximum: 43200
+    WorkflowExecutionId:
+      type: string
+      pattern: ^wf-[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$
+    DateTime:
+      type: string
+    ClientException: {}
+    WorkflowStepMessage:
+      type: string
+      minLength: 0
+      maxLength: 500
+    WorkflowStepInputs:
+      type: string
     WorkflowStepExecutionStatus:
       type: string
       enum:
@@ -302,62 +337,9 @@ components:
       - RUNNING
       - COMPLETED
       - FAILED
-    InvalidRequestException: {}
-    WorkflowStepExecutionId:
-      type: string
-      pattern: ^step-[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$
-    WorkflowStepInputs:
-      type: string
-    DateTime:
-      type: string
-    ForbiddenException: {}
-    ClientException: {}
-    WorkflowStepMessage:
-      type: string
-      minLength: 0
-      maxLength: 500
-    WorkflowStepDescription:
-      type: string
-      minLength: 0
-      maxLength: 500
-    WorkflowStepTimeoutSecondsInteger:
-      type: integer
-      minimum: 0
-      maximum: 43200
-    WorkflowBuildVersionArn:
-      type: string
-      pattern: ^arn:aws(?:-[a-z]+)*:imagebuilder:[a-z]{2,}(?:-[a-z]+)+-[0-9]+:(?:[0-9]{12}|aws):workflow/(build|test|distribution)/[a-z0-9-_]+/[0-9]+\.[0-9]+\.[0-9]+/[0-9]+$
-      maxLength: 1024
-    NonEmptyString:
-      type: string
-      minLength: 1
-      maxLength: 1024
-    WorkflowExecutionId:
-      type: string
-      pattern: ^wf-[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$
-    WorkflowStepOutputs:
-      type: string
   parameters:
     X-Amz-Signature:
       name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
       in: header
       schema:
         type: string
@@ -368,14 +350,32 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Date:
-      name: X-Amz-Date
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
       in: header
       schema:
         type: string
       required: false
     X-Amz-Algorithm:
       name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
       in: header
       schema:
         type: string

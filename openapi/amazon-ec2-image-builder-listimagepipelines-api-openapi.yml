@@ -239,12 +239,28 @@ paths:
       - ListImagePipelines
 components:
   schemas:
-    Platform:
+    InvalidRequestException: {}
+    NonEmptyString:
+      type: string
+      minLength: 1
+      maxLength: 1024
+    TagMap:
+      type: object
+      minProperties: 1
+      maxProperties: 50
+      additionalProperties:
+        $ref: '#/components/schemas/TagValue'
+    PaginationToken:
+      type: string
+      minLength: 1
+      maxLength: 65535
+    Arn:
+      type: string
+    PipelineExecutionStartCondition:
       type: string
       enum:
-      - Windows
-      - Linux
-    ServiceException: {}
+      - EXPRESSION_MATCH_ONLY
+      - EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE
     ListImagePipelinesResponse:
       type: object
       properties:
@@ -260,122 +276,18 @@ components:
           allOf:
           - $ref: '#/components/schemas/PaginationToken'
           - description: The next token used for paginated responses. When this field isn't empty, there are additional elements that the service has'ot included in this request. Use this token with the next request to retrieve additional objects.
-    PipelineExecutionStartCondition:
+    Platform:
       type: string
       enum:
-      - EXPRESSION_MATCH_ONLY
-      - EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE
-    EcrConfiguration:
-      type: object
-      properties:
-        repositoryName:
-          allOf:
-          - $ref: '#/components/schemas/NonEmptyString'
-          - description: The name of the container repository that Amazon Inspector scans to identify findings for your container images. The name includes the path for the repository location. If you don’t provide this information, Image Builder creates a repository in your account named <code>image-builder-image-scanning-repository</code> for vulnerability scans of your output container images.
-          example: example-resource-name
-        containerTags:
-          allOf:
-          - $ref: '#/components/schemas/StringList'
-          - description: Tags for Image Builder to apply to the output container image that &amp;INS; scans. Tags can help you identify and manage your scanned images.
-          example: example-string
-      description: Settings that Image Builder uses to configure the ECR repository and the output container images that Amazon Inspector scans.
-    Timezone:
-      type: string
-      pattern: '[a-zA-Z0-9]{2,}(?:\/[a-zA-z0-9-_+]+)*'
-      minLength: 3
-      maxLength: 100
-    ImageBuilderArn:
-      type: string
-      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):(?:image-recipe|container-recipe|infrastructure-configuration|distribution-configuration|component|image|image-pipeline|workflow\/(?:build|test|distribution))/[a-z0-9-_]+(?:/(?:(?:x|[0-9]+)\.(?:x|[0-9]+)\.(?:x|[0-9]+))(?:/[0-9]+)?)?$
-    ImageScanningConfiguration:
-      type: object
-      properties:
-        imageScanningEnabled:
-          allOf:
-          - $ref: '#/components/schemas/NullableBoolean'
-          - description: A setting that indicates whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image.
-        ecrConfiguration:
-          allOf:
-          - $ref: '#/components/schemas/EcrConfiguration'
-          - description: Contains Amazon ECR settings for vulnerability scans.
-      description: Contains settings for Image Builder image resource and container image scans.
-    ImageTestsTimeoutMinutes:
-      type: integer
-      minimum: 60
-      maximum: 1440
+      - Windows
+      - Linux
     CallRateLimitExceededException: {}
-    ServiceUnavailableException: {}
-    NullableBoolean:
-      type: boolean
-    Schedule:
-      type: object
-      properties:
-        scheduleExpression:
-          allOf:
-          - $ref: '#/components/schemas/NonEmptyString'
-          - description: <p>The cron expression determines how often EC2 Image Builder evaluates your <code>pipelineExecutionStartCondition</code>.</p> <p>For information on how to format a cron expression in Image Builder, see <a href="https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-builder-cron.html">Use cron expressions in EC2 Image Builder</a>.</p>
-        timezone:
-          allOf:
-          - $ref: '#/components/schemas/Timezone'
-          - description: The timezone that applies to the scheduling expression. For example, "Etc/UTC", "America/Los_Angeles" in the <a href="https://www.joda.org/joda-time/timezones.html">IANA timezone format</a>. If not specified this defaults to UTC.
-        pipelineExecutionStartCondition:
-          allOf:
-          - $ref: '#/components/schemas/PipelineExecutionStartCondition'
-          - description: The condition configures when the pipeline should trigger a new image build. When the <code>pipelineExecutionStartCondition</code> is set to <code>EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE</code>, and you use semantic version filters on the base image or components in your image recipe, EC2 Image Builder will build a new image only when there are new versions of the image or components in your recipe that match the semantic version filter. When it is set to <code>EXPRESSION_MATCH_ONLY</code>, it will build a new image every time the CRON expression matches the current time. For semantic version syntax, see <a href="https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_CreateComponent.html">CreateComponent</a> in the <i> EC2 Image Builder API Reference</i>.
-      description: A schedule configures how often and when a pipeline will automatically create a new image.
-    InvalidRequestException: {}
-    TagValue:
-      type: string
-      maxLength: 256
-    PaginationToken:
-      type: string
-      minLength: 1
-      maxLength: 65535
-    Filter:
-      type: object
-      properties:
-        name:
-          allOf:
-          - $ref: '#/components/schemas/FilterName'
-          - description: The name of the filter. Filter names are case-sensitive.
-        values:
-          allOf:
-          - $ref: '#/components/schemas/FilterValues'
-          - description: The filter values. Filter values are case-sensitive.
-      description: A filter name and value pair that is used to return a more specific list of results from a list operation. Filters can be used to match a set of resources by specific criteria, such as tags, attributes, or IDs.
-    FilterValue:
-      type: string
-      pattern: ^[0-9a-zA-Z./_ :-]{1,1024}$
-    ResourceName:
-      type: string
-      pattern: ^[-_A-Za-z-0-9][-_A-Za-z0-9 ]{1,126}[-_A-Za-z-0-9]$
-    DateTime:
-      type: string
-    ForbiddenException: {}
-    ClientException: {}
-    TagMap:
-      type: object
-      minProperties: 1
-      maxProperties: 50
-      additionalProperties:
-        $ref: '#/components/schemas/TagValue'
     PipelineStatus:
       type: string
       enum:
       - DISABLED
       - ENABLED
-    StringList:
-      type: array
-      items:
-        $ref: '#/components/schemas/NonEmptyString'
-    Arn:
-      type: string
-    FilterValues:
-      type: array
-      items:
-        $ref: '#/components/schemas/FilterValue'
-      minItems: 1
-      maxItems: 10
+    ServiceException: {}
     ImageTestsConfiguration:
       type: object
       properties:
@@ -388,10 +300,16 @@ components:
           - $ref: '#/components/schemas/ImageTestsTimeoutMinutes'
           - description: <p>The maximum time in minutes that tests are permitted to run.</p> <note> <p>The timeoutMinutes attribute is not currently active. This value is ignored.</p> </note>
       description: Configure image tests for your pipeline build. Tests run after building the image, to verify that the AMI or container image is valid before distributing it.
-    NonEmptyString:
-      type: string
-      minLength: 1
-      maxLength: 1024
+    StringList:
+      type: array
+      items:
+        $ref: '#/components/schemas/NonEmptyString'
+    FilterValues:
+      type: array
+      items:
+        $ref: '#/components/schemas/FilterValue'
+      minItems: 1
+      maxItems: 10
     ImagePipeline:
       type: object
       properties:
@@ -468,35 +386,99 @@ components:
           - $ref: '#/components/schemas/ImageScanningConfiguration'
           - description: Contains settings for vulnerability scans.
       description: Details of an image pipeline.
-    InvalidPaginationTokenException: {}
-    FilterName:
+    ForbiddenException: {}
+    Timezone:
       type: string
-      pattern: ^[a-zA-Z]{1,1024}$
+      pattern: '[a-zA-Z0-9]{2,}(?:\/[a-zA-z0-9-_+]+)*'
+      minLength: 3
+      maxLength: 100
+    Filter:
+      type: object
+      properties:
+        name:
+          allOf:
+          - $ref: '#/components/schemas/FilterName'
+          - description: The name of the filter. Filter names are case-sensitive.
+        values:
+          allOf:
+          - $ref: '#/components/schemas/FilterValues'
+          - description: The filter values. Filter values are case-sensitive.
+      description: A filter name and value pair that is used to return a more specific list of results from a list operation. Filters can be used to match a set of resources by specific criteria, such as tags, attributes, or IDs.
+    FilterValue:
+      type: string
+      pattern: ^[0-9a-zA-Z./_ :-]{1,1024}$
+    InvalidPaginationTokenException: {}
+    ServiceUnavailableException: {}
+    ImageBuilderArn:
+      type: string
+      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):(?:image-recipe|container-recipe|infrastructure-configuration|distribution-configuration|component|image|image-pipeline|workflow\/(?:build|test|distribution))/[a-z0-9-_]+(?:/(?:(?:x|[0-9]+)\.(?:x|[0-9]+)\.(?:x|[0-9]+))(?:/[0-9]+)?)?$
+    ResourceName:
+      type: string
+      pattern: ^[-_A-Za-z-0-9][-_A-Za-z0-9 ]{1,126}[-_A-Za-z-0-9]$
+    DateTime:
+      type: string
+    Schedule:
+      type: object
+      properties:
+        scheduleExpression:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: <p>The cron expression determines how often EC2 Image Builder evaluates your <code>pipelineExecutionStartCondition</code>.</p> <p>For information on how to format a cron expression in Image Builder, see <a href="https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-builder-cron.html">Use cron expressions in EC2 Image Builder</a>.</p>
+        timezone:
+          allOf:
+          - $ref: '#/components/schemas/Timezone'
+          - description: The timezone that applies to the scheduling expression. For example, "Etc/UTC", "America/Los_Angeles" in the <a href="https://www.joda.org/joda-time/timezones.html">IANA timezone format</a>. If not specified this defaults to UTC.
+        pipelineExecutionStartCondition:
+          allOf:
+          - $ref: '#/components/schemas/PipelineExecutionStartCondition'
+          - description: The condition configures when the pipeline should trigger a new image build. When the <code>pipelineExecutionStartCondition</code> is set to <code>EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE</code>, and you use semantic version filters on the base image or components in your image recipe, EC2 Image Builder will build a new image only when there are new versions of the image or components in your recipe that match the semantic version filter. When it is set to <code>EXPRESSION_MATCH_ONLY</code>, it will build a new image every time the CRON expression matches the current time. For semantic version syntax, see <a href="https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_CreateComponent.html">CreateComponent</a> in the <i> EC2 Image Builder API Reference</i>.
+      description: A schedule configures how often and when a pipeline will automatically create a new image.
+    ImageScanningConfiguration:
+      type: object
+      properties:
+        imageScanningEnabled:
+          allOf:
+          - $ref: '#/components/schemas/NullableBoolean'
+          - description: A setting that indicates whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image.
+        ecrConfiguration:
+          allOf:
+          - $ref: '#/components/schemas/EcrConfiguration'
+          - description: Contains Amazon ECR settings for vulnerability scans.
+      description: Contains settings for Image Builder image resource and container image scans.
+    ClientException: {}
+    NullableBoolean:
+      type: boolean
+    ImageTestsTimeoutMinutes:
+      type: integer
+      minimum: 60
+      maximum: 1440
+    EcrConfiguration:
+      type: object
+      properties:
+        repositoryName:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The name of the container repository that Amazon Inspector scans to identify findings for your container images. The name includes the path for the repository location. If you don’t provide this information, Image Builder creates a repository in your account named <code>image-builder-image-scanning-repository</code> for vulnerability scans of your output container images.
+          example: example-resource-name
+        containerTags:
+          allOf:
+          - $ref: '#/components/schemas/StringList'
+          - description: Tags for Image Builder to apply to the output container image that &amp;INS; scans. Tags can help you identify and manage your scanned images.
+          example: example-string
+      description: Settings that Image Builder uses to configure the ECR repository and the output container images that Amazon Inspector scans.
+    TagValue:
+      type: string
+      maxLength: 256
     ImagePipelineList:
       type: array
       items:
         $ref: '#/components/schemas/ImagePipeline'
+    FilterName:
+      type: string
+      pattern: ^[a-zA-Z]{1,1024}$
   parameters:
     X-Amz-Signature:
       name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
       in: header
       schema:
         type: string
@@ -507,14 +489,32 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Date:
-      name: X-Amz-Date
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
       in: header
       schema:
         type: string
       required: false
     X-Amz-Algorithm:
       name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
       in: header
       schema:
         type: string

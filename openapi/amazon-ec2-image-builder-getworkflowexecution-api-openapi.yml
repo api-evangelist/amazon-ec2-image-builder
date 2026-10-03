@@ -204,35 +204,20 @@ paths:
       - GetWorkflowExecution
 components:
   schemas:
-    ServiceException: {}
-    WorkflowExecutionMessage:
+    InvalidRequestException: {}
+    WorkflowBuildVersionArn:
       type: string
-      minLength: 0
-      maxLength: 500
-    WorkflowType:
+      pattern: ^arn:aws(?:-[a-z]+)*:imagebuilder:[a-z]{2,}(?:-[a-z]+)+-[0-9]+:(?:[0-9]{12}|aws):workflow/(build|test|distribution)/[a-z0-9-_]+/[0-9]+\.[0-9]+\.[0-9]+/[0-9]+$
+      maxLength: 1024
+    WorkflowStepCount:
+      type: integer
+    NonEmptyString:
       type: string
-      enum:
-      - BUILD
-      - TEST
-      - DISTRIBUTION
+      minLength: 1
+      maxLength: 1024
     ImageBuildVersionArn:
       type: string
       pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):image/[a-z0-9-_]+/[0-9]+\.[0-9]+\.[0-9]+/[0-9]+$
-    CallRateLimitExceededException: {}
-    ServiceUnavailableException: {}
-    InvalidRequestException: {}
-    WorkflowExecutionStatus:
-      type: string
-      enum:
-      - PENDING
-      - SKIPPED
-      - RUNNING
-      - COMPLETED
-      - FAILED
-      - ROLLBACK_IN_PROGRESS
-      - ROLLBACK_COMPLETED
-    WorkflowStepCount:
-      type: integer
     GetWorkflowExecutionResponse:
       type: object
       properties:
@@ -288,42 +273,39 @@ components:
           allOf:
           - $ref: '#/components/schemas/DateTime'
           - description: The timestamp when the specified runtime instance of the workflow finished.
-    DateTime:
+    WorkflowType:
       type: string
+      enum:
+      - BUILD
+      - TEST
+      - DISTRIBUTION
+    CallRateLimitExceededException: {}
+    WorkflowExecutionMessage:
+      type: string
+      minLength: 0
+      maxLength: 500
+    ServiceException: {}
     ForbiddenException: {}
-    ClientException: {}
-    WorkflowBuildVersionArn:
-      type: string
-      pattern: ^arn:aws(?:-[a-z]+)*:imagebuilder:[a-z]{2,}(?:-[a-z]+)+-[0-9]+:(?:[0-9]{12}|aws):workflow/(build|test|distribution)/[a-z0-9-_]+/[0-9]+\.[0-9]+\.[0-9]+/[0-9]+$
-      maxLength: 1024
-    NonEmptyString:
-      type: string
-      minLength: 1
-      maxLength: 1024
+    ServiceUnavailableException: {}
     WorkflowExecutionId:
       type: string
       pattern: ^wf-[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$
+    DateTime:
+      type: string
+    ClientException: {}
+    WorkflowExecutionStatus:
+      type: string
+      enum:
+      - PENDING
+      - SKIPPED
+      - RUNNING
+      - COMPLETED
+      - FAILED
+      - ROLLBACK_IN_PROGRESS
+      - ROLLBACK_COMPLETED
   parameters:
     X-Amz-Signature:
       name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
       in: header
       schema:
         type: string
@@ -334,14 +316,32 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Date:
-      name: X-Amz-Date
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
       in: header
       schema:
         type: string
       required: false
     X-Amz-Algorithm:
       name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
       in: header
       schema:
         type: string

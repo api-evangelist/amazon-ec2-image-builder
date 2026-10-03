@@ -203,17 +203,8 @@ paths:
       - GetImagePolicy
 components:
   schemas:
-    ServiceException: {}
-    ResourcePolicyDocument:
-      type: string
-      minLength: 1
-      maxLength: 30000
-    NonEmptyString:
-      type: string
-      minLength: 1
-      maxLength: 1024
-    InvalidRequestException: {}
     ResourceNotFoundException: {}
+    InvalidRequestException: {}
     GetImagePolicyResponse:
       type: object
       properties:
@@ -225,9 +216,18 @@ components:
           allOf:
           - $ref: '#/components/schemas/ResourcePolicyDocument'
           - description: The image policy object.
+    CallRateLimitExceededException: {}
+    ResourcePolicyDocument:
+      type: string
+      minLength: 1
+      maxLength: 30000
+    ServiceException: {}
+    NonEmptyString:
+      type: string
+      minLength: 1
+      maxLength: 1024
     ServiceUnavailableException: {}
     ForbiddenException: {}
-    CallRateLimitExceededException: {}
   parameters:
     X-Amz-Signature:
       name: X-Amz-Signature
@@ -235,14 +235,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
+    X-Amz-Date:
+      name: X-Amz-Date
       in: header
       schema:
         type: string
@@ -259,14 +253,20 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Date:
-      name: X-Amz-Date
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string

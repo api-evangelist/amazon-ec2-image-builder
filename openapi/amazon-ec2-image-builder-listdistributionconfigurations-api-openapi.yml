@@ -239,7 +239,28 @@ paths:
       - ListDistributionConfigurations
 components:
   schemas:
-    ServiceException: {}
+    InvalidRequestException: {}
+    TagValue:
+      type: string
+      maxLength: 256
+    NonEmptyString:
+      type: string
+      minLength: 1
+      maxLength: 1024
+    RegionList:
+      type: array
+      items:
+        $ref: '#/components/schemas/NonEmptyString'
+    TagMap:
+      type: object
+      minProperties: 1
+      maxProperties: 50
+      additionalProperties:
+        $ref: '#/components/schemas/TagValue'
+    PaginationToken:
+      type: string
+      minLength: 1
+      maxLength: 65535
     DistributionConfigurationSummary:
       type: object
       properties:
@@ -272,11 +293,15 @@ components:
           - $ref: '#/components/schemas/RegionList'
           - description: A list of Regions where the container image is distributed to.
       description: A high-level overview of a distribution configuration.
-    ImageBuilderArn:
-      type: string
-      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):(?:image-recipe|container-recipe|infrastructure-configuration|distribution-configuration|component|image|image-pipeline|workflow\/(?:build|test|distribution))/[a-z0-9-_]+(?:/(?:(?:x|[0-9]+)\.(?:x|[0-9]+)\.(?:x|[0-9]+))(?:/[0-9]+)?)?$
     CallRateLimitExceededException: {}
-    ServiceUnavailableException: {}
+    ServiceException: {}
+    FilterValues:
+      type: array
+      items:
+        $ref: '#/components/schemas/FilterValue'
+      minItems: 1
+      maxItems: 10
+    ForbiddenException: {}
     ListDistributionConfigurationsResponse:
       type: object
       properties:
@@ -292,18 +317,6 @@ components:
           allOf:
           - $ref: '#/components/schemas/PaginationToken'
           - description: The next token used for paginated responses. When this field isn't empty, there are additional elements that the service has'ot included in this request. Use this token with the next request to retrieve additional objects.
-    DistributionConfigurationSummaryList:
-      type: array
-      items:
-        $ref: '#/components/schemas/DistributionConfigurationSummary'
-    InvalidRequestException: {}
-    TagValue:
-      type: string
-      maxLength: 256
-    PaginationToken:
-      type: string
-      minLength: 1
-      maxLength: 65535
     Filter:
       type: object
       properties:
@@ -319,34 +332,21 @@ components:
     FilterValue:
       type: string
       pattern: ^[0-9a-zA-Z./_ :-]{1,1024}$
+    InvalidPaginationTokenException: {}
+    ServiceUnavailableException: {}
+    ImageBuilderArn:
+      type: string
+      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):(?:image-recipe|container-recipe|infrastructure-configuration|distribution-configuration|component|image|image-pipeline|workflow\/(?:build|test|distribution))/[a-z0-9-_]+(?:/(?:(?:x|[0-9]+)\.(?:x|[0-9]+)\.(?:x|[0-9]+))(?:/[0-9]+)?)?$
     ResourceName:
       type: string
       pattern: ^[-_A-Za-z-0-9][-_A-Za-z0-9 ]{1,126}[-_A-Za-z-0-9]$
     DateTime:
       type: string
-    ForbiddenException: {}
     ClientException: {}
-    TagMap:
-      type: object
-      minProperties: 1
-      maxProperties: 50
-      additionalProperties:
-        $ref: '#/components/schemas/TagValue'
-    FilterValues:
+    DistributionConfigurationSummaryList:
       type: array
       items:
-        $ref: '#/components/schemas/FilterValue'
-      minItems: 1
-      maxItems: 10
-    NonEmptyString:
-      type: string
-      minLength: 1
-      maxLength: 1024
-    RegionList:
-      type: array
-      items:
-        $ref: '#/components/schemas/NonEmptyString'
-    InvalidPaginationTokenException: {}
+        $ref: '#/components/schemas/DistributionConfigurationSummary'
     FilterName:
       type: string
       pattern: ^[a-zA-Z]{1,1024}$
@@ -357,8 +357,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
@@ -369,26 +369,26 @@ components:
       schema:
         type: string
       required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Credential:
       name: X-Amz-Credential
       in: header
       schema:
         type: string
       required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
       in: header
       schema:
         type: string
       required: false
     X-Amz-Date:
       name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
       in: header
       schema:
         type: string

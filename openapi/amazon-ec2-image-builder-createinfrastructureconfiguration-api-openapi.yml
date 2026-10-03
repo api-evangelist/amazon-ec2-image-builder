@@ -313,15 +313,18 @@ paths:
       - CreateInfrastructureConfiguration
 components:
   schemas:
-    ServiceException: {}
-    ResourceAlreadyExistsException: {}
+    InvalidRequestException: {}
+    InfrastructureConfigurationArn:
+      type: string
+      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):infrastructure-configuration/[a-z0-9-_]+$
+    NonEmptyString:
+      type: string
+      minLength: 1
+      maxLength: 1024
     HttpPutResponseHopLimit:
       type: integer
       minimum: 1
       maximum: 64
-    ServiceQuotaExceededException: {}
-    CallRateLimitExceededException: {}
-    ServiceUnavailableException: {}
     CreateInfrastructureConfigurationResponse:
       type: object
       properties:
@@ -340,30 +343,6 @@ components:
           - $ref: '#/components/schemas/InfrastructureConfigurationArn'
           - description: The Amazon Resource Name (ARN) of the infrastructure configuration that was created by this request.
           example: arn:aws:service:us-east-1:123456789012:resource/example
-    InvalidRequestException: {}
-    InstanceType:
-      type: string
-    TagValue:
-      type: string
-      maxLength: 256
-    IdempotentParameterMismatchException: {}
-    ForbiddenException: {}
-    ClientException: {}
-    InfrastructureConfigurationArn:
-      type: string
-      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):infrastructure-configuration/[a-z0-9-_]+$
-    ResourceInUseException: {}
-    ClientToken:
-      type: string
-      minLength: 1
-      maxLength: 36
-    NonEmptyString:
-      type: string
-      minLength: 1
-      maxLength: 1024
-    HttpTokens:
-      type: string
-      pattern: optional|required
     S3Logs:
       type: object
       properties:
@@ -378,27 +357,30 @@ components:
           - description: The Amazon S3 path to the bucket where the logs are stored.
           example: example-string
       description: Amazon S3 logging configuration.
+    ClientToken:
+      type: string
+      minLength: 1
+      maxLength: 36
+    IdempotentParameterMismatchException: {}
+    CallRateLimitExceededException: {}
+    ServiceException: {}
+    ForbiddenException: {}
+    HttpTokens:
+      type: string
+      pattern: optional|required
+    ResourceAlreadyExistsException: {}
+    ServiceUnavailableException: {}
+    ResourceInUseException: {}
+    ServiceQuotaExceededException: {}
+    ClientException: {}
+    TagValue:
+      type: string
+      maxLength: 256
+    InstanceType:
+      type: string
   parameters:
     X-Amz-Signature:
       name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
       in: header
       schema:
         type: string
@@ -409,14 +391,32 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Date:
-      name: X-Amz-Date
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
       in: header
       schema:
         type: string
       required: false
     X-Amz-Algorithm:
       name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
       in: header
       schema:
         type: string
