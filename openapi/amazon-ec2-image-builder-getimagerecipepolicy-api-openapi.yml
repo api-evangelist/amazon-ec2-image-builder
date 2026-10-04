@@ -203,19 +203,6 @@ paths:
       - GetImageRecipePolicy
 components:
   schemas:
-    ResourceNotFoundException: {}
-    InvalidRequestException: {}
-    ResourcePolicyDocument:
-      type: string
-      minLength: 1
-      maxLength: 30000
-    CallRateLimitExceededException: {}
-    ServiceException: {}
-    NonEmptyString:
-      type: string
-      minLength: 1
-      maxLength: 1024
-    ServiceUnavailableException: {}
     GetImageRecipePolicyResponse:
       type: object
       properties:
@@ -227,22 +214,29 @@ components:
           allOf:
           - $ref: '#/components/schemas/ResourcePolicyDocument'
           - description: The image recipe policy object.
+    ResourcePolicyDocument:
+      type: string
+      minLength: 1
+      maxLength: 30000
+    NonEmptyString:
+      type: string
+      minLength: 1
+      maxLength: 1024
+    ResourceNotFoundException: {}
     ForbiddenException: {}
+    CallRateLimitExceededException: {}
+    ServiceUnavailableException: {}
+    InvalidRequestException: {}
+    ServiceException: {}
   parameters:
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-SignedHeaders:
       name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
       in: header
       schema:
         type: string
@@ -253,20 +247,26 @@ components:
       schema:
         type: string
       required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Security-Token:
       name: X-Amz-Security-Token
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
+    X-Amz-Signature:
+      name: X-Amz-Signature
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
       in: header
       schema:
         type: string

@@ -256,7 +256,75 @@ paths:
       - List Components
 components:
   schemas:
+    ForbiddenException: {}
+    ResourceName:
+      type: string
+      pattern: ^[-_A-Za-z-0-9][-_A-Za-z0-9 ]{1,126}[-_A-Za-z-0-9]$
+    ServiceUnavailableException: {}
     InvalidRequestException: {}
+    ListComponentsResponse:
+      type: object
+      properties:
+        requestId:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The request ID that uniquely identifies this request.
+        componentVersionList:
+          allOf:
+          - $ref: '#/components/schemas/ComponentVersionList'
+          - description: '<p>The list of component semantic versions.</p> <note> <p>The semantic version has four nodes: &lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;/&lt;build&gt;. You can assign values for the first three, and can filter on all of them.</p> </note>'
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/PaginationToken'
+          - description: The next token used for paginated responses. When this field isn't empty, there are additional elements that the service has'ot included in this request. Use this token with the next request to retrieve additional objects.
+    InvalidPaginationTokenException: {}
+    FilterName:
+      type: string
+      pattern: ^[a-zA-Z]{1,1024}$
+    FilterValue:
+      type: string
+      pattern: ^[0-9a-zA-Z./_ :-]{1,1024}$
+    Platform:
+      type: string
+      enum:
+      - Windows
+      - Linux
+    OsVersion:
+      type: string
+      minLength: 1
+    ImageBuilderArn:
+      type: string
+      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):(?:image-recipe|container-recipe|infrastructure-configuration|distribution-configuration|component|image|image-pipeline|workflow\/(?:build|test|distribution))/[a-z0-9-_]+(?:/(?:(?:x|[0-9]+)\.(?:x|[0-9]+)\.(?:x|[0-9]+))(?:/[0-9]+)?)?$
+    ComponentType:
+      type: string
+      enum:
+      - BUILD
+      - TEST
+    Filter:
+      type: object
+      properties:
+        name:
+          allOf:
+          - $ref: '#/components/schemas/FilterName'
+          - description: The name of the filter. Filter names are case-sensitive.
+        values:
+          allOf:
+          - $ref: '#/components/schemas/FilterValues'
+          - description: The filter values. Filter values are case-sensitive.
+      description: A filter name and value pair that is used to return a more specific list of results from a list operation. Filters can be used to match a set of resources by specific criteria, such as tags, attributes, or IDs.
+    PaginationToken:
+      type: string
+      minLength: 1
+      maxLength: 65535
+    VersionNumber:
+      type: string
+      pattern: ^[0-9]+\.[0-9]+\.[0-9]+$
+    OsVersionList:
+      type: array
+      items:
+        $ref: '#/components/schemas/OsVersion'
+      minItems: 1
+      maxItems: 25
     ComponentVersion:
       type: object
       properties:
@@ -297,120 +365,28 @@ components:
           - $ref: '#/components/schemas/DateTime'
           - description: The date that the component was created.
       description: The defining characteristics of a specific version of an Amazon Web Services TOE component.
-    VersionNumber:
-      type: string
-      pattern: ^[0-9]+\.[0-9]+\.[0-9]+$
+    ComponentVersionList:
+      type: array
+      items:
+        $ref: '#/components/schemas/ComponentVersion'
     NonEmptyString:
       type: string
       minLength: 1
       maxLength: 1024
-    PaginationToken:
-      type: string
-      minLength: 1
-      maxLength: 65535
-    ComponentType:
-      type: string
-      enum:
-      - BUILD
-      - TEST
-    Platform:
-      type: string
-      enum:
-      - Windows
-      - Linux
+    ClientException: {}
     CallRateLimitExceededException: {}
     ServiceException: {}
+    DateTime:
+      type: string
     FilterValues:
       type: array
       items:
         $ref: '#/components/schemas/FilterValue'
       minItems: 1
       maxItems: 10
-    ForbiddenException: {}
-    Filter:
-      type: object
-      properties:
-        name:
-          allOf:
-          - $ref: '#/components/schemas/FilterName'
-          - description: The name of the filter. Filter names are case-sensitive.
-        values:
-          allOf:
-          - $ref: '#/components/schemas/FilterValues'
-          - description: The filter values. Filter values are case-sensitive.
-      description: A filter name and value pair that is used to return a more specific list of results from a list operation. Filters can be used to match a set of resources by specific criteria, such as tags, attributes, or IDs.
-    FilterValue:
-      type: string
-      pattern: ^[0-9a-zA-Z./_ :-]{1,1024}$
-    OsVersionList:
-      type: array
-      items:
-        $ref: '#/components/schemas/OsVersion'
-      minItems: 1
-      maxItems: 25
-    InvalidPaginationTokenException: {}
-    ListComponentsResponse:
-      type: object
-      properties:
-        requestId:
-          allOf:
-          - $ref: '#/components/schemas/NonEmptyString'
-          - description: The request ID that uniquely identifies this request.
-        componentVersionList:
-          allOf:
-          - $ref: '#/components/schemas/ComponentVersionList'
-          - description: '<p>The list of component semantic versions.</p> <note> <p>The semantic version has four nodes: &lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;/&lt;build&gt;. You can assign values for the first three, and can filter on all of them.</p> </note>'
-        nextToken:
-          allOf:
-          - $ref: '#/components/schemas/PaginationToken'
-          - description: The next token used for paginated responses. When this field isn't empty, there are additional elements that the service has'ot included in this request. Use this token with the next request to retrieve additional objects.
-    ServiceUnavailableException: {}
-    ImageBuilderArn:
-      type: string
-      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):(?:image-recipe|container-recipe|infrastructure-configuration|distribution-configuration|component|image|image-pipeline|workflow\/(?:build|test|distribution))/[a-z0-9-_]+(?:/(?:(?:x|[0-9]+)\.(?:x|[0-9]+)\.(?:x|[0-9]+))(?:/[0-9]+)?)?$
-    ResourceName:
-      type: string
-      pattern: ^[-_A-Za-z-0-9][-_A-Za-z0-9 ]{1,126}[-_A-Za-z-0-9]$
-    DateTime:
-      type: string
-    ClientException: {}
-    ComponentVersionList:
-      type: array
-      items:
-        $ref: '#/components/schemas/ComponentVersion'
-    FilterName:
-      type: string
-      pattern: ^[a-zA-Z]{1,1024}$
-    OsVersion:
-      type: string
-      minLength: 1
   parameters:
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Security-Token:
       name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
       in: header
       schema:
         type: string
@@ -421,8 +397,32 @@ components:
       schema:
         type: string
       required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Date:
       name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string

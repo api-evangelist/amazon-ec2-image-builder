@@ -253,57 +253,11 @@ paths:
       - List Images
 components:
   schemas:
-    InvalidRequestException: {}
-    ImageSource:
+    ImageType:
       type: string
       enum:
-      - AMAZON_MANAGED
-      - AWS_MARKETPLACE
-      - IMPORTED
-      - CUSTOM
-    VersionNumber:
-      type: string
-      pattern: ^[0-9]+\.[0-9]+\.[0-9]+$
-    NonEmptyString:
-      type: string
-      minLength: 1
-      maxLength: 1024
-    ImageVersionList:
-      type: array
-      items:
-        $ref: '#/components/schemas/ImageVersion'
-    ListImagesResponse:
-      type: object
-      properties:
-        requestId:
-          allOf:
-          - $ref: '#/components/schemas/NonEmptyString'
-          - description: The request ID that uniquely identifies this request.
-        imageVersionList:
-          allOf:
-          - $ref: '#/components/schemas/ImageVersionList'
-          - description: '<p>The list of image semantic versions.</p> <note> <p>The semantic version has four nodes: &lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;/&lt;build&gt;. You can assign values for the first three, and can filter on all of them.</p> <p> <b>Filtering:</b> With semantic versioning, you have the flexibility to use wildcards (x) to specify the most recent versions or nodes when selecting the base image or components for your recipe. When you use a wildcard in any node, all nodes to the right of the first wildcard must also be wildcards.</p> </note>'
-        nextToken:
-          allOf:
-          - $ref: '#/components/schemas/PaginationToken'
-          - description: The next token used for paginated responses. When this field isn't empty, there are additional elements that the service has'ot included in this request. Use this token with the next request to retrieve additional objects.
-    PaginationToken:
-      type: string
-      minLength: 1
-      maxLength: 65535
-    Platform:
-      type: string
-      enum:
-      - Windows
-      - Linux
-    CallRateLimitExceededException: {}
-    ServiceException: {}
-    BuildType:
-      type: string
-      enum:
-      - USER_INITIATED
-      - SCHEDULED
-      - IMPORT
+      - AMI
+      - DOCKER
     ImageVersion:
       type: object
       properties:
@@ -348,18 +302,47 @@ components:
           - $ref: '#/components/schemas/ImageSource'
           - description: The origin of the base image that Image Builder used to build this image.
       description: The defining characteristics of a specific version of an Image Builder image.
-    FilterValues:
-      type: array
-      items:
-        $ref: '#/components/schemas/FilterValue'
-      minItems: 1
-      maxItems: 10
-    ImageType:
+    ForbiddenException: {}
+    ResourceName:
+      type: string
+      pattern: ^[-_A-Za-z-0-9][-_A-Za-z0-9 ]{1,126}[-_A-Za-z-0-9]$
+    ServiceUnavailableException: {}
+    InvalidRequestException: {}
+    InvalidPaginationTokenException: {}
+    FilterName:
+      type: string
+      pattern: ^[a-zA-Z]{1,1024}$
+    FilterValue:
+      type: string
+      pattern: ^[0-9a-zA-Z./_ :-]{1,1024}$
+    Platform:
       type: string
       enum:
-      - AMI
-      - DOCKER
-    ForbiddenException: {}
+      - Windows
+      - Linux
+    OsVersion:
+      type: string
+      minLength: 1
+    ImageBuilderArn:
+      type: string
+      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):(?:image-recipe|container-recipe|infrastructure-configuration|distribution-configuration|component|image|image-pipeline|workflow\/(?:build|test|distribution))/[a-z0-9-_]+(?:/(?:(?:x|[0-9]+)\.(?:x|[0-9]+)\.(?:x|[0-9]+))(?:/[0-9]+)?)?$
+    BuildType:
+      type: string
+      enum:
+      - USER_INITIATED
+      - SCHEDULED
+      - IMPORT
+    ImageSource:
+      type: string
+      enum:
+      - AMAZON_MANAGED
+      - AWS_MARKETPLACE
+      - IMPORTED
+      - CUSTOM
+    ImageVersionList:
+      type: array
+      items:
+        $ref: '#/components/schemas/ImageVersion'
     Filter:
       type: object
       properties:
@@ -372,53 +355,46 @@ components:
           - $ref: '#/components/schemas/FilterValues'
           - description: The filter values. Filter values are case-sensitive.
       description: A filter name and value pair that is used to return a more specific list of results from a list operation. Filters can be used to match a set of resources by specific criteria, such as tags, attributes, or IDs.
-    FilterValue:
-      type: string
-      pattern: ^[0-9a-zA-Z./_ :-]{1,1024}$
-    InvalidPaginationTokenException: {}
-    ServiceUnavailableException: {}
-    ImageBuilderArn:
-      type: string
-      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):(?:image-recipe|container-recipe|infrastructure-configuration|distribution-configuration|component|image|image-pipeline|workflow\/(?:build|test|distribution))/[a-z0-9-_]+(?:/(?:(?:x|[0-9]+)\.(?:x|[0-9]+)\.(?:x|[0-9]+))(?:/[0-9]+)?)?$
-    ResourceName:
-      type: string
-      pattern: ^[-_A-Za-z-0-9][-_A-Za-z0-9 ]{1,126}[-_A-Za-z-0-9]$
-    DateTime:
-      type: string
-    ClientException: {}
-    FilterName:
-      type: string
-      pattern: ^[a-zA-Z]{1,1024}$
-    OsVersion:
+    PaginationToken:
       type: string
       minLength: 1
+      maxLength: 65535
+    VersionNumber:
+      type: string
+      pattern: ^[0-9]+\.[0-9]+\.[0-9]+$
+    NonEmptyString:
+      type: string
+      minLength: 1
+      maxLength: 1024
+    ClientException: {}
+    CallRateLimitExceededException: {}
+    ListImagesResponse:
+      type: object
+      properties:
+        requestId:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The request ID that uniquely identifies this request.
+        imageVersionList:
+          allOf:
+          - $ref: '#/components/schemas/ImageVersionList'
+          - description: '<p>The list of image semantic versions.</p> <note> <p>The semantic version has four nodes: &lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;/&lt;build&gt;. You can assign values for the first three, and can filter on all of them.</p> <p> <b>Filtering:</b> With semantic versioning, you have the flexibility to use wildcards (x) to specify the most recent versions or nodes when selecting the base image or components for your recipe. When you use a wildcard in any node, all nodes to the right of the first wildcard must also be wildcards.</p> </note>'
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/PaginationToken'
+          - description: The next token used for paginated responses. When this field isn't empty, there are additional elements that the service has'ot included in this request. Use this token with the next request to retrieve additional objects.
+    ServiceException: {}
+    DateTime:
+      type: string
+    FilterValues:
+      type: array
+      items:
+        $ref: '#/components/schemas/FilterValue'
+      minItems: 1
+      maxItems: 10
   parameters:
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Security-Token:
       name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
       in: header
       schema:
         type: string
@@ -429,8 +405,32 @@ components:
       schema:
         type: string
       required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Date:
       name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string

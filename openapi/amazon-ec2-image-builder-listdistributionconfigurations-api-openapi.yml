@@ -239,24 +239,53 @@ paths:
       - ListDistributionConfigurations
 components:
   schemas:
+    ListDistributionConfigurationsResponse:
+      type: object
+      properties:
+        requestId:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The request ID that uniquely identifies this request.
+        distributionConfigurationSummaryList:
+          allOf:
+          - $ref: '#/components/schemas/DistributionConfigurationSummaryList'
+          - description: The list of distributions.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/PaginationToken'
+          - description: The next token used for paginated responses. When this field isn't empty, there are additional elements that the service has'ot included in this request. Use this token with the next request to retrieve additional objects.
+    ForbiddenException: {}
+    ResourceName:
+      type: string
+      pattern: ^[-_A-Za-z-0-9][-_A-Za-z0-9 ]{1,126}[-_A-Za-z-0-9]$
+    ServiceUnavailableException: {}
     InvalidRequestException: {}
-    TagValue:
-      type: string
-      maxLength: 256
-    NonEmptyString:
-      type: string
-      minLength: 1
-      maxLength: 1024
     RegionList:
       type: array
       items:
         $ref: '#/components/schemas/NonEmptyString'
-    TagMap:
+    InvalidPaginationTokenException: {}
+    FilterName:
+      type: string
+      pattern: ^[a-zA-Z]{1,1024}$
+    FilterValue:
+      type: string
+      pattern: ^[0-9a-zA-Z./_ :-]{1,1024}$
+    ImageBuilderArn:
+      type: string
+      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):(?:image-recipe|container-recipe|infrastructure-configuration|distribution-configuration|component|image|image-pipeline|workflow\/(?:build|test|distribution))/[a-z0-9-_]+(?:/(?:(?:x|[0-9]+)\.(?:x|[0-9]+)\.(?:x|[0-9]+))(?:/[0-9]+)?)?$
+    Filter:
       type: object
-      minProperties: 1
-      maxProperties: 50
-      additionalProperties:
-        $ref: '#/components/schemas/TagValue'
+      properties:
+        name:
+          allOf:
+          - $ref: '#/components/schemas/FilterName'
+          - description: The name of the filter. Filter names are case-sensitive.
+        values:
+          allOf:
+          - $ref: '#/components/schemas/FilterValues'
+          - description: The filter values. Filter values are case-sensitive.
+      description: A filter name and value pair that is used to return a more specific list of results from a list operation. Filters can be used to match a set of resources by specific criteria, such as tags, attributes, or IDs.
     PaginationToken:
       type: string
       minLength: 1
@@ -293,90 +322,37 @@ components:
           - $ref: '#/components/schemas/RegionList'
           - description: A list of Regions where the container image is distributed to.
       description: A high-level overview of a distribution configuration.
+    DistributionConfigurationSummaryList:
+      type: array
+      items:
+        $ref: '#/components/schemas/DistributionConfigurationSummary'
+    TagMap:
+      type: object
+      minProperties: 1
+      maxProperties: 50
+      additionalProperties:
+        $ref: '#/components/schemas/TagValue'
+    TagValue:
+      type: string
+      maxLength: 256
+    NonEmptyString:
+      type: string
+      minLength: 1
+      maxLength: 1024
+    ClientException: {}
     CallRateLimitExceededException: {}
     ServiceException: {}
+    DateTime:
+      type: string
     FilterValues:
       type: array
       items:
         $ref: '#/components/schemas/FilterValue'
       minItems: 1
       maxItems: 10
-    ForbiddenException: {}
-    ListDistributionConfigurationsResponse:
-      type: object
-      properties:
-        requestId:
-          allOf:
-          - $ref: '#/components/schemas/NonEmptyString'
-          - description: The request ID that uniquely identifies this request.
-        distributionConfigurationSummaryList:
-          allOf:
-          - $ref: '#/components/schemas/DistributionConfigurationSummaryList'
-          - description: The list of distributions.
-        nextToken:
-          allOf:
-          - $ref: '#/components/schemas/PaginationToken'
-          - description: The next token used for paginated responses. When this field isn't empty, there are additional elements that the service has'ot included in this request. Use this token with the next request to retrieve additional objects.
-    Filter:
-      type: object
-      properties:
-        name:
-          allOf:
-          - $ref: '#/components/schemas/FilterName'
-          - description: The name of the filter. Filter names are case-sensitive.
-        values:
-          allOf:
-          - $ref: '#/components/schemas/FilterValues'
-          - description: The filter values. Filter values are case-sensitive.
-      description: A filter name and value pair that is used to return a more specific list of results from a list operation. Filters can be used to match a set of resources by specific criteria, such as tags, attributes, or IDs.
-    FilterValue:
-      type: string
-      pattern: ^[0-9a-zA-Z./_ :-]{1,1024}$
-    InvalidPaginationTokenException: {}
-    ServiceUnavailableException: {}
-    ImageBuilderArn:
-      type: string
-      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):(?:image-recipe|container-recipe|infrastructure-configuration|distribution-configuration|component|image|image-pipeline|workflow\/(?:build|test|distribution))/[a-z0-9-_]+(?:/(?:(?:x|[0-9]+)\.(?:x|[0-9]+)\.(?:x|[0-9]+))(?:/[0-9]+)?)?$
-    ResourceName:
-      type: string
-      pattern: ^[-_A-Za-z-0-9][-_A-Za-z0-9 ]{1,126}[-_A-Za-z-0-9]$
-    DateTime:
-      type: string
-    ClientException: {}
-    DistributionConfigurationSummaryList:
-      type: array
-      items:
-        $ref: '#/components/schemas/DistributionConfigurationSummary'
-    FilterName:
-      type: string
-      pattern: ^[a-zA-Z]{1,1024}$
   parameters:
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Security-Token:
       name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
       in: header
       schema:
         type: string
@@ -387,8 +363,32 @@ components:
       schema:
         type: string
       required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Date:
       name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string

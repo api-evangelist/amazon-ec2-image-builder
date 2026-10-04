@@ -202,35 +202,15 @@ paths:
       tags:
       - GetImagePolicy
 components:
-  schemas:
-    ResourceNotFoundException: {}
-    InvalidRequestException: {}
-    GetImagePolicyResponse:
-      type: object
-      properties:
-        requestId:
-          allOf:
-          - $ref: '#/components/schemas/NonEmptyString'
-          - description: The request ID that uniquely identifies this request.
-        policy:
-          allOf:
-          - $ref: '#/components/schemas/ResourcePolicyDocument'
-          - description: The image policy object.
-    CallRateLimitExceededException: {}
-    ResourcePolicyDocument:
-      type: string
-      minLength: 1
-      maxLength: 30000
-    ServiceException: {}
-    NonEmptyString:
-      type: string
-      minLength: 1
-      maxLength: 1024
-    ServiceUnavailableException: {}
-    ForbiddenException: {}
   parameters:
-    X-Amz-Signature:
-      name: X-Amz-Signature
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
@@ -247,14 +227,14 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
+    X-Amz-Signature:
+      name: X-Amz-Signature
       in: header
       schema:
         type: string
@@ -265,12 +245,32 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
+  schemas:
+    ResourcePolicyDocument:
+      type: string
+      minLength: 1
+      maxLength: 30000
+    NonEmptyString:
+      type: string
+      minLength: 1
+      maxLength: 1024
+    ResourceNotFoundException: {}
+    ForbiddenException: {}
+    CallRateLimitExceededException: {}
+    ServiceUnavailableException: {}
+    InvalidRequestException: {}
+    ServiceException: {}
+    GetImagePolicyResponse:
+      type: object
+      properties:
+        requestId:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The request ID that uniquely identifies this request.
+        policy:
+          allOf:
+          - $ref: '#/components/schemas/ResourcePolicyDocument'
+          - description: The image policy object.
   securitySchemes:
     hmac:
       type: apiKey

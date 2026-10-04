@@ -247,7 +247,10 @@ paths:
       - ListImageRecipes
 components:
   schemas:
-    InvalidRequestException: {}
+    ForbiddenException: {}
+    ResourceName:
+      type: string
+      pattern: ^[-_A-Za-z-0-9][-_A-Za-z0-9 ]{1,126}[-_A-Za-z-0-9]$
     ListImageRecipesResponse:
       type: object
       properties:
@@ -263,38 +266,6 @@ components:
           allOf:
           - $ref: '#/components/schemas/PaginationToken'
           - description: The next token used for paginated responses. When this field isn't empty, there are additional elements that the service has'ot included in this request. Use this token with the next request to retrieve additional objects.
-    NonEmptyString:
-      type: string
-      minLength: 1
-      maxLength: 1024
-    TagMap:
-      type: object
-      minProperties: 1
-      maxProperties: 50
-      additionalProperties:
-        $ref: '#/components/schemas/TagValue'
-    PaginationToken:
-      type: string
-      minLength: 1
-      maxLength: 65535
-    Platform:
-      type: string
-      enum:
-      - Windows
-      - Linux
-    CallRateLimitExceededException: {}
-    ImageRecipeSummaryList:
-      type: array
-      items:
-        $ref: '#/components/schemas/ImageRecipeSummary'
-    ServiceException: {}
-    FilterValues:
-      type: array
-      items:
-        $ref: '#/components/schemas/FilterValue'
-      minItems: 1
-      maxItems: 10
-    ForbiddenException: {}
     ImageRecipeSummary:
       type: object
       properties:
@@ -327,6 +298,23 @@ components:
           - $ref: '#/components/schemas/TagMap'
           - description: The tags of the image recipe.
       description: A summary of an image recipe.
+    ServiceUnavailableException: {}
+    InvalidRequestException: {}
+    InvalidPaginationTokenException: {}
+    FilterName:
+      type: string
+      pattern: ^[a-zA-Z]{1,1024}$
+    FilterValue:
+      type: string
+      pattern: ^[0-9a-zA-Z./_ :-]{1,1024}$
+    Platform:
+      type: string
+      enum:
+      - Windows
+      - Linux
+    ImageBuilderArn:
+      type: string
+      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):(?:image-recipe|container-recipe|infrastructure-configuration|distribution-configuration|component|image|image-pipeline|workflow\/(?:build|test|distribution))/[a-z0-9-_]+(?:/(?:(?:x|[0-9]+)\.(?:x|[0-9]+)\.(?:x|[0-9]+))(?:/[0-9]+)?)?$
     Filter:
       type: object
       properties:
@@ -339,53 +327,41 @@ components:
           - $ref: '#/components/schemas/FilterValues'
           - description: The filter values. Filter values are case-sensitive.
       description: A filter name and value pair that is used to return a more specific list of results from a list operation. Filters can be used to match a set of resources by specific criteria, such as tags, attributes, or IDs.
-    FilterValue:
+    PaginationToken:
       type: string
-      pattern: ^[0-9a-zA-Z./_ :-]{1,1024}$
-    InvalidPaginationTokenException: {}
-    ServiceUnavailableException: {}
-    ImageBuilderArn:
-      type: string
-      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):(?:image-recipe|container-recipe|infrastructure-configuration|distribution-configuration|component|image|image-pipeline|workflow\/(?:build|test|distribution))/[a-z0-9-_]+(?:/(?:(?:x|[0-9]+)\.(?:x|[0-9]+)\.(?:x|[0-9]+))(?:/[0-9]+)?)?$
-    ResourceName:
-      type: string
-      pattern: ^[-_A-Za-z-0-9][-_A-Za-z0-9 ]{1,126}[-_A-Za-z-0-9]$
-    DateTime:
-      type: string
-    ClientException: {}
+      minLength: 1
+      maxLength: 65535
+    TagMap:
+      type: object
+      minProperties: 1
+      maxProperties: 50
+      additionalProperties:
+        $ref: '#/components/schemas/TagValue'
     TagValue:
       type: string
       maxLength: 256
-    FilterName:
+    NonEmptyString:
       type: string
-      pattern: ^[a-zA-Z]{1,1024}$
+      minLength: 1
+      maxLength: 1024
+    ClientException: {}
+    CallRateLimitExceededException: {}
+    ImageRecipeSummaryList:
+      type: array
+      items:
+        $ref: '#/components/schemas/ImageRecipeSummary'
+    ServiceException: {}
+    DateTime:
+      type: string
+    FilterValues:
+      type: array
+      items:
+        $ref: '#/components/schemas/FilterValue'
+      minItems: 1
+      maxItems: 10
   parameters:
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Security-Token:
       name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
       in: header
       schema:
         type: string
@@ -396,8 +372,32 @@ components:
       schema:
         type: string
       required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Date:
       name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string

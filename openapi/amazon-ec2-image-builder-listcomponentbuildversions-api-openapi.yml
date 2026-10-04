@@ -244,26 +244,19 @@ paths:
       - ListComponentBuildVersions
 components:
   schemas:
-    InvalidRequestException: {}
-    Boolean:
-      type: boolean
-    VersionNumber:
-      type: string
-      pattern: ^[0-9]+\.[0-9]+\.[0-9]+$
-    NonEmptyString:
-      type: string
-      minLength: 1
-      maxLength: 1024
-    TagMap:
+    ComponentState:
       type: object
-      minProperties: 1
-      maxProperties: 50
-      additionalProperties:
-        $ref: '#/components/schemas/TagValue'
-    PaginationToken:
-      type: string
-      minLength: 1
-      maxLength: 65535
+      properties:
+        status:
+          allOf:
+          - $ref: '#/components/schemas/ComponentStatus'
+          - description: The current state of the component.
+        reason:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: Describes how or why the component changed state.
+      description: A group of fields that describe the current status of components that are no longer active.
+    ForbiddenException: {}
     ComponentSummary:
       type: object
       properties:
@@ -324,56 +317,9 @@ components:
           - $ref: '#/components/schemas/Boolean'
           - description: Indicates whether component source is hidden from view in the console, and from component detail results for API, CLI, or SDK operations.
       description: A high-level summary of a component.
-    ComponentType:
-      type: string
-      enum:
-      - BUILD
-      - TEST
-    Platform:
-      type: string
-      enum:
-      - Windows
-      - Linux
-    CallRateLimitExceededException: {}
-    ServiceException: {}
-    ComponentState:
-      type: object
-      properties:
-        status:
-          allOf:
-          - $ref: '#/components/schemas/ComponentStatus'
-          - description: The current state of the component.
-        reason:
-          allOf:
-          - $ref: '#/components/schemas/NonEmptyString'
-          - description: Describes how or why the component changed state.
-      description: A group of fields that describe the current status of components that are no longer active.
-    ForbiddenException: {}
-    InvalidPaginationTokenException: {}
-    OsVersionList:
-      type: array
-      items:
-        $ref: '#/components/schemas/OsVersion'
-      minItems: 1
-      maxItems: 25
-    ServiceUnavailableException: {}
-    ImageBuilderArn:
-      type: string
-      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):(?:image-recipe|container-recipe|infrastructure-configuration|distribution-configuration|component|image|image-pipeline|workflow\/(?:build|test|distribution))/[a-z0-9-_]+(?:/(?:(?:x|[0-9]+)\.(?:x|[0-9]+)\.(?:x|[0-9]+))(?:/[0-9]+)?)?$
     ResourceName:
       type: string
       pattern: ^[-_A-Za-z-0-9][-_A-Za-z0-9 ]{1,126}[-_A-Za-z-0-9]$
-    ComponentSummaryList:
-      type: array
-      items:
-        $ref: '#/components/schemas/ComponentSummary'
-    DateTime:
-      type: string
-    ComponentStatus:
-      type: string
-      enum:
-      - DEPRECATED
-    ClientException: {}
     ListComponentBuildVersionsResponse:
       type: object
       properties:
@@ -389,39 +335,69 @@ components:
           allOf:
           - $ref: '#/components/schemas/PaginationToken'
           - description: The next token used for paginated responses. When this field isn't empty, there are additional elements that the service has'ot included in this request. Use this token with the next request to retrieve additional objects.
-    TagValue:
+    ServiceUnavailableException: {}
+    InvalidRequestException: {}
+    InvalidPaginationTokenException: {}
+    Platform:
       type: string
-      maxLength: 256
+      enum:
+      - Windows
+      - Linux
     OsVersion:
       type: string
       minLength: 1
+    ComponentSummaryList:
+      type: array
+      items:
+        $ref: '#/components/schemas/ComponentSummary'
+    ImageBuilderArn:
+      type: string
+      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):(?:image-recipe|container-recipe|infrastructure-configuration|distribution-configuration|component|image|image-pipeline|workflow\/(?:build|test|distribution))/[a-z0-9-_]+(?:/(?:(?:x|[0-9]+)\.(?:x|[0-9]+)\.(?:x|[0-9]+))(?:/[0-9]+)?)?$
+    ComponentType:
+      type: string
+      enum:
+      - BUILD
+      - TEST
+    PaginationToken:
+      type: string
+      minLength: 1
+      maxLength: 65535
+    TagMap:
+      type: object
+      minProperties: 1
+      maxProperties: 50
+      additionalProperties:
+        $ref: '#/components/schemas/TagValue'
+    VersionNumber:
+      type: string
+      pattern: ^[0-9]+\.[0-9]+\.[0-9]+$
+    TagValue:
+      type: string
+      maxLength: 256
+    OsVersionList:
+      type: array
+      items:
+        $ref: '#/components/schemas/OsVersion'
+      minItems: 1
+      maxItems: 25
+    ComponentStatus:
+      type: string
+      enum:
+      - DEPRECATED
+    NonEmptyString:
+      type: string
+      minLength: 1
+      maxLength: 1024
+    Boolean:
+      type: boolean
+    ClientException: {}
+    CallRateLimitExceededException: {}
+    ServiceException: {}
+    DateTime:
+      type: string
   parameters:
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Security-Token:
       name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
       in: header
       schema:
         type: string
@@ -432,8 +408,32 @@ components:
       schema:
         type: string
       required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Date:
       name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string

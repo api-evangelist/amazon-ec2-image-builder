@@ -203,258 +203,6 @@ paths:
       - GetDistributionConfiguration
 components:
   schemas:
-    InvalidRequestException: {}
-    ContainerRepositoryService:
-      type: string
-      enum:
-      - ECR
-    LaunchTemplateId:
-      type: string
-      pattern: ^lt-[a-z0-9-_]{17}$
-    Boolean:
-      type: boolean
-    NonEmptyString:
-      type: string
-      minLength: 1
-      maxLength: 1024
-    FastLaunchConfigurationList:
-      type: array
-      items:
-        $ref: '#/components/schemas/FastLaunchConfiguration'
-      minItems: 1
-      maxItems: 1000
-    OrganizationalUnitArnList:
-      type: array
-      items:
-        $ref: '#/components/schemas/OrganizationalUnitArn'
-      minItems: 1
-      maxItems: 25
-    TagMap:
-      type: object
-      minProperties: 1
-      maxProperties: 50
-      additionalProperties:
-        $ref: '#/components/schemas/TagValue'
-    DiskImageFormat:
-      type: string
-      enum:
-      - VMDK
-      - RAW
-      - VHD
-    OrganizationalUnitArn:
-      type: string
-      pattern: ^arn:aws[^:]*:organizations::[0-9]{12}:ou/o-[a-z0-9]{10,32}/ou-[0-9a-z]{4,32}-[0-9a-z]{8,32}
-    AccountList:
-      type: array
-      items:
-        $ref: '#/components/schemas/AccountId'
-      minItems: 1
-      maxItems: 1536
-    CallRateLimitExceededException: {}
-    ServiceException: {}
-    DistributionConfiguration:
-      type: object
-      required:
-      - timeoutMinutes
-      properties:
-        arn:
-          allOf:
-          - $ref: '#/components/schemas/ImageBuilderArn'
-          - description: The Amazon Resource Name (ARN) of the distribution configuration.
-        name:
-          allOf:
-          - $ref: '#/components/schemas/ResourceName'
-          - description: The name of the distribution configuration.
-        description:
-          allOf:
-          - $ref: '#/components/schemas/NonEmptyString'
-          - description: The description of the distribution configuration.
-        distributions:
-          allOf:
-          - $ref: '#/components/schemas/DistributionList'
-          - description: The distribution objects that apply Region-specific settings for the deployment of the image to targeted Regions.
-        timeoutMinutes:
-          allOf:
-          - $ref: '#/components/schemas/DistributionTimeoutMinutes'
-          - description: The maximum duration in minutes for this distribution configuration.
-        dateCreated:
-          allOf:
-          - $ref: '#/components/schemas/DateTime'
-          - description: The date on which this distribution configuration was created.
-        dateUpdated:
-          allOf:
-          - $ref: '#/components/schemas/DateTime'
-          - description: The date on which this distribution configuration was last updated.
-        tags:
-          allOf:
-          - $ref: '#/components/schemas/TagMap'
-          - description: The tags of the distribution configuration.
-      description: A distribution configuration.
-    StringList:
-      type: array
-      items:
-        $ref: '#/components/schemas/NonEmptyString'
-    LaunchPermissionConfiguration:
-      type: object
-      properties:
-        userIds:
-          allOf:
-          - $ref: '#/components/schemas/AccountList'
-          - description: The Amazon Web Services account ID.
-        userGroups:
-          allOf:
-          - $ref: '#/components/schemas/StringList'
-          - description: The name of the group.
-        organizationArns:
-          allOf:
-          - $ref: '#/components/schemas/OrganizationArnList'
-          - description: The ARN for an Amazon Web Services Organization that you want to share your AMI with. For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html">What is Organizations?</a>.
-        organizationalUnitArns:
-          allOf:
-          - $ref: '#/components/schemas/OrganizationalUnitArnList'
-          - description: The ARN for an Organizations organizational unit (OU) that you want to share your AMI with. For more information about key concepts for Organizations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html">Organizations terminology and concepts</a>.
-      description: Describes the configuration for a launch permission. The launch permission modification request is sent to the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyImageAttribute.html">Amazon EC2 ModifyImageAttribute</a> API on behalf of the user for each Region they have selected to distribute the AMI. To make an AMI public, set the launch permission authorized accounts to <code>all</code>. See the examples for making an AMI public at <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyImageAttribute.html">Amazon EC2 ModifyImageAttribute</a>.
-    ForbiddenException: {}
-    LicenseConfigurationArnList:
-      type: array
-      items:
-        $ref: '#/components/schemas/LicenseConfigurationArn'
-      minItems: 1
-      maxItems: 50
-    FastLaunchConfiguration:
-      type: object
-      required:
-      - enabled
-      properties:
-        enabled:
-          allOf:
-          - $ref: '#/components/schemas/Boolean'
-          - description: A Boolean that represents the current state of faster launching for the Windows AMI. Set to <code>true</code> to start using Windows faster launching, or <code>false</code> to stop using it.
-        snapshotConfiguration:
-          allOf:
-          - $ref: '#/components/schemas/FastLaunchSnapshotConfiguration'
-          - description: Configuration settings for managing the number of snapshots that are created from pre-provisioned instances for the Windows AMI when faster launching is enabled.
-        maxParallelLaunches:
-          allOf:
-          - $ref: '#/components/schemas/MaxParallelLaunches'
-          - description: The maximum number of parallel instances that are launched for creating resources.
-        launchTemplate:
-          allOf:
-          - $ref: '#/components/schemas/FastLaunchLaunchTemplateSpecification'
-          - description: The launch template that the fast-launch enabled Windows AMI uses when it launches Windows instances to create pre-provisioned snapshots.
-        accountId:
-          allOf:
-          - $ref: '#/components/schemas/AccountId'
-          - description: The owner account ID for the fast-launch enabled Windows AMI.
-      description: Define and configure faster launching for output Windows AMIs.
-    MaxParallelLaunches:
-      type: integer
-      minimum: 1
-      maximum: 10000
-    TargetContainerRepository:
-      type: object
-      required:
-      - service
-      - repositoryName
-      properties:
-        service:
-          allOf:
-          - $ref: '#/components/schemas/ContainerRepositoryService'
-          - description: Specifies the service in which this image was registered.
-        repositoryName:
-          allOf:
-          - $ref: '#/components/schemas/NonEmptyString'
-          - description: The name of the container repository where the output container image is stored. This name is prefixed by the repository location.
-      description: The container repository where the output container image is stored.
-    FastLaunchLaunchTemplateSpecification:
-      type: object
-      properties:
-        launchTemplateId:
-          allOf:
-          - $ref: '#/components/schemas/LaunchTemplateId'
-          - description: The ID of the launch template to use for faster launching for a Windows AMI.
-        launchTemplateName:
-          allOf:
-          - $ref: '#/components/schemas/NonEmptyString'
-          - description: The name of the launch template to use for faster launching for a Windows AMI.
-        launchTemplateVersion:
-          allOf:
-          - $ref: '#/components/schemas/NonEmptyString'
-          - description: The version of the launch template to use for faster launching for a Windows AMI.
-      description: <p>Identifies the launch template that the associated Windows AMI uses for launching an instance when faster launching is enabled.</p> <note> <p>You can specify either the <code>launchTemplateName</code> or the <code>launchTemplateId</code>, but not both.</p> </note>
-    ServiceUnavailableException: {}
-    ImageBuilderArn:
-      type: string
-      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):(?:image-recipe|container-recipe|infrastructure-configuration|distribution-configuration|component|image|image-pipeline|workflow\/(?:build|test|distribution))/[a-z0-9-_]+(?:/(?:(?:x|[0-9]+)\.(?:x|[0-9]+)\.(?:x|[0-9]+))(?:/[0-9]+)?)?$
-    AmiDistributionConfiguration:
-      type: object
-      properties:
-        name:
-          allOf:
-          - $ref: '#/components/schemas/AmiNameString'
-          - description: The name of the output AMI.
-        description:
-          allOf:
-          - $ref: '#/components/schemas/NonEmptyString'
-          - description: The description of the AMI distribution configuration. Minimum and maximum length are in characters.
-        targetAccountIds:
-          allOf:
-          - $ref: '#/components/schemas/AccountList'
-          - description: The ID of an account to which you want to distribute an image.
-        amiTags:
-          allOf:
-          - $ref: '#/components/schemas/TagMap'
-          - description: The tags to apply to AMIs distributed to this Region.
-        kmsKeyId:
-          allOf:
-          - $ref: '#/components/schemas/NonEmptyString'
-          - description: The KMS key identifier used to encrypt the distributed image.
-        launchPermission:
-          allOf:
-          - $ref: '#/components/schemas/LaunchPermissionConfiguration'
-          - description: Launch permissions can be used to configure which Amazon Web Services accounts can use the AMI to launch instances.
-      description: Define and configure the output AMIs of the pipeline.
-    FastLaunchSnapshotConfiguration:
-      type: object
-      properties:
-        targetResourceCount:
-          allOf:
-          - $ref: '#/components/schemas/TargetResourceCount'
-          - description: The number of pre-provisioned snapshots to keep on hand for a fast-launch enabled Windows AMI.
-      description: Configuration settings for creating and managing pre-provisioned snapshots for a fast-launch enabled Windows AMI.
-    ResourceName:
-      type: string
-      pattern: ^[-_A-Za-z-0-9][-_A-Za-z0-9 ]{1,126}[-_A-Za-z-0-9]$
-    DateTime:
-      type: string
-    AccountId:
-      type: string
-      pattern: ^[0-9]{12}$
-    LaunchTemplateConfiguration:
-      type: object
-      required:
-      - launchTemplateId
-      properties:
-        launchTemplateId:
-          allOf:
-          - $ref: '#/components/schemas/LaunchTemplateId'
-          - description: Identifies the Amazon EC2 launch template to use.
-        accountId:
-          allOf:
-          - $ref: '#/components/schemas/AccountId'
-          - description: The account ID that this configuration applies to.
-        setDefaultVersion:
-          allOf:
-          - $ref: '#/components/schemas/Boolean'
-          - description: Set the specified Amazon EC2 launch template as the default launch template for the specified account.
-      description: Identifies an Amazon EC2 launch template to use for a specific account.
-    DistributionTimeoutMinutes:
-      type: integer
-      minimum: 30
-      maximum: 720
-    OrganizationArn:
-      type: string
-      pattern: ^arn:aws[^:]*:organizations::[0-9]{12}:organization/o-[a-z0-9]{10,32}$
     Distribution:
       type: object
       required:
@@ -496,33 +244,187 @@ components:
           - description: The Windows faster-launching configurations to use for AMI distribution.
           example: example-string
       description: Defines the settings for a specific Region.
-    ClientException: {}
-    ContainerDistributionConfiguration:
+    LaunchTemplateConfiguration:
       type: object
       required:
-      - targetRepository
+      - launchTemplateId
       properties:
+        launchTemplateId:
+          allOf:
+          - $ref: '#/components/schemas/LaunchTemplateId'
+          - description: Identifies the Amazon EC2 launch template to use.
+        accountId:
+          allOf:
+          - $ref: '#/components/schemas/AccountId'
+          - description: The account ID that this configuration applies to.
+        setDefaultVersion:
+          allOf:
+          - $ref: '#/components/schemas/Boolean'
+          - description: Set the specified Amazon EC2 launch template as the default launch template for the specified account.
+      description: Identifies an Amazon EC2 launch template to use for a specific account.
+    AmiNameString:
+      type: string
+      pattern: ^[-_A-Za-z0-9{][-_A-Za-z0-9\s:{}\.]+[-_A-Za-z0-9}]$
+      minLength: 1
+      maxLength: 127
+    ForbiddenException: {}
+    OrganizationArnList:
+      type: array
+      items:
+        $ref: '#/components/schemas/OrganizationArn'
+      minItems: 1
+      maxItems: 25
+    AmiDistributionConfiguration:
+      type: object
+      properties:
+        name:
+          allOf:
+          - $ref: '#/components/schemas/AmiNameString'
+          - description: The name of the output AMI.
         description:
           allOf:
           - $ref: '#/components/schemas/NonEmptyString'
-          - description: The description of the container distribution configuration.
-        containerTags:
+          - description: The description of the AMI distribution configuration. Minimum and maximum length are in characters.
+        targetAccountIds:
           allOf:
-          - $ref: '#/components/schemas/StringList'
-          - description: Tags that are attached to the container distribution configuration.
-        targetRepository:
+          - $ref: '#/components/schemas/AccountList'
+          - description: The ID of an account to which you want to distribute an image.
+        amiTags:
           allOf:
-          - $ref: '#/components/schemas/TargetContainerRepository'
-          - description: The destination repository for the container distribution configuration.
-      description: Container distribution settings for encryption, licensing, and sharing in a specific Region.
-    TargetResourceCount:
-      type: integer
-      minimum: 1
-      maximum: 10000
+          - $ref: '#/components/schemas/TagMap'
+          - description: The tags to apply to AMIs distributed to this Region.
+        kmsKeyId:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The KMS key identifier used to encrypt the distributed image.
+        launchPermission:
+          allOf:
+          - $ref: '#/components/schemas/LaunchPermissionConfiguration'
+          - description: Launch permissions can be used to configure which Amazon Web Services accounts can use the AMI to launch instances.
+      description: Define and configure the output AMIs of the pipeline.
+    ResourceName:
+      type: string
+      pattern: ^[-_A-Za-z-0-9][-_A-Za-z0-9 ]{1,126}[-_A-Za-z-0-9]$
+    ServiceUnavailableException: {}
+    LicenseConfigurationArnList:
+      type: array
+      items:
+        $ref: '#/components/schemas/LicenseConfigurationArn'
+      minItems: 1
+      maxItems: 50
+    InvalidRequestException: {}
+    FastLaunchConfigurationList:
+      type: array
+      items:
+        $ref: '#/components/schemas/FastLaunchConfiguration'
+      minItems: 1
+      maxItems: 1000
+    TargetContainerRepository:
+      type: object
+      required:
+      - service
+      - repositoryName
+      properties:
+        service:
+          allOf:
+          - $ref: '#/components/schemas/ContainerRepositoryService'
+          - description: Specifies the service in which this image was registered.
+        repositoryName:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The name of the container repository where the output container image is stored. This name is prefixed by the repository location.
+      description: The container repository where the output container image is stored.
+    AccountId:
+      type: string
+      pattern: ^[0-9]{12}$
+    StringList:
+      type: array
+      items:
+        $ref: '#/components/schemas/NonEmptyString'
+    OrganizationArn:
+      type: string
+      pattern: ^arn:aws[^:]*:organizations::[0-9]{12}:organization/o-[a-z0-9]{10,32}$
+    LicenseConfigurationArn:
+      type: string
+      pattern: ^arn:aws[^:]*:license-manager:[^:]+:[0-9]{12}:license-configuration:lic-[a-z0-9-_]{32}$
+    DistributionConfiguration:
+      type: object
+      required:
+      - timeoutMinutes
+      properties:
+        arn:
+          allOf:
+          - $ref: '#/components/schemas/ImageBuilderArn'
+          - description: The Amazon Resource Name (ARN) of the distribution configuration.
+        name:
+          allOf:
+          - $ref: '#/components/schemas/ResourceName'
+          - description: The name of the distribution configuration.
+        description:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The description of the distribution configuration.
+        distributions:
+          allOf:
+          - $ref: '#/components/schemas/DistributionList'
+          - description: The distribution objects that apply Region-specific settings for the deployment of the image to targeted Regions.
+        timeoutMinutes:
+          allOf:
+          - $ref: '#/components/schemas/DistributionTimeoutMinutes'
+          - description: The maximum duration in minutes for this distribution configuration.
+        dateCreated:
+          allOf:
+          - $ref: '#/components/schemas/DateTime'
+          - description: The date on which this distribution configuration was created.
+        dateUpdated:
+          allOf:
+          - $ref: '#/components/schemas/DateTime'
+          - description: The date on which this distribution configuration was last updated.
+        tags:
+          allOf:
+          - $ref: '#/components/schemas/TagMap'
+          - description: The tags of the distribution configuration.
+      description: A distribution configuration.
     DistributionList:
       type: array
       items:
         $ref: '#/components/schemas/Distribution'
+    LaunchTemplateId:
+      type: string
+      pattern: ^lt-[a-z0-9-_]{17}$
+    DistributionTimeoutMinutes:
+      type: integer
+      minimum: 30
+      maximum: 720
+    FastLaunchConfiguration:
+      type: object
+      required:
+      - enabled
+      properties:
+        enabled:
+          allOf:
+          - $ref: '#/components/schemas/Boolean'
+          - description: A Boolean that represents the current state of faster launching for the Windows AMI. Set to <code>true</code> to start using Windows faster launching, or <code>false</code> to stop using it.
+        snapshotConfiguration:
+          allOf:
+          - $ref: '#/components/schemas/FastLaunchSnapshotConfiguration'
+          - description: Configuration settings for managing the number of snapshots that are created from pre-provisioned instances for the Windows AMI when faster launching is enabled.
+        maxParallelLaunches:
+          allOf:
+          - $ref: '#/components/schemas/MaxParallelLaunches'
+          - description: The maximum number of parallel instances that are launched for creating resources.
+        launchTemplate:
+          allOf:
+          - $ref: '#/components/schemas/FastLaunchLaunchTemplateSpecification'
+          - description: The launch template that the fast-launch enabled Windows AMI uses when it launches Windows instances to create pre-provisioned snapshots.
+        accountId:
+          allOf:
+          - $ref: '#/components/schemas/AccountId'
+          - description: The owner account ID for the fast-launch enabled Windows AMI.
+      description: Define and configure faster launching for output Windows AMIs.
+    ImageBuilderArn:
+      type: string
+      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):(?:image-recipe|container-recipe|infrastructure-configuration|distribution-configuration|component|image|image-pipeline|workflow\/(?:build|test|distribution))/[a-z0-9-_]+(?:/(?:(?:x|[0-9]+)\.(?:x|[0-9]+)\.(?:x|[0-9]+))(?:/[0-9]+)?)?$
     S3ExportConfiguration:
       type: object
       required:
@@ -547,26 +449,111 @@ components:
           - $ref: '#/components/schemas/NonEmptyString'
           - description: The Amazon S3 path for the bucket where the output disk images for your VM are stored.
       description: Properties that configure export from your build instance to a compatible file format for your VM.
-    AmiNameString:
+    ContainerRepositoryService:
       type: string
-      pattern: ^[-_A-Za-z0-9{][-_A-Za-z0-9\s:{}\.]+[-_A-Za-z0-9}]$
-      minLength: 1
-      maxLength: 127
-    TagValue:
-      type: string
-      maxLength: 256
-    OrganizationArnList:
-      type: array
-      items:
-        $ref: '#/components/schemas/OrganizationArn'
-      minItems: 1
-      maxItems: 25
+      enum:
+      - ECR
+    FastLaunchLaunchTemplateSpecification:
+      type: object
+      properties:
+        launchTemplateId:
+          allOf:
+          - $ref: '#/components/schemas/LaunchTemplateId'
+          - description: The ID of the launch template to use for faster launching for a Windows AMI.
+        launchTemplateName:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The name of the launch template to use for faster launching for a Windows AMI.
+        launchTemplateVersion:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The version of the launch template to use for faster launching for a Windows AMI.
+      description: <p>Identifies the launch template that the associated Windows AMI uses for launching an instance when faster launching is enabled.</p> <note> <p>You can specify either the <code>launchTemplateName</code> or the <code>launchTemplateId</code>, but not both.</p> </note>
+    TargetResourceCount:
+      type: integer
+      minimum: 1
+      maximum: 10000
+    LaunchPermissionConfiguration:
+      type: object
+      properties:
+        userIds:
+          allOf:
+          - $ref: '#/components/schemas/AccountList'
+          - description: The Amazon Web Services account ID.
+        userGroups:
+          allOf:
+          - $ref: '#/components/schemas/StringList'
+          - description: The name of the group.
+        organizationArns:
+          allOf:
+          - $ref: '#/components/schemas/OrganizationArnList'
+          - description: The ARN for an Amazon Web Services Organization that you want to share your AMI with. For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html">What is Organizations?</a>.
+        organizationalUnitArns:
+          allOf:
+          - $ref: '#/components/schemas/OrganizationalUnitArnList'
+          - description: The ARN for an Organizations organizational unit (OU) that you want to share your AMI with. For more information about key concepts for Organizations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html">Organizations terminology and concepts</a>.
+      description: Describes the configuration for a launch permission. The launch permission modification request is sent to the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyImageAttribute.html">Amazon EC2 ModifyImageAttribute</a> API on behalf of the user for each Region they have selected to distribute the AMI. To make an AMI public, set the launch permission authorized accounts to <code>all</code>. See the examples for making an AMI public at <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyImageAttribute.html">Amazon EC2 ModifyImageAttribute</a>.
     LaunchTemplateConfigurationList:
       type: array
       items:
         $ref: '#/components/schemas/LaunchTemplateConfiguration'
       minItems: 1
       maxItems: 100
+    TagMap:
+      type: object
+      minProperties: 1
+      maxProperties: 50
+      additionalProperties:
+        $ref: '#/components/schemas/TagValue'
+    OrganizationalUnitArnList:
+      type: array
+      items:
+        $ref: '#/components/schemas/OrganizationalUnitArn'
+      minItems: 1
+      maxItems: 25
+    TagValue:
+      type: string
+      maxLength: 256
+    AccountList:
+      type: array
+      items:
+        $ref: '#/components/schemas/AccountId'
+      minItems: 1
+      maxItems: 1536
+    NonEmptyString:
+      type: string
+      minLength: 1
+      maxLength: 1024
+    ContainerDistributionConfiguration:
+      type: object
+      required:
+      - targetRepository
+      properties:
+        description:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The description of the container distribution configuration.
+        containerTags:
+          allOf:
+          - $ref: '#/components/schemas/StringList'
+          - description: Tags that are attached to the container distribution configuration.
+        targetRepository:
+          allOf:
+          - $ref: '#/components/schemas/TargetContainerRepository'
+          - description: The destination repository for the container distribution configuration.
+      description: Container distribution settings for encryption, licensing, and sharing in a specific Region.
+    Boolean:
+      type: boolean
+    ClientException: {}
+    DiskImageFormat:
+      type: string
+      enum:
+      - VMDK
+      - RAW
+      - VHD
+    OrganizationalUnitArn:
+      type: string
+      pattern: ^arn:aws[^:]*:organizations::[0-9]{12}:ou/o-[a-z0-9]{10,32}/ou-[0-9a-z]{4,32}-[0-9a-z]{8,32}
     GetDistributionConfigurationResponse:
       type: object
       properties:
@@ -578,36 +565,25 @@ components:
           allOf:
           - $ref: '#/components/schemas/DistributionConfiguration'
           - description: The distribution configuration object.
-    LicenseConfigurationArn:
+    CallRateLimitExceededException: {}
+    FastLaunchSnapshotConfiguration:
+      type: object
+      properties:
+        targetResourceCount:
+          allOf:
+          - $ref: '#/components/schemas/TargetResourceCount'
+          - description: The number of pre-provisioned snapshots to keep on hand for a fast-launch enabled Windows AMI.
+      description: Configuration settings for creating and managing pre-provisioned snapshots for a fast-launch enabled Windows AMI.
+    MaxParallelLaunches:
+      type: integer
+      minimum: 1
+      maximum: 10000
+    ServiceException: {}
+    DateTime:
       type: string
-      pattern: ^arn:aws[^:]*:license-manager:[^:]+:[0-9]{12}:license-configuration:lic-[a-z0-9-_]{32}$
   parameters:
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Security-Token:
       name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
       in: header
       schema:
         type: string
@@ -618,8 +594,32 @@ components:
       schema:
         type: string
       required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Date:
       name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string

@@ -295,17 +295,10 @@ paths:
       - ImportComponent
 components:
   schemas:
+    ForbiddenException: {}
+    ServiceUnavailableException: {}
     InvalidRequestException: {}
-    NonEmptyString:
-      type: string
-      minLength: 1
-      maxLength: 1024
-    ClientToken:
-      type: string
-      minLength: 1
-      maxLength: 36
-    IdempotentParameterMismatchException: {}
-    CallRateLimitExceededException: {}
+    InvalidVersionNumberException: {}
     ImportComponentResponse:
       type: object
       properties:
@@ -321,46 +314,29 @@ components:
           allOf:
           - $ref: '#/components/schemas/ComponentBuildVersionArn'
           - description: The Amazon Resource Name (ARN) of the imported component.
-    ServiceException: {}
-    ForbiddenException: {}
-    ServiceUnavailableException: {}
-    ResourceInUseException: {}
-    InvalidVersionNumberException: {}
-    ClientException: {}
-    ComponentBuildVersionArn:
-      type: string
-      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):component/[a-z0-9-_]+/[0-9]+\.[0-9]+\.[0-9]+/[0-9]+$
     InvalidParameterCombinationException: {}
     TagValue:
       type: string
       maxLength: 256
+    ComponentBuildVersionArn:
+      type: string
+      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):component/[a-z0-9-_]+/[0-9]+\.[0-9]+\.[0-9]+/[0-9]+$
+    ResourceInUseException: {}
+    NonEmptyString:
+      type: string
+      minLength: 1
+      maxLength: 1024
+    ClientException: {}
+    IdempotentParameterMismatchException: {}
+    CallRateLimitExceededException: {}
+    ServiceException: {}
+    ClientToken:
+      type: string
+      minLength: 1
+      maxLength: 36
   parameters:
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Security-Token:
       name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
       in: header
       schema:
         type: string
@@ -371,8 +347,32 @@ components:
       schema:
         type: string
       required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Date:
       name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string

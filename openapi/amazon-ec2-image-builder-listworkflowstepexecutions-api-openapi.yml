@@ -238,33 +238,105 @@ paths:
       - ListWorkflowStepExecutions
 components:
   schemas:
-    InvalidRequestException: {}
-    WorkflowBuildVersionArn:
-      type: string
-      pattern: ^arn:aws(?:-[a-z]+)*:imagebuilder:[a-z]{2,}(?:-[a-z]+)+-[0-9]+:(?:[0-9]{12}|aws):workflow/(build|test|distribution)/[a-z0-9-_]+/[0-9]+\.[0-9]+\.[0-9]+/[0-9]+$
-      maxLength: 1024
-    WorkflowStepExecutionId:
-      type: string
-      pattern: ^step-[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$
-    NonEmptyString:
-      type: string
-      minLength: 1
-      maxLength: 1024
     WorkflowStepDescription:
       type: string
       minLength: 0
       maxLength: 500
+    WorkflowStepMessage:
+      type: string
+      minLength: 0
+      maxLength: 500
+    ForbiddenException: {}
+    WorkflowStepAction:
+      type: string
+      pattern: ^[A-Za-z][A-Za-z0-9-_]{1,99}$
+    ServiceUnavailableException: {}
+    InvalidRequestException: {}
+    WorkflowStepName:
+      type: string
+      pattern: ^[A-Za-z][A-Za-z0-9-_]{1,99}$
+    InvalidPaginationTokenException: {}
+    WorkflowBuildVersionArn:
+      type: string
+      pattern: ^arn:aws(?:-[a-z]+)*:imagebuilder:[a-z]{2,}(?:-[a-z]+)+-[0-9]+:(?:[0-9]{12}|aws):workflow/(build|test|distribution)/[a-z0-9-_]+/[0-9]+\.[0-9]+\.[0-9]+/[0-9]+$
+      maxLength: 1024
+    WorkflowStepInputs:
+      type: string
+    ImageBuildVersionArn:
+      type: string
+      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):image/[a-z0-9-_]+/[0-9]+\.[0-9]+\.[0-9]+/[0-9]+$
+    WorkflowStepExecutionStatus:
+      type: string
+      enum:
+      - PENDING
+      - SKIPPED
+      - RUNNING
+      - COMPLETED
+      - FAILED
+    WorkflowStepExecutionId:
+      type: string
+      pattern: ^step-[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$
     ImageBuildMessage:
       type: string
       minLength: 0
       maxLength: 500
-    ImageBuildVersionArn:
-      type: string
-      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):image/[a-z0-9-_]+/[0-9]+\.[0-9]+\.[0-9]+/[0-9]+$
     PaginationToken:
       type: string
       minLength: 1
       maxLength: 65535
+    WorkflowStepExecutionRollbackStatus:
+      type: string
+      enum:
+      - RUNNING
+      - COMPLETED
+      - SKIPPED
+      - FAILED
+    WorkflowStepExecutionsList:
+      type: array
+      items:
+        $ref: '#/components/schemas/WorkflowStepMetadata'
+    NonEmptyString:
+      type: string
+      minLength: 1
+      maxLength: 1024
+    ClientException: {}
+    ListWorkflowStepExecutionsResponse:
+      type: object
+      properties:
+        requestId:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The request ID that uniquely identifies this request.
+        steps:
+          allOf:
+          - $ref: '#/components/schemas/WorkflowStepExecutionsList'
+          - description: Contains an array of runtime details that represents each step in this runtime instance of the workflow.
+        workflowBuildVersionArn:
+          allOf:
+          - $ref: '#/components/schemas/WorkflowBuildVersionArn'
+          - description: The build version ARN for the Image Builder workflow resource that defines the steps for this runtime instance of the workflow.
+        workflowExecutionId:
+          allOf:
+          - $ref: '#/components/schemas/WorkflowExecutionId'
+          - description: The unique identifier that Image Builder assigned to keep track of runtime details when it ran the workflow.
+        imageBuildVersionArn:
+          allOf:
+          - $ref: '#/components/schemas/ImageBuildVersionArn'
+          - description: The image build version resource ARN that's associated with the specified runtime instance of the workflow.
+        message:
+          allOf:
+          - $ref: '#/components/schemas/ImageBuildMessage'
+          - description: The output message from the list action, if applicable.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/PaginationToken'
+          - description: The next token used for paginated responses. When this field isn't empty, there are additional elements that the service has'ot included in this request. Use this token with the next request to retrieve additional objects.
+    WorkflowStepOutputs:
+      type: string
+    WorkflowExecutionId:
+      type: string
+      pattern: ^wf-[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$
+    CallRateLimitExceededException: {}
     WorkflowStepMetadata:
       type: object
       properties:
@@ -313,108 +385,12 @@ components:
           - $ref: '#/components/schemas/DateTime'
           - description: The timestamp when the workflow step finished.
       description: Runtime details and status for the workflow step.
-    CallRateLimitExceededException: {}
-    WorkflowStepExecutionRollbackStatus:
-      type: string
-      enum:
-      - RUNNING
-      - COMPLETED
-      - SKIPPED
-      - FAILED
     ServiceException: {}
-    WorkflowStepExecutionsList:
-      type: array
-      items:
-        $ref: '#/components/schemas/WorkflowStepMetadata'
-    WorkflowStepName:
-      type: string
-      pattern: ^[A-Za-z][A-Za-z0-9-_]{1,99}$
-    WorkflowStepOutputs:
-      type: string
-    WorkflowStepAction:
-      type: string
-      pattern: ^[A-Za-z][A-Za-z0-9-_]{1,99}$
-    ForbiddenException: {}
-    InvalidPaginationTokenException: {}
-    ListWorkflowStepExecutionsResponse:
-      type: object
-      properties:
-        requestId:
-          allOf:
-          - $ref: '#/components/schemas/NonEmptyString'
-          - description: The request ID that uniquely identifies this request.
-        steps:
-          allOf:
-          - $ref: '#/components/schemas/WorkflowStepExecutionsList'
-          - description: Contains an array of runtime details that represents each step in this runtime instance of the workflow.
-        workflowBuildVersionArn:
-          allOf:
-          - $ref: '#/components/schemas/WorkflowBuildVersionArn'
-          - description: The build version ARN for the Image Builder workflow resource that defines the steps for this runtime instance of the workflow.
-        workflowExecutionId:
-          allOf:
-          - $ref: '#/components/schemas/WorkflowExecutionId'
-          - description: The unique identifier that Image Builder assigned to keep track of runtime details when it ran the workflow.
-        imageBuildVersionArn:
-          allOf:
-          - $ref: '#/components/schemas/ImageBuildVersionArn'
-          - description: The image build version resource ARN that's associated with the specified runtime instance of the workflow.
-        message:
-          allOf:
-          - $ref: '#/components/schemas/ImageBuildMessage'
-          - description: The output message from the list action, if applicable.
-        nextToken:
-          allOf:
-          - $ref: '#/components/schemas/PaginationToken'
-          - description: The next token used for paginated responses. When this field isn't empty, there are additional elements that the service has'ot included in this request. Use this token with the next request to retrieve additional objects.
-    ServiceUnavailableException: {}
-    WorkflowExecutionId:
-      type: string
-      pattern: ^wf-[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$
     DateTime:
       type: string
-    ClientException: {}
-    WorkflowStepMessage:
-      type: string
-      minLength: 0
-      maxLength: 500
-    WorkflowStepInputs:
-      type: string
-    WorkflowStepExecutionStatus:
-      type: string
-      enum:
-      - PENDING
-      - SKIPPED
-      - RUNNING
-      - COMPLETED
-      - FAILED
   parameters:
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Security-Token:
       name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
       in: header
       schema:
         type: string
@@ -425,8 +401,32 @@ components:
       schema:
         type: string
       required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Date:
       name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string

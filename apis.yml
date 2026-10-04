@@ -1844,8 +1844,6 @@ apis:
   humanURL: https://aws.amazon.com/image-builder/
   baseURL: https://imagebuilder.amazonaws.com
   tags:
-  - CreateImage
-  tags_raw:
   - Create Image
   properties:
   - type: OpenAPI
@@ -1917,8 +1915,6 @@ apis:
   humanURL: https://aws.amazon.com/image-builder/
   baseURL: https://imagebuilder.amazonaws.com
   tags:
-  - ListComponents
-  tags_raw:
   - List Components
   properties:
   - type: OpenAPI

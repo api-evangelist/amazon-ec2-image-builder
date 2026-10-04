@@ -209,16 +209,20 @@ paths:
       - DeleteImageRecipe
 components:
   schemas:
-    InvalidRequestException: {}
-    ClientException: {}
-    CallRateLimitExceededException: {}
+    ImageRecipeArn:
+      type: string
+      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):image-recipe/[a-z0-9-_]+/[0-9]+\.[0-9]+\.[0-9]+$
     ResourceDependencyException: {}
-    ServiceException: {}
     NonEmptyString:
       type: string
       minLength: 1
       maxLength: 1024
+    ClientException: {}
+    ForbiddenException: {}
+    CallRateLimitExceededException: {}
     ServiceUnavailableException: {}
+    InvalidRequestException: {}
+    ServiceException: {}
     DeleteImageRecipeResponse:
       type: object
       properties:
@@ -232,11 +236,13 @@ components:
           - $ref: '#/components/schemas/ImageRecipeArn'
           - description: The Amazon Resource Name (ARN) of the image recipe that was deleted.
           example: arn:aws:service:us-east-1:123456789012:resource/example
-    ImageRecipeArn:
-      type: string
-      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):image-recipe/[a-z0-9-_]+/[0-9]+\.[0-9]+\.[0-9]+$
-    ForbiddenException: {}
   parameters:
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-SignedHeaders:
       name: X-Amz-SignedHeaders
       in: header
@@ -255,26 +261,20 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Security-Token:
       name: X-Amz-Security-Token
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
+    X-Amz-Signature:
+      name: X-Amz-Signature
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
       in: header
       schema:
         type: string

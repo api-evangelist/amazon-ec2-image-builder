@@ -203,91 +203,6 @@ paths:
       - Get Component
 components:
   schemas:
-    ComponentParameterDetailList:
-      type: array
-      items:
-        $ref: '#/components/schemas/ComponentParameterDetail'
-    InvalidRequestException: {}
-    Boolean:
-      type: boolean
-    VersionNumber:
-      type: string
-      pattern: ^[0-9]+\.[0-9]+\.[0-9]+$
-    NonEmptyString:
-      type: string
-      minLength: 1
-      maxLength: 1024
-    TagMap:
-      type: object
-      minProperties: 1
-      maxProperties: 50
-      additionalProperties:
-        $ref: '#/components/schemas/TagValue'
-    ComponentType:
-      type: string
-      enum:
-      - BUILD
-      - TEST
-    ComponentParameterValue:
-      type: string
-      pattern: '[^\x00]*'
-      minLength: 0
-    Platform:
-      type: string
-      enum:
-      - Windows
-      - Linux
-    CallRateLimitExceededException: {}
-    ComponentState:
-      type: object
-      properties:
-        status:
-          allOf:
-          - $ref: '#/components/schemas/ComponentStatus'
-          - description: The current state of the component.
-        reason:
-          allOf:
-          - $ref: '#/components/schemas/NonEmptyString'
-          - description: Describes how or why the component changed state.
-      description: A group of fields that describe the current status of components that are no longer active.
-    ServiceException: {}
-    ComponentParameterType:
-      type: string
-      pattern: ^String|Integer|Boolean|StringList$
-      minLength: 1
-      maxLength: 20
-    ComponentParameterValueList:
-      type: array
-      items:
-        $ref: '#/components/schemas/ComponentParameterValue'
-    ForbiddenException: {}
-    OsVersionList:
-      type: array
-      items:
-        $ref: '#/components/schemas/OsVersion'
-      minItems: 1
-      maxItems: 25
-    ServiceUnavailableException: {}
-    ImageBuilderArn:
-      type: string
-      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):(?:image-recipe|container-recipe|infrastructure-configuration|distribution-configuration|component|image|image-pipeline|workflow\/(?:build|test|distribution))/[a-z0-9-_]+(?:/(?:(?:x|[0-9]+)\.(?:x|[0-9]+)\.(?:x|[0-9]+))(?:/[0-9]+)?)?$
-    ResourceName:
-      type: string
-      pattern: ^[-_A-Za-z-0-9][-_A-Za-z0-9 ]{1,126}[-_A-Za-z-0-9]$
-    ComponentParameterName:
-      type: string
-      pattern: '[^\x00]+'
-      minLength: 1
-      maxLength: 256
-    DateTime:
-      type: string
-    ComponentStatus:
-      type: string
-      enum:
-      - DEPRECATED
-    ClientException: {}
-    ComponentData:
-      type: string
     ComponentParameterDetail:
       type: object
       required:
@@ -311,6 +226,23 @@ components:
           - $ref: '#/components/schemas/ComponentParameterDescription'
           - description: Describes this parameter.
       description: Defines a parameter that is used to provide configuration details for the component.
+    ComponentParameterValueList:
+      type: array
+      items:
+        $ref: '#/components/schemas/ComponentParameterValue'
+    GetComponentResponse:
+      type: object
+      properties:
+        requestId:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The request ID that uniquely identifies this request.
+          example: example-id-1234
+        component:
+          allOf:
+          - $ref: '#/components/schemas/Component'
+          - description: The component object associated with the specified ARN.
+          example: example-string
     Component:
       type: object
       properties:
@@ -387,59 +319,103 @@ components:
           - $ref: '#/components/schemas/Boolean'
           - description: Indicates whether component source is hidden from view in the console, and from component detail results for API, CLI, or SDK operations.
       description: A detailed view of a component.
+    ComponentState:
+      type: object
+      properties:
+        status:
+          allOf:
+          - $ref: '#/components/schemas/ComponentStatus'
+          - description: The current state of the component.
+        reason:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: Describes how or why the component changed state.
+      description: A group of fields that describe the current status of components that are no longer active.
+    ForbiddenException: {}
+    ResourceName:
+      type: string
+      pattern: ^[-_A-Za-z-0-9][-_A-Za-z0-9 ]{1,126}[-_A-Za-z-0-9]$
+    ServiceUnavailableException: {}
+    InvalidRequestException: {}
+    Platform:
+      type: string
+      enum:
+      - Windows
+      - Linux
+    OsVersion:
+      type: string
+      minLength: 1
+    ComponentParameterType:
+      type: string
+      pattern: ^String|Integer|Boolean|StringList$
+      minLength: 1
+      maxLength: 20
+    NullableBoolean:
+      type: boolean
+    ImageBuilderArn:
+      type: string
+      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):(?:image-recipe|container-recipe|infrastructure-configuration|distribution-configuration|component|image|image-pipeline|workflow\/(?:build|test|distribution))/[a-z0-9-_]+(?:/(?:(?:x|[0-9]+)\.(?:x|[0-9]+)\.(?:x|[0-9]+))(?:/[0-9]+)?)?$
+    ComponentType:
+      type: string
+      enum:
+      - BUILD
+      - TEST
     ComponentParameterDescription:
       type: string
       pattern: '[^\x00]+'
       minLength: 1
       maxLength: 1024
-    NullableBoolean:
-      type: boolean
+    ComponentData:
+      type: string
+    TagMap:
+      type: object
+      minProperties: 1
+      maxProperties: 50
+      additionalProperties:
+        $ref: '#/components/schemas/TagValue'
+    VersionNumber:
+      type: string
+      pattern: ^[0-9]+\.[0-9]+\.[0-9]+$
     TagValue:
       type: string
       maxLength: 256
-    GetComponentResponse:
-      type: object
-      properties:
-        requestId:
-          allOf:
-          - $ref: '#/components/schemas/NonEmptyString'
-          - description: The request ID that uniquely identifies this request.
-          example: example-id-1234
-        component:
-          allOf:
-          - $ref: '#/components/schemas/Component'
-          - description: The component object associated with the specified ARN.
-          example: example-string
-    OsVersion:
+    OsVersionList:
+      type: array
+      items:
+        $ref: '#/components/schemas/OsVersion'
+      minItems: 1
+      maxItems: 25
+    ComponentStatus:
+      type: string
+      enum:
+      - DEPRECATED
+    ComponentParameterName:
+      type: string
+      pattern: '[^\x00]+'
+      minLength: 1
+      maxLength: 256
+    NonEmptyString:
       type: string
       minLength: 1
+      maxLength: 1024
+    ClientException: {}
+    Boolean:
+      type: boolean
+    ComponentParameterValue:
+      type: string
+      pattern: '[^\x00]*'
+      minLength: 0
+    CallRateLimitExceededException: {}
+    ComponentParameterDetailList:
+      type: array
+      items:
+        $ref: '#/components/schemas/ComponentParameterDetail'
+    ServiceException: {}
+    DateTime:
+      type: string
   parameters:
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Security-Token:
       name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
       in: header
       schema:
         type: string
@@ -450,8 +426,32 @@ components:
       schema:
         type: string
       required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Date:
       name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string

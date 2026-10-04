@@ -204,16 +204,26 @@ paths:
       - GetWorkflowExecution
 components:
   schemas:
+    WorkflowExecutionMessage:
+      type: string
+      minLength: 0
+      maxLength: 500
+    WorkflowExecutionStatus:
+      type: string
+      enum:
+      - PENDING
+      - SKIPPED
+      - RUNNING
+      - COMPLETED
+      - FAILED
+      - ROLLBACK_IN_PROGRESS
+      - ROLLBACK_COMPLETED
+    ForbiddenException: {}
+    ServiceUnavailableException: {}
     InvalidRequestException: {}
     WorkflowBuildVersionArn:
       type: string
       pattern: ^arn:aws(?:-[a-z]+)*:imagebuilder:[a-z]{2,}(?:-[a-z]+)+-[0-9]+:(?:[0-9]{12}|aws):workflow/(build|test|distribution)/[a-z0-9-_]+/[0-9]+\.[0-9]+\.[0-9]+/[0-9]+$
-      maxLength: 1024
-    WorkflowStepCount:
-      type: integer
-    NonEmptyString:
-      type: string
-      minLength: 1
       maxLength: 1024
     ImageBuildVersionArn:
       type: string
@@ -279,57 +289,23 @@ components:
       - BUILD
       - TEST
       - DISTRIBUTION
-    CallRateLimitExceededException: {}
-    WorkflowExecutionMessage:
+    NonEmptyString:
       type: string
-      minLength: 0
-      maxLength: 500
-    ServiceException: {}
-    ForbiddenException: {}
-    ServiceUnavailableException: {}
+      minLength: 1
+      maxLength: 1024
+    WorkflowStepCount:
+      type: integer
+    ClientException: {}
     WorkflowExecutionId:
       type: string
       pattern: ^wf-[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$
+    CallRateLimitExceededException: {}
+    ServiceException: {}
     DateTime:
       type: string
-    ClientException: {}
-    WorkflowExecutionStatus:
-      type: string
-      enum:
-      - PENDING
-      - SKIPPED
-      - RUNNING
-      - COMPLETED
-      - FAILED
-      - ROLLBACK_IN_PROGRESS
-      - ROLLBACK_COMPLETED
   parameters:
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Security-Token:
       name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
       in: header
       schema:
         type: string
@@ -340,8 +316,32 @@ components:
       schema:
         type: string
       required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Date:
       name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string

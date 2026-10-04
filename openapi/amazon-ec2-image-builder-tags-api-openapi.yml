@@ -332,40 +332,9 @@ paths:
       tags:
       - Tags
 components:
-  schemas:
-    ResourceNotFoundException: {}
-    ListTagsForResourceResponse:
-      type: object
-      properties:
-        tags:
-          allOf:
-          - $ref: '#/components/schemas/TagMap'
-          - description: The tags for the specified resource.
-    TagResourceResponse:
-      type: object
-      properties: {}
-    ServiceException: {}
-    UntagResourceResponse:
-      type: object
-      properties: {}
-    TagMap:
-      type: object
-      minProperties: 1
-      maxProperties: 50
-      additionalProperties:
-        $ref: '#/components/schemas/TagValue'
-    InvalidParameterException: {}
-    TagValue:
-      type: string
-      maxLength: 256
-    TagKey:
-      type: string
-      pattern: ^(?!aws:)[a-zA-Z+-=._:/]+$
-      minLength: 1
-      maxLength: 128
   parameters:
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
@@ -376,14 +345,14 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
+    X-Amz-Credential:
+      name: X-Amz-Credential
       in: header
       schema:
         type: string
@@ -394,18 +363,49 @@ components:
       schema:
         type: string
       required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Algorithm:
       name: X-Amz-Algorithm
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
+  schemas:
+    ListTagsForResourceResponse:
+      type: object
+      properties:
+        tags:
+          allOf:
+          - $ref: '#/components/schemas/TagMap'
+          - description: The tags for the specified resource.
+    TagResourceResponse:
+      type: object
+      properties: {}
+    TagKey:
+      type: string
+      pattern: ^(?!aws:)[a-zA-Z+-=._:/]+$
+      minLength: 1
+      maxLength: 128
+    ResourceNotFoundException: {}
+    TagMap:
+      type: object
+      minProperties: 1
+      maxProperties: 50
+      additionalProperties:
+        $ref: '#/components/schemas/TagValue'
+    UntagResourceResponse:
+      type: object
+      properties: {}
+    TagValue:
+      type: string
+      maxLength: 256
+    InvalidParameterException: {}
+    ServiceException: {}
   securitySchemes:
     hmac:
       type: apiKey

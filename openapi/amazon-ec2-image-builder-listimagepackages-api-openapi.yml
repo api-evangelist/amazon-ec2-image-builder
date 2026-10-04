@@ -244,16 +244,9 @@ paths:
       - ListImagePackages
 components:
   schemas:
-    ResourceNotFoundException: {}
+    ForbiddenException: {}
+    ServiceUnavailableException: {}
     InvalidRequestException: {}
-    NonEmptyString:
-      type: string
-      minLength: 1
-      maxLength: 1024
-    PaginationToken:
-      type: string
-      minLength: 1
-      maxLength: 65535
     ListImagePackagesResponse:
       type: object
       properties:
@@ -269,9 +262,6 @@ components:
           allOf:
           - $ref: '#/components/schemas/PaginationToken'
           - description: The next token used for paginated responses. When this field isn't empty, there are additional elements that the service has'ot included in this request. Use this token with the next request to retrieve additional objects.
-    CallRateLimitExceededException: {}
-    ServiceException: {}
-    ForbiddenException: {}
     InvalidPaginationTokenException: {}
     ImagePackage:
       type: object
@@ -285,39 +275,25 @@ components:
           - $ref: '#/components/schemas/NonEmptyString'
           - description: The version of the package as reported to the operating system package manager.
       description: Represents a package installed on an Image Builder image.
-    ServiceUnavailableException: {}
     ImagePackageList:
       type: array
       items:
         $ref: '#/components/schemas/ImagePackage'
+    PaginationToken:
+      type: string
+      minLength: 1
+      maxLength: 65535
+    ResourceNotFoundException: {}
+    NonEmptyString:
+      type: string
+      minLength: 1
+      maxLength: 1024
     ClientException: {}
+    CallRateLimitExceededException: {}
+    ServiceException: {}
   parameters:
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Security-Token:
       name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
       in: header
       schema:
         type: string
@@ -328,8 +304,32 @@ components:
       schema:
         type: string
       required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Date:
       name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
