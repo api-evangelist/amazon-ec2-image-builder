@@ -11,7 +11,7 @@ capability_model:
   attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
     CC BY 4.0
   notice: NOTICE
-edge_count: 5
+edge_count: 7
 edges:
 - tag: ListImageScanFindings
   spec_file: amazon-ec2-image-builder-listimagescanfindings-api-openapi.yml
@@ -23,6 +23,16 @@ edges:
     Remediation, PackageArchitecture
   reason: Returns CVE/vulnerability findings with CVSS scores and remediation guidance for built images
     — plainly vulnerability scanning and remediation, not any other reading.
+- tag: GetInfrastructureConfiguration
+  spec_file: amazon-ec2-image-builder-getinfrastructureconfiguration-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.8
+  evidence: GetInfrastructureConfiguration — schemas include InstanceTypeList, SecurityGroupIds, InstanceProfileNameType,
+    S3Logs
+  reason: Retrieves the infrastructure (instance types, security groups, logging) configuration used to
+    build server images — cloud compute/infrastructure management, an IT Infrastructure Management concern.
 - tag: ListImageScanFindingAggregations
   spec_file: amazon-ec2-image-builder-listimagescanfindingaggregations-api-openapi.yml
   capability_id: BC-620.40
@@ -53,6 +63,17 @@ edges:
     schema InfrastructureConfigurationArn
   reason: Explicitly manages the infrastructure configuration (instance types, subnets, roles) used to
     build images — squarely compute/cloud infrastructure management.
+- tag: GetImagePipeline
+  spec_file: amazon-ec2-image-builder-getimagepipeline-api-openapi.yml
+  capability_id: BC-4210.10
+  capability_id_l1: BC-4210
+  capability_name: Continuous Integration Management
+  confidence: 0.7
+  evidence: GET /GetImagePipeline#imagePipelineArn; schemas ImagePipeline, PipelineStatus, PipelineExecutionStartCondition,
+    Schedule, ImageTestsConfiguration
+  reason: Explicitly a build pipeline object with status, start conditions and schedule, matching Continuous
+    Integration Management (build pipelines, artefact production). Highest confidence of this set because
+    the pipeline semantics are named in the schemas.
 - tag: UpdateInfrastructureConfiguration
   spec_file: amazon-ec2-image-builder-updateinfrastructureconfiguration-api-openapi.yml
   capability_id: BC-600.50
