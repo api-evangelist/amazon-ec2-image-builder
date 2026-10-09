@@ -1,22 +1,67 @@
-generated: '2026-07-15'
+generated: '2026-09-23'
 method: generated
-source: openapi/amazon-ec2-image-builder-openapi.yaml
+source: openapi/amazon-ec2-image-builder-cancelimagecreation-api-openapi.yml, openapi/amazon-ec2-image-builder-create-image-api-openapi.yml,
+  openapi/amazon-ec2-image-builder-createcomponent-api-openapi.yml, openapi/amazon-ec2-image-builder-createcontainerrecipe-api-openapi.yml,
+  openapi/amazon-ec2-image-builder-createdistributionconfiguration-api-openapi.yml, openapi/amazon-ec2-image-builder-createimagepipeline-api-openapi.yml,
+  openapi/amazon-ec2-image-builder-createimagerecipe-api-openapi.yml, openapi/amazon-ec2-image-builder-createinfrastructureconfiguration-api-openapi.yml,
+  openapi/amazon-ec2-image-builder-deletecomponent-componentbuildversionarn-api-openapi.yml,
+  openapi/amazon-ec2-image-builder-deletecontainerrecipe-containerrecipearn-api-openapi.yml,
+  openapi/amazon-ec2-image-builder-deletedistributionconfiguration-distributionconfigurationarn-api-openapi.yml,
+  openapi/amazon-ec2-image-builder-deleteimage-imagebuildversionarn-api-openapi.yml, openapi/amazon-ec2-image-builder-deleteimagepipeline-imagepipelinearn-api-openapi.yml,
+  openapi/amazon-ec2-image-builder-deleteimagerecipe-imagerecipearn-api-openapi.yml, openapi/amazon-ec2-image-builder-deleteinfrastructureconfiguration-infrastructureconfigurationarn-api-openapi.yml,
+  openapi/amazon-ec2-image-builder-getcomponent-componentbuildversionarn-api-openapi.yml, openapi/amazon-ec2-image-builder-getcomponentpolicy-componentarn-api-openapi.yml,
+  openapi/amazon-ec2-image-builder-getcontainerrecipe-containerrecipearn-api-openapi.yml, openapi/amazon-ec2-image-builder-getcontainerrecipepolicy-containerrecipearn-api-openapi.yml,
+  openapi/amazon-ec2-image-builder-getdistributionconfiguration-distributionconfigurationarn-api-openapi.yml,
+  openapi/amazon-ec2-image-builder-getimage-imagebuildversionarn-api-openapi.yml, openapi/amazon-ec2-image-builder-getimagepipeline-imagepipelinearn-api-openapi.yml,
+  openapi/amazon-ec2-image-builder-getimagepolicy-imagearn-api-openapi.yml, openapi/amazon-ec2-image-builder-getimagerecipe-imagerecipearn-api-openapi.yml,
+  openapi/amazon-ec2-image-builder-getimagerecipepolicy-imagerecipearn-api-openapi.yml, openapi/amazon-ec2-image-builder-getinfrastructureconfiguration-infrastructureconfigurationarn-api-openapi.yml,
+  openapi/amazon-ec2-image-builder-getworkflowexecution-workflowexecutionid-api-openapi.yml,
+  openapi/amazon-ec2-image-builder-getworkflowstepexecution-stepexecutionid-api-openapi.yml,
+  openapi/amazon-ec2-image-builder-importcomponent-api-openapi.yml, openapi/amazon-ec2-image-builder-importvmimage-api-openapi.yml,
+  openapi/amazon-ec2-image-builder-list-components-api-openapi.yml, openapi/amazon-ec2-image-builder-list-images-api-openapi.yml,
+  openapi/amazon-ec2-image-builder-listcomponentbuildversions-api-openapi.yml, openapi/amazon-ec2-image-builder-listcontainerrecipes-api-openapi.yml,
+  openapi/amazon-ec2-image-builder-listdistributionconfigurations-api-openapi.yml, openapi/amazon-ec2-image-builder-listimagebuildversions-api-openapi.yml,
+  openapi/amazon-ec2-image-builder-listimagepackages-api-openapi.yml, openapi/amazon-ec2-image-builder-listimagepipelineimages-api-openapi.yml,
+  openapi/amazon-ec2-image-builder-listimagepipelines-api-openapi.yml, openapi/amazon-ec2-image-builder-listimagerecipes-api-openapi.yml,
+  openapi/amazon-ec2-image-builder-listimagescanfindingaggregations-api-openapi.yml, openapi/amazon-ec2-image-builder-listimagescanfindings-api-openapi.yml,
+  openapi/amazon-ec2-image-builder-listinfrastructureconfigurations-api-openapi.yml, openapi/amazon-ec2-image-builder-listworkflowexecutions-api-openapi.yml,
+  openapi/amazon-ec2-image-builder-listworkflowstepexecutions-api-openapi.yml, openapi/amazon-ec2-image-builder-putcomponentpolicy-api-openapi.yml,
+  openapi/amazon-ec2-image-builder-putcontainerrecipepolicy-api-openapi.yml, openapi/amazon-ec2-image-builder-putimagepolicy-api-openapi.yml,
+  openapi/amazon-ec2-image-builder-putimagerecipepolicy-api-openapi.yml, openapi/amazon-ec2-image-builder-startimagepipelineexecution-api-openapi.yml,
+  openapi/amazon-ec2-image-builder-tags-api-openapi.yml, openapi/amazon-ec2-image-builder-updatedistributionconfiguration-api-openapi.yml,
+  openapi/amazon-ec2-image-builder-updateimagepipeline-api-openapi.yml, openapi/amazon-ec2-image-builder-updateinfrastructureconfiguration-api-openapi.yml
 description: Recommended x-agentic-access execution contracts, classified heuristically from
   the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
   audience per deployment. See research/curity/agentic-governance/.
 summary:
   operations: 56
   by_action_class:
-    acting: 42
-    connected: 14
+    acting: 27
+    connected: 29
   by_consequence:
-    write: 42
-    read: 14
+    write: 27
+    read: 29
   human_in_the_loop_required: 0
 operations:
 - path: /CancelImageCreation
   method: put
   operationId: CancelImageCreation
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /CreateImage
+  method: put
+  operationId: CreateImage
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -65,22 +110,6 @@ operations:
 - path: /CreateDistributionConfiguration
   method: put
   operationId: CreateDistributionConfiguration
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /CreateImage
-  method: put
-  operationId: CreateImage
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -416,217 +445,9 @@ operations:
       - abnormal
       - high-value
     audit: required
-- path: /ListComponentBuildVersions
-  method: post
-  operationId: ListComponentBuildVersions
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
 - path: /ListComponents
   method: post
   operationId: ListComponents
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /ListContainerRecipes
-  method: post
-  operationId: ListContainerRecipes
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /ListDistributionConfigurations
-  method: post
-  operationId: ListDistributionConfigurations
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /ListImageBuildVersions
-  method: post
-  operationId: ListImageBuildVersions
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /ListImagePackages
-  method: post
-  operationId: ListImagePackages
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /ListImagePipelineImages
-  method: post
-  operationId: ListImagePipelineImages
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /ListImagePipelines
-  method: post
-  operationId: ListImagePipelines
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /ListImageRecipes
-  method: post
-  operationId: ListImageRecipes
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /ListImageScanFindingAggregations
-  method: post
-  operationId: ListImageScanFindingAggregations
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /ListImageScanFindings
-  method: post
-  operationId: ListImageScanFindings
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /ListImages
-  method: post
-  operationId: ListImages
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /ListInfrastructureConfigurations
-  method: post
-  operationId: ListInfrastructureConfigurations
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /tags/{resourceArn}
-  method: get
-  operationId: ListTagsForResource
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -634,54 +455,146 @@ operations:
     token:
       max-ttl: 3600
     audit: none
-- path: /tags/{resourceArn}
+- path: /ListImages
   method: post
-  operationId: TagResource
+  operationId: ListImages
   x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
+    action-class: connected
+    consequence: read
+    subject: optional
     token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
+      max-ttl: 3600
+    audit: none
+- path: /ListComponentBuildVersions
+  method: post
+  operationId: ListComponentBuildVersions
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /ListContainerRecipes
+  method: post
+  operationId: ListContainerRecipes
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /ListDistributionConfigurations
+  method: post
+  operationId: ListDistributionConfigurations
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /ListImageBuildVersions
+  method: post
+  operationId: ListImageBuildVersions
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /ListImagePackages
+  method: post
+  operationId: ListImagePackages
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /ListImagePipelineImages
+  method: post
+  operationId: ListImagePipelineImages
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /ListImagePipelines
+  method: post
+  operationId: ListImagePipelines
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /ListImageRecipes
+  method: post
+  operationId: ListImageRecipes
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /ListImageScanFindingAggregations
+  method: post
+  operationId: ListImageScanFindingAggregations
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /ListImageScanFindings
+  method: post
+  operationId: ListImageScanFindings
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /ListInfrastructureConfigurations
+  method: post
+  operationId: ListInfrastructureConfigurations
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
 - path: /ListWorkflowExecutions
   method: post
   operationId: ListWorkflowExecutions
   x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
+    action-class: connected
+    consequence: read
+    subject: optional
     token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
+      max-ttl: 3600
+    audit: none
 - path: /ListWorkflowStepExecutions
   method: post
   operationId: ListWorkflowStepExecutions
   x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
+    action-class: connected
+    consequence: read
+    subject: optional
     token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
+      max-ttl: 3600
+    audit: none
 - path: /PutComponentPolicy
   method: put
   operationId: PutComponentPolicy
@@ -749,6 +662,32 @@ operations:
 - path: /StartImagePipelineExecution
   method: put
   operationId: StartImagePipelineExecution
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /tags/{resourceArn}
+  method: get
+  operationId: ListTagsForResource
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /tags/{resourceArn}
+  method: post
+  operationId: TagResource
   x-agentic-access:
     action-class: acting
     consequence: write
