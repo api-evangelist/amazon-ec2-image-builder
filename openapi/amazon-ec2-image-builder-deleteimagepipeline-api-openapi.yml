@@ -209,20 +209,13 @@ paths:
       - DeleteImagePipeline
 components:
   schemas:
-    ResourceDependencyException: {}
-    NonEmptyString:
-      type: string
-      minLength: 1
-      maxLength: 1024
+    ForbiddenException: {}
+    ClientException: {}
+    CallRateLimitExceededException: {}
+    ServiceUnavailableException: {}
     ImagePipelineArn:
       type: string
       pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):image-pipeline/[a-z0-9-_]+$
-    ClientException: {}
-    ForbiddenException: {}
-    CallRateLimitExceededException: {}
-    ServiceUnavailableException: {}
-    InvalidRequestException: {}
-    ServiceException: {}
     DeleteImagePipelineResponse:
       type: object
       properties:
@@ -236,7 +229,26 @@ components:
           - $ref: '#/components/schemas/ImagePipelineArn'
           - description: The Amazon Resource Name (ARN) of the image pipeline that was deleted.
           example: arn:aws:service:us-east-1:123456789012:resource/example
+    ResourceDependencyException: {}
+    NonEmptyString:
+      type: string
+      minLength: 1
+      maxLength: 1024
+    ServiceException: {}
+    InvalidRequestException: {}
   parameters:
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Content-Sha256:
       name: X-Amz-Content-Sha256
       in: header
@@ -249,32 +261,20 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Credential:
       name: X-Amz-Credential
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Algorithm:
       name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
       in: header
       schema:
         type: string

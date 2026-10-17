@@ -203,6 +203,14 @@ paths:
       - GetContainerRecipePolicy
 components:
   schemas:
+    ForbiddenException: {}
+    ResourcePolicyDocument:
+      type: string
+      minLength: 1
+      maxLength: 30000
+    CallRateLimitExceededException: {}
+    ResourceNotFoundException: {}
+    ServiceUnavailableException: {}
     GetContainerRecipePolicyResponse:
       type: object
       properties:
@@ -214,21 +222,31 @@ components:
           allOf:
           - $ref: '#/components/schemas/ResourcePolicyDocument'
           - description: The container recipe policy object that is returned.
-    ResourcePolicyDocument:
-      type: string
-      minLength: 1
-      maxLength: 30000
     NonEmptyString:
       type: string
       minLength: 1
       maxLength: 1024
-    ResourceNotFoundException: {}
-    ForbiddenException: {}
-    CallRateLimitExceededException: {}
-    ServiceUnavailableException: {}
-    InvalidRequestException: {}
     ServiceException: {}
+    InvalidRequestException: {}
   parameters:
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Content-Sha256:
       name: X-Amz-Content-Sha256
       in: header
@@ -241,26 +259,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Credential:
       name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
       in: header
       schema:
         type: string

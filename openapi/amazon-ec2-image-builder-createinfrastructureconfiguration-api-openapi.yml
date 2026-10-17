@@ -313,6 +313,33 @@ paths:
       - CreateInfrastructureConfiguration
 components:
   schemas:
+    CallRateLimitExceededException: {}
+    ServiceUnavailableException: {}
+    HttpTokens:
+      type: string
+      pattern: optional|required
+    InfrastructureConfigurationArn:
+      type: string
+      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):infrastructure-configuration/[a-z0-9-_]+$
+    TagValue:
+      type: string
+      maxLength: 256
+    S3Logs:
+      type: object
+      properties:
+        s3BucketName:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The S3 bucket in which to store the logs.
+          example: example-resource-name
+        s3KeyPrefix:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The Amazon S3 path to the bucket where the logs are stored.
+          example: example-string
+      description: Amazon S3 logging configuration.
+    InstanceType:
+      type: string
     CreateInfrastructureConfigurationResponse:
       type: object
       properties:
@@ -331,56 +358,53 @@ components:
           - $ref: '#/components/schemas/InfrastructureConfigurationArn'
           - description: The Amazon Resource Name (ARN) of the infrastructure configuration that was created by this request.
           example: arn:aws:service:us-east-1:123456789012:resource/example
-    HttpTokens:
-      type: string
-      pattern: optional|required
-    ForbiddenException: {}
-    ServiceUnavailableException: {}
     InvalidRequestException: {}
-    ResourceAlreadyExistsException: {}
-    InstanceType:
-      type: string
-    ServiceQuotaExceededException: {}
-    TagValue:
-      type: string
-      maxLength: 256
-    HttpPutResponseHopLimit:
-      type: integer
-      minimum: 1
-      maximum: 64
+    IdempotentParameterMismatchException: {}
+    ClientException: {}
     ResourceInUseException: {}
     NonEmptyString:
       type: string
       minLength: 1
       maxLength: 1024
-    ClientException: {}
-    IdempotentParameterMismatchException: {}
-    S3Logs:
-      type: object
-      properties:
-        s3BucketName:
-          allOf:
-          - $ref: '#/components/schemas/NonEmptyString'
-          - description: The S3 bucket in which to store the logs.
-          example: example-resource-name
-        s3KeyPrefix:
-          allOf:
-          - $ref: '#/components/schemas/NonEmptyString'
-          - description: The Amazon S3 path to the bucket where the logs are stored.
-          example: example-string
-      description: Amazon S3 logging configuration.
-    CallRateLimitExceededException: {}
-    ServiceException: {}
+    ForbiddenException: {}
     ClientToken:
       type: string
       minLength: 1
       maxLength: 36
-    InfrastructureConfigurationArn:
-      type: string
-      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):infrastructure-configuration/[a-z0-9-_]+$
+    HttpPutResponseHopLimit:
+      type: integer
+      minimum: 1
+      maximum: 64
+    ServiceQuotaExceededException: {}
+    ServiceException: {}
+    ResourceAlreadyExistsException: {}
   parameters:
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Security-Token:
       name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
@@ -393,30 +417,6 @@ components:
       required: false
     X-Amz-SignedHeaders:
       name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string

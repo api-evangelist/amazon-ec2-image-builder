@@ -226,15 +226,48 @@ paths:
       tags:
       - PutComponentPolicy
 components:
+  schemas:
+    ForbiddenException: {}
+    ClientException: {}
+    CallRateLimitExceededException: {}
+    ResourceNotFoundException: {}
+    ServiceUnavailableException: {}
+    PutComponentPolicyResponse:
+      type: object
+      properties:
+        requestId:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The request ID that uniquely identifies this request.
+        componentArn:
+          allOf:
+          - $ref: '#/components/schemas/ComponentBuildVersionArn'
+          - description: The Amazon Resource Name (ARN) of the component that this policy was applied to.
+    InvalidParameterValueException: {}
+    ComponentBuildVersionArn:
+      type: string
+      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):component/[a-z0-9-_]+/[0-9]+\.[0-9]+\.[0-9]+/[0-9]+$
+    NonEmptyString:
+      type: string
+      minLength: 1
+      maxLength: 1024
+    ServiceException: {}
+    InvalidRequestException: {}
   parameters:
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-Signature:
+      name: X-Amz-Signature
       in: header
       schema:
         type: string
       required: false
     X-Amz-Date:
       name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
@@ -251,51 +284,18 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Algorithm:
       name: X-Amz-Algorithm
       in: header
       schema:
         type: string
       required: false
-  schemas:
-    InvalidParameterValueException: {}
-    NonEmptyString:
-      type: string
-      minLength: 1
-      maxLength: 1024
-    ClientException: {}
-    ResourceNotFoundException: {}
-    ForbiddenException: {}
-    PutComponentPolicyResponse:
-      type: object
-      properties:
-        requestId:
-          allOf:
-          - $ref: '#/components/schemas/NonEmptyString'
-          - description: The request ID that uniquely identifies this request.
-        componentArn:
-          allOf:
-          - $ref: '#/components/schemas/ComponentBuildVersionArn'
-          - description: The Amazon Resource Name (ARN) of the component that this policy was applied to.
-    CallRateLimitExceededException: {}
-    ComponentBuildVersionArn:
-      type: string
-      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):component/[a-z0-9-_]+/[0-9]+\.[0-9]+\.[0-9]+/[0-9]+$
-    ServiceUnavailableException: {}
-    InvalidRequestException: {}
-    ServiceException: {}
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
   securitySchemes:
     hmac:
       type: apiKey

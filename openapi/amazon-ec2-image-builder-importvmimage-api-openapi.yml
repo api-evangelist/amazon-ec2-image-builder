@@ -236,20 +236,6 @@ paths:
       - ImportVmImage
 components:
   schemas:
-    ClientToken:
-      type: string
-      minLength: 1
-      maxLength: 36
-    NonEmptyString:
-      type: string
-      minLength: 1
-      maxLength: 1024
-    Arn:
-      type: string
-    ClientException: {}
-    TagValue:
-      type: string
-      maxLength: 256
     ImportVmImageResponse:
       type: object
       properties:
@@ -265,9 +251,35 @@ components:
           allOf:
           - $ref: '#/components/schemas/ClientToken'
           - description: The idempotency token that was used for this request.
+    ClientException: {}
     ServiceUnavailableException: {}
+    ClientToken:
+      type: string
+      minLength: 1
+      maxLength: 36
+    Arn:
+      type: string
+    TagValue:
+      type: string
+      maxLength: 256
+    NonEmptyString:
+      type: string
+      minLength: 1
+      maxLength: 1024
     ServiceException: {}
   parameters:
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Content-Sha256:
       name: X-Amz-Content-Sha256
       in: header
@@ -280,32 +292,20 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Credential:
       name: X-Amz-Credential
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Algorithm:
       name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
       in: header
       schema:
         type: string

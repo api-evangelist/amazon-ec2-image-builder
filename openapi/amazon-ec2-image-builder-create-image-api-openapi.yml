@@ -280,6 +280,12 @@ paths:
       - Create Image
 components:
   schemas:
+    CallRateLimitExceededException: {}
+    ServiceUnavailableException: {}
+    ImageTestsTimeoutMinutes:
+      type: integer
+      minimum: 60
+      maximum: 1440
     EcrConfiguration:
       type: object
       properties:
@@ -294,13 +300,23 @@ components:
           - description: Tags for Image Builder to apply to the output container image that &amp;INS; scans. Tags can help you identify and manage your scanned images.
           example: example-string
       description: Settings that Image Builder uses to configure the ECR repository and the output container images that Amazon Inspector scans.
-    ForbiddenException: {}
-    ServiceUnavailableException: {}
-    InvalidRequestException: {}
+    TagValue:
+      type: string
+      maxLength: 256
+    NullableBoolean:
+      type: boolean
     StringList:
       type: array
       items:
         $ref: '#/components/schemas/NonEmptyString'
+    InvalidRequestException: {}
+    IdempotentParameterMismatchException: {}
+    ClientException: {}
+    ResourceInUseException: {}
+    NonEmptyString:
+      type: string
+      minLength: 1
+      maxLength: 1024
     CreateImageResponse:
       type: object
       properties:
@@ -319,53 +335,19 @@ components:
           - $ref: '#/components/schemas/ImageBuildVersionArn'
           - description: The Amazon Resource Name (ARN) of the image that this request created.
           example: arn:aws:service:us-east-1:123456789012:resource/example
+    ForbiddenException: {}
     ImageBuildVersionArn:
       type: string
       pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):image/[a-z0-9-_]+/[0-9]+\.[0-9]+\.[0-9]+/[0-9]+$
-    NullableBoolean:
-      type: boolean
-    ServiceQuotaExceededException: {}
-    TagValue:
-      type: string
-      maxLength: 256
-    ImageTestsTimeoutMinutes:
-      type: integer
-      minimum: 60
-      maximum: 1440
-    ResourceInUseException: {}
-    NonEmptyString:
-      type: string
-      minLength: 1
-      maxLength: 1024
-    ClientException: {}
-    IdempotentParameterMismatchException: {}
-    CallRateLimitExceededException: {}
-    ServiceException: {}
     ClientToken:
       type: string
       minLength: 1
       maxLength: 36
+    ServiceQuotaExceededException: {}
+    ServiceException: {}
   parameters:
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
+    X-Amz-Signature:
+      name: X-Amz-Signature
       in: header
       schema:
         type: string
@@ -376,14 +358,32 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
       in: header
       schema:
         type: string
       required: false
     X-Amz-Content-Sha256:
       name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
       in: header
       schema:
         type: string

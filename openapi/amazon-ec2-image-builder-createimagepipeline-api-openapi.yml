@@ -318,6 +318,12 @@ paths:
       - CreateImagePipeline
 components:
   schemas:
+    CallRateLimitExceededException: {}
+    ServiceUnavailableException: {}
+    ImageTestsTimeoutMinutes:
+      type: integer
+      minimum: 60
+      maximum: 1440
     EcrConfiguration:
       type: object
       properties:
@@ -332,6 +338,33 @@ components:
           - description: Tags for Image Builder to apply to the output container image that &amp;INS; scans. Tags can help you identify and manage your scanned images.
           example: example-string
       description: Settings that Image Builder uses to configure the ECR repository and the output container images that Amazon Inspector scans.
+    TagValue:
+      type: string
+      maxLength: 256
+    Timezone:
+      type: string
+      pattern: '[a-zA-Z0-9]{2,}(?:\/[a-zA-z0-9-_+]+)*'
+      minLength: 3
+      maxLength: 100
+    NullableBoolean:
+      type: boolean
+    InvalidRequestException: {}
+    StringList:
+      type: array
+      items:
+        $ref: '#/components/schemas/NonEmptyString'
+    IdempotentParameterMismatchException: {}
+    ClientException: {}
+    ResourceInUseException: {}
+    NonEmptyString:
+      type: string
+      minLength: 1
+      maxLength: 1024
+    PipelineExecutionStartCondition:
+      type: string
+      enum:
+      - EXPRESSION_MATCH_ONLY
+      - EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE
     ForbiddenException: {}
     CreateImagePipelineResponse:
       type: object
@@ -351,21 +384,6 @@ components:
           - $ref: '#/components/schemas/ImagePipelineArn'
           - description: The Amazon Resource Name (ARN) of the image pipeline that was created by this request.
           example: arn:aws:service:us-east-1:123456789012:resource/example
-    ServiceUnavailableException: {}
-    InvalidRequestException: {}
-    ResourceAlreadyExistsException: {}
-    StringList:
-      type: array
-      items:
-        $ref: '#/components/schemas/NonEmptyString'
-    PipelineExecutionStartCondition:
-      type: string
-      enum:
-      - EXPRESSION_MATCH_ONLY
-      - EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE
-    NullableBoolean:
-      type: boolean
-    ServiceQuotaExceededException: {}
     ClientToken:
       type: string
       minLength: 1
@@ -373,30 +391,36 @@ components:
     ImagePipelineArn:
       type: string
       pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):image-pipeline/[a-z0-9-_]+$
-    TagValue:
-      type: string
-      maxLength: 256
-    ImageTestsTimeoutMinutes:
-      type: integer
-      minimum: 60
-      maximum: 1440
-    ResourceInUseException: {}
-    NonEmptyString:
-      type: string
-      minLength: 1
-      maxLength: 1024
-    ClientException: {}
-    IdempotentParameterMismatchException: {}
-    CallRateLimitExceededException: {}
+    ServiceQuotaExceededException: {}
     ServiceException: {}
-    Timezone:
-      type: string
-      pattern: '[a-zA-Z0-9]{2,}(?:\/[a-zA-z0-9-_+]+)*'
-      minLength: 3
-      maxLength: 100
+    ResourceAlreadyExistsException: {}
   parameters:
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Security-Token:
       name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
@@ -409,30 +433,6 @@ components:
       required: false
     X-Amz-SignedHeaders:
       name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string

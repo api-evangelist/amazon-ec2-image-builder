@@ -248,6 +248,39 @@ paths:
       - ListImageScanFindingAggregations
 components:
   schemas:
+    CallRateLimitExceededException: {}
+    ServiceUnavailableException: {}
+    AccountAggregation:
+      type: object
+      properties:
+        accountId:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: Identifies the account that owns the aggregated resource findings.
+        severityCounts:
+          allOf:
+          - $ref: '#/components/schemas/SeverityCounts'
+          - description: Counts by severity level for medium severity and higher level findings, plus a total for all of the findings.
+      description: Contains counts of vulnerability findings from image scans that run when you create new Image Builder images, or build new versions of existing images. The vulnerability counts are grouped by severity level. The counts are aggregated across resources to create the final tally for the account that owns them.
+    ListImageScanFindingAggregationsResponse:
+      type: object
+      properties:
+        requestId:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: The request ID that uniquely identifies this request.
+        aggregationType:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyString'
+          - description: <p>The aggregation type specifies what type of key is used to group the image scan findings. Image Builder returns results based on the request filter. If you didn't specify a filter in the request, the type defaults to <code>accountId</code>.</p> <p class="title"> <b>Aggregation types</b> </p> <ul> <li> <p>accountId</p> </li> <li> <p>imageBuildVersionArn</p> </li> <li> <p>imagePipelineArn</p> </li> <li> <p>vulnerabilityId</p> </li> </ul> <p>Each aggregation includes counts by severity level for medium severity and higher level findings, plus a total for all of the findings for each key value.</p>
+        responses:
+          allOf:
+          - $ref: '#/components/schemas/ImageScanFindingAggregationsList'
+          - description: An array of image scan finding aggregations that match the filter criteria.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/PaginationToken'
+          - description: The next token used for paginated responses. When this field isn't empty, there are additional elements that the service has'ot included in this request. Use this token with the next request to retrieve additional objects.
     ImagePipelineAggregation:
       type: object
       properties:
@@ -260,6 +293,22 @@ components:
           - $ref: '#/components/schemas/SeverityCounts'
           - description: Counts by severity level for medium severity and higher level findings, plus a total for all of the findings for the specified image pipeline.
       description: Contains vulnerability counts for a specific image pipeline.
+    FilterValues:
+      type: array
+      items:
+        $ref: '#/components/schemas/FilterValue'
+      minItems: 1
+      maxItems: 10
+    InvalidPaginationTokenException: {}
+    ImageScanFindingAggregationsList:
+      type: array
+      items:
+        $ref: '#/components/schemas/ImageScanFindingAggregation'
+    PaginationToken:
+      type: string
+      minLength: 1
+      maxLength: 65535
+    InvalidRequestException: {}
     ImageScanFindingAggregation:
       type: object
       properties:
@@ -280,43 +329,6 @@ components:
           - $ref: '#/components/schemas/VulnerabilityIdAggregation'
           - description: Returns an object that contains severity counts based on vulnerability ID.
       description: This returns exactly one type of aggregation, based on the filter that Image Builder applies in its API action.
-    ImageAggregation:
-      type: object
-      properties:
-        imageBuildVersionArn:
-          allOf:
-          - $ref: '#/components/schemas/ImageBuildVersionArn'
-          - description: The Amazon Resource Name (ARN) that identifies the image for this aggregation.
-        severityCounts:
-          allOf:
-          - $ref: '#/components/schemas/SeverityCounts'
-          - description: Counts by severity level for medium severity and higher level findings, plus a total for all of the findings for the specified image.
-      description: Contains vulnerability counts for a specific image.
-    ForbiddenException: {}
-    ServiceUnavailableException: {}
-    InvalidRequestException: {}
-    InvalidPaginationTokenException: {}
-    FilterName:
-      type: string
-      pattern: ^[a-zA-Z]{1,1024}$
-    FilterValue:
-      type: string
-      pattern: ^[0-9a-zA-Z./_ :-]{1,1024}$
-    ImageBuildVersionArn:
-      type: string
-      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):image/[a-z0-9-_]+/[0-9]+\.[0-9]+\.[0-9]+/[0-9]+$
-    VulnerabilityIdAggregation:
-      type: object
-      properties:
-        vulnerabilityId:
-          allOf:
-          - $ref: '#/components/schemas/NonEmptyString'
-          - description: The vulnerability Id for this set of counts.
-        severityCounts:
-          allOf:
-          - $ref: '#/components/schemas/SeverityCounts'
-          - description: Counts by severity level for medium severity and higher level findings, plus a total for all of the findings for the specified vulnerability.
-      description: Includes counts of image and pipeline resource findings by vulnerability.
     SeverityCounts:
       type: object
       properties:
@@ -337,84 +349,54 @@ components:
           - $ref: '#/components/schemas/SeverityCountNumber'
           - description: The number of medium severity findings for the specified filter.
       description: Includes counts by severity level for medium severity and higher level findings, plus a total for all of the findings for the specified filter.
-    PaginationToken:
+    FilterName:
       type: string
-      minLength: 1
-      maxLength: 65535
-    ImagePipelineArn:
-      type: string
-      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):image-pipeline/[a-z0-9-_]+$
+      pattern: ^[a-zA-Z]{1,1024}$
     SeverityCountNumber:
       type: integer
-    ImageScanFindingAggregationsList:
-      type: array
-      items:
-        $ref: '#/components/schemas/ImageScanFindingAggregation'
+    ClientException: {}
     NonEmptyString:
       type: string
       minLength: 1
       maxLength: 1024
-    ClientException: {}
-    AccountAggregation:
+    VulnerabilityIdAggregation:
       type: object
       properties:
-        accountId:
+        vulnerabilityId:
           allOf:
           - $ref: '#/components/schemas/NonEmptyString'
-          - description: Identifies the account that owns the aggregated resource findings.
+          - description: The vulnerability Id for this set of counts.
         severityCounts:
           allOf:
           - $ref: '#/components/schemas/SeverityCounts'
-          - description: Counts by severity level for medium severity and higher level findings, plus a total for all of the findings.
-      description: Contains counts of vulnerability findings from image scans that run when you create new Image Builder images, or build new versions of existing images. The vulnerability counts are grouped by severity level. The counts are aggregated across resources to create the final tally for the account that owns them.
-    CallRateLimitExceededException: {}
-    ServiceException: {}
-    ListImageScanFindingAggregationsResponse:
+          - description: Counts by severity level for medium severity and higher level findings, plus a total for all of the findings for the specified vulnerability.
+      description: Includes counts of image and pipeline resource findings by vulnerability.
+    ForbiddenException: {}
+    ImageBuildVersionArn:
+      type: string
+      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):image/[a-z0-9-_]+/[0-9]+\.[0-9]+\.[0-9]+/[0-9]+$
+    FilterValue:
+      type: string
+      pattern: ^[0-9a-zA-Z./_ :-]{1,1024}$
+    ImageAggregation:
       type: object
       properties:
-        requestId:
+        imageBuildVersionArn:
           allOf:
-          - $ref: '#/components/schemas/NonEmptyString'
-          - description: The request ID that uniquely identifies this request.
-        aggregationType:
+          - $ref: '#/components/schemas/ImageBuildVersionArn'
+          - description: The Amazon Resource Name (ARN) that identifies the image for this aggregation.
+        severityCounts:
           allOf:
-          - $ref: '#/components/schemas/NonEmptyString'
-          - description: <p>The aggregation type specifies what type of key is used to group the image scan findings. Image Builder returns results based on the request filter. If you didn't specify a filter in the request, the type defaults to <code>accountId</code>.</p> <p class="title"> <b>Aggregation types</b> </p> <ul> <li> <p>accountId</p> </li> <li> <p>imageBuildVersionArn</p> </li> <li> <p>imagePipelineArn</p> </li> <li> <p>vulnerabilityId</p> </li> </ul> <p>Each aggregation includes counts by severity level for medium severity and higher level findings, plus a total for all of the findings for each key value.</p>
-        responses:
-          allOf:
-          - $ref: '#/components/schemas/ImageScanFindingAggregationsList'
-          - description: An array of image scan finding aggregations that match the filter criteria.
-        nextToken:
-          allOf:
-          - $ref: '#/components/schemas/PaginationToken'
-          - description: The next token used for paginated responses. When this field isn't empty, there are additional elements that the service has'ot included in this request. Use this token with the next request to retrieve additional objects.
-    FilterValues:
-      type: array
-      items:
-        $ref: '#/components/schemas/FilterValue'
-      minItems: 1
-      maxItems: 10
+          - $ref: '#/components/schemas/SeverityCounts'
+          - description: Counts by severity level for medium severity and higher level findings, plus a total for all of the findings for the specified image.
+      description: Contains vulnerability counts for a specific image.
+    ImagePipelineArn:
+      type: string
+      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):image-pipeline/[a-z0-9-_]+$
+    ServiceException: {}
   parameters:
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
+    X-Amz-Signature:
+      name: X-Amz-Signature
       in: header
       schema:
         type: string
@@ -425,14 +407,32 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
       in: header
       schema:
         type: string
       required: false
     X-Amz-Content-Sha256:
       name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
       in: header
       schema:
         type: string

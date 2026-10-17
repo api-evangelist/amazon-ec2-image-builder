@@ -337,11 +337,41 @@ paths:
       - CreateContainerRecipe
 components:
   schemas:
+    ComponentParameterValue:
+      type: string
+      pattern: '[^\x00]*'
+      minLength: 0
+    CallRateLimitExceededException: {}
+    EmptyString:
+      type: string
+      minLength: 0
+      maxLength: 0
+    ComponentParameterName:
+      type: string
+      pattern: '[^\x00]+'
+      minLength: 1
+      maxLength: 256
+    ServiceUnavailableException: {}
+    InstanceBlockDeviceMappings:
+      type: array
+      items:
+        $ref: '#/components/schemas/InstanceBlockDeviceMapping'
     ComponentParameterValueList:
       type: array
       items:
         $ref: '#/components/schemas/ComponentParameterValue'
-    ForbiddenException: {}
+    ComponentVersionArnOrBuildVersionArn:
+      type: string
+      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):component/[a-z0-9-_]+/(?:(?:([0-9]+|x)\.([0-9]+|x)\.([0-9]+|x))|(?:[0-9]+\.[0-9]+\.[0-9]+/[0-9]+))$
+    TagValue:
+      type: string
+      maxLength: 256
+    NullableBoolean:
+      type: boolean
+    ContainerRepositoryService:
+      type: string
+      enum:
+      - ECR
     ComponentParameter:
       type: object
       required:
@@ -357,27 +387,30 @@ components:
           - $ref: '#/components/schemas/ComponentParameterValueList'
           - description: Sets the value for the named component parameter.
       description: Contains a key/value pair that sets the named component parameter.
-    EbsVolumeType:
-      type: string
-      enum:
-      - standard
-      - io1
-      - io2
-      - gp2
-      - gp3
-      - sc1
-      - st1
-    ServiceUnavailableException: {}
     InvalidRequestException: {}
-    ContainerRecipeArn:
-      type: string
-      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):container-recipe/[a-z0-9-_]+/[0-9]+\.[0-9]+\.[0-9]+$
-    ResourceAlreadyExistsException: {}
     InvalidVersionNumberException: {}
-    InstanceBlockDeviceMappings:
+    ComponentParameterList:
       type: array
       items:
-        $ref: '#/components/schemas/InstanceBlockDeviceMapping'
+        $ref: '#/components/schemas/ComponentParameter'
+      minItems: 1
+    ComponentConfiguration:
+      type: object
+      required:
+      - componentArn
+      properties:
+        componentArn:
+          allOf:
+          - $ref: '#/components/schemas/ComponentVersionArnOrBuildVersionArn'
+          - description: The Amazon Resource Name (ARN) of the component.
+          example: arn:aws:service:us-east-1:123456789012:resource/example
+        parameters:
+          allOf:
+          - $ref: '#/components/schemas/ComponentParameterList'
+          - description: A group of parameter settings that Image Builder uses to configure the component for a specific recipe.
+          example: example-string
+      description: Configuration details of the component.
+    IdempotentParameterMismatchException: {}
     CreateContainerRecipeResponse:
       type: object
       properties:
@@ -396,26 +429,25 @@ components:
           - $ref: '#/components/schemas/ContainerRecipeArn'
           - description: Returns the Amazon Resource Name (ARN) of the container recipe that the request created.
           example: arn:aws:service:us-east-1:123456789012:resource/example
-    EbsVolumeThroughput:
-      type: integer
-      minimum: 125
-      maximum: 1000
-    NullableBoolean:
-      type: boolean
-    ServiceQuotaExceededException: {}
-    EbsIopsInteger:
-      type: integer
-      minimum: 100
-      maximum: 64000
-    ContainerRepositoryService:
+    ContainerRecipeArn:
+      type: string
+      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):container-recipe/[a-z0-9-_]+/[0-9]+\.[0-9]+\.[0-9]+$
+    ClientException: {}
+    ResourceInUseException: {}
+    NonEmptyString:
+      type: string
+      minLength: 1
+      maxLength: 1024
+    EbsVolumeType:
       type: string
       enum:
-      - ECR
-    ComponentParameterList:
-      type: array
-      items:
-        $ref: '#/components/schemas/ComponentParameter'
-      minItems: 1
+      - standard
+      - io1
+      - io2
+      - gp2
+      - gp3
+      - sc1
+      - st1
     EbsInstanceBlockDeviceSpecification:
       type: object
       properties:
@@ -452,9 +484,24 @@ components:
           - $ref: '#/components/schemas/EbsVolumeThroughput'
           - description: ' <b>For GP3 volumes only</b> – The throughput in MiB/s that the volume supports.'
       description: Amazon EBS-specific block device mapping specifications.
-    TagValue:
+    EbsIopsInteger:
+      type: integer
+      minimum: 100
+      maximum: 64000
+    ForbiddenException: {}
+    EbsVolumeSizeInteger:
+      type: integer
+      minimum: 1
+      maximum: 16000
+    ClientToken:
       type: string
-      maxLength: 256
+      minLength: 1
+      maxLength: 36
+    EbsVolumeThroughput:
+      type: integer
+      minimum: 125
+      maximum: 1000
+    ServiceQuotaExceededException: {}
     InstanceBlockDeviceMapping:
       type: object
       properties:
@@ -479,58 +526,35 @@ components:
           - description: Use to remove a mapping from the base image.
           example: example-string
       description: Defines block device mappings for the instance used to configure your image.
-    ComponentParameterName:
-      type: string
-      pattern: '[^\x00]+'
-      minLength: 1
-      maxLength: 256
-    EmptyString:
-      type: string
-      minLength: 0
-      maxLength: 0
-    ResourceInUseException: {}
-    ComponentVersionArnOrBuildVersionArn:
-      type: string
-      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):component/[a-z0-9-_]+/(?:(?:([0-9]+|x)\.([0-9]+|x)\.([0-9]+|x))|(?:[0-9]+\.[0-9]+\.[0-9]+/[0-9]+))$
-    NonEmptyString:
-      type: string
-      minLength: 1
-      maxLength: 1024
-    ClientException: {}
-    IdempotentParameterMismatchException: {}
-    ComponentParameterValue:
-      type: string
-      pattern: '[^\x00]*'
-      minLength: 0
-    CallRateLimitExceededException: {}
-    EbsVolumeSizeInteger:
-      type: integer
-      minimum: 1
-      maximum: 16000
-    ComponentConfiguration:
-      type: object
-      required:
-      - componentArn
-      properties:
-        componentArn:
-          allOf:
-          - $ref: '#/components/schemas/ComponentVersionArnOrBuildVersionArn'
-          - description: The Amazon Resource Name (ARN) of the component.
-          example: arn:aws:service:us-east-1:123456789012:resource/example
-        parameters:
-          allOf:
-          - $ref: '#/components/schemas/ComponentParameterList'
-          - description: A group of parameter settings that Image Builder uses to configure the component for a specific recipe.
-          example: example-string
-      description: Configuration details of the component.
     ServiceException: {}
-    ClientToken:
-      type: string
-      minLength: 1
-      maxLength: 36
+    ResourceAlreadyExistsException: {}
   parameters:
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Security-Token:
       name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
@@ -543,30 +567,6 @@ components:
       required: false
     X-Amz-SignedHeaders:
       name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string

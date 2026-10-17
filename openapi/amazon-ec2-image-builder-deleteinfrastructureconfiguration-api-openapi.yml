@@ -209,13 +209,11 @@ paths:
       - DeleteInfrastructureConfiguration
 components:
   schemas:
-    ResourceDependencyException: {}
-    NonEmptyString:
-      type: string
-      minLength: 1
-      maxLength: 1024
-    ClientException: {}
     ForbiddenException: {}
+    ClientException: {}
+    CallRateLimitExceededException: {}
+    ServiceUnavailableException: {}
+    ResourceDependencyException: {}
     DeleteInfrastructureConfigurationResponse:
       type: object
       properties:
@@ -229,14 +227,28 @@ components:
           - $ref: '#/components/schemas/InfrastructureConfigurationArn'
           - description: The Amazon Resource Name (ARN) of the infrastructure configuration that was deleted.
           example: arn:aws:service:us-east-1:123456789012:resource/example
-    CallRateLimitExceededException: {}
-    ServiceUnavailableException: {}
-    InvalidRequestException: {}
-    ServiceException: {}
     InfrastructureConfigurationArn:
       type: string
       pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):infrastructure-configuration/[a-z0-9-_]+$
+    NonEmptyString:
+      type: string
+      minLength: 1
+      maxLength: 1024
+    ServiceException: {}
+    InvalidRequestException: {}
   parameters:
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Content-Sha256:
       name: X-Amz-Content-Sha256
       in: header
@@ -249,12 +261,6 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Credential:
       name: X-Amz-Credential
       in: header
@@ -263,12 +269,6 @@ components:
       required: false
     X-Amz-Security-Token:
       name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
       in: header
       schema:
         type: string

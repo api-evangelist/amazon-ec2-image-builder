@@ -228,9 +228,10 @@ paths:
       - CancelImageCreation
 components:
   schemas:
-    ForbiddenException: {}
+    CallRateLimitExceededException: {}
     ServiceUnavailableException: {}
     InvalidRequestException: {}
+    IdempotentParameterMismatchException: {}
     CancelImageCreationResponse:
       type: object
       properties:
@@ -249,43 +250,24 @@ components:
           - $ref: '#/components/schemas/ImageBuildVersionArn'
           - description: The ARN of the image whose creation this request canceled.
           example: arn:aws:service:us-east-1:123456789012:resource/example
-    ImageBuildVersionArn:
-      type: string
-      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):image/[a-z0-9-_]+/[0-9]+\.[0-9]+\.[0-9]+/[0-9]+$
+    ClientException: {}
     ResourceInUseException: {}
     NonEmptyString:
       type: string
       minLength: 1
       maxLength: 1024
-    ClientException: {}
-    IdempotentParameterMismatchException: {}
-    CallRateLimitExceededException: {}
-    ServiceException: {}
+    ForbiddenException: {}
+    ImageBuildVersionArn:
+      type: string
+      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):image/[a-z0-9-_]+/[0-9]+\.[0-9]+\.[0-9]+/[0-9]+$
     ClientToken:
       type: string
       minLength: 1
       maxLength: 36
+    ServiceException: {}
   parameters:
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
+    X-Amz-Signature:
+      name: X-Amz-Signature
       in: header
       schema:
         type: string
@@ -296,14 +278,32 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
       in: header
       schema:
         type: string
       required: false
     X-Amz-Content-Sha256:
       name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
       in: header
       schema:
         type: string

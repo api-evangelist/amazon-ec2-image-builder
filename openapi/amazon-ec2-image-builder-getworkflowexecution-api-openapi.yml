@@ -204,10 +204,8 @@ paths:
       - GetWorkflowExecution
 components:
   schemas:
-    WorkflowExecutionMessage:
-      type: string
-      minLength: 0
-      maxLength: 500
+    CallRateLimitExceededException: {}
+    ServiceUnavailableException: {}
     WorkflowExecutionStatus:
       type: string
       enum:
@@ -218,16 +216,34 @@ components:
       - FAILED
       - ROLLBACK_IN_PROGRESS
       - ROLLBACK_COMPLETED
-    ForbiddenException: {}
-    ServiceUnavailableException: {}
+    WorkflowStepCount:
+      type: integer
+    WorkflowExecutionMessage:
+      type: string
+      minLength: 0
+      maxLength: 500
+    WorkflowExecutionId:
+      type: string
+      pattern: ^wf-[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$
+    DateTime:
+      type: string
     InvalidRequestException: {}
+    WorkflowType:
+      type: string
+      enum:
+      - BUILD
+      - TEST
+      - DISTRIBUTION
     WorkflowBuildVersionArn:
       type: string
       pattern: ^arn:aws(?:-[a-z]+)*:imagebuilder:[a-z]{2,}(?:-[a-z]+)+-[0-9]+:(?:[0-9]{12}|aws):workflow/(build|test|distribution)/[a-z0-9-_]+/[0-9]+\.[0-9]+\.[0-9]+/[0-9]+$
       maxLength: 1024
-    ImageBuildVersionArn:
+    ClientException: {}
+    NonEmptyString:
       type: string
-      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):image/[a-z0-9-_]+/[0-9]+\.[0-9]+\.[0-9]+/[0-9]+$
+      minLength: 1
+      maxLength: 1024
+    ForbiddenException: {}
     GetWorkflowExecutionResponse:
       type: object
       properties:
@@ -283,47 +299,13 @@ components:
           allOf:
           - $ref: '#/components/schemas/DateTime'
           - description: The timestamp when the specified runtime instance of the workflow finished.
-    WorkflowType:
+    ImageBuildVersionArn:
       type: string
-      enum:
-      - BUILD
-      - TEST
-      - DISTRIBUTION
-    NonEmptyString:
-      type: string
-      minLength: 1
-      maxLength: 1024
-    WorkflowStepCount:
-      type: integer
-    ClientException: {}
-    WorkflowExecutionId:
-      type: string
-      pattern: ^wf-[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$
-    CallRateLimitExceededException: {}
+      pattern: ^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws):image/[a-z0-9-_]+/[0-9]+\.[0-9]+\.[0-9]+/[0-9]+$
     ServiceException: {}
-    DateTime:
-      type: string
   parameters:
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
+    X-Amz-Signature:
+      name: X-Amz-Signature
       in: header
       schema:
         type: string
@@ -334,14 +316,32 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
       in: header
       schema:
         type: string
       required: false
     X-Amz-Content-Sha256:
       name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
       in: header
       schema:
         type: string
