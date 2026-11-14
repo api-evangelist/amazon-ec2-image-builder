@@ -47,6 +47,18 @@ artifacts:
   capabilities/amazon-ec2-image-builder-capability-edges.yml:
     method: unknown
     evidence: no authorship recorded
+  certification/observations-2026-11-11.jsonl:
+    method: unknown
+    evidence: no authorship recorded
+  certification/status.yml:
+    method: unknown
+    evidence: no authorship recorded
+  changelog/amazon-ec2-image-builder-changelog.yml:
+    method: searched
+    evidence: declared in the artifact
+  cli/amazon-ec2-image-builder-cli.yml:
+    method: searched
+    evidence: declared in the artifact
   collections/amazon-ec2-image-builder-cancelimagecreation-api.opencollection.json:
     method: derived
     evidence: openapi/amazon-ec2-image-builder-cancelimagecreation-api
@@ -371,6 +383,27 @@ artifacts:
   collections/amazon-ec2-image-builder-updateinfrastructureconfiguration-api.postman_collection.json:
     method: derived
     evidence: openapi/amazon-ec2-image-builder-updateinfrastructureconfiguration-api
+  compliance/amazon-ec2-image-builder-compliance.yml:
+    method: harvested
+    evidence: declared in the artifact
+  conformance/amazon-ec2-image-builder-conformance.yml:
+    method: derived
+    evidence: declared in the artifact
+  conventions/amazon-ec2-image-builder-conventions.yml:
+    method: derived
+    evidence: declared in the artifact
+  data-model/amazon-ec2-image-builder-data-model.yml:
+    method: derived
+    evidence: declared in the artifact
+  eligibility/amazon-ec2-image-builder-eligibility.yml:
+    method: harvested
+    evidence: declared in the artifact
+  errors/amazon-ec2-image-builder-error-codes.yml:
+    method: searched
+    evidence: declared in the artifact
+  errors/amazon-ec2-image-builder-problem-types.yml:
+    method: derived
+    evidence: declared in the artifact
   examples/ec2-image-builder-account-aggregation-example.json:
     method: unknown
     evidence: no authorship recorded
@@ -1391,6 +1424,9 @@ artifacts:
   front-door-ai/2026-09-17.yml:
     method: unknown
     evidence: no authorship recorded
+  hosts/amazon-ec2-image-builder-hosts.yml:
+    method: derived
+    evidence: declared in the artifact
   integrations/_index.yml:
     method: generated
     evidence: carries an API Evangelist house phrase
@@ -1398,6 +1434,342 @@ artifacts:
     method: unknown
     evidence: no authorship recorded
   json-ld/amazon-ec2-image-builder-context.jsonld:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-cancel-image-creation-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-cancel-image-creation-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-create-component-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-create-component-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-create-container-recipe-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-create-container-recipe-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-create-distribution-configuration-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-create-distribution-configuration-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-create-image-pipeline-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-create-image-pipeline-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-create-image-recipe-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-create-image-recipe-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-create-image-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-create-image-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-create-infrastructure-configuration-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-create-infrastructure-configuration-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-create-lifecycle-policy-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-create-workflow-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-delete-component-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-delete-component-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-delete-container-recipe-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-delete-container-recipe-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-delete-distribution-configuration-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-delete-distribution-configuration-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-delete-image-pipeline-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-delete-image-pipeline-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-delete-image-recipe-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-delete-image-recipe-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-delete-image-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-delete-image-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-delete-infrastructure-configuration-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-delete-infrastructure-configuration-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-distribute-image-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-get-component-policy-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-get-component-policy-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-get-component-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-get-component-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-get-container-recipe-policy-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-get-container-recipe-policy-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-get-container-recipe-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-get-container-recipe-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-get-distribution-configuration-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-get-distribution-configuration-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-get-image-policy-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-get-image-policy-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-get-image-recipe-policy-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-get-image-recipe-policy-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-get-image-recipe-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-get-image-recipe-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-get-image-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-get-image-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-get-infrastructure-configuration-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-get-infrastructure-configuration-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-get-workflow-execution-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-get-workflow-execution-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-get-workflow-step-execution-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-get-workflow-step-execution-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-import-component-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-import-component-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-import-disk-image-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-import-vm-image-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-import-vm-image-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-list-component-build-versions-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-list-component-build-versions-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-list-components-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-list-components-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-list-container-recipes-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-list-container-recipes-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-list-distribution-configurations-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-list-distribution-configurations-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-list-image-build-versions-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-list-image-build-versions-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-list-image-packages-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-list-image-packages-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-list-image-pipeline-images-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-list-image-pipeline-images-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-list-image-recipes-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-list-image-recipes-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-list-image-scan-findings-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-list-image-scan-findings-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-list-images-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-list-images-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-list-infrastructure-configurations-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-list-infrastructure-configurations-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-list-tags-for-resource-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-list-tags-for-resource-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-list-workflow-executions-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-list-workflow-executions-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-list-workflow-step-executions-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-list-workflow-step-executions-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-put-component-policy-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-put-component-policy-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-put-container-recipe-policy-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-put-container-recipe-policy-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-put-image-policy-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-put-image-policy-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-put-image-recipe-policy-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-put-image-recipe-policy-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-start-image-pipeline-execution-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-start-image-pipeline-execution-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-start-resource-state-update-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-tag-resource-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-tag-resource-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-untag-resource-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-untag-resource-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-update-distribution-configuration-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-update-distribution-configuration-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-update-image-pipeline-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-update-image-pipeline-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-update-infrastructure-configuration-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-update-infrastructure-configuration-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-ec2-image-builder-update-lifecycle-policy-request-schema.json:
     method: unknown
     evidence: no authorship recorded
   json-schema/ec2-image-builder-account-aggregation-schema.json:
@@ -3431,7 +3803,7 @@ artifacts:
   kin/checks-2026-10-23T222754.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
-  kin/checks-2026-11-02T082323.yml:
+  kin/checks-2026-11-06T143934.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
   kin/score-2026-09-23T000603.yml:
@@ -3500,34 +3872,45 @@ artifacts:
   kin/score-2026-11-02T082323.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
-  openapi/_original/amazon-ec2-image-builder-openapi.yaml:
-    method: harvested
-    evidence: found in openapi/_original/; the fetch URL and bytes were not recorded, so byte-identity
-      to the provider's source is unverified
+  kin/score-2026-11-06T143934.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  lifecycle/amazon-ec2-image-builder-lifecycle.yml:
+    method: searched
+    evidence: declared in the artifact
+  llms/amazon-ec2-image-builder-llms-provenance.yml:
+    method: unknown
+    evidence: no authorship recorded
+  llms/amazon-ec2-image-builder-llms.txt:
+    method: unknown
+    evidence: no authorship recorded
+  mcp/amazon-ec2-image-builder-mcp.yml:
+    method: searched
+    evidence: declared in the artifact
   openapi/amazon-ec2-image-builder-cancelimagecreation-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: unknown
+    evidence: no authorship recorded
   openapi/amazon-ec2-image-builder-create-image-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: unknown
+    evidence: no authorship recorded
   openapi/amazon-ec2-image-builder-createcomponent-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: unknown
+    evidence: no authorship recorded
   openapi/amazon-ec2-image-builder-createcontainerrecipe-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: unknown
+    evidence: no authorship recorded
   openapi/amazon-ec2-image-builder-createdistributionconfiguration-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: unknown
+    evidence: no authorship recorded
   openapi/amazon-ec2-image-builder-createimagepipeline-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: unknown
+    evidence: no authorship recorded
   openapi/amazon-ec2-image-builder-createimagerecipe-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: unknown
+    evidence: no authorship recorded
   openapi/amazon-ec2-image-builder-createinfrastructureconfiguration-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: unknown
+    evidence: no authorship recorded
   openapi/amazon-ec2-image-builder-deletecomponent-api-openapi.yml:
     method: unknown
     evidence: no authorship recorded
@@ -3544,8 +3927,8 @@ artifacts:
     method: unknown
     evidence: no authorship recorded
   openapi/amazon-ec2-image-builder-deleteimagerecipe-api-openapi.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: harvested
+    evidence: declared in the artifact
   openapi/amazon-ec2-image-builder-deleteinfrastructureconfiguration-api-openapi.yml:
     method: unknown
     evidence: no authorship recorded
@@ -3589,88 +3972,94 @@ artifacts:
     method: unknown
     evidence: no authorship recorded
   openapi/amazon-ec2-image-builder-importcomponent-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: unknown
+    evidence: no authorship recorded
   openapi/amazon-ec2-image-builder-importvmimage-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: unknown
+    evidence: no authorship recorded
   openapi/amazon-ec2-image-builder-list-components-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: unknown
+    evidence: no authorship recorded
   openapi/amazon-ec2-image-builder-list-images-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: unknown
+    evidence: no authorship recorded
   openapi/amazon-ec2-image-builder-listcomponentbuildversions-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: unknown
+    evidence: no authorship recorded
   openapi/amazon-ec2-image-builder-listcontainerrecipes-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: unknown
+    evidence: no authorship recorded
   openapi/amazon-ec2-image-builder-listdistributionconfigurations-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: unknown
+    evidence: no authorship recorded
   openapi/amazon-ec2-image-builder-listimagebuildversions-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: unknown
+    evidence: no authorship recorded
   openapi/amazon-ec2-image-builder-listimagepackages-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: unknown
+    evidence: no authorship recorded
   openapi/amazon-ec2-image-builder-listimagepipelineimages-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: unknown
+    evidence: no authorship recorded
   openapi/amazon-ec2-image-builder-listimagepipelines-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: unknown
+    evidence: no authorship recorded
   openapi/amazon-ec2-image-builder-listimagerecipes-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: unknown
+    evidence: no authorship recorded
   openapi/amazon-ec2-image-builder-listimagescanfindingaggregations-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: unknown
+    evidence: no authorship recorded
   openapi/amazon-ec2-image-builder-listimagescanfindings-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: unknown
+    evidence: no authorship recorded
   openapi/amazon-ec2-image-builder-listinfrastructureconfigurations-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: unknown
+    evidence: no authorship recorded
   openapi/amazon-ec2-image-builder-listworkflowexecutions-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: unknown
+    evidence: no authorship recorded
   openapi/amazon-ec2-image-builder-listworkflowstepexecutions-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: unknown
+    evidence: no authorship recorded
   openapi/amazon-ec2-image-builder-operations-api-openapi.yml:
     method: unknown
     evidence: no authorship recorded
   openapi/amazon-ec2-image-builder-putcomponentpolicy-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: unknown
+    evidence: no authorship recorded
   openapi/amazon-ec2-image-builder-putcontainerrecipepolicy-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: unknown
+    evidence: no authorship recorded
   openapi/amazon-ec2-image-builder-putimagepolicy-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: unknown
+    evidence: no authorship recorded
   openapi/amazon-ec2-image-builder-putimagerecipepolicy-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: unknown
+    evidence: no authorship recorded
   openapi/amazon-ec2-image-builder-startimagepipelineexecution-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: unknown
+    evidence: no authorship recorded
   openapi/amazon-ec2-image-builder-tags-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: unknown
+    evidence: no authorship recorded
   openapi/amazon-ec2-image-builder-updatedistributionconfiguration-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: unknown
+    evidence: no authorship recorded
   openapi/amazon-ec2-image-builder-updateimagepipeline-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: unknown
+    evidence: no authorship recorded
   openapi/amazon-ec2-image-builder-updateinfrastructureconfiguration-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  packages/amazon-ec2-image-builder-packages.yml:
+    method: searched
+    evidence: declared in the artifact
+  patterns/amazon-ec2-image-builder-patterns.yml:
     method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    evidence: declared in the artifact
   plans/amazon-ec2-image-builder-plans-pricing.yml:
-    method: generated
+    method: searched
     evidence: declared in the artifact
   postman/amazon-ec2-image-builder-cancelimagecreation-api.postman_collection.json:
     method: derived
@@ -3835,9 +4224,12 @@ artifacts:
     method: derived
     evidence: openapi/amazon-ec2-image-builder-updateinfrastructureconfiguration-api
   rate-limits/amazon-ec2-image-builder-rate-limits.yml:
-    method: generated
+    method: searched
     evidence: declared in the artifact
   rules/amazon-ec2-image-builder-jsonschema-spectral-rules.yml:
+    method: generated
+    evidence: declared in the artifact
+  rules/amazon-ec2-image-builder-rules.yml:
     method: generated
     evidence: declared in the artifact
   rules/amazon-ec2-image-builder-spectral-rules.yml:
@@ -3856,8 +4248,30 @@ artifacts:
     method: generated
     evidence: declared in the artifact
   smithy/imagebuilder-2019-12-02.json:
+    method: harvested
+    evidence: byte-identical to https://raw.githubusercontent.com/aws/api-models-aws/3cd98287b471c106254abd89279cc87308d38bfd/models/imagebuilder/service/2019-12-02/imagebuilder-2019-12-02.json
+      (sha256 beadfb4d2b5e, fetched 2026-11-11T21:09:09+00:00)
+  terms/amazon-ec2-image-builder-terms-of-service.yml:
+    method: harvested
+    evidence: declared in the artifact
+  vendors/amazon-ec2-image-builder-vendors.yml:
     method: unknown
     evidence: no authorship recorded
   vocabulary/amazon-ec2-image-builder-vocabulary.yaml:
+    method: unknown
+    evidence: no authorship recorded
+  vocabulary/amazon-ec2-image-builder-vocabulary.yml:
+    method: derived
+    evidence: declared in the artifact
+  well-known/amazon-ec2-image-builder-builder-security.txt:
+    method: unknown
+    evidence: no authorship recorded
+  well-known/amazon-ec2-image-builder-repost-security.txt:
+    method: unknown
+    evidence: no authorship recorded
+  well-known/amazon-ec2-image-builder-security.txt:
+    method: unknown
+    evidence: no authorship recorded
+  well-known/amazon-ec2-image-builder-well-known.yml:
     method: unknown
     evidence: no authorship recorded
