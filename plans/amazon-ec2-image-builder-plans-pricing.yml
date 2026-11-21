@@ -20,7 +20,7 @@ plans:
 plan_count: 1
 note: The dedicated pricing page https://aws.amazon.com/image-builder/pricing/ returned 404 on 2026-11-11; price quoted from the FAQ.
 x-canonical:
-  generated: '2026-11-13'
+  generated: '2026-11-20'
   vocabulary: engine/economics/plans-canonical.yml
   models:
   - free
